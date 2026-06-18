@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package _it_start
+ * @package _iag
  */
 
 /*
@@ -32,13 +32,13 @@ if ( post_password_required() ) {
 			if ( '1' === $_it_comment_count ) {
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', '_it_start' ),
+					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', '_iag' ),
 					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
 				);
 			} else {
 				printf( 
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $_it_comment_count, 'comments title', '_it_start' ) ),
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $_it_comment_count, 'comments title', '_iag' ) ),
 					number_format_i18n( $_it_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
 				);
@@ -65,7 +65,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', '_it_start' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', '_iag' ); ?></p>
 			<?php
 		endif;
 

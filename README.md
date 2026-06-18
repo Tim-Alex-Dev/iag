@@ -46,7 +46,7 @@ Recommended plugins:
 * Clone or download this repository.<br>**Important:** When cloning, make sure to remove all old commits.
 * Rename theme folder to project name and update **style.css**.
 * Review **package.json** file, and install the necessary Node.js dependencies: `npm i`.
-* Replace original Text Domain `_it_start` with your custom name. In **gulpfile.js** change textdomain with your custom name, and run gulp task: `gulp textdomain`.
+* Replace original Text Domain `_iag` with your custom name. In **gulpfile.js** change textdomain with your custom name, and run gulp task: `gulp textdomain`.
 * Create Git repository for the project, and start tracking theme files.
 * Setup Gitlab CI/CD (if needed). Make sure you have `.gitlab-ci.yml` file theme root folder, and add needed variables in project's CI/CD Settings: `FTP_HOST`, `FTP_USER`, `FTP_PASS`.
 

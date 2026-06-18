@@ -2,7 +2,7 @@
 /**
  * Disable gutenberg stuff
  *
- * @package _it_start
+ * @package _iag
  */
 
 /**

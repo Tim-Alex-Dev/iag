@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package _it_start
+ * @package _iag
  */
 $logo     = get_field( 'logo', 'option' );
 $has_hero = false;
@@ -33,7 +33,7 @@ $extra_classes = $has_hero ? 'has-hero' : ''; // page with Hero requires extra h
 
 <body <?php body_class( $extra_classes ); ?> id="top">
 <?php wp_body_open(); ?>
-<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '_it_start' ); ?></a>
+<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '_iag' ); ?></a>
 
 <header class="site-header">
 	<div class="container">
@@ -80,7 +80,7 @@ $extra_classes = $has_hero ? 'has-hero' : ''; // page with Hero requires extra h
 				<?php dynamic_sidebar( 'language-switcher' ); ?>
 			</div>
 		<?php endif; ?>
-		<span class="icon-burger hidden-lg-up" aria-label="<?php esc_html_e( 'Toggle navigation', '_it_start' ); ?>"><i></i></span>
+		<span class="icon-burger hidden-lg-up" aria-label="<?php esc_html_e( 'Toggle navigation', '_iag' ); ?>"><i></i></span>
 	</div>
 </header>
 

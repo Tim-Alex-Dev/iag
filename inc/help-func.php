@@ -2,7 +2,7 @@
 /**
  * Custom functions which help to speed up development
  *
- * @package _it_start
+ * @package _iag
  */
 
 /**
@@ -24,7 +24,7 @@ function it_posted_on() {
 
 	$posted_on = sprintf(
 	/* translators: %s: post date. */
-		esc_html_x( 'Posted on %s', 'post date', '_it_start' ), $time_string
+		esc_html_x( 'Posted on %s', 'post date', '_iag' ), $time_string
 	);
 
 	echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -38,7 +38,7 @@ function it_posted_on() {
 function it_posted_by() {
 	$byline = sprintf(
 	/* translators: %s: post author. */
-		esc_html_x( 'by %s', 'post author', '_it_start' ),
+		esc_html_x( 'by %s', 'post author', '_iag' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -50,9 +50,9 @@ function it_posted_by() {
  * Prints HTML with meta information for the post categories.
  */
 function it_cat_links() {
-	$categories_list = get_the_category_list( esc_html__( ', ', '_it_start' ) );
+	$categories_list = get_the_category_list( esc_html__( ', ', '_iag' ) );
 	if ( $categories_list ) {
-		printf( '<div class="cat-links">' . esc_html__( 'Posted in %1$s', '_it_start' ) . '</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		printf( '<div class="cat-links">' . esc_html__( 'Posted in %1$s', '_iag' ) . '</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -63,7 +63,7 @@ function it_cat_links() {
 function it_tag_links() {
 	$tags_list = get_the_tag_list( '', ', ' );
 	if ( $tags_list ) {
-		printf( '<div class="tag-links">' . esc_html__( 'Tagged %1$s', '_it_start' ) . '</div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		printf( '<div class="tag-links">' . esc_html__( 'Tagged %1$s', '_iag' ) . '</div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 

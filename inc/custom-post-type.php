@@ -10,12 +10,12 @@ function it_custom_init() {
 
 	// CPT: Project
 	$labels = array(
-		'name'          => __( 'Projects', '_it_start' ),
-		'singular_name' => __( 'Project', '_it_start' ),
+		'name'          => __( 'Projects', '_iag' ),
+		'singular_name' => __( 'Project', '_iag' ),
 	);
 
 	$args = array(
-		'label'               => __( 'Project', '_it_start' ),
+		'label'               => __( 'Project', '_iag' ),
 		'labels'              => $labels,
 		'description'         => '',
 		'public'              => true,
@@ -44,9 +44,9 @@ function it_custom_init() {
 		array( 'project' ), /* name of CPT */
 		array(
 			'labels'            => array(
-				'name'          => __( 'Project Categories', '_it_start' ),
-				'singular_name' => __( 'Project Category', '_it_start' ),
-				'add_new_item'  => __( 'Add New Category', '_it_start' ),
+				'name'          => __( 'Project Categories', '_iag' ),
+				'singular_name' => __( 'Project Category', '_iag' ),
+				'add_new_item'  => __( 'Add New Category', '_iag' ),
 			),
 			'hierarchical'      => true,     /* if this is true, it acts like categories */
 			'show_admin_column' => true,

@@ -2,7 +2,7 @@
 /**
  * Disabling dashboard widgets
  *
- * @package _it_start
+ * @package _iag
  */
 function it_remove_dashboard_widgets() {
 	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // Quick Press widget

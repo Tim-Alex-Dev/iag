@@ -14,6 +14,6 @@
 		</div>
 		<h3 class="article__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 		<div class="article__excerpt"><?php it_excerpt(15); ?></div>
-		<a class="btn btn-primary article__more" href="<?php the_permalink(); ?>"><?php _e( 'Read more', '_it_start' ); ?></a>
+		<a class="btn btn-primary article__more" href="<?php the_permalink(); ?>"><?php _e( 'Read more', '_iag' ); ?></a>
 	</div>
 </article>

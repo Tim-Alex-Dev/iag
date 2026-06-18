@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package _it_start
+ * @package _iag
  */
 
 add_filter( 'wpcf7_autop_or_not', '__return_false' );

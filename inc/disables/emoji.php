@@ -2,7 +2,7 @@
 /**
  * Disable the emoji's
  *
- * @package _it_start
+ * @package _iag
  */
 
 function it_disable_emojis() {

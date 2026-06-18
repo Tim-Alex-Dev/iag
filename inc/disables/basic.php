@@ -2,7 +2,7 @@
 /**
  * General recommended updates
  *
- * @package _it_start
+ * @package _iag
  */
 
 /**

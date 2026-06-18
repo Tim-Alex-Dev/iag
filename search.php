@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package _it_start
+ * @package _iag
  */
 
 get_header();
@@ -16,7 +16,7 @@ get_header();
 				<h1 class="page-title">
 					<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', '_it_start' ), '<strong>' . get_search_query() . '</strong>' );
+					printf( esc_html__( 'Search Results for: %s', '_iag' ), '<strong>' . get_search_query() . '</strong>' );
 					?>
 				</h1>
 			</header>

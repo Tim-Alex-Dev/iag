@@ -2,7 +2,7 @@
 /**
  * Allow SVG through WordPress Media Uploader
  *
- * @package _it_start
+ * @package _iag
  */
 
 /**

@@ -10,7 +10,7 @@ const
 		build: 'dist/'
 	},
 	url = 'http://starter2.local',
-	themeTextDomain = '_it_start', // run `gulp textdomain` separately for replacing domain
+	themeTextDomain = '_iag',
 
 	isGutenberg = false, // whether using Gutenberg in theme or not
 

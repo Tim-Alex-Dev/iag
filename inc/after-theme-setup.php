@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/reference/hooks/after_setup_theme/
  *
- * @package _it_start
+ * @package _iag
  */
 
 if ( ! function_exists( 'it_setup' ) ) :
@@ -20,9 +20,9 @@ if ( ! function_exists( 'it_setup' ) ) :
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on IT Starter, use a find and replace
-		 * to change '_it_start' to the name of your theme in all the template files.
+		 * to change '_iag' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( '_it_start', get_template_directory() . '/languages' );
+		load_theme_textdomain( '_iag', get_template_directory() . '/languages' );
 
 		/*
 		 * Let WordPress manage the document title.
@@ -52,8 +52,8 @@ if ( ! function_exists( 'it_setup' ) ) :
 		 * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
 		 */
 		register_nav_menus( [
-			'main'   => esc_html__( 'Main Nav', '_it_start' ),
-			'footer' => esc_html__( 'Footer Nav', '_it_start' ),
+			'main'   => esc_html__( 'Main Nav', '_iag' ),
+			'footer' => esc_html__( 'Footer Nav', '_iag' ),
 		] );
 
 		/*

@@ -2,7 +2,7 @@
 /**
  * Disable Comments
  *
- * @package _it_start
+ * @package _iag
  */
 
 add_action( 'admin_init', function() {

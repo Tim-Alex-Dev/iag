@@ -2,7 +2,7 @@
 /**
  * Disable auto append of sharing buttons after content and excerpt
  *
- * @package _it_start
+ * @package _iag
  */
 
 add_action( 'init', 'it_disable_jpsharing_append' );

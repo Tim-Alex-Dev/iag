@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/TinyMCE_Custom_Styles
  *
- * @package _it_start
+ * @package _iag
  */
 
 /**

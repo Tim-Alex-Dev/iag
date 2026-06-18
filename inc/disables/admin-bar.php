@@ -2,7 +2,7 @@
 /**
  * Admin Bar modifications
  *
- * @package _it_start
+ * @package _iag
  */
 
 add_action( 'wp_before_admin_bar_render', 'it_clear_admin_bar' );

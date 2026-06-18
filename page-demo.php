@@ -2,7 +2,7 @@
 /**
  * Demo page with code snippets and useful examples.
  *
- * @package _it_start
+ * @package _iag
  */
 
 get_header();

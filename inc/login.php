@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Customizing_the_Login_Form
  *
- * @package _it_start
+ * @package _iag
  */
 
 /**

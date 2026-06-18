@@ -16,8 +16,8 @@
 		'end_size'     => 2,
 		'mid_size'     => 1,
 		'prev_next'    => true,
-		'prev_text'    => __( '&larr; Prev', '_it_start' ),
-		'next_text'    => __( 'Next &rarr;', '_it_start' ),
+		'prev_text'    => __( '&larr; Prev', '_iag' ),
+		'next_text'    => __( 'Next &rarr;', '_iag' ),
 		'add_args'     => false,
 		'add_fragment' => '',
 	) ); ?>

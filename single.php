@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package _it_start
+ * @package _iag
  */
 
 get_header();
@@ -38,7 +38,7 @@ the_post();
 
 					wp_link_pages(
 						array(
-							'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_it_start' ),
+							'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_iag' ),
 							'after'  => '</div>',
 						)
 					);
@@ -47,8 +47,8 @@ the_post();
 					<?php
 					the_post_navigation(
 						array(
-							'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', '_it_start' ) . '</span> <span class="nav-title">%title</span>',
-							'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', '_it_start' ) . '</span> <span class="nav-title">%title</span>',
+							'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', '_iag' ) . '</span> <span class="nav-title">%title</span>',
+							'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', '_iag' ) . '</span> <span class="nav-title">%title</span>',
 						)
 					);
 

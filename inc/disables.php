@@ -2,7 +2,7 @@
 /**
  * Disabling some WordPress core features to improve performance and security
  *
- * @package _it_start
+ * @package _iag
  */
 
 require IT_DIR . '/inc/disables/admin-bar.php';

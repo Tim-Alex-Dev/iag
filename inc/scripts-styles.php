@@ -9,7 +9,7 @@
  * @link https://developer.wordpress.org/reference/functions/wp_dequeue_style/
  * @link https://developer.wordpress.org/reference/functions/wp_dequeue_script/
  *
- * @package _it_start
+ * @package _iag
  */
 
 

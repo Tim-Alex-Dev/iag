@@ -2,7 +2,7 @@
 /**
  * Output Yoast breadcrumbs if they are enabled, and it is not a homepage
  *
- * @package _it_start
+ * @package _iag
  */
 
 if ( function_exists( 'yoast_breadcrumb' ) && ! is_front_page() ) : ?>

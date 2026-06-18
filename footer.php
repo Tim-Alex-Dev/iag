@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package _it_start
+ * @package _iag
  */
 $logo          = get_field( 'logo', 'option' );
 $enable_to_top = get_field( 'enable_to_top', 'option' );
@@ -34,7 +34,7 @@ $enable_to_top = get_field( 'enable_to_top', 'option' );
 
 	<div class="site-footer__copyright">
 		<div class="container">
-			<span>&copy; <?php echo date( 'Y' ) ?> <?php esc_html_e( 'All rights reserved', '_it_start' ); ?></span>
+			<span>&copy; <?php echo date( 'Y' ) ?> <?php esc_html_e( 'All rights reserved', '_iag' ); ?></span>
 		</div>
 	</div>
 </footer>
@@ -46,7 +46,7 @@ $enable_to_top = get_field( 'enable_to_top', 'option' );
 		<svg>
 			<use xlink:href="#angle-up"></use>
 		</svg>
-		<span class="screen-reader-text"><?php esc_html_e( 'Scroll to top', '_it_start' ); ?></span>
+		<span class="screen-reader-text"><?php esc_html_e( 'Scroll to top', '_iag' ); ?></span>
 	</a>
 <?php endif; ?>
 

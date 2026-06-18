@@ -4,13 +4,13 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package _it_start
+ * @package _iag
  */
 
 ?>
 
 <article class="article article-no-results">
 	<div class="article__content">
-		<h3 class="article__title"><?php esc_html_e( 'Nothing Found', '_it_start' ); ?></h3>
+		<h3 class="article__title"><?php esc_html_e( 'Nothing Found', '_iag' ); ?></h3>
 	</div>
 </article>
