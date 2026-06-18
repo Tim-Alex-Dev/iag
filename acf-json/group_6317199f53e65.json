@@ -1,0 +1,51 @@
+{
+    "key": "group_6317199f53e65",
+    "title": "Module: Anchor",
+    "fields": [
+        {
+            "key": "field_631719a868dd6",
+            "label": "ID",
+            "name": "anchor_id",
+            "type": "text",
+            "instructions": "ID should be unique on the page.<br>\r\nID can be used for adding jump links with the following format <span style=\"color: blue;\">'page_url#<b>ID<\/b>'<\/span>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1662980000
+}

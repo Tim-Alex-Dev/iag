@@ -1,0 +1,70 @@
+// Video
+.c-video {
+	max-width: 100%;
+	display: block;
+	position: relative;
+
+	&:not([video]) {
+		&:before {
+			content: '';
+			display: block;
+			width: 100%;
+			padding-bottom: 56.25%; // 16:9 ratio
+		}
+	}
+
+
+	&:hover {
+		@include min(lg) {
+			.c-video__poster {
+				img {
+					opacity: 0.9;
+				}
+
+				svg {
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+
+	iframe,
+	video {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		background-size: cover;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&__poster {
+		width: 100%;
+		height: 100%;
+		background-color: $black;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		img {
+			@include tr;
+			opacity: 0.75;
+		}
+
+		svg {
+			@include tr;
+			fill: $white;
+			font-size: rem(8);
+			width: 10em;
+			height: 10em;
+			position: absolute;
+			top: calc(50% - 5em);
+			left: calc(50% - 5em);
+
+			@include min(md) {
+				font-size: rem(12);
+			}
+		}
+	}
+}

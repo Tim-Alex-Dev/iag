@@ -1,0 +1,35 @@
+table {
+	width: 100%;
+	margin: rem(0 0 20);
+	word-break: normal;
+
+	th,
+	td {
+		padding: rem(6 8);
+		vertical-align: top;
+	}
+}
+
+// Bordered table
+.table-bordered {
+	border: 1px solid $grey-border;
+
+	th,
+	td {
+		border: 1px solid $grey-border;
+	}
+}
+
+// Zebra-striping
+.table-striped {
+	tbody tr:nth-of-type(even) {
+		background-color: #f9f9f9;
+	}
+}
+
+// Responsive table
+// div.table-responsive is a wrapper around <table>
+.table-responsive {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}

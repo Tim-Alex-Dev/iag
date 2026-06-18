@@ -1,0 +1,40 @@
+// Search form
+.search-form {
+	@include tr;
+	width: 100%;
+	background-color: $white;
+	overflow: hidden;
+	position: relative;
+
+	input[type='text'] {
+		width: 100%;
+		padding-right: rem(55);
+	}
+
+	&__submit {
+		display: inline-flex;
+		width: rem(45);
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+		background-color: transparent;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+		position: absolute;
+		top: 1px;
+		right: 1px;
+
+		svg {
+			width: rem(20);
+			height: rem(20);
+			fill: $primary;
+		}
+
+		@include hover {
+			svg {
+				fill: $secondary;
+			}
+		}
+	}
+}

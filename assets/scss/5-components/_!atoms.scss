@@ -1,0 +1,37 @@
+// Simple components
+
+// Anchor link
+.anchor {
+	display: block;
+	visibility: hidden;
+	position: relative;
+}
+
+// Image Placeholder
+.img-placeholder {
+	background-color: #e2e2e2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+
+	svg {
+		width: clamp(rem(70), 25%, rem(150));
+		height: clamp(rem(70), 25%, rem(150));
+		fill: $primary;
+	}
+}
+
+// Link stretched to full box
+.stretched-link {
+	&:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+	}
+}

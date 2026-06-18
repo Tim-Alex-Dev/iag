@@ -1,0 +1,161 @@
+.btn {
+	@include tr;
+	height: rem(44);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: rem(12);
+	background-color: $primary;
+	color: $white;
+	font-size: rem(16);
+	font-weight: 700;
+	line-height: 1;
+	border: 1px solid $primary;
+	border-radius: $radius;
+	padding: rem(0 16);
+	text-align: center;
+	cursor: pointer;
+
+	@include min(lg) {
+		font-size: rem(18);
+		height: rem(50);
+		padding: rem(0 24);
+	}
+
+	@include min(xl) {
+		padding: rem(0 38);
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: $primary-hover;
+		border-color: $primary-hover;
+		color: $white;
+	}
+
+	svg {
+		flex-shrink: 0;
+		width: rem(20);
+		height: rem(20);
+		transition: none;
+	}
+
+	&-secondary {
+		background-color: $secondary;
+		border-color: $secondary;
+		color: $white;
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: $secondary-hover;
+			border-color: $secondary-hover;
+			color: $white;
+		}
+	}
+
+	&-white {
+		background-color: $white;
+		border-color: $white;
+		color: $primary;
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: $primary;
+			border-color: $primary;
+			color: $white;
+		}
+	}
+
+	&-black {
+		background-color: $black;
+		border-color: $black;
+		color: $white;
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: $primary;
+			border-color: $primary;
+			color: $white;
+		}
+	}
+
+	&-sm {
+		height: rem(40);
+		font-size: rem(14);
+		padding: rem(0 20);
+	}
+
+	&-lg {
+		height: rem(50);
+		font-size: rem(18);
+
+		@include min(lg) {
+			height: rem(54);
+			font-size: rem(20);
+		}
+
+		@include min(xl) {
+			padding: rem(0 32);
+		}
+	}
+}
+
+.btn-outline {
+	background-color: transparent;
+	border-color: $primary;
+	color: $primary;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: $primary;
+		border-color: $primary;
+		color: $white;
+	}
+}
+
+.btn-outline-secondary {
+	background-color: transparent;
+	border-color: $secondary;
+	color: $secondary;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: $secondary;
+		border-color: $secondary;
+		color: $white;
+	}
+}
+
+// Label styled as button
+.btn-label {
+	display: inline-flex;
+	justify-content: center;
+	background-color: $primary;
+	color: $white;
+	font-size: rem(14);
+	line-height: rem(14);
+	padding: rem(5 10);
+	border-radius: $radius;
+
+	&-secondary {
+		background-color: $secondary;
+	}
+}
+
+input[type="submit"] {
+	@extend .btn;
+}
+
+// Button Group
+.btn-group {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: rem(15);
+}

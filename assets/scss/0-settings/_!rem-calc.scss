@@ -1,0 +1,88 @@
+// Convert PX to REM units
+//
+// Call with 1, 2, 3 or 4 parameters, 'px' is not required.
+//
+// Examples:
+// 1) font-size: rem(24);
+// 2) padding: rem(10 20 30 40);
+// 3) --css-var: #{rem(24)};
+
+@use "sass:math";
+
+// This is the default html and body font-size for the base rem value.
+$rem-base: 16px !default;
+
+// STRIP UNIT
+// It strips the unit of measure and returns it
+@function strip-unit($num) {
+	@return math.div($num, $num * 0 + 1);
+}
+
+// GET UNIT
+@function getUnit($value) {
+	@return str-slice($value * 0 + "", 2, -1);
+}
+
+// CONVERT TO REM
+@function convert-to-rem($value, $base-value: $rem-base) {
+	$value: math.div(round(math.div(strip-unit($value), strip-unit($base-value)) * 10000), 10000) * 1rem;
+	@if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+	@return $value;
+}
+
+@function rem($values, $base-value: $rem-base) {
+	$max: length($values);
+
+	@if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+
+	$remValues: ();
+	@for $i from 1 through $max {
+		$remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+	}
+	@return $remValues;
+}
+
+// CONVERT TO EM
+@function em($values) {
+	$remValues: rem($values);
+
+	$max: length($remValues);
+
+	@if $max == 1 {
+		@return math.div(round(strip-unit(nth($remValues, 1)) * 10000), 10000 ) * 1em;
+	}
+
+	$emValues: ();
+	@for $i from 1 through $max {
+		$emValues: append($emValues, math.div(round(strip-unit(nth($remValues, 1)) * 10000), 10000 ) * 1em);
+	}
+	@return $emValues;
+}
+
+// CONVERT TO CLAMP
+// @link https://websemantics.uk/tools/responsive-font-calculator/
+//
+// Call with 2, or 4 parameters. Only first 2 parameters are required. Viewport widths also can be with 'px' units (for supporting breakpoint values).
+//
+// Examples:
+// 1) font-size: clamp-rem(32, 48);
+// 2) font-size: clamp-rem(32, 48, 640, 1440);
+//
+@function clamp-rem($font-size-min, $font-size-max, $viewport-min: map-get($grid-breakpoints, md), $viewport-max: map-get($grid-breakpoints, xl)) {
+
+	@if unitless($viewport-min) {
+		$viewport-min: $viewport-min * 1px;
+	}
+	$font-size-min-rem: convert-to-rem($font-size-min);
+	$font-size-max-rem: convert-to-rem($font-size-max);
+
+	// Calculate fluid variable.
+	$var1: calc(1vw - round(math.div($viewport-min, 100) * 10000) / 10000);
+	$var2: calc(100 * round(math.div((strip-unit($font-size-max) - strip-unit($font-size-min)), (strip-unit($viewport-max) - strip-unit($viewport-min))) * 10000) / 10000);
+	$fluid: calc( $font-size-min-rem + ($var1 * $var2) );
+
+	// Prepare returning variable.
+	$clamp: clamp( #{$font-size-min-rem}, #{$fluid}, #{$font-size-max-rem} );
+
+	@return $clamp;
+}

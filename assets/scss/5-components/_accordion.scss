@@ -1,0 +1,24 @@
+// Accordion
+.js-accordion {
+	&-item {
+		&.is-open {
+			.js-accordion-title {
+				svg {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+
+	&-title {
+		cursor: pointer;
+
+		svg {
+			transition: transform $time;
+		}
+	}
+
+	&-content {
+		display: none;
+	}
+}

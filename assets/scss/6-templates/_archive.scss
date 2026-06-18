@@ -1,0 +1,18 @@
+// Archives
+.archive {
+	&-wrapper {
+		padding: rem(50 0);
+
+		@include min(lg) {
+			padding: rem(70 0);
+		}
+	}
+
+	&-header {
+		margin-bottom: rem(50);
+
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

@@ -1,0 +1,161 @@
+html {
+	box-sizing: border-box; // _sanitize.scss already applied this for all other elements
+	scroll-behavior: smooth; // CSS only 'smooth scroll to anchor' functionality
+	scroll-padding-top: var(--header-scrolled-height); // needed for scroll to anchor
+}
+
+*,
+*:active,
+*:focus {
+	outline: 0 !important; // remove outlines from all elements
+}
+
+body {
+	min-width: 360px;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	background-color: $white; // Fallback for when there is no custom background color defined.
+	color: $color-text;
+	font-size: rem($font-size-base);
+	font-family: $font-text;
+	font-weight: $font-weight-base;
+	line-height: $line-height-base;
+	-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+	-moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
+	overflow-x: hidden;
+	padding-top: var(--header-height);
+	transition: padding-top $time;
+
+	&.is-menu-open {
+		overflow: hidden;
+	}
+
+	&.is-scrolled {
+		padding-top: var(--header-scrolled-height);
+	}
+
+	&.has-hero {
+		padding-top: 0;
+	}
+}
+
+img {
+	height: auto; // Make sure images are scaled correctly.
+	max-width: 100%; // Adhere to container width.
+}
+
+figure {
+	margin: rem(20 0);
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: rem(20);
+}
+
+// Links
+a {
+	color: $color-link;
+	text-decoration: none;
+	transition: color $time, opacity $time, transform $time;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color-link-hover;
+	}
+
+	svg {
+		transition: none;
+	}
+}
+
+hr {
+	background-color: $black;
+	border: 0;
+	height: 1px;
+	margin: 1.25rem 0;
+}
+
+strong, b {
+	font-weight: 700;
+}
+
+dfn, cite, em, i {
+	font-style: italic;
+}
+
+blockquote {
+	font-weight: 700;
+	margin: 2.5em 1em;
+}
+
+address {
+	margin: rem(0 0 20);
+}
+
+pre {
+	max-width: 100%;
+	background: #eff1f2;
+	font-family: $font-pre;
+	font-size: 14px;
+	margin: rem(16 0);
+	padding: rem(16);
+	border-radius: $radius;
+	overflow: auto;
+}
+
+code, kbd, tt, var {
+	background: #eff1f2;
+	font-family: $font-code;
+	font-size: 14px;
+	padding: 3px 6px;
+	border-radius: 4px;
+}
+
+code var {
+	padding: 0;
+}
+
+kbd {
+	background-color: $black;
+	color: $white;
+	font-size: 14px;
+	border-radius: 4px;
+	padding: 3px 6px;
+}
+
+mark {
+	background-color: transparent;
+	font-weight: 500;
+}
+
+abbr, acronym {
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+
+big {
+	font-size: 125%;
+}
+
+svg {
+	transition: all $time 0s;
+}
+
+// Make sure embeds and iframes fit their containers.
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+iframe[src*="youtube"],
+iframe[src*="vimeo"] {
+	@include max(lg) {
+		width: 100%;
+		height: calc((100vw - $grid-gutter-width * 2) * 0.5625); // 16:9
+	}
+}

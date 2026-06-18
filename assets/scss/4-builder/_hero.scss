@@ -1,0 +1,35 @@
+.m-hero {
+	min-height: calc(100vh - var(--header-height));
+	display: flex;
+	align-items: center;
+	padding: rem(70 0);
+	position: relative;
+
+	.home & {
+		min-height: 100vh;
+	}
+
+	&__bg {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		&-overlay {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		&-video {
+
+		}
+	}
+
+	&__content {
+		position: relative;
+	}
+}

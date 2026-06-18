@@ -1,0 +1,24 @@
+// BOOTSTRAP GRID:
+
+// Needed functions and mixins already were imported in '_bootstrap-utilities.scss' file
+
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+
+
+// Custom grid styles
+.row {
+	row-gap: $grid-gutter-width; // add vertical gutters between columns
+
+	+ .row {
+		margin-top: $grid-gutter-width; // add vertical gutters between rows
+	}
+}
+
+.container {
+	--bs-gutter-x: var(--container-gutter-x); // remove this assignment if you don't want to keep padding-x values constant for all breakpoints;
+}
+
+.container-fluid {
+	max-width: $container-fluid-max-width;
+}

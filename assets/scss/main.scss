@@ -1,0 +1,36 @@
+//--------------------------------------------------------------
+// TABLE OF CONTENTS:
+//--------------------------------------------------------------
+//
+// ITCSS: Scalable and Maintainable CSS Architecture
+// @link https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/#what-is-itcss
+//
+//--------------------------------------------------------------
+// Variables, global CSS variables, fonts, mixins
+@import "0-settings/*";
+
+// Generic styles, includes:
+// 1 - normalizing styles, HTML tags and core WP styles;
+// 2 - headings, editor style formats, styled HTML tags;
+// 3 - inputs, buttons;
+// 4 - Bootstrap utilities and helper classes
+@import "1-generic/**/*.scss";
+
+// Bootstrap grid, header, footer, sidebar, navigation, etc.
+@import "2-layouts/*";
+
+// Plugins
+@import "3-vendors/*";
+
+// WooCommerce custom styles
+@import "3-vendors/woocommerce/*";
+
+// ACF Flexible Content components
+@import "4-builder/*";
+
+// Specific UI components
+@import "5-components/*";
+
+// Pages, singles, archives, page templates, 404, search results, etc
+@import "6-templates/*";
+

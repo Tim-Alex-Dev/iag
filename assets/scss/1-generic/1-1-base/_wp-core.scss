@@ -1,0 +1,225 @@
+// Core WordPress components:
+//
+// # Adminbar
+// # Alignments
+// # Captions
+// # Galleries
+// # Smiley
+//
+
+// Adminbar -------------------------------------------
+#wpadminbar {
+	--wp-blue: #2271b1;
+	transition: transform 0.3s !important;
+	transform: translateY(-100%);
+
+	&:hover {
+		#wp-admin-bar-site-name {
+			background-color: transparent !important;
+		}
+	}
+
+	&:not(.is-expanded) {
+		&:hover {
+			transform: translateY(0);
+
+			#wp-admin-bar-site-name {
+				transform: translateY(0);
+			}
+		}
+	}
+
+	&.is-expanded {
+		transform: translateY(0);
+
+		#wp-admin-bar-site-name {
+			transform: translateY(0);
+
+			&:before {
+				background-color: var(--wp-blue);
+			}
+
+			&:after {
+				transform: rotate(-45deg);
+				font-size: 20px !important;
+			}
+		}
+	}
+
+	.ab-top-menu>.menupop>.ab-sub-wrapper {
+		top: 100%;
+	}
+
+	.ab-top-secondary {
+		@include max(782) {
+			position: absolute;
+			top: 0;
+			right: 0;
+
+			>.menupop>.ab-sub-wrapper {
+				right: 0;
+				left: auto;
+			}
+		}
+	}
+
+	#wp-admin-bar-root-default {
+		@include max(md) {
+			display: flex;
+
+			> li {
+				flex-shrink: 0;
+			}
+		}
+	}
+
+	// hide some menu items to prevent horizontal overflow
+	ul#wp-admin-bar-root-default>li {
+		&#wp-admin-bar-wpseo-menu,
+		&#wp-admin-bar-gform-forms {
+			@include max(782) {
+				display: none !important;
+			}
+		}
+	}
+}
+
+#wp-admin-bar-site-name {
+	display: inline-flex !important;
+	background-color: $black !important;
+	position: relative;
+	transform: translateY(46px);
+	transition: transform 0.3s !important;
+
+	@include min(783) {
+		transform: translateY(32px);
+	}
+
+	&:before,
+	&:after {
+		width: 46px;
+		height: 46px;
+
+		@include min(783) {
+			width: 32px;
+			height: 32px;
+		}
+	}
+
+	&:before {
+		content: '' !important;
+		display: block;
+		background-color: $black;
+		position: absolute;
+		top: 0;
+		right: 0;
+		transition: background-color 0.2s !important;
+	}
+
+	&:after {
+		content: "\f109" !important;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-family: dashicons;
+		font-size: 18px;
+		transition: all 0.2s !important;
+		cursor: pointer;
+		position: relative;
+	}
+
+	&:hover {
+		&:before {
+			background-color: var(--wp-blue);
+		}
+
+		&:after {
+			font-size: 22px;
+		}
+	}
+}
+
+
+// Alignments -------------------------------------------
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5rem;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5rem;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Captions -------------------------------------------
+ .wp-caption {
+	margin-bottom: 1.5rem;
+	max-width: 100%;
+
+	img[class*="wp-image-"] { // sass-lint:disable-line no-qualifying-elements
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.wp-caption-text {
+		margin: rem(16 0);
+	}
+}
+
+span {
+	&.wp-caption-text {
+		text-align: center;
+	}
+}
+
+// Galleries -------------------------------------------
+.gallery {
+	--gallery-gap: 1rem;
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--gallery-gap);
+	margin: 1.25rem 0;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	width: calc(50% - var(--gallery-gap));
+	margin: 0;
+
+	@include min(md) {
+		width: calc((100% - var(--gallery-gap) * 2) / 3);
+	}
+
+	// Loops to enumerate the classes for gallery columns.
+	@for $i from 2 through 9 {
+		.gallery-columns-#{$i} & {
+			@include min(lg) {
+				width: calc((100% - var(--gallery-gap) * ($i - 1)) / $i);
+			}
+		}
+	}
+}
+
+.gallery-caption {
+	display: block;
+}
+
+// Smiley -------------------------------------------
+.wp-smiley {
+	border: 0;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}

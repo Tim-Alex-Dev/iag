@@ -1,0 +1,56 @@
+// Variables, global CSS variables, fonts, mixins
+@import "0-settings/*";
+
+// Generic styles, includes:
+// 1 - normalizing styles, HTML tags and core WP styles;
+// 2 - headings, editor style formats, styled HTML tags;
+// 3 - inputs, buttons;
+// 4 - Bootstrap utilities and helper classes
+@import "1-generic/**/*.scss";
+
+// Bootstrap grid, header, footer, sidebar, navigation, etc.
+@import "2-layouts/*";
+
+// Admin variables:
+$admin-grey: #ccc;
+
+*,
+*:before,
+*:after {
+	cursor: initial !important;
+}
+
+body,
+body.wp-autoresize {
+	min-height: unset;
+	display: block;
+	padding: 10px !important;
+
+	a:not([class]) {
+		text-decoration: underline;
+	}
+}
+
+.btn-white {
+	outline: 1px solid $admin-grey !important;
+	color: $admin-grey !important;
+}
+
+.btn-group {
+	border: 1px dashed $admin-grey;
+	padding: 10px;
+	position: relative;
+
+	&:after {
+		content: 'Button Group';
+		background-color: #fff;
+		display: inline-block;
+		font-size: 12px;
+		line-height: 1;
+		color: $admin-grey;
+		padding: 3px 5px;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+}

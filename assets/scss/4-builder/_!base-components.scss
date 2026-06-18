@@ -1,0 +1,33 @@
+// Base blocks
+.c-block {
+	margin-bottom: rem(50);
+
+	@include min(lg) {
+		margin-bottom: rem(100);
+	}
+
+	&--padding {
+		padding: rem(45 0 50);
+
+		@include min(lg) {
+			padding: rem(70 0);
+		}
+	}
+}
+
+// Title
+.c-title {
+	display: block;
+	margin-bottom: 1em;
+}
+
+// Image
+.c-image {
+	display: block;
+	line-height: 0;
+	position: relative;
+
+	img {
+		width: 100%;
+	}
+}

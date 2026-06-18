@@ -1,0 +1,126 @@
+%field-input { // usage: @extend %field-input
+	@include tr;
+	width: 100%;
+	background-color: $white;
+	color: $black;
+	font-size: rem(16);
+	line-height: rem(16);
+	padding: rem(13 16);
+	border: 1px solid $grey-border;
+	border-radius: $radius;
+
+	@include placeholder {
+		@include tr;
+		opacity: 0.8;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		border-color: $black;
+	}
+
+	&:focus {
+		&::placeholder {
+			opacity: 0.2;
+		}
+	}
+
+	&.hidden {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	@extend %field-input;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type=number] {
+	-moz-appearance: textfield; // Firefox
+	text-align: right;
+	padding-right: rem(16);
+	padding-left: rem(16);
+}
+
+fieldset {
+	border-radius: $radius;
+}
+
+textarea {
+	height: rem(110);
+	padding: rem(16);
+}
+
+input[type="checkbox"] {
+	@include tr;
+	flex-shrink: 0;
+	display: inline-block;
+	width: rem(16);
+	height: rem(16);
+	background-repeat: no-repeat;
+	background-size: 10px;
+	background-position: 50%;
+	border: 1px solid $grey-border;
+	border-radius: $radius;
+	appearance: none;
+	margin-right: 0.5em;
+
+	&:checked {
+		background-color: $black;
+		border-color: $black;
+		// check icon white
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z' fill='%23fff'/%3E%3C/svg%3E");
+	}
+
+	label:hover & {
+		border-color: $black;
+	}
+}
+
+input[type="radio"] {
+	@include tr;
+	flex-shrink: 0;
+	display: inline-block;
+	width: rem(16);
+	height: rem(16);
+	border: 1px solid $grey-border;
+	border-radius: 50%;
+	appearance: none;
+	margin-right: 0.5em;
+
+	&:checked {
+		background-color: $black;
+		background: radial-gradient(circle, rgba($black, 1) 0%, rgba($black, 1) rem(4), rgba($white, 1) rem(4));
+		border-color: $black;
+	}
+
+	&:hover {
+		border-color: $black;
+	}
+
+	label:hover & {
+		border-color: $black;
+	}
+}
