@@ -1,35 +1,65 @@
 .m-hero {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
 	min-height: calc(100vh - var(--header-height));
-	display: flex;
-	align-items: center;
-	padding: rem(70 0);
-	position: relative;
+	padding: 0;
+	background-color: $secondary;
+	color: $white;
 
 	.home & {
 		min-height: 100vh;
 	}
 
-	&__bg {
+	&__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		max-width: rem(840);
 		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-
-		&-overlay {
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
+		margin-left: auto;
+		@include min(lg) {
+			padding: rem(0 24 0 40);
 		}
-
-		&-video {
-
+		@include min(xl) {
+			padding: rem(0 32 0 60);
+		}
+		@include min(xxl) {
+			padding: rem(0 40 0 80);
 		}
 	}
 
-	&__content {
+	&__title {
+		margin-bottom: rem(40);
+	}
+
+	&__subtitle {
+		font-weight: 300;
+		font-size: clamp-rem(20, 24);
+	}
+
+	&__btn {
+		margin-top: rem(40);
+	}
+	
+	&__banner {
 		position: relative;
+		&::after {
+			position: absolute;
+			content: '';
+			left: 0;
+			top: 0;
+			width: rem(200);
+			height: 100%;
+			background: linear-gradient(to right, $secondary 0%, rgba($secondary, 0) 100%);
+		}
+
+		&-image {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
 	}
 }

@@ -49,6 +49,19 @@ $color-array: (
 	object-fit: contain !important;
 }
 
+// Alignments
+.text {
+	&-left {
+		text-align: left !important;
+	}
+	&-center {
+		text-align: center !important;
+	}
+	&-right {
+		text-align: right !important;
+	}
+}
+
 
 // Text only for screen readers.
 .screen-reader-text {

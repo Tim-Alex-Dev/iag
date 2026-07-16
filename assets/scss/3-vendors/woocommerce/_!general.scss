@@ -61,30 +61,6 @@
 		}
 	}
 
-	// Messages
-	.woocommerce-message,
-	.woocommerce-info {
-		color: $color-text;
-		border-top-color: $primary;
-
-		&:before {
-			color: $primary;
-		}
-
-		&:after {
-			display: none;
-		}
-
-		a:not([class]) {
-			@extend %link;
-		}
-
-		.button {
-			@extend .btn-sm;
-			flex-shrink: 0;
-		}
-	}
-
 	// Tables
 	table.shop_table,
 	table.shop_attributes {

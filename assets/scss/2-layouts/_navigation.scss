@@ -1,4 +1,6 @@
 // Header menu
+
+
 .main-nav {
 	@include max(lg) {
 		width: 100%;
@@ -30,129 +32,241 @@
 }
 
 .main-menu {
-	@include unstyled-list;
+	font-family: 'FixelDisplay';
 	display: flex;
 	flex-direction: column;
 	gap: rem(20);
+	padding: 0;
+	margin: 0;
 
 	@include min(lg) {
 		flex-direction: row;
 		align-items: center;
-		gap: rem(45);
+		gap: rem(16);
 	}
 
-	&__container {
-		@extend .container;
-
-		@include min(lg) {
-			max-width: unset;
-			padding-right: 0;
-			padding-left: 0;
-		}
-	}
-
-	> li {
+	> .menu-item {
 		flex-shrink: 0;
-		display: block;
-		position: relative;
+		text-align: center;
+		cursor: pointer;
+		&:hover,
+		&.is-active {
+			.menu-item__link {
+				color: $primary;
 
-		@include min(lg) {
+				&-icon {
+					fill: $primary;
+				}
+			}
+		}
+
+		.menu-item__link {
+			font-weight: 600;
+			color: $white;
 			display: flex;
 			align-items: center;
-			height: var(--header-scrolled-height);
+			gap: rem(6);
+			max-width: rem(140);
+			transition: $default-transition;
+
+			&-icon {
+				width: rem(16);
+				height: rem(16);
+				fill: $white;
+				transition: $default-transition;
+			}
+		}
+	}
+
+	.mega-menu {
+		display: none;
+		position: absolute;
+		left: 50%;
+		top: 100%;
+		transform: translateX(-50%);
+		width: calc(100% - 100px);
+		background-color: $white;
+		border-top: 2px solid $primary;
+		cursor: auto;
+
+		&__inner {
+			padding: rem(24 24 80 24);
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 		}
 
-		&.menu-item-has-children {
-			padding-right: rem(24);
+		&__column {
+			padding: 0;
 			position: relative;
+			margin-right: rem(32);
 
-			@include min(lg) {
-				padding-right: 0;
+			&.column-advanced {
+				background: linear-gradient(135deg, $bg-white 0%, $white 100%);
+				border: 1px solid $grey-border;
+				padding: rem(16);
+				border-radius: rem(8);
+
+				&:after {
+					top: -1px;
+					left: 50%;
+					right: unset;
+					width: calc(100% - 24px);
+					transform: translateX(-50%);
+					height: 2px;
+					background-color: $primary;
+				}
+				.mega-menu__column-header {
+					padding-bottom: rem(24);
+					border-bottom: 1px solid $grey-border;
+
+					&-title {
+						margin: 0 0 rem(8);
+					}
+				}
+			}
+
+			&:last-child {
+				margin-right: 0;
+				&:after {
+					display: none;
+				}
 			}
 
 			&:after {
-				@include tr;
-				content: '';
-				width: rem(16);
-				height: rem(14);
-				// icon: chevron down (primary)
-				background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z' fill='%23df0000'/%3E%3C/svg%3E") no-repeat 50% / contain;
 				position: absolute;
-				top: 0.6em;
-				right: 0;
+				content: '';
+				right: rem(-16px);
+				top: 0;
+				width: 1px;
+				height: 100%;
+				background-color: $grey-border;
+			}
 
-				@include min(lg) {
-					top: calc(50% - rem(7));
-					right: rem(-20);
+			&-header {
+				display: flex;
+				gap: rem(8);
+				margin-bottom: rem(24);
+
+				&-icon {
+					position: relative;
+					width: rem(60);
+					height: rem(60);
+					border-radius: rem(8);
+					overflow: hidden;
+					flex-shrink: 0;
+
+					.icon {
+						position: absolute;
+						left: 0;
+						top: 0;
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+				}
+
+				&-data {
+					display: flex;
+					flex-direction: column;
+				}
+
+				&-title {
+					display: block;
+					text-align: left;
+					font-size: rem(20);
+					font-weight: 700;
+					line-height: 1;
+				}
+
+				&-subtitle {
+					font-weight: 600;
+					line-height: 1;
+					text-align: left;
+					color: $grey;
+					font-size: rem(12);
+					text-transform: uppercase;
 				}
 			}
 
-			@include hover {
-				.sub-menu {
-					transform: translateY(0);
-					opacity: 1;
-					visibility: visible;
-				}
-			}
 
-			&.active {
-				&:after {
-					transform: rotate(180deg);
-				}
-			}
-		}
+			&-list {
+				display: flex;
+				flex-direction: column;
+				gap: rem(20);
 
-		> a {
-			color: $color-text;
-			font-weight: 700;
+				&-item {
+					&:hover {
+						.mega-menu__link-text {
+							color: $primary;
+							cursor: pointer;
+						}
+					}
 
-			@include min(lg) {
-				.has-hero:not(.is-scrolled) & {
-					color: $white;
-				}
-			}
+					&.menu-item__advanced {
+						background: linear-gradient(135deg, $bg-white 0%, $white 100%);
+						border: 1px solid $grey-border;
+						padding: rem(12);
+						border-radius: rem(8);
+						transition: $default-transition;
 
-			@include hover {
-				color: $primary !important;
-			}
-		}
-	}
+						.mega-menu__link {
+							display: flex;
+							flex-direction: column;
+							gap: rem(8);
+						}	
+					}
 
-	.sub-menu {
-		@include unstyled-list;
-		width: 100%;
-		padding-top: rem(10);
-		display: none;
+					.mega-menu__link {
+						&-data {
+							display: flex;
+							align-items: center;
+							justify-content: flex-start;
+							gap: rem(12);
+						}
+						
+						&-icon {							
+							width: rem(40);
+							height: rem(40);
+							border: 1px solid $primary;
+							border-radius: 50%;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							flex-shrink: 0;
 
-		@include min(lg) {
-			display: block;
-			width: rem(200);
-			background-color: $primary;
-			padding-bottom: rem(10);
-			position: absolute;
-			top: 100%;
-			left: 0;
-			transform: translateY(rem(10));
-			opacity: 0;
-			visibility: hidden;
-			transition: all $time;
-		}
+							.icon {
+								width: rem(24);
+								height: rem(24);
+								object-fit: cover;
+							}
+						}
 
-		li {
-			width: 100%;
-			padding: rem(5 10 5 15);
+						&-text {
+							text-align: left;
+							border-bottom: 2px solid $primary;
+							color: $secondary;
+							font-weight: 600;
+							transition: $default-transition;
+						}
 
-			a {
-				color: $color-text;
-				transition: text-shadow $time;
+						&-uptitle {
+							font-weight: 600;
+							line-height: 1;
+							text-align: left;
+							color: $grey;
+							font-size: rem(12);
+							text-transform: uppercase;
+							letter-spacing: 0.1em;
+							margin-bottom: rem(8);
+						}
 
-				@include min(lg) {
-					color: $white;
-				}
-
-				@include hover {
-					color: $white;
-					text-shadow: -0.025em 0 0.025em $white, 0.025em 0 0.025em $white;
+						&-arrow {
+							width: rem(16);
+							height: rem(16);
+							margin-left: auto;
+							margin-left: auto;
+						}
+					}
 				}
 			}
 		}

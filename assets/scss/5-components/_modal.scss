@@ -73,11 +73,6 @@
 		right: rem(15);
 		cursor: pointer;
 
-		&:hover {
-			svg {
-				fill: $primary-hover;
-			}
-		}
 
 		svg {
 			width: rem(22);

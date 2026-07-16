@@ -1,0 +1,57 @@
+
+// @include headings {
+// 	min-height: 0vw; // safari fix
+// 	font-family: $font-heading;
+// 	font-weight: 700;
+// 	line-height: 1.1;
+// 	margin-top: 0;
+// 	margin-bottom: 0.75em;
+
+// 	a {
+// 		color: inherit;
+// 	}
+// }
+
+p {
+    margin: 0;
+    padding: 0;
+    
+    &.p1 {}
+    &.p2 {}
+    &.p3 {}
+}
+
+
+// h1,
+// .h1 {
+// 	font-size: clamp-rem(48, 60);
+// 	@include min(xxl) {
+// 		font-size: rem(80);
+// 	}
+// }
+
+// h2,
+// .h2 {
+// 	font-size: clamp-rem(32, 48);
+// }
+
+// h3,
+// .h3 {
+// 	font-size: clamp-rem(24, 32);
+// }
+
+// h4,
+// .h4 {
+// 	font-size: clamp-rem(20, 24);
+// }
+
+// h5,
+// .h5 {
+// 	font-size: clamp-rem(18, 20);
+// }
+
+// h6,
+// .h6 {
+// 	font-size: rem(16);
+// }
+

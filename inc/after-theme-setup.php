@@ -52,8 +52,10 @@ if ( ! function_exists( 'it_setup' ) ) :
 		 * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
 		 */
 		register_nav_menus( [
-			'main'   => esc_html__( 'Main Nav', '_iag' ),
-			'footer' => esc_html__( 'Footer Nav', '_iag' ),
+			'main'   		   => esc_html__( 'Main Nav', '_iag' ),
+			'footer-top'       => esc_html__( 'Footer Top Nav', '_iag' ),
+			'footer-bottom'    => esc_html__( 'Footer Bottom Nav', '_iag' ),
+			'footer-copyright' => esc_html__( 'Footer Copyright', '_iag' ),
 		] );
 
 		/*

@@ -61,12 +61,6 @@ a {
 	text-decoration: none;
 	transition: color $time, opacity $time, transform $time;
 
-	&:hover,
-	&:focus,
-	&:active {
-		color: $color-link-hover;
-	}
-
 	svg {
 		transition: none;
 	}

@@ -32,20 +32,20 @@ jQuery(document).ready(function ($) {
 	/**
 	 * Toggle mobile sub menu
 	 */
-	$('.main-menu .menu-item-has-children, .footer-links .menu-item-has-children').on('click', function (e) {
-		const el = $(this),
-			topEl = $(this).parent();
-		if ($(window).width() < vars.bp.lg) {
-			e.stopPropagation();
-			if (el.hasClass('active')) {
-				el.removeClass('active');
-				el.find('> .sub-menu').slideUp();
-			} else {
-				topEl.find('> .sub-menu').slideUp();
-				topEl.find('.menu-item-has-children').removeClass('active');
-				el.addClass('active');
-				el.find('> .sub-menu').slideDown();
-			}
+	$(document).on('click', '.menu-item-has-children > .menu-item__link', function (e) {
+		e.preventDefault();
+
+		const $link = $(this);
+		const $item = $link.closest('.menu-item-has-children');
+		const $submenu = $item.find('> .mega-menu');
+
+		if ($item.hasClass('active')) {
+			$item.removeClass('active');
+			$submenu.slideUp();
+		} else {
+			$item.siblings('.menu-item-has-children').removeClass('active').find('> .mega-menu').slideUp();
+			$item.addClass('active');
+			$submenu.slideDown();
 		}
 	});
 

@@ -14,9 +14,6 @@
 	visibility: hidden;
 	z-index: 90;
 
-	&:hover {
-		background-color: $primary-hover;
-	}
 
 	&.show {
 		opacity: 1;

@@ -6,6 +6,7 @@
             "key": "field_6315b0872448c",
             "label": "Header",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,19 +23,20 @@
             "key": "field_6315b09a2448d",
             "label": "Logo",
             "name": "logo",
+            "aria-label": "",
             "type": "image",
             "instructions": "Recommended format: SVG.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "uploader": "",
-            "acfe_thumbnail": 0,
             "return_format": "id",
-            "preview_size": "medium",
+            "library": "all",
+            "acfe_thumbnail": 0,
             "min_width": "",
             "min_height": "",
             "min_size": "",
@@ -42,12 +44,53 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "",
-            "library": "all"
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_6a37de1fab674",
+            "label": "Header CTA Button",
+            "name": "header_cta_button",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter CTA Button Text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6a37ddfbab673",
+            "label": "Header Phone Button",
+            "name": "header_phone_button",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter Phone Number",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "+1 234 567 8901",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_6316183d7afe1",
             "label": "Footer",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -61,28 +104,97 @@
             "endpoint": 0
         },
         {
-            "key": "field_6316184b7afe2",
-            "label": "Enable 'To top' Button?",
-            "name": "enable_to_top",
+            "key": "field_6a44b0d66cc20",
+            "label": "Footer Logo",
+            "name": "footer_logo",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Recommended format: SVG.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "uploader": "",
+            "return_format": "id",
+            "library": "all",
+            "acfe_thumbnail": 0,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "svg, webp",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_6a44b3828ba21",
+            "label": "Enable Footer Top Menu",
+            "name": "enable_footer_top_menu",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
             "message": "",
             "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "ui_on_text": "ON",
+            "ui_off_text": "OFF",
+            "ui": 1
+        },
+        {
+            "key": "field_6a44b3a88ba22",
+            "label": "Enable Footer Bottom Menu",
+            "name": "enable_footer_bottom_menu",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "ON",
+            "ui_off_text": "OFF",
+            "ui": 1
+        },
+        {
+            "key": "field_6a44b3d68ba23",
+            "label": "Enable Footer Contacts Menu",
+            "name": "enable_footer_contacts_menu",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "ON",
+            "ui_off_text": "OFF",
+            "ui": 1
         },
         {
             "key": "field_6315aee3b8cb7",
-            "label": "Socials",
+            "label": "Socials & Contacts",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -97,10 +209,11 @@
         },
         {
             "key": "field_6315aef9b8cb8",
-            "label": "Socials",
-            "name": "socials",
+            "label": "Socials List",
+            "name": "socials_list",
+            "aria-label": "",
             "type": "repeater",
-            "instructions": "Add social name and url.",
+            "instructions": "Choose social Title and URL.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -109,16 +222,19 @@
                 "id": ""
             },
             "acfe_repeater_stylised_button": 0,
-            "collapsed": "",
+            "layout": "table",
+            "pagination": 0,
             "min": 0,
             "max": 0,
-            "layout": "table",
+            "collapsed": "",
             "button_label": "Add Social",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_6315af1fb8cb9",
-                    "label": "Name",
-                    "name": "name",
+                    "label": "Social title",
+                    "name": "social_title",
+                    "aria-label": "",
                     "type": "select",
                     "instructions": "",
                     "required": 0,
@@ -131,23 +247,24 @@
                     "choices": {
                         "facebook": "facebook",
                         "instagram": "instagram",
-                        "linkedin": "linkedin",
-                        "twitter": "twitter",
-                        "xing": "xing",
-                        "youtube": "youtube"
+                        "linkedin": "linkedin"
                     },
                     "default_value": false,
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
                     "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
                     "ajax": 0,
-                    "placeholder": ""
+                    "placeholder": "",
+                    "allow_custom": 0,
+                    "search_placeholder": "",
+                    "parent_repeater": "field_6315aef9b8cb8"
                 },
                 {
                     "key": "field_6315af4eb8cba",
-                    "label": "Url",
-                    "name": "url",
+                    "label": "Social URL",
+                    "name": "social_url",
+                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -158,7 +275,171 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_6315aef9b8cb8"
+                }
+            ]
+        },
+        {
+            "key": "field_6a44c8b77ae5a",
+            "label": "Contacts List",
+            "name": "contacts_list",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_repeater_stylised_button": 0,
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Contact",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6a44c8c37ae5b",
+                    "label": "Contact type",
+                    "name": "contact_type",
+                    "aria-label": "",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "15",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "phone": "Phone",
+                        "email": "Email",
+                        "address": "Address"
+                    },
+                    "default_value": "",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "layout": "horizontal",
+                    "parent_repeater": "field_6a44c8b77ae5a"
+                },
+                {
+                    "key": "field_6a44c8e97ae5c",
+                    "label": "Phone",
+                    "name": "phone",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a44c8c37ae5b",
+                                "operator": "==",
+                                "value": "phone"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6a44c8b77ae5a"
+                },
+                {
+                    "key": "field_6a44c9007ae5d",
+                    "label": "Email",
+                    "name": "email",
+                    "aria-label": "",
+                    "type": "email",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a44c8c37ae5b",
+                                "operator": "==",
+                                "value": "email"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6a44c8b77ae5a"
+                },
+                {
+                    "key": "field_6a44c965b08cd",
+                    "label": "Address Title",
+                    "name": "address_title",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a44c8c37ae5b",
+                                "operator": "==",
+                                "value": "address"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "acfe_textarea_code": 0,
+                    "maxlength": "",
+                    "rows": 2,
+                    "placeholder": "",
+                    "new_lines": "br",
+                    "parent_repeater": "field_6a44c8b77ae5a"
+                },
+                {
+                    "key": "field_6a44c995b08ce",
+                    "label": "Address URL",
+                    "name": "address_url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6a44c8c37ae5b",
+                                "operator": "==",
+                                "value": "address"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_6a44c8b77ae5a"
                 }
             ]
         },
@@ -166,6 +447,7 @@
             "key": "field_6315b065b8cbb",
             "label": "API",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -182,6 +464,7 @@
             "key": "field_6315b073b8cbc",
             "label": "Google Maps API key",
             "name": "google_maps_api_key",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -216,12 +499,10 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "acfe_display_title": "",
-    "acfe_autosync": [
-        "json"
-    ],
-    "acfe_form": 0,
-    "acfe_meta": "",
-    "acfe_note": "",
-    "modified": 1663021901
+    "acfe": {
+        "autosync": [
+            "json"
+        ]
+    },
+    "modified": 1782894076
 }

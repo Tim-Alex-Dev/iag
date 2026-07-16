@@ -1,30 +1,79 @@
-// Colors -------------------------------------------
-$primary: #df0000;
-$primary-hover: darken($primary, 10%);
-$secondary: #38bdf8;
-$secondary-hover: darken($secondary, 8%);
+// Primary Colors -------------------------------------------
+$primary: #FC7624;
+$secondary: #0F1F33;
 
+// Main Colors
 $black: #000;
+$black_01: #1C1C1F;
+
+
 $white: #fff;
 $white-50: rgba($white, 0.5);
-$grey: #bdbdbd;
-$grey-border: #d0d0d0;
+
+$white_01: #f7f7f8;
+$white_02: #d0dcfa;
+$white_03: #f3f6fe;
+$white_04: #d0dcfa;
+$white_05: #DDE1E6;
+
+$grey: #a0a0a0;
+$grey_01: #D9D9DE;
+$grey_02: #78839e;
+
+
+// Backgrounds and Borders
+$bg-blue: #0F1F33;
+$bg-white: #fff;
+$bg-grey: #f7f7f8;
+$grey-border: #d0dcfa;
+$grey-shadow: #B9B9C1;
+
+
+
+
+$blue: #0f224e;
+$blue_01: #78839e;
+
+
+
+
+// $bg-module-white-hover: #d0dcfa;
+$bg-module-grey: #f3f6fe;
+$bg-module-grey-hover: #d0dcfa;
+// $bg-dark: #0F1F33;
+// $bg-module-dark: #0f224e;
+
+
+$black: #000;
+$black_01: #1C1C1F;
+$white: #fff;
+$white_01: #f7f7f8;
+$white-50: rgba($white, 0.5);
+$grey: #a0a0a0;
+$grey_01: #D9D9DE;
+
+
+$nav-title: #162B48; // submenu titles
+$nav-orange: #EB5C1E; // orange lines / arrows / CTA
+$submenu-bg: #FFFFFF; // submenu background
+
+
+$white-border: #DDE1E6; // column borders
 
 $red: #dc3232;
 $green: #6dc22e;
 $orange: #f56e28;
 $yellow: #F2C94C;
-$blue: #00a0d2;
 
-$color-text: #202634;
-$color-heading: #202634;
+
+$color-text: $black_01;
+$color-heading: $primary;
 $color-link: $primary;
-$color-link-hover: $primary-hover;
 
 
 // Fonts -------------------------------------------
-$font-text: 'Arial', sans-serif;
-$font-heading: 'Arial', sans-serif;
+$font-text: 'FixelText', sans-serif;
+$font-heading: 'FixelDisplay', sans-serif;
 
 $font-code: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 $font-pre: "Courier 10 Pitch", Courier, monospace;
@@ -35,12 +84,13 @@ $font-size-base: 16; // Assumes the browser default (typically 16px)
 $font-weight-base: 400;
 $line-height-base: 1.6;
 
-$radius: rem(5); // global border-radius (can be 0, but need to keep it)
+$radius: rem(8); // global border-radius (can be 0, but need to keep it)
 
 
 // Transitions -------------------------------------------
 $time: 0.3s;
 $default-transition: all $time 0s;
+$medium-transition: all 0.5s 0s;
 
 
 // Grid breakpoints -------------------------------------------
@@ -48,10 +98,11 @@ $default-transition: all $time 0s;
 // example: @include min(lg) = @media (min-width: 1025px)
 // example: @include max(lg) = @media (max-width: 1024px)
 $grid-breakpoints: (
-				xs: 0,
-				md: 640px,
-				lg: 1025px,
-				xl: 1440px,
+	xs: 0,
+	md: 640px,
+	lg: 1025px,
+	xl: 1440px,
+	xxl: 1920px,
 );
 
 // Grid columns
@@ -62,18 +113,25 @@ $grid-gutter-width: 30px; // 15px on each side
 // Grid containers
 // Define the maximum width of `.container` for different screen sizes.
 $container-max-widths: (
-				xs: 100%,
-				md: 100%,
-				lg: 100%,
-				xl: 1400px,
+	xs: 100%,
+	md: 100%,
+	lg: 100%,
+	xl: 1400px,
+	xxl: 1680px,
 );
 
 // Container padding
 $container-gutter-x-values: (
-				xs: 30px, // 15px on each side
-				md: 60px, // 30px on each side
-				lg: 100px, // 50px on each side
-				xl: 100px, // 50px on each side
+	xs: 30px,
+	// 15px on each side
+	md: 60px,
+	// 30px on each side
+	lg: 100px,
+	// 50px on each side
+	xl: 100px,
+	// 50px on each side
+	xxl: 100px,
+	// 50px on each side
 );
 
 // Container fluid maximum width

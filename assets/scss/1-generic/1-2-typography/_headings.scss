@@ -7,27 +7,46 @@
 	font-family: $font-heading;
 	font-weight: 700;
 	line-height: 1.1;
-	margin-top: 0;
-	margin-bottom: 0.75em;
+	margin: 0;
+	padding: 0;
 
 	a {
 		color: inherit;
 	}
 }
 
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6 {
+	span {
+		color: $primary;
+	}
+	.module-white & {
+		color: $secondary;
+	}
+	.module-grey & {
+		color: $secondary;
+	}
+	.module-blue & {
+		color: $white;
+	}
+}
+
 h1,
 .h1 {
-	font-size: clamp-rem(32, 48);
+	font-size: clamp-rem(48, 60);
+	@include min(xxl) {
+		font-size: rem(80);
+	}
 }
 
 h2,
 .h2 {
-	font-size: clamp-rem(28, 32);
+	font-size: clamp-rem(32, 48);
 }
 
 h3,
 .h3 {
-	font-size: clamp-rem(24, 28);
+	font-size: clamp-rem(24, 32);
 }
 
 h4,

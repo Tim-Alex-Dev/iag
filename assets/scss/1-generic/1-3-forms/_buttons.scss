@@ -1,105 +1,55 @@
 .btn {
 	@include tr;
 	height: rem(44);
-	display: inline-flex;
+	width: fit-content;
+	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: rem(12);
-	background-color: $primary;
-	color: $white;
-	font-size: rem(16);
+	gap: rem(8);
+	font-size: rem(14);
 	font-weight: 700;
 	line-height: 1;
-	border: 1px solid $primary;
+	border: 1px solid transparent;
 	border-radius: $radius;
-	padding: rem(0 16);
+	padding: rem(0 12);
 	text-align: center;
 	cursor: pointer;
+	flex-shrink: 0;
 
 	@include min(lg) {
-		font-size: rem(18);
-		height: rem(50);
-		padding: rem(0 24);
+		font-size: rem(16);
+		padding: rem(0 16);
 	}
 
 	@include min(xl) {
-		padding: rem(0 38);
-	}
-
-	&:hover,
-	&:focus,
-	&:active {
-		background-color: $primary-hover;
-		border-color: $primary-hover;
-		color: $white;
+		font-size: rem(18);
+		padding: rem(0 20);
 	}
 
 	svg {
 		flex-shrink: 0;
-		width: rem(20);
-		height: rem(20);
+		width: rem(24);
+		height: rem(24);
 		transition: none;
 	}
 
-	&-secondary {
-		background-color: $secondary;
-		border-color: $secondary;
-		color: $white;
-
-		&:hover,
-		&:focus,
-		&:active {
-			background-color: $secondary-hover;
-			border-color: $secondary-hover;
-			color: $white;
-		}
-	}
-
-	&-white {
-		background-color: $white;
-		border-color: $white;
-		color: $primary;
-
-		&:hover,
-		&:focus,
-		&:active {
-			background-color: $primary;
-			border-color: $primary;
-			color: $white;
-		}
-	}
-
-	&-black {
-		background-color: $black;
-		border-color: $black;
-		color: $white;
-
-		&:hover,
-		&:focus,
-		&:active {
-			background-color: $primary;
-			border-color: $primary;
-			color: $white;
-		}
-	}
-
-	&-sm {
-		height: rem(40);
-		font-size: rem(14);
-		padding: rem(0 20);
-	}
-
 	&-lg {
-		height: rem(50);
-		font-size: rem(18);
+		font-size: rem(24);
+		height: rem(60);
+		padding: rem(0 40);
+	}
 
-		@include min(lg) {
-			height: rem(54);
-			font-size: rem(20);
-		}
 
-		@include min(xl) {
-			padding: rem(0 32);
+	&-primary {
+		background-color: $primary;
+		border-color: $primary;
+		color: $white;
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: $secondary;
+			color: $primary;
 		}
 	}
 }
@@ -157,5 +107,18 @@ input[type="submit"] {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
-	gap: rem(15);
+	gap: rem(12);
+}
+
+.btn {
+	&-left {
+		margin-right: auto !important;
+	}
+	&-center {
+		margin-right: auto !important;
+		margin-left: auto !important;
+	}
+	&-right {
+		margin-left: auto !important;
+	}
 }
