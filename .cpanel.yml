@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home2/timalexe/public_html/iag/wp-content/themes/iag/
+    - export DEPLOYPATH=/home2/timalexe/public_html/wp-content/themes/iag/
     - /bin/cp -R . $DEPLOYPATH
