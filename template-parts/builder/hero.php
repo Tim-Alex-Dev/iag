@@ -1,33 +1,35 @@
 <?php
-$module_id              = get_sub_field('module_id') ?: '';
-$module_title           = get_sub_field('module_title') ?? false;
-$module_title_alignment = get_sub_field('module_title_alignment') ?: 'center';
-$module_subtitle        = get_sub_field('module_subtitle') ?? false;
-$primary_btn     		= get_sub_field('primary_button') ?? false;
-$secondary_btn     		= get_sub_field('secondary_button') ?? false;
-$content_type		    = get_sub_field('hero_content_type') ? get_sub_field('hero_content_type') : 'banner';
-$module_banner 			= $content_type === 'banner' ? get_sub_field('banner_image') : false;
-$blocks_title 			= $content_type === 'blocks' ? get_sub_field('blocks_title') : false;
-$blocks_category 		= $content_type === 'blocks' ? get_sub_field('blocks_category') : false;
-$blocks_subject 		= $content_type === 'blocks' ? get_sub_field('blocks_subject') : false;
-$blocks_read 			= $content_type === 'blocks' ? get_sub_field('blocks_read') : false;
-$blocks_status 			= $content_type === 'blocks' ? get_sub_field('blocks_status') : false;
+$module_id        = get_sub_field( 'module_id' ) ?: '';
+$module_title     = get_sub_field( 'module_title' ) ?? false;
+$module_alignment = get_sub_field( 'module_header_alignment' ) ?: 'left';
+$module_subtitle  = get_sub_field( 'module_subtitle' ) ?? false;
+$module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
+$primary_btn      = get_sub_field('primary_button') ?? false;
+$secondary_btn    = get_sub_field('secondary_button') ?? false;
+$content_type     = get_sub_field('hero_content_type') ? get_sub_field('hero_content_type') : 'banner';
+$module_banner 	  = $content_type === 'banner' ? get_sub_field('banner_image') : false;
+$blocks_title 	  = $content_type === 'blocks' ? get_sub_field('blocks_title') : false;
+$blocks_category  = $content_type === 'blocks' ? get_sub_field('blocks_category') : false;
+$blocks_subject   = $content_type === 'blocks' ? get_sub_field('blocks_subject') : false;
+$blocks_read 	  = $content_type === 'blocks' ? get_sub_field('blocks_read') : false;
+$blocks_status 	  = $content_type === 'blocks' ? get_sub_field('blocks_status') : false;
 ?>
 
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-hero">
+<section id="<?php echo esc_attr($module_id); ?>" class="module m-hero bg-blue">
 	<div class="container">
 		<?php if ( $module_title || $module_subtitle ) : ?>
 			<div class="m-hero__content">
-				<?php if ( $module_title ) : ?>  
-					<?php get_template_part( 'template-parts/builder/components/title', null, [ 'class' => 'm-hero__title' ] ); ?>
-				<?php endif; ?>
-	
-				<?php if ( $module_subtitle ) : ?>
-					<p class="subtitle m-hero__subtitle text-<?php echo esc_html( $module_title_alignment ); ?>">
-						<?php echo esc_html( $module_subtitle ); ?>
-					</p>
-				<?php endif; ?>
+				<div class="module-header alignment-<?php echo esc_attr( $module_alignment ); ?>">
+					<?php if ( $module_title ) : ?>  
+						<?php get_template_part( 'template-parts/builder/components/title', null ); ?>
+					<?php endif; ?>
+					<?php if ( $module_subtitle ) : ?>
+						<p class="module-header__subtitle">
+							<?php echo esc_html( $module_subtitle ); ?>
+						</p>
+					<?php endif; ?>
+				</div>
 				
 				<?php if ( $primary_btn || $secondary_btn ) : ?>
 					<div class="m-hero__buttons btn-group-<?php echo esc_html( $module_title_alignment ); ?>">

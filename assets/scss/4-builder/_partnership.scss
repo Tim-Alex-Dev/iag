@@ -2,9 +2,10 @@
     &__swiper {
         &-bottom {
             transform: scaleX(-1);
-        }
-        &-slide {
-            transform: scaleX(-1);
+            
+            .swiper-slide {
+                transform: scaleX(-1);
+            }
         }
     }
 
