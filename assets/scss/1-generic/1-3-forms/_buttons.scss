@@ -1,86 +1,121 @@
+// richard.brennan@ia-grp.com
+// N2N1@xl!7nZx^z^d&HOqCEjl
+
 .btn {
 	@include tr;
-	height: rem(44);
 	width: fit-content;
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	gap: rem(8);
-	font-size: rem(14);
-	font-weight: 700;
+	font-size: rem(16);
+	font-weight: 600;
 	line-height: 1;
 	border: 1px solid transparent;
-	border-radius: $radius;
-	padding: rem(0 12);
+	border-radius: rem(4);
+	padding: rem(16 24);
 	text-align: center;
 	cursor: pointer;
 	flex-shrink: 0;
+	letter-spacing: 0.01em;
 
-	@include min(lg) {
-		font-size: rem(16);
-		padding: rem(0 16);
-	}
+	// @include min(lg) {
+	// 	font-size: rem(16);
+	// 	padding: rem(0 16);
+	// }
 
-	@include min(xl) {
-		font-size: rem(18);
-		padding: rem(0 20);
-	}
+	// @include min(xl) {
+	// 	font-size: rem(18);
+	// 	padding: rem(0 20);
+	// }
 
 	svg {
 		flex-shrink: 0;
-		width: rem(24);
-		height: rem(24);
+		width: rem(16);
+		height: rem(16);
 		transition: none;
 	}
 
-	&-lg {
-		font-size: rem(24);
-		height: rem(60);
-		padding: rem(0 40);
-	}
+	// &-lg {
+	// 	font-size: rem(24);
+	// 	height: rem(60);
+	// 	padding: rem(0 40);
+	// }
 
 
 	&-primary {
-		background-color: $primary;
-		border-color: $primary;
+		background-color: $iag-orange-500;
+		border-color: $iag-orange-500;
+		box-shadow: 0 rem(8) rem(24) rgba($iag-orange-500, 0.22);
 		color: $white;
 
 		&:hover,
 		&:focus,
 		&:active {
-			background-color: $secondary;
-			color: $primary;
+			background-color: $iag-orange-600;
+		}
+	}
+
+	&-simple {
+		padding: 0;
+		color: $iag-orange-500;
+		background-color: transparent !important;
+		border: none !important;
+		&:hover,
+		&:focus,
+		&:active {
+			gap: rem(12);
+		}
+
+		.icon {
+			fill: $iag-orange-500;
+			stroke: $iag-orange-500;
+		}
+	}
+
+	&-ghost {
+		background-color: transparent;
+		border-color: $iag-navy-400;
+		color: $white;
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: $iag-gray-100;
+			color: $iag-gray-900;
+		}
+	}
+
+	&-outline-primary {
+		background-color: transparent;
+		border: 1px solid $iag-orange-500;
+		color: $iag-orange-500;
+		
+		&:hover,
+		&:focus,
+		&:active {
+			color: $white;
+			background-color: $iag-orange-500;
+			box-shadow: 0 rem(8) rem(24) rgba($iag-orange-500, 0.22);
 		}
 	}
 }
 
-.btn-outline {
-	background-color: transparent;
-	border-color: $primary;
-	color: $primary;
+// .btn-outline {
+// 	background-color: transparent;
+// 	border-color: $primary;
+// 	color: $primary;
 
-	&:hover,
-	&:focus,
-	&:active {
-		background-color: $primary;
-		border-color: $primary;
-		color: $white;
-	}
-}
+// 	&:hover,
+// 	&:focus,
+// 	&:active {
+// 		background-color: $primary;
+// 		border-color: $primary;
+// 		color: $white;
+// 	}
+// }
 
-.btn-outline-secondary {
-	background-color: transparent;
-	border-color: $secondary;
-	color: $secondary;
 
-	&:hover,
-	&:focus,
-	&:active {
-		background-color: $secondary;
-		border-color: $secondary;
-		color: $white;
-	}
-}
 
 // Label styled as button
 .btn-label {

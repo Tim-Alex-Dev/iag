@@ -1,0 +1,59 @@
+.m-cta {
+    background-color: $iag-navy-800;
+    padding: rem(24 0);
+
+    &__meeting {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: rem(28);
+
+        &-title {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: $iag-orange-400;
+            border: 1px solid $iag-orange-500;
+            border-radius: rem(999);
+            padding: rem(8 16);
+            white-space: nowrap;
+        }
+
+        &-list {
+            display: flex;
+            align-items: center;
+            gap: rem(28);
+            
+            .meeting-item {
+                display: flex;
+                flex-direction: column;
+                gap: rem(8);
+                
+                &__image {
+                    height: 100%;
+                    max-height: rem(100);
+                    width: auto;
+                }
+
+                &__title {
+                    font-size: rem(24);
+                    font-weight: 700;
+                    color: $white;
+                    letter-spacing: -0.01em;
+                }
+
+                &__subtitle {
+                    font-family: $font-alt;
+                    font-size: rem(16);
+                    color: $iag-navy-200;
+                    letter-spacing: 0.02em;
+                }
+            }
+        }
+
+        &-buttons {
+            margin-left: auto;
+        }
+    }
+}

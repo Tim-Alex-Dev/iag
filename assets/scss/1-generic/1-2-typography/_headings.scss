@@ -2,13 +2,18 @@
 // @link https://websemantics.uk/tools/responsive-font-calculator/
 // clamp browser width: from 575px to 1440px
 
+
 @include headings {
+	display: flex;
+	width: fit-content;
 	min-height: 0vw; // safari fix
 	font-family: $font-heading;
-	font-weight: 700;
+	font-weight: 800;
 	line-height: 1.1;
+	letter-spacing: -0.02em;
 	margin: 0;
 	padding: 0;
+	color: $iag-gray-900;
 
 	a {
 		color: inherit;
@@ -17,23 +22,22 @@
 
 h1,h2,h3,h4,h5,h6,
 .h1,.h2,.h3,.h4,.h5,.h6 {
-	span {
-		color: $primary;
+	.bg-white & {
+		color: $iag-gray-900;
 	}
-	.module-white & {
-		color: $secondary;
+	.bg-gray & {
+		color: $iag-gray-900;
 	}
-	.module-grey & {
-		color: $secondary;
-	}
-	.module-blue & {
+	.bg-blue & {
 		color: $white;
 	}
 }
 
 h1,
 .h1 {
-	font-size: clamp-rem(48, 60);
+	font-size: clamp-rem(44, 52);
+	font-weight: 800;
+	letter-spacing: -0.025em;
 	@include min(xxl) {
 		font-size: rem(80);
 	}
@@ -41,7 +45,7 @@ h1,
 
 h2,
 .h2 {
-	font-size: clamp-rem(32, 48);
+	font-size: clamp-rem(32, 44);
 }
 
 h3,

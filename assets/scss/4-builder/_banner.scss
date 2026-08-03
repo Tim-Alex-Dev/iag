@@ -1,0 +1,11 @@
+.m-banner {
+    background-color: $secondary;
+
+    &__title {
+        color: $white;
+    }
+
+    &__subtitle {
+        color: $grey_01;
+    }
+}

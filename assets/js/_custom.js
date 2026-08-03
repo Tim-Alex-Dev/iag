@@ -53,6 +53,35 @@ jQuery(document).ready(function ($) {
 	/**
 	 * Slider Images
 	 */
+	if ($('.m-counter').length > 0) {
+        document.querySelectorAll('.m-counter__slider-swiper').forEach(slider => {
+            const swiper = new Swiper(slider, {
+  				spaceBetween: 24,
+				loop: true,
+				speed: 5000,
+				slidesPerView: 1,
+                breakpoints: {
+                    640: {
+                    	slidesPerView: 3,
+                    },
+                    1024: {
+						spaceBetween: 40,
+                    	slidesPerView: 5,
+                    },
+                    1440: {
+						spaceBetween: 80,
+                    	slidesPerView: 'auto',
+                    },
+                },
+                speed: 2500,
+				autoplay: {
+					delay: 0,
+					disableOnInteraction: false,
+				},
+            });
+        });
+    };
+
 	if ($('.m-separator__swiper').length > 0) {
 		document.querySelectorAll('.m-separator__swiper').forEach((slider) => {
 			const wrapper = slider.closest('.m-separator').getAttribute('id');
@@ -161,35 +190,182 @@ jQuery(document).ready(function ($) {
         });
     };
 
-	if ($('.m-partnership').length > 0) {
-		document.querySelectorAll('.m-partnership__swiper-top').forEach(slider => {
-			const swiper = new Swiper(slider, {
-				slidesPerView: 'auto',
-				spaceBetween: 40,
-				loop: true,
-				speed: 4000,
-				allowTouchMove: false,
-
-				autoplay: {
-					delay: 0,
-					disableOnInteraction: false,
-				},
-			});
-		});
-		document.querySelectorAll('.m-partnership__swiper-bottom').forEach(slider => {
-			const swiper = new Swiper(slider, {
-				slidesPerView: 'auto',
-				spaceBetween: 40,
-				loop: true,
-				speed: 4000,
-				allowTouchMove: false,
-				autoplay: {
-					delay: 0,
-					reverseDirection: true,
-					disableOnInteraction: false,
-				},
-			});
-		});
+	if ($('.m-stars').length > 0) {
+        document.querySelectorAll('.m-stars__swiper').forEach(slider => {
+            const wrapper = slider.closest('.m-stars').getAttribute('id');
+            const swiper = new Swiper(slider, {
+                loop: false,
+                spaceBetween: 24,
+                slidesPerView: 1,
+                breakpoints: {
+                    640: {
+                    slidesPerView: 2,
+                    },
+                    1024: {
+                    slidesPerView: 4,
+                    }
+                },
+                speed: 1000,
+                navigation: {
+                    nextEl: '#'+wrapper+' .m-stars__swiper-button-next',
+                    prevEl: '#'+wrapper+' .m-stars__swiper-button-prev',
+                },
+            });
+        });
     };
 
+	if ($('.m-partnership').length > 0) {
+		document.querySelectorAll('.m-partnership__swiper-top').forEach((slider) => {
+			if (slider.swiper) {
+				return;
+			}
+
+			new Swiper(slider, {
+				slidesPerView: 'auto',
+				spaceBetween: 20,
+				loop: true,
+				speed: 6000,
+				allowTouchMove: false,
+
+				autoplay: {
+					delay: 0,
+					disableOnInteraction: false,
+					pauseOnMouseEnter: false,
+				},
+			});
+		});
+
+		document.querySelectorAll('.m-partnership__swiper-bottom').forEach((slider) => {
+			if (slider.swiper) {
+				return;
+			}
+
+			new Swiper(slider, {
+				slidesPerView: 'auto',
+				spaceBetween: 20,
+				loop: true,
+				speed: 6000,
+				allowTouchMove: false,
+
+				autoplay: {
+					delay: 0,
+					disableOnInteraction: false,
+					pauseOnMouseEnter: false,
+				},
+			});
+		});
+	}
+
+	// Observer for Animated Counter
+	function observeElements(selector, callback, options = {}) {
+		const elements = document.querySelectorAll(selector);
+
+		if (!elements.length) {
+			return;
+		}
+
+		const observer = new IntersectionObserver(
+			(entries, currentObserver) => {
+				entries.forEach((entry) => {
+					if (!entry.isIntersecting) {
+						return;
+					}
+
+					callback(entry.target);
+					currentObserver.unobserve(entry.target);
+				});
+			},
+			{
+				threshold: 0.25,
+				...options
+			}
+		);
+
+		function isElementVisible(element) {
+			const rect = element.getBoundingClientRect();
+
+			return (
+				rect.top < window.innerHeight &&
+				rect.bottom > 0
+			);
+		}
+
+		function checkElements() {
+			elements.forEach((element) => {
+				if (element.dataset.observed) {
+					return;
+				}
+
+				if (isElementVisible(element)) {
+					element.dataset.observed = 'true';
+					callback(element);
+				} else {
+					observer.observe(element);
+				}
+			});
+		}
+
+		// Normal page opening
+		checkElements();
+
+		// Refresh with restored scroll position
+		$(window).on('load pageshow', function () {
+			requestAnimationFrame(checkElements);
+		});
+	}
+
+	// Animated Counter
+	function animateCounter(element) {
+		const $counter = $(element);
+		const finalValue = $counter.data('counter').toString();
+
+		const target = parseInt(finalValue.replace(/\D/g, ''), 10);
+		const prefix = finalValue.match(/^\D*/)?.[0] || '';
+		const suffix = finalValue.match(/\D*$/)?.[0] || '';
+
+		if (Number.isNaN(target)) {
+			return;
+		}
+
+		$({ value: 0 }).animate(
+			{ value: target },
+			{
+				duration: 2500,
+				step: function (value) {
+					$counter.text(
+						prefix + Math.floor(value) + suffix
+					);
+				},
+				complete: function () {
+					$counter.text(finalValue);
+				}
+			}
+		);
+	}
+
+	observeElements(
+		'.animated-item .counter-item__title[data-counter]',
+		animateCounter
+	);
+
+	// Sticky Header Script
+	const $stickyHeader = $('.sticky-header');
+
+	if ($stickyHeader.length) {
+		let lastScrollTop = $(window).scrollTop();
+
+		$(window).on('scroll', function () {
+			const currentScrollTop = $(this).scrollTop();
+
+			if (currentScrollTop <= 400) {
+				$stickyHeader.removeClass('is-visible');
+			} else if (currentScrollTop > lastScrollTop) {
+				$stickyHeader.addClass('is-visible');
+			} else {
+				$stickyHeader.removeClass('is-visible');
+			}
+
+			lastScrollTop = currentScrollTop;
+		}).trigger('scroll');
+	}
 });

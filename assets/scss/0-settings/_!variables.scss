@@ -2,6 +2,39 @@
 $primary: #FC7624;
 $secondary: #0F1F33;
 
+$iag-navy-50: #EEF2F8;
+$iag-navy-100: #D5DEEC;
+$iag-navy-200: #A8B8D2;
+$iag-navy-300: #7A91B7;
+$iag-navy-400: #4F6E9C;
+$iag-navy-500: #2A4E80;
+$iag-navy-600: #1F3B62;
+$iag-navy-700: #162B48;
+$iag-navy-800: #0F1F33;
+$iag-navy-900: #08101C;
+
+$iag-orange-50: #FDF1EA;
+$iag-orange-100: #FBDFCE;
+$iag-orange-200: #F6B791;
+$iag-orange-300: #F08C56;
+$iag-orange-400: #EE7335;
+$iag-orange-500: #EB5C1E;
+$iag-orange-600: #C84A12;
+$iag-orange-700: #9F3A0E;
+$iag-orange-800: #762A0A;
+$iag-orange-900: #4A1A06;
+
+$iag-gray-50: #F7F8FA;
+$iag-gray-100: #EEF0F3;
+$iag-gray-200: #DDE1E6;
+$iag-gray-300: #C2C8D0;
+$iag-gray-400: #9AA1AB;
+$iag-gray-500: #7A7F88;
+$iag-gray-600: #5A5F67;
+$iag-gray-700: #3F434A;
+$iag-gray-800: #272A30;
+$iag-gray-900: #14161A;
+
 // Main Colors
 $black: #000;
 $black_01: #1C1C1F;
@@ -14,17 +47,23 @@ $white_01: #f7f7f8;
 $white_02: #d0dcfa;
 $white_03: #f3f6fe;
 $white_04: #d0dcfa;
-$white_05: #DDE1E6;
 
 $grey: #a0a0a0;
 $grey_01: #D9D9DE;
 $grey_02: #78839e;
 
 
-// Backgrounds and Borders
-$bg-blue: #0F1F33;
+// Backgrounds
+$bg-blue: $iag-navy-800;
+$bg-blue-light: #162B48;
 $bg-white: #fff;
-$bg-grey: #f7f7f8;
+$bg-gray: #F7F8FA;
+
+// Borders
+$border-blue: #2A4E80; //navy-500
+$border-blue_01: #1F3B62; //navy-600
+
+
 $grey-border: #d0dcfa;
 $grey-shadow: #B9B9C1;
 
@@ -58,22 +97,26 @@ $nav-orange: #EB5C1E; // orange lines / arrows / CTA
 $submenu-bg: #FFFFFF; // submenu background
 
 
-$white-border: #DDE1E6; // column borders
+$white-border: $iag-gray-200;
+$gray-border: $iag-gray-400;
+
+$green: #1F8A5B;
+$green_01: #4ade80;
 
 $red: #dc3232;
-$green: #6dc22e;
 $orange: #f56e28;
 $yellow: #F2C94C;
 
 
-$color-text: $black_01;
+$color-text: $iag-gray-700;
 $color-heading: $primary;
 $color-link: $primary;
 
 
 // Fonts -------------------------------------------
-$font-text: 'FixelText', sans-serif;
-$font-heading: 'FixelDisplay', sans-serif;
+$font-heading: 'Avenir', sans-serif;
+$font-text: 'IBMPlexSans', sans-serif;
+$font-alt: 'IBMPlexMono', sans-serif;
 
 $font-code: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 $font-pre: "Courier 10 Pitch", Courier, monospace;
@@ -126,9 +169,9 @@ $container-gutter-x-values: (
 	// 15px on each side
 	md: 60px,
 	// 30px on each side
-	lg: 100px,
+	lg: 60px,
 	// 50px on each side
-	xl: 100px,
+	xl: 60px,
 	// 50px on each side
 	xxl: 100px,
 	// 50px on each side

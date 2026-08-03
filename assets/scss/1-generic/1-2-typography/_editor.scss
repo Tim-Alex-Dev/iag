@@ -46,6 +46,13 @@
 
 // Styles for formatted text (e.g. post/page content, WYSIWYG custom fields)
 .editor {
+	p {
+		margin-bottom: rem(12);
+		&:last-child {
+			margin: 0;
+		}
+	}
+
 	> *:last-child {
 		margin-bottom: 0;
 	}

@@ -6,7 +6,7 @@
 get_header();
 the_post();
 
-$expert_id       = get_the_ID();
+$expert_id = get_the_ID();
 
 // Expert Main Data
 $expert_name        = get_field( 'expert_title', $expert_id ) ?? false;
@@ -15,27 +15,41 @@ $expert_degrees     = get_field( 'expert_degrees', $expert_id ) ?? false;
 $expert_subtitle    = get_field( 'expert_subtitle', $expert_id ) ?? false;
 $sticky_header      = get_field( 'add_sticky_header', $expert_id ) ?? false;
 $sticky_header_link = get_field( 'sticky_header_button', $expert_id ) ?? false;
+
 // Expert Biography
-$current_role              = get_field( 'current_role', $expert_id ) ?? false;
-$background_training       = get_field( 'background_training', $expert_id ) ?? false;
-$research_focus            = get_field( 'research_focus', $expert_id ) ?? false;
-$clinical_trial_experience = get_field( 'clinical_trial_experience', $expert_id ) ?? false;
-$impact                    = get_field( 'impact', $expert_id ) ?? false;
+$biography_title    = get_field( 'biography_title', $expert_id ) ?? false;
+$biography_subtitle = get_field( 'biography_subtitle', $expert_id ) ?? false;
+$biography_uptitle  = get_field( 'biography_uptitle', $expert_id ) ?? false;
+
 // Case Studies
-$case_studies_list     = get_field( 'case_study_list', $expert_id ) ?? false;
 $case_studies_title    = get_field( 'case_studies_title', $expert_id ) ?? false;
 $case_studies_subtitle = get_field( 'case_studies_subtitle', $expert_id ) ?? false;
+$case_studies_uptitle  = get_field( 'case_studies_uptitle', $expert_id ) ?? false;
+$case_studies_list     = get_field( 'case_study_list', $expert_id ) ?? false;
+
 // Publications
 $publications_title    = get_field( 'publications_title', $expert_id ) ?? false;
-$publications_subtitle = get_field( 'publication_subtitle', $expert_id ) ?? false;
+$publications_subtitle = get_field( 'publications_subtitle', $expert_id ) ?? false;
+$publications_uptitle  = get_field( 'publications_uptitle', $expert_id ) ?? false;
 $publications_link     = get_field( 'publications_link', $expert_id ) ?? false;
+
 // Appointments and Advisory Roles
 $appointments_title    = get_field( 'appointments_title', $expert_id ) ?? false;
+$appointments_subtitle = get_field( 'appointments_subtitle', $expert_id ) ?? false;
+$appointments_uptitle  = get_field( 'appointments_uptitle', $expert_id ) ?? false;
+
 // Education and Training
+$education_title    = get_field( 'education_title', $expert_id ) ?? false;
+$education_subtitle = get_field( 'education_subtitle', $expert_id ) ?? false;
+$education_uptitle  = get_field( 'education_uptitle', $expert_id ) ?? false;
+
 // External Resources
-$websites_title  = get_field( 'websites_column_title', $expert_id ) ?? false;
-$profiles_title  = get_field( 'profiles_column_title', $expert_id ) ?? false;
-$locations_title = get_field( 'locations_column_title', $expert_id ) ?? false;
+$resources_title    = get_field( 'resources_title', $expert_id ) ?? false;
+$resources_subtitle = get_field( 'resources_subtitle', $expert_id ) ?? false;
+$resources_uptitle  = get_field( 'resources_uptitle', $expert_id ) ?? false;
+$websites_title     = get_field( 'websites_column_title', $expert_id ) ?? false;
+$profiles_title     = get_field( 'profiles_column_title', $expert_id ) ?? false;
+$locations_title    = get_field( 'locations_column_title', $expert_id ) ?? false;
 
 
 $expert_categories = array(
@@ -55,187 +69,206 @@ $expert_categories = array(
 
 // CTA Form
 ?>
-<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
+
 
 <article class="expert">
-    <div class="container">
-        <div class="expert-main">
-            <?php if ( $expert_photo ) : ?>
-                <div class="expert-main__photo">
-                    <?php echo wp_get_attachment_image( $expert_photo, 'full', false, [ 'class' => 'expert-main__photo-img' ]); ?>
-                </div>
-            <?php endif; ?>
-            <?php if ( $expert_name ) : ?>
-                <div class="expert-main__data">
-                    <div class="expert-main__title">
-                        <h1 class="h1 expert-main__title-name">
-                            <?php echo $expert_name; ?>
-                            <?php if ( $expert_degrees ) : ?>
-                                <span class="expert-main__title-degree">
-                                    <?php echo $expert_degrees; ?>
-                                </span>
-                            <?php endif; ?>
-                        </h1>
+    <?php if ( $sticky_header && $sticky_header_link ) : ?>
+        <div class="sticky-header">
+            <div class="container">
+                <?php if ( $expert_photo ) : ?> 
+                    <div class="sticky-header__photo">
+                        <?php echo wp_get_attachment_image( $expert_photo, 'thumbnail', false, [ 'class' => 'sticky-header__photo-img' ]); ?>
                     </div>
-                    <?php if ( $expert_subtitle ) : ?>
-                        <p class="expert-main__subtitle">
-                            <?php echo $expert_subtitle; ?>
-                        </p>
+                <?php endif; ?>
+
+                <span class="sticky-header__name">
+                    <?php echo $expert_name; ?>
+                    <?php if ( $expert_degrees ) : ?>
+                        <span class="sticky-header__name-degree">
+                            <?php echo $expert_degrees; ?>
+                        </span>
                     <?php endif; ?>
+                </span>
 
-                    <div class="expert-main__categories">
-                        <?php foreach ( $expert_categories as $group ) :
-                            $terms = get_the_terms( $expert_id, $group['taxonomy'] );
+                <?php if ( $sticky_header_link ) : 
+                    $link_url    = $sticky_header_link['url'];
+                    $link_title  = $sticky_header_link['title'];
+                    $link_target = $sticky_header_link['target'] ? $sticky_header_link['target'] : '_self'; ?>
 
-                            if ( empty( $terms ) || is_wp_error( $terms ) ) {
-                                continue;
-                            } ?>
-
-                            <div class="expert-main__categories-group">
-                                <span class="h3 category-title">
-                                    <?php echo esc_html( $group['title'] ); ?>
-                                </span>
-
-                                <div class="category-list">
-                                    <?php foreach ( $terms as $term ) : ?>
-                                        <span class="category-list__item">
-                                            <?php echo esc_html( $term->name ); ?>
-                                        </span>
-                                    <?php endforeach; ?>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            <?php endif; ?>
-        </div>
-
-        <?php if ( $sticky_header && $sticky_header_link ) : ?>
-            <div class="sticky-header">
-                <div class="container">
-                    <?php if ( $expert_photo ) : ?> 
-                        <div class="sticky-header__photo">
-                            <?php echo wp_get_attachment_image( $expert_photo, 'thumbnail', false, [ 'class' => 'sticky-header__photo-img' ]); ?>
-                        </div>
-                    <?php endif; ?>
-    
-                    <span class="sticky-header__name">
-                        <?php echo $expert_name; ?>
-                        <?php if ( $expert_degrees ) : ?>
-                            <span class="sticky-header__name-degree">
-                                <?php echo $expert_degrees; ?>
-                            </span>
-                        <?php endif; ?>
-                    </span>
-    
-                    <?php if ( $sticky_header_link ) : 
-                        $link_url    = $sticky_header_link['url'];
-                        $link_title  = $sticky_header_link['title'];
-                        $link_target = $sticky_header_link['target'] ? $sticky_header_link['target'] : '_self'; ?>
-    
-                        <a class="new-btn new-btn-primary sticky-header__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
-                            <?php echo esc_html( $link_title ); ?>
-                        </a>
-                    <?php endif; ?>
-                </div>
+                    <a class="btn btn-outline-primary sticky-header__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                        <?php echo esc_html( $link_title ); ?>
+                    </a>
+                <?php endif; ?>
             </div>
-        <?php endif; ?>
+        </div>
+    <?php endif; ?>
 
-        <?php if ( have_rows( 'biography_list', $expert_id ) ) : ?>
-            <div class="expert-biography expert-block">
-                <h2 class="h2 expert-block__title">
-                    <?php echo _e( 'About', '_iag' ) . ' ' . $expert_name; ?>
-                </h2>
+    <div class="expert-main">
+        <div class="container">
+            <div class="expert-main__content">
+                <?php if ( $expert_photo ) : ?>
+                    <div class="expert-main__photo">
+                        <?php echo wp_get_attachment_image( $expert_photo, 'full', false, [ 'class' => 'expert-main__photo-img' ]); ?>
+                    </div>
+                    <?php endif; ?>
+                <?php if ( $expert_name ) : ?>
+                    <div class="expert-main__data">
+                        <div class="expert-main__title">
+                            <h1 class="h1 expert-main__title-name">
+                                <?php echo $expert_name; ?>
+                                <?php if ( $expert_degrees ) : ?>
+                                    <span class="expert-main__title-degree">
+                                        <?php echo $expert_degrees; ?>
+                                    </span>
+                                <?php endif; ?>
+                            </h1>
+                        </div>
+                        <?php if ( $expert_subtitle ) : ?>
+                            <p class="expert-main__subtitle">
+                                <?php echo $expert_subtitle; ?>
+                            </p>
+                        <?php endif; ?>
 
-                <div class="expert-biography__blocks js-accordion">
+                        <div class="expert-main__categories">
+                            <?php foreach ( $expert_categories as $group ) :
+                                $terms = get_the_terms( $expert_id, $group['taxonomy'] );
+
+                                if ( empty( $terms ) || is_wp_error( $terms ) ) {
+                                    continue;
+                                } ?>
+
+                                <div class="expert-main__categories-group">
+                                    <span class="category-title">
+                                        <?php echo esc_html( $group['title'] ); ?>
+                                    </span>
+
+                                    <div class="category-list">
+                                        <?php foreach ( $terms as $term ) : ?>
+                                            <span class="category-list__item chip chip-lg chip-secondary">
+                                                <?php echo esc_html( $term->name ); ?>
+                                            </span>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+
+                        <a class="expert-main__btn btn btn-primary" href="#expert-contact" target="_self">
+                            <?php echo _e( 'Talk to this expert', '_iag' ); ?>
+                            <svg><use xlink:href="#arrow-right"></use></svg>
+                        </a>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+
+    <?php if ( have_rows( 'biography_list', $expert_id ) ) : ?>
+        <div class="expert-biography expert-block bg-white">
+            <div class="container">
+                <?php if ( $biography_uptitle ) : ?>
+                    <span class="eyebrow">
+                        <?php echo esc_html( $biography_uptitle ); ?>
+                    </span>
+                <?php endif; ?>
+                <?php if ( $biography_title ) : ?>
+                    <h2 class="h2 expert-block__title">
+                        <?php echo esc_html( $biography_title ); ?>
+                    </h2>
+                <?php endif; ?>
+                <?php if ( $biography_subtitle ) : ?>
+                    <span class="subtitle">
+                        <?php echo esc_html( $biography_subtitle ); ?>
+                    </span>
+                <?php endif; ?>
+
+                <div class="expert-biography__blocks">
                     <?php while ( have_rows( 'biography_list', $expert_id ) ) : the_row();
-                        $title   = get_sub_field( 'section_title' ) ?? false;
-                        $content = get_sub_field( 'section_content' ) ?? false; 
-                        $show_more_item    = get_sub_field( 'show_more_functionality' ) ?  'js-accordion-item' : '';   
-                        $show_more_title   = get_sub_field( 'show_more_functionality' ) ?  'js-accordion-title' : 'no-icon';   
-                        $show_more_content = get_sub_field( 'show_more_functionality' ) ?  'js-accordion-content' : '';   ?>
+                        $title          = get_sub_field( 'section_title' ) ?? false;
+                        $content        = get_sub_field( 'section_content' ) ?? false;
+                        $hidden_content = get_sub_field( 'hidden_content' ) ?? false;
+                        $show_more_func = get_sub_field( 'show_more_functionality' ) ?? false; ?>
 
                         <?php if ( $title && $content ) : ?>
-                            <div class="expert-biography__block <?php echo $show_more_item; ?>">
-                                <span class="h3 expert-biography__block-title <?php echo $show_more_title; ?>">
-                                    <?php echo $title; ?>
+                            <div class="expert-biography__block js-accordion">
+                                <span class="h3 block-title">
+                                    <?php echo esc_html( $title ); ?>
                                 </span>
-                                <div class="editor expert-biography__block-content <?php echo $show_more_content; ?>">
+
+                                <div class="editor block-content">
                                     <?php echo wp_kses_post( $content ); ?>
                                 </div>
+
+                                <?php if ( $show_more_func && $hidden_content ) : ?>
+                                    <div class="js-accordion-item">
+                                        <div class="editor js-accordion-content block-content__hidden">
+                                            <?php echo wp_kses_post( $hidden_content ); ?>
+                                        </div>
+                                        <div class="js-accordion-title block-content__btn">
+                                            <?php echo _e( 'Read More', '_iag' ); ?>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+
                             </div>
                         <?php endif; ?>
                     <?php endwhile; ?>
                 </div>
             </div>
-        <?php endif; ?>
+        </div>
+    <?php endif; ?>
 
-        <?php if ( $case_studies_list ) : ?>
-            <div class="expert-cases expert-block">
+    <?php if ( $case_studies_list ) : ?>
+        <div class="expert-cases expert-block bg-blue">
+            <div class="container">
+                <?php if ( $case_studies_uptitle ) : ?>
+                    <span class="eyebrow">
+                        <?php echo esc_html( $case_studies_uptitle ); ?>
+                    </span>
+                <?php endif; ?>
                 <?php if ( $case_studies_title ) : ?>
                     <h2 class="h2 expert-block__title">
-                        <?php echo $case_studies_title; ?>
+                        <?php echo esc_html( $case_studies_title ); ?>
                     </h2>
                 <?php endif; ?>
                 <?php if ( $case_studies_subtitle ) : ?>
-                    <p class="expert-block__subtitle">
-                        <?php echo $case_studies_subtitle; ?>
-                    </p>
+                    <span class="subtitle">
+                        <?php echo esc_html( $case_studies_subtitle ); ?>
+                    </span>
                 <?php endif; ?>
                 <div class="expert-cases__list">
-                    <?php foreach ($case_studies_list as $case_id) : 
-                        $case_title    = get_field( 'case_study_title', $case_id ) ?? false;
-                        $case_category = get_field( 'case_study_category', $case_id ) ?? false;
-                        $case_file     = get_field( 'case_study_file', $case_id ) ?? false;
-                        $case_banner   = get_field( 'case_study_banner', $case_id ) ?? false; ?>
-
-                        <?php if ( $case_title && $case_file ) : ?>
-                            <div class="expert-case expert-cases__list-item">
-                                <?php if ( $case_banner ) : ?>
-                                    <div class="expert-case__banner">
-                                        <?php echo wp_get_attachment_image( $case_banner, 'full', false, [ 'class' => 'expert-case__banner-img' ]); ?>
-                                    </div>
-                                <?php endif; ?>
-                                <?php if ( $case_category ) : ?>
-                                    <div class="expert-case__category">
-                                        <?php echo $case_category; ?>
-                                    </div>
-                                <?php endif; ?>
-                                <div class="expert-case__title">
-                                    <?php echo $case_title; ?>
-                                </div>
-                                <a class="new-btn new-btn-primary expert-case__button" href="<?php echo esc_url(wp_get_attachment_url($case_file)); ?>" download target="_blank">
-                                    <?php echo _e( 'Download PDF', '_iag' ); ?>
-                                    <svg class="icon">
-                                        <use xlink:href="#arrow-bottom"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                        <?php endif; ?>
+                    <?php foreach ( $case_studies_list as $case_id ) : ?>
+                        <?php get_template_part( 'template-parts/components/case-study', null, [ 'case_id' => $case_id ] ); ?>
                     <?php endforeach; ?>
                 </div>
             </div>
-        <?php endif; ?>
+        </div>
+    <?php endif; ?>
 
-        <?php if ( have_rows( 'publications_list', $expert_id ) ) : ?>
-            <div class="expert-publications expert-block">
+    <?php if ( have_rows( 'publications_list', $expert_id ) ) : ?>
+        <div class="expert-publications expert-block bg-gray">
+            <div class="container">
+               <?php if ( $publications_uptitle ) : ?>
+                    <span class="eyebrow">
+                        <?php echo esc_html( $publications_uptitle ); ?>
+                    </span>
+                <?php endif; ?>
                 <?php if ( $publications_title ) : ?>
                     <h2 class="h2 expert-block__title">
-                        <?php echo $publications_title; ?>
+                        <?php echo esc_html( $publications_title ); ?>
                     </h2>
                 <?php endif; ?>
                 <?php if ( $publications_subtitle ) : ?>
-                    <p class="expert-block__subtitle">
-                        <?php echo $publications_subtitle; ?>
-                    </p>
+                    <span class="subtitle">
+                        <?php echo esc_html( $publications_subtitle ); ?>
+                    </span>
                 <?php endif; ?>
                 
-                <div class="expert-publications__table">
+                <div class="expert-publications__table c-table">
                     <div class="table-header">
                         <span class="table-header__title"><?php echo _e( 'Title', '_iag' ); ?></span>
                         <span class="table-header__title"><?php echo _e( 'Journal', '_iag' ); ?></span>
                         <span class="table-header__title"><?php echo _e( 'Year', '_iag' ); ?></span>
-                        <span class="table-header__title"><?php echo _e( 'Cited By', '_iag' ); ?></span>
                         <span class="table-header__title"><?php echo _e( 'Link', '_iag' ); ?></span>
                     </div>
                     <div class="table-body">
@@ -243,38 +276,36 @@ $expert_categories = array(
                             $title    = get_sub_field( 'publication_title' ) ?? false;
                             $journal  = get_sub_field( 'journal' ) ? get_sub_field( 'journal' ) : "";
                             $year     = get_sub_field( 'publication_year' ) ? get_sub_field( 'publication_year' ) : "";
-                            $cited_by = get_sub_field( 'cited_by' ) ? get_sub_field( 'cited_by' ) : "";
                             $link     = get_sub_field( 'publication_link' ) ? get_sub_field( 'publication_link' ) : ""; ?>
     
                             <?php if ( $title ) : ?>
-                                <div class="publication">
-                                    <div class="publication__item publication__title">
-                                        <span class="publication__item-content">
-                                            <?php echo $title; ?>
+                                <div class="table-body__item publication">
+                                    <div class="table-body__item-element text-element">
+                                        <span class="text-element__content">
+                                            <?php echo esc_html( $title ); ?>
                                         </span>
                                     </div>
-                                    <div class="publication__item publication__journal">
-                                        <span class="publication__item-content">
-                                            <?php echo $journal; ?>
-                                        </span>
+                                    <div class="table-body__item-element text-element">
+                                        <?php if ( $journal ) : ?>
+                                            <span class="text-element__content">
+                                                <?php echo esc_html( $journal ); ?>
+                                            </span>
+                                        <?php endif; ?>
                                     </div>
-                                    <div class="publication__item publication__year">
-                                        <span class="publication__item-content">
-                                            <?php echo $year; ?>
-                                        </span>
+                                    <div class="table-body__item-element text-element">
+                                        <?php if ( $year ) : ?>
+                                            <span class="text-element__content">
+                                                <?php echo esc_html( $year ); ?>
+                                            </span>
+                                        <?php endif; ?>
                                     </div>
-                                    <div class="publication__item publication__cited">
-                                        <span class="publication__item-content">
-                                            <?php echo $cited_by; ?>
-                                        </span>
-                                    </div>
-                                    <div class="publication__item publication__link">
+                                    <div class="table-body__item-element link-element">
                                         <?php if ( $link ) : 
                                             $link_url    = $link['url'];
                                             $link_title  = $link['title'];
                                             $link_target = $link['target'] ? $link['target'] : '_self'; ?>
-       
-                                            <a class="publication__link-button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+        
+                                            <a class="link-element__button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
                                                 <?php echo esc_html( $link_title ); ?>
                                                 <svg class="icon">
                                                     <use xlink:href="#arrow-top-right"></use>
@@ -295,7 +326,7 @@ $expert_categories = array(
                     $link_title  = $publications_link['title'];
                     $link_target = $publications_link['target'] ? $publications_link['target'] : '_self'; ?>
 
-                    <a class="expert-publications__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                    <a class="btn btn-simple expert-publications__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
                         <?php echo esc_html( $link_title ); ?>
                         <svg class="icon">
                             <use xlink:href="#arrow-right"></use>
@@ -303,14 +334,26 @@ $expert_categories = array(
                     </a>
                 <?php endif; ?>
             </div>
-        <?php endif; ?>
+        </div>
+    <?php endif; ?>
 
-        <?php if ( have_rows( 'content_column', $expert_id ) ) : ?>
-            <div class="expert-appointments expert-block">
+    <?php if ( have_rows( 'content_column', $expert_id ) ) : ?>
+        <div class="expert-appointments expert-block bg-blue">
+            <div class="container">
+               <?php if ( $appointments_uptitle ) : ?>
+                    <span class="eyebrow">
+                        <?php echo esc_html( $appointments_uptitle ); ?>
+                    </span>
+                <?php endif; ?>
                 <?php if ( $appointments_title ) : ?>
                     <h2 class="h2 expert-block__title">
-                        <?php echo $appointments_title; ?>
-                    </h3>
+                        <?php echo esc_html( $appointments_title ); ?>
+                    </h2>
+                <?php endif; ?>
+                <?php if ( $appointments_subtitle ) : ?>
+                    <span class="subtitle">
+                        <?php echo esc_html( $appointments_subtitle ); ?>
+                    </span>
                 <?php endif; ?>
 
                 <div class="expert-appointments__list">
@@ -348,15 +391,29 @@ $expert_categories = array(
                     <?php endwhile; ?>
                 </div>
             </div>
-        <?php endif; ?>
+        </div>
+    <?php endif; ?>
 
-        <?php if ( have_rows( 'education_and_training_list', $expert_id ) ) : ?>
-            <div class="expert-education expert-block">
-                <h2 class="h2 expert-block__title">
-                    <?php echo _e( 'Education & Training', '_iag' ); ?>
-                </h2>
+    <?php if ( have_rows( 'education_and_training_list', $expert_id ) ) : ?>
+        <div class="expert-education expert-block bg-white">
+            <div class="container">
+               <?php if ( $education_uptitle ) : ?>
+                    <span class="eyebrow">
+                        <?php echo esc_html( $education_uptitle ); ?>
+                    </span>
+                <?php endif; ?>
+                <?php if ( $education_title ) : ?>
+                    <h2 class="h2 expert-block__title">
+                        <?php echo esc_html( $education_title ); ?>
+                    </h2>
+                <?php endif; ?>
+                <?php if ( $education_subtitle ) : ?>
+                    <span class="subtitle">
+                        <?php echo esc_html( $education_subtitle ); ?>
+                    </span>
+                <?php endif; ?>
                 
-                <div class="expert-education__table">
+                <div class="expert-education__table c-table">
                     <div class="table-header">
                         <span class="table-header__title"><?php echo _e( 'Year', '_iag' ); ?></span>
                         <span class="table-header__title"><?php echo _e( 'Qualification / Role', '_iag' ); ?></span>
@@ -367,29 +424,54 @@ $expert_categories = array(
                             $year          = get_sub_field( 'year' ) ? get_sub_field( 'year' ) : "";
                             $qualification = get_sub_field( 'qualification' ) ? get_sub_field( 'qualification' ) : "";
                             $institution   = get_sub_field( 'institution' ) ? get_sub_field( 'institution' ) : "" ?>
-    
 
-                            <div class="education">
-                                <div class="education__item education__year">
-                                    <?php echo $year; ?>
+                            <div class="table-body__item education">
+                                <div class="table-body__item-element text-element">
+                                    <?php if ( $year ) : ?>
+                                        <span class="text-element__content">
+                                            <?php echo $year; ?>
+                                        </span>
+                                    <?php endif; ?>
                                 </div>
-                                <div class="education__item education__qualification">
-                                    <?php echo $qualification; ?>
+                                <div class="table-body__item-element text-element">
+                                    <?php if ( $qualification ) : ?>
+                                        <span class="text-element__content">
+                                            <?php echo $qualification; ?>
+                                        </span>
+                                    <?php endif; ?>
                                 </div>
-                                <div class="education__item education__institution">
-                                    <?php echo $institution; ?>
+                                <div class="table-body__item-element text-element">
+                                    <?php if ( $institution ) : ?>
+                                        <span class="text-element__content">
+                                            <?php echo $institution; ?>
+                                        </span>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         <?php endwhile; ?>
                     </div>
                 </div>
             </div>
-        <?php endif; ?>
+        </div>
+    <?php endif; ?>
 
-        <div class="expert-resources expert-block">
-            <h2 class="h2 expert-block__title">
-                <?php echo _e( 'External Resources & Links', '_iag' ); ?>
-            </h3>
+    <div class="expert-resources expert-block bg-gray">
+        <div class="container">
+               <?php if ( $resources_uptitle ) : ?>
+                    <span class="eyebrow">
+                        <?php echo esc_html( $resources_uptitle ); ?>
+                    </span>
+                <?php endif; ?>
+                <?php if ( $resources_title ) : ?>
+                    <h2 class="h2 expert-block__title">
+                        <?php echo esc_html( $resources_title ); ?>
+                    </h2>
+                <?php endif; ?>
+                <?php if ( $resources_subtitle ) : ?>
+                    <span class="subtitle">
+                        <?php echo esc_html( $resources_subtitle ); ?>
+                    </span>
+                <?php endif; ?>
             <div class="expert-resources__list">
                 <?php if ( have_rows( 'websites_list', $expert_id ) ) : ?>
                     <div class="resources-column">
@@ -407,7 +489,7 @@ $expert_categories = array(
                                     $link_title  = $website_link['title'];
                                     $link_target = $website_link['target'] ? $website_link['target'] : '_self'; ?>
 
-                                    <a class="resources-column__website" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                    <a class="btn btn-simple resources-column__website" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
                                         <?php echo esc_html( $link_title ); ?>
                                         <svg class="icon">
                                             <use xlink:href="#arrow-top-right"></use>
@@ -436,7 +518,7 @@ $expert_categories = array(
                                         $link_title  = $link['title'];
                                         $link_target = $link['target'] ? $link['target'] : '_self'; ?>
     
-                                        <a class="resources-column__profile-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                        <a class="btn btn-simple resources-column__profile-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
                                             <?php echo esc_html( $link_title ); ?>
                                             <svg class="icon">
                                                 <use xlink:href="#arrow-top-right"></use>
@@ -466,14 +548,14 @@ $expert_categories = array(
 
                             <?php if ( $location_title ) : ?>
                                 <div class="resources-column__location">
+                                    <span class="resources-column__location-title">
+                                        <?php echo $location_title; ?>
+                                    </span>
                                     <?php if ( $location_type ) : ?>
                                         <span class="resources-column__location-type">
                                             <?php echo $location_type; ?>
                                         </span>
                                     <?php endif; ?>
-                                    <span class="resources-column__location-title">
-                                        <?php echo $location_title; ?>
-                                    </span>
                                 </div>
                             <?php endif; ?>
                         <?php endwhile; ?>
@@ -481,8 +563,12 @@ $expert_categories = array(
                 <?php endif; ?>
             </div>
         </div>
+    </div>
 
-        <div class="expert-contact" id="expert-contacts"></div>
+    <div class="expert-contact" id="expert-contacts">
+        <div class="container">
+            form here
+        </div>
     </div>
 </article>
 

@@ -1,15 +1,12 @@
 .m-partnership {
-	&__title {
-		margin-bottom: rem(24);
-	}
-
-	&__subtitle {
-        max-width: rem(800);
-	}
-
-	&__btn {
-		margin-top: rem(60);
-	}
+    &__swiper {
+        &-bottom {
+            transform: scaleX(-1);
+        }
+        &-slide {
+            transform: scaleX(-1);
+        }
+    }
 
 	&__swipers {
         margin-top: rem(40);
@@ -40,23 +37,51 @@
 
             &-wrapper {
                 transition-timing-function: linear;
+
                 .swiper-slide {
                     position: relative;
-                    width: rem(150);
-                    height: rem(150);
+                    width: rem(200);
+                    height: rem(100);
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    border-radius: rem(16);
-                    overflow: hidden;
+                    text-align: center;
+                    background-color: $white;
+                    border-radius: rem(12);
+                    box-shadow: 0 2px 6px rgba(20, 22, 26, 0.06), 0 1px 2px rgba(20, 22, 26, 0.04);
+                    padding: rem(14);
 
-                    &-icon {
+                    &:hover {
+                        .slide-icon {
+                            opacity: 0;
+                        }
+
+                        .slide-text {
+                            opacity: 1;
+                        }
+                    }
+
+                    .slide-icon {
                         position: absolute;
-                        left: 0;
-                        top: 0;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
                         width: 100%;
                         height: 100%;
-                        object-fit: cover;
+                        object-fit: contain;
+                        transition: $default-transition;
+                        opacity: 1;
+                    }
+
+                    .slide-text {
+                        position: relative;
+                        z-index: 1;
+                        font-weight: 700;
+                        font-size: rem(16);
+                        color: $iag-navy-700;
+                        letter-spacing: 0.01em;
+                        transition: $default-transition;
+                        opacity: 0;
                     }
                 }
             }
@@ -64,43 +89,44 @@
 	}
 }
 
+
 // Color Mode
 .m-partnership {
-    &.module-grey {
+    &.bg-grey {
         .m-partnership__swipers {
             .swiper {
                 &:after {
-                    background: linear-gradient(270deg, $bg-grey 0%,rgba($bg-grey, 0) 100%);
+                    background: linear-gradient(270deg, $bg-gray 0%,rgba($bg-gray, 0) 100%);
                 }
                 &:before {
-                    background: linear-gradient(90deg, $bg-grey 0%,rgba($bg-grey, 0) 100%);
+                    background: linear-gradient(90deg, $bg-gray 0%,rgba($bg-gray, 0) 100%);
                 }
             }
 
         }
     }
     
-    &.module-blue {
+    &.bg-blue {
         .m-partnership__swipers {
             .swiper {
                 &:after {
-                    background: linear-gradient(270deg, $secondary 0%,rgba($secondary, 0) 100%);
+                    background: linear-gradient(270deg, $bg-blue-light 0%,rgba($bg-blue-light, 0) 100%);
                 }
                 &:before {
-                    background: linear-gradient(90deg, $secondary 0%,rgba($secondary, 0) 100%);
+                    background: linear-gradient(90deg, $bg-blue-light 0%,rgba($bg-blue-light, 0) 100%);
                 }
             }
         }
     }
 
-    &.module-white {
+    &.bg-white {
         .m-partnership__swipers {
             .swiper {
                 &:after {
-                    background: linear-gradient(270deg, $white 0%,rgba($white, 0) 100%);
+                    background: linear-gradient(270deg, $bg-white 0%,rgba($bg-white, 0) 100%);
                 }
                 &:before {
-                    background: linear-gradient(90deg, $white 0%,rgba($white, 0) 100%);
+                    background: linear-gradient(90deg, $bg-white 0%,rgba($bg-white, 0) 100%);
                 }
             }
         }
