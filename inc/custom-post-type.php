@@ -143,101 +143,6 @@ function iag_leadership_cpt_init() {
 }
 add_action( 'init', 'iag_leadership_cpt_init' );
 
-function iag_webinar_cpt_init() {
-
-	$labels = array(
-		'name'                => __( 'Webinars', '_iag' ),
-		'singular_name'       => __( 'Webinar', '_iag' ),
-        'menu_name'           => __( 'Webinars' ),
-        'all_items'           => __( 'All Webinars' ),
-        'view_item'           => __( 'Show Webinar' ),
-        'add_new_item'        => __( 'Add New Webinar' ),
-        'add_new'             => __( 'Add New Webinar' ),
-        'edit_item'           => __( 'Edit Webinar' ),
-        'update_item'         => __( 'Update Webinar' ),
-        'search_items'        => __( 'Search Webinar' ),
-        'not_found'           => __( 'Not Found' ),
-        'not_found_in_trash'  => __( 'Not Found in Trash' ),
-	);
-
-	$args = array(
-		'label'               => __( 'Webinar', '_iag' ),
-		'labels'              => $labels,
-		'description'         => '',
-		'public'              => true,
-		'publicly_queryable'  => true,
-		'show_ui'             => true,
-		'rest_base'           => '',
-		'has_cases'           => false,
-        'has_archive'         => false,
-		'menu_icon'           => 'dashicons-groups',
-		'menu_position'       => 5,
-		'show_in_menu'        => true,
-		'show_in_nav_menus'   => true,
-		'show_in_admin_bar'   => true,
-		'show_in_rest'        => true,
-		'exclude_from_search' => false,
-		'capability_type'     => 'post',
-		'map_meta_cap'        => true,
-		'hierarchical'        => false,
-		'rewrite'             => array( 'slug' => 'webinars', 'with_front' => true ),
-		'query_var'           => true,
-		'supports'            => array( 'title', 'custom-fields', 'revisions' ),
-	);
-
-	register_post_type( 'webinar', $args );
-
-}
-add_action( 'init', 'iag_webinar_cpt_init' );
-
-function iag_event_cpt_init() {
-
-	$labels = array(
-		'name'                => __( 'Events', '_iag' ),
-		'singular_name'       => __( 'Event', '_iag' ),
-        'menu_name'           => __( 'Events' ),
-        'all_items'           => __( 'All Events' ),
-        'view_item'           => __( 'Show Event' ),
-        'add_new_item'        => __( 'Add New Event' ),
-        'add_new'             => __( 'Add New Event' ),
-        'edit_item'           => __( 'Edit Event' ),
-        'update_item'         => __( 'Update Event' ),
-        'search_items'        => __( 'Search Event' ),
-        'not_found'           => __( 'Not Found' ),
-        'not_found_in_trash'  => __( 'Not Found in Trash' ),
-	);
-
-	$args = array(
-		'label'               => __( 'Event', '_iag' ),
-		'labels'              => $labels,
-		'description'         => '',
-		'public'              => true,
-		'publicly_queryable'  => true,
-		'show_ui'             => true,
-		'rest_base'           => '',
-		'has_cases'           => false,
-        'has_archive'         => false,
-		'menu_icon'           => 'dashicons-groups',
-		'menu_position'       => 5,
-		'show_in_menu'        => true,
-		'show_in_nav_menus'   => true,
-		'show_in_admin_bar'   => true,
-		'show_in_rest'        => true,
-		'exclude_from_search' => false,
-		'capability_type'     => 'post',
-		'map_meta_cap'        => true,
-		'hierarchical'        => false,
-		'rewrite'             => array( 'slug' => 'event', 'with_front' => true ),
-		'query_var'           => true,
-		'supports'            => array( 'title', 'custom-fields', 'revisions' ),
-	);
-
-	register_post_type( 'event', $args );
-
-}
-add_action( 'init', 'iag_event_cpt_init' );
-
-
 function iag_resource_cpt_init() {
 
 	$labels = array(
@@ -282,7 +187,7 @@ function iag_resource_cpt_init() {
 
 	register_post_type( 'resource', $args );
 
-		// taxonomy: Source
+	// taxonomy: Source
 	register_taxonomy( 'source',
 		array( 'resource' ),
 		array(
@@ -295,7 +200,7 @@ function iag_resource_cpt_init() {
 			'show_admin_column' => true,
 			'show_ui'           => true,
 			'query_var'         => true,
-			'rewrite'           => array( 'slug' => 'source' )
+			'rewrite'           => array( 'slug' => 'source' ),
 		)
 	);
 

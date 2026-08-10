@@ -17,7 +17,8 @@
                 "id": ""
             },
             "placement": "left",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6315b09a2448d",
@@ -101,7 +102,8 @@
                 "id": ""
             },
             "placement": "left",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6a44b0d66cc20",
@@ -205,41 +207,100 @@
                 "id": ""
             },
             "placement": "left",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6a5fe4e231f86",
-            "label": "Banner Youtube Link",
-            "name": "banner_youtube_link",
+            "label": "Main YouTube URL",
+            "name": "main_youtube_url",
             "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
+            "allow_in_bindings": 1,
             "placeholder": ""
         },
         {
+            "key": "field_6a7687f8c6467",
+            "label": "Main YouTube Icon",
+            "name": "main_youtube_icon",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "uploader": "",
+            "return_format": "id",
+            "library": "all",
+            "acfe_thumbnail": 0,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "svg",
+            "allow_in_bindings": 0,
+            "preview_size": "thumbnail"
+        },
+        {
             "key": "field_6a5fe54031f87",
-            "label": "Banner LinkedIn Link",
-            "name": "banner_linkedin_link",
+            "label": "Main LinkedIn URL",
+            "name": "main_linkedin_url",
             "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
+            "allow_in_bindings": 1,
             "placeholder": ""
+        },
+        {
+            "key": "field_6a768842c6468",
+            "label": "Main LinkedIn Icon",
+            "name": "main_linkedin_icon",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "uploader": "",
+            "return_format": "id",
+            "library": "all",
+            "acfe_thumbnail": 0,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "svg",
+            "allow_in_bindings": 0,
+            "preview_size": "thumbnail"
         },
         {
             "key": "field_6315aef9b8cb8",
@@ -292,6 +353,8 @@
                     "placeholder": "",
                     "allow_custom": 0,
                     "search_placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
                     "parent_repeater": "field_6315aef9b8cb8"
                 },
                 {
@@ -492,7 +555,8 @@
                 "id": ""
             },
             "placement": "left",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6315b073b8cbc",
@@ -533,10 +597,13 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
     "acfe": {
         "autosync": [
             "json"
         ]
     },
-    "modified": 1784669588
+    "modified": 1786154847
 }

@@ -22,7 +22,6 @@
 		.wpcf7-response-output {
 			width: 100%;
 			background-color: transparent;
-			font-family: $font-heading;
 			font-size: rem(18);
 			font-weight: 700;
 			text-align: center;
@@ -57,7 +56,7 @@
 
 	.wpcf7-form-control-wrap {
 		display: block;
-		margin-bottom: rem(16);
+		margin: 0;
 	}
 
 	.form-group {
@@ -91,12 +90,12 @@
 }
 
 .wpcf7-not-valid-tip {
+	font-family: $font-alt;
 	display: block;
 	background-color: $white;
 	color: $red;
-	font-size: rem(14);
-	font-weight: 400;
-	text-align: left;
+	font-size: rem(12);
+	text-align: center;
 	padding: 0;
 	margin: 0.5rem 0;
 }
@@ -130,8 +129,9 @@ div.wpcf7 {
 		width: rem(24);
 		height: rem(24);
 		position: absolute;
-		top: calc(100% + 3px);
-		left: 0;
+		top: calc(100% + rem(4));
+		left: 50%;
+		transform: translateX(-50%);
 		margin: 0;
 	}
 

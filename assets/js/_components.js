@@ -6,7 +6,7 @@ import './components/skip-link-focus-fix'; // mobile helper
 import './components/to-top'; // To top button
 import './components/ajax'; // Custom AJAX scripts
 import './components/cf7-events'; // Custom Contact Form 7 scripts
-import './components/woocommerce'; // Custom WooCommerce scripts
+import './components/table-of-content';
 
 import './components/accordion';
 import './components/modal';

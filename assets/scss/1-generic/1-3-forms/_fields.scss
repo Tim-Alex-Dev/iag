@@ -1,28 +1,23 @@
 %field-input { // usage: @extend %field-input
-	@include tr;
 	width: 100%;
 	background-color: $white;
-	color: $black;
-	font-size: rem(16);
+	color: $iag-gray-900;
+	font-size: rem(14);
 	line-height: rem(16);
-	padding: rem(13 16);
-	border: 1px solid $grey-border;
-	border-radius: $radius;
-
-	@include placeholder {
-		@include tr;
-		opacity: 0.8;
-	}
+	padding: rem(12);
+	border: 1px solid $iag-gray-300;
+	border-radius: rem(4);
+	transition: $default-transition;
 
 	&:hover,
 	&:focus,
 	&:active {
-		border-color: $black;
+		border-color: $iag-gray-600;
 	}
 
 	&:focus {
 		&::placeholder {
-			opacity: 0.2;
+			opacity: 0.5;
 		}
 	}
 

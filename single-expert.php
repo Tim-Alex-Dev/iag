@@ -237,8 +237,8 @@ $expert_categories = array(
                     </span>
                 <?php endif; ?>
                 <div class="expert-cases__list">
-                    <?php foreach ( $case_studies_list as $case_id ) : ?>
-                        <?php get_template_part( 'template-parts/components/case-study', null, [ 'case_id' => $case_id ] ); ?>
+                    <?php foreach ( $case_studies_list as $resource_id ) : ?>
+                        <?php get_template_part( 'template-parts/components/resource-card', null, [ 'post_id' => $resource_id, ] );?>
                     <?php endforeach; ?>
                 </div>
             </div>

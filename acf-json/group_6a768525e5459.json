@@ -1,13 +1,13 @@
 {
-    "key": "group_6a26b2b0eb6c3",
-    "title": "NewBlock: Banner",
+    "key": "group_6a768525e5459",
+    "title": "Resources Page Template",
     "fields": [
         {
-            "key": "field_6a26b2b207606",
-            "label": "Simple Banner Module",
+            "key": "field_6a7685cb6c19b",
+            "label": "(Column 6\/12)",
             "name": "",
             "aria-label": "",
-            "type": "message",
+            "type": "acfe_column",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,34 +16,38 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "new_lines": "wpautop",
-            "esc_html": 0
-        },
-        {
-            "key": "field_6a26b39a07607",
-            "label": "Module Settings",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
+            "columns": "6\/12",
             "endpoint": 0,
-            "selected": 0
+            "allow_in_bindings": 0
         },
         {
-            "key": "field_6a26b3b307608",
-            "label": "Module ID",
-            "name": "module_id",
+            "key": "field_6a7685266c19a",
+            "label": "Page Title",
+            "name": "page_title",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "acfe_textarea_code": 0,
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_6a7685e06c19c",
+            "label": "Page Subtitle",
+            "name": "page_subtitle",
+            "aria-label": "",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -53,18 +57,19 @@
                 "id": ""
             },
             "default_value": "",
+            "acfe_textarea_code": 0,
             "maxlength": "",
             "allow_in_bindings": 0,
+            "rows": 4,
             "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "new_lines": ""
         },
         {
-            "key": "field_6a26b3cd07609",
-            "label": "Module Content",
+            "key": "field_6a7685f86c19d",
+            "label": "(Column 6\/12)",
             "name": "",
             "aria-label": "",
-            "type": "tab",
+            "type": "acfe_column",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -73,49 +78,21 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
+            "columns": "6\/12",
             "endpoint": 0,
-            "selected": 0
+            "allow_in_bindings": 0
         },
         {
-            "key": "field_6a26b3da0760a",
-            "label": "Banner Image",
-            "name": "banner_image",
+            "key": "field_6a7685fc6c19e",
+            "label": "Page Banner",
+            "name": "page_banner",
             "aria-label": "",
             "type": "image",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "uploader": "",
-            "return_format": "id",
-            "library": "all",
-            "acfe_thumbnail": 0,
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "webp",
-            "allow_in_bindings": 0,
-            "preview_size": "medium"
-        },
-        {
-            "key": "field_6a26d17fb9d33",
-            "label": "Banner Effect",
-            "name": "banner_effect",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
+            "instructions": "WEBP Only!",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -131,31 +108,34 @@
             "max_size": "",
             "mime_types": "webp",
             "allow_in_bindings": 0,
-            "preview_size": "medium"
+            "preview_size": "large"
         }
     ],
     "location": [
         [
             {
-                "param": "block",
+                "param": "page_template",
                 "operator": "==",
-                "value": "acf\/nb-banner"
+                "value": "template-parts\/resources-page.php"
             }
         ]
     ],
     "menu_order": 0,
     "position": "normal",
     "style": "default",
-    "label_placement": "top",
+    "label_placement": "left",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
     "description": "",
     "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
     "acfe": {
         "autosync": [
             "json"
         ]
     },
-    "modified": 1780929071
+    "modified": 1786153494
 }

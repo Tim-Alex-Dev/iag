@@ -220,14 +220,9 @@
     &-cases {
         &__list {
             margin-top: rem(40);
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: rem(12);
-
-            &-item {
-                flex: 1;
-                max-width: 33%;
-            }
         }
     }
 

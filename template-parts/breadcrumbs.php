@@ -7,8 +7,6 @@
 
 if ( function_exists( 'yoast_breadcrumb' ) && ! is_front_page() ) : ?>
 	<div class="breadcrumbs">
-		<div class="container">
-			<?php yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' ); ?>
-		</div>
+		<?php yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' ); ?>
 	</div>
 <?php endif; ?>

@@ -141,3 +141,36 @@ add_filter( 'excerpt_length', function ( $length ) {
 
 // This will add a filter on `excerpt_more` that returns an empty string.
 add_filter( 'excerpt_more', '__return_empty_string' );
+
+
+/**
+ * Function To get primary category of the resource post
+ */
+function get_primary_category( $post_id, $return = 'name' ) {
+
+    $taxonomy = 'source';
+
+    if ( class_exists( 'WPSEO_Primary_Term' ) ) {
+        $primary_term_id = ( new WPSEO_Primary_Term( $taxonomy, $post_id ) )->get_primary_term();
+
+        if ( $primary_term_id && ! is_wp_error( $primary_term_id ) ) {
+            $primary_term = get_term( $primary_term_id, $taxonomy );
+
+            if ( $primary_term && ! is_wp_error( $primary_term ) ) {
+                return $return === 'id'
+                    ? $primary_term->term_id
+                    : $primary_term->name;
+            }
+        }
+    }
+
+    $terms = get_the_terms( $post_id, $taxonomy );
+
+    if ( $terms && ! is_wp_error( $terms ) ) {
+        return $return === 'id'
+            ? $terms[0]->term_id
+            : $terms[0]->name;
+    }
+
+    return false;
+}
