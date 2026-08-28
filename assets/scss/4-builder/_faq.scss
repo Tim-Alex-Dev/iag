@@ -2,6 +2,9 @@
     .container {
         max-width: rem(880);
         padding: rem(0 24);
+        @include min(xxl) {
+            max-width: rem(1000);
+        }
     }
 
     &__list {
@@ -36,6 +39,9 @@
                 align-items: center;
                 gap: rem(16);
                 transition: $default-transition;
+                @include min(xxl) {
+                    font-size: rem(24);
+                }
                 &:hover {
                     color: $iag-orange-600;
 
@@ -49,6 +55,10 @@
                     height: rem(32);
                     fill: $iag-gray-900;
                     transition: $default-transition;
+                    @include min(xxl) {
+                        width: rem(40);
+                        height: rem(40);
+                    }
                 }
             }
 
@@ -57,7 +67,91 @@
                 font-size: rem(14);
                 color: $iag-gray-700;
                 line-height: 1.65;
+                @include min(xxl) {
+                    font-size: rem(20);
+                }
             }
         }
+    }
+}
+
+
+// Color Mode
+.m-faq {
+    &.bg-blue {
+        .m-faq__list {
+            &-item {
+                background: $iag-navy-800;
+                border: 1px solid $iag-navy-600;
+                &.is-open {
+                    .item-title {
+                        color: $iag-orange-500;
+
+                        svg {
+                            fill: $iag-orange-500;
+                        }
+                    }
+                }
+                
+                .item-title {
+                    color: $white;
+                    &:hover {
+                        color: $iag-orange-500;
+
+                        svg {
+                            fill: $iag-orange-500;
+                        }
+                    }
+
+                    svg {
+                        fill: $white;
+                        transition: $default-transition;
+                    }
+                }
+
+                .item-content {
+                    color: $iag-navy-100;
+                }
+            }
+        }  
+    }
+
+    &.bg-white,
+    &.bg-gray {
+        .m-faq__list {
+            &-item {
+                background: $white;
+                border: 1px solid $iag-gray-200;
+                &.is-open {
+                    .item-title {
+                        color: $iag-orange-600;
+
+                        svg {
+                            fill: $iag-orange-600;
+                        }
+                    }
+                }
+                
+                .item-title {
+                    color: $iag-gray-900;
+                    &:hover {
+                        color: $iag-orange-600;
+
+                        svg {
+                            fill: $iag-orange-600;
+                        }
+                    }
+
+                    svg {
+                        fill: $iag-gray-900;
+                        transition: $default-transition;
+                    }
+                }
+
+                .item-content {
+                    color: $iag-gray-700;
+                }
+            }
+        }     
     }
 }

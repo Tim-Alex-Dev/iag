@@ -82,7 +82,7 @@ get_header();
 
         <div class="category-banner__share">
             <span class="share-label">
-                <?php echo _e( 'Follow & Share'); ?>
+                <?php echo _e( 'Follow & Share:'); ?>
             </span>
 
             <?php if ( $linkedin_url && $linkedin_icon ) : ?>

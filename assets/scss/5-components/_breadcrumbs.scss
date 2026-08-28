@@ -1,9 +1,13 @@
 .breadcrumbs {
 	font-size: rem(12);
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: $iag-orange-500;
+    color: $iag-navy-200;
+	font-family: $font-alt;
+	@include min(xxl) {
+		font-size: rem(16);
+	}
 
 	a {
 		color: inherit;

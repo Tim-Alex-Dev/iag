@@ -51,6 +51,9 @@
 		&:last-child {
 			margin: 0;
 		}
+		@include min(xxl) {
+			font-size: rem(18);
+		}
 	}
 
 	> *:last-child {
@@ -67,5 +70,14 @@
 
 	a:not([class]) {
 		@extend %link;
+	}
+	.bg-white {
+		color: $iag-gray-700;
+	}
+	.bg-gray {
+		color: $iag-gray-700;
+	}
+	.bg-blue & {
+		color: $iag-navy-100;
 	}
 }

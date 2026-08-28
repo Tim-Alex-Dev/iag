@@ -35,6 +35,7 @@
             },
             "default_value": "",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "placeholder": "",
             "prepend": "",
             "append": ""
@@ -49,35 +50,37 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "message": "",
             "default_value": 1,
+            "allow_in_bindings": 1,
             "ui_on_text": "Yes",
             "ui_off_text": "No",
             "ui": 1
         },
         {
-            "key": "field_6a5effac5fdd9",
-            "label": "Add Banner",
-            "name": "add_banner",
+            "key": "field_6a7c0cd14aedd",
+            "label": "Module Uptitle",
+            "name": "module_uptitle",
             "aria-label": "",
-            "type": "true_false",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 1,
-            "ui_on_text": "Yes",
-            "ui_off_text": "No",
-            "ui": 1
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_6a5efe6456ffc",
@@ -89,13 +92,14 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "acfe_textarea_code": 0,
             "maxlength": "",
+            "allow_in_bindings": 1,
             "rows": 2,
             "placeholder": "",
             "new_lines": "br"
@@ -137,6 +141,59 @@
             },
             "columns": "6\/12",
             "endpoint": 0
+        },
+        {
+            "key": "field_6a5effac5fdd9",
+            "label": "Add Banner",
+            "name": "add_banner",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "allow_in_bindings": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "ui": 1
+        },
+        {
+            "key": "field_6a854e64df266",
+            "label": "Banner Size",
+            "name": "banner_size",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a5effac5fdd9",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "full": "Full Width",
+                "small": "Half Width"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal"
         },
         {
             "key": "field_6a5efe646a3b0",
@@ -192,10 +249,13 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
     "acfe": {
         "autosync": [
             "json"
         ]
     },
-    "modified": 1784611963
+    "modified": 1787122161
 }

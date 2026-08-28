@@ -39,9 +39,12 @@ $iag-gray-900: #14161A;
 $black: #000;
 $black_01: #1C1C1F;
 
-
 $white: #fff;
 $white-50: rgba($white, 0.5);
+
+
+$box-shadow-white: 0 16px 32px rgba($white, .15);
+$box-shadow-black: 0 16px 32px rgba($black, .25);
 
 $white_01: #f7f7f8;
 $white_02: #d0dcfa;
@@ -131,7 +134,7 @@ $radius: rem(8); // global border-radius (can be 0, but need to keep it)
 
 
 // Transitions -------------------------------------------
-$time: 0.3s;
+$time: 0.5s;
 $default-transition: all $time 0s;
 $medium-transition: all 0.5s 0s;
 
@@ -143,7 +146,7 @@ $medium-transition: all 0.5s 0s;
 $grid-breakpoints: (
 	xs: 0,
 	md: 640px,
-	lg: 1025px,
+	lg: 1024px,
 	xl: 1440px,
 	xxl: 1920px,
 );
@@ -165,14 +168,14 @@ $container-max-widths: (
 
 // Container padding
 $container-gutter-x-values: (
-	xs: 30px,
-	// 15px on each side
-	md: 60px,
-	// 30px on each side
-	lg: 60px,
-	// 50px on each side
+	xs: 40px,
+	// 20px on each side
+	md: 80px,
+	// 40px on each side
+	lg: 80px,
+	// 40px on each side
 	xl: 60px,
-	// 50px on each side
+	// 30px on each side
 	xxl: 100px,
 	// 50px on each side
 );
@@ -193,6 +196,6 @@ $container-fluid-max-width: 1920px;
 		}
 	}
 
-	--header-height: #{rem(100)}; // needed for fixed header
+	--header-height: #{rem(80)}; // needed for fixed header
 	--header-scrolled-height: #{rem(70)}; // needed for fixed header
 }

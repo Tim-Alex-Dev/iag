@@ -45,25 +45,40 @@ h1,
 
 h2,
 .h2 {
-	font-size: clamp-rem(32, 44);
+	font-size: clamp-rem(36, 44);
+	@include min(xxl) {
+		font-size: rem(52);
+	}
 }
 
 h3,
 .h3 {
-	font-size: clamp-rem(24, 32);
+	font-size: clamp-rem(28, 36);
+	@include min(xxl) {
+		font-size: rem(40);
+	}
 }
 
 h4,
 .h4 {
-	font-size: clamp-rem(20, 24);
+	font-size: clamp-rem(24, 28);
+	@include min(xxl) {
+		font-size: rem(32);
+	}
 }
 
 h5,
 .h5 {
-	font-size: clamp-rem(18, 20);
+	font-size: clamp-rem(20, 24);
+	@include min(xxl) {
+		font-size: rem(28);
+	}
 }
 
 h6,
 .h6 {
-	font-size: rem(16);
+	font-size: rem(18);
+	@include min(xxl) {
+		font-size: rem(22);
+	}
 }

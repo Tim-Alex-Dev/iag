@@ -47,7 +47,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
             
                                 <?php if ( $title && $subtitle ) : ?>
                                     <div class="simple-block">
-                                        <div class="simple-block_header">
+                                        <div class="simple-block__header">
                                             <?php if ( $list_type === 'uptitle' ) : ?>
                                                 <span class="simple-block__header-index">
                                                     0<?php echo $index; ?> 
@@ -82,7 +82,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
                                             $link_title  = $link['title'];
                                             $link_target = $link['target'] ? $link['target'] : '_self'; ?>
                         
-                                            <a class="btn btn-simple m-simple-block__btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                            <a class="btn btn-simple simple-block__btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
                                                 <?php echo esc_html( $link_title ); ?>
                                                 <svg class="icon">
                                                     <use xlink:href="#arrow-right"></use>

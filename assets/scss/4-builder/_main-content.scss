@@ -1,8 +1,13 @@
 .main-content {
+    background-color: $white;
+
     &__list {
         display: flex;
         flex-direction: column;
         gap: rem(24);
+        @include max(xl) {
+            gap: rem(16);
+        }
 
         .content-item {
             &:first-child {
@@ -13,7 +18,10 @@
                 display: flex;
                 position: relative;
                 padding-left: rem(20);
-                margin: rem(24 0 12);
+                margin: rem(24 0 0);
+                @include max(xl) {
+                    margin: rem(16 0 0);
+                }
 
                 &:after {
                     position: absolute;
@@ -26,20 +34,31 @@
                     background-color: $iag-orange-500;
                 }
             }
+
             &__text {
                 p {
                     font-size: rem(16);
                     color: $iag-gray-700;
                     line-height: 1.6;
+                    @include min(xxl) {
+                        font-size: rem(18);
+                    }
                 }
             }
+            
             &__media {
                 &-wrapper {
                     position: relative;
-                    aspect-ratio: 16/9;
+                    height: rem(360);
                     border-radius: rem(12);
                     overflow: hidden;
-                    box-shadow: 0 16px 32px rgba(20, 22, 26, 0.10), 0 4px 8px rgba(20, 22, 26, 0.04);
+                    box-shadow: $box-shadow-black;
+                    @include max(lg) {
+                        height: rem(320);
+                    }
+                    @include max(md) {
+                        height: rem(240);
+                    }
 
                     &__img {
                         position: absolute;
@@ -54,10 +73,16 @@
                 &-video {
                     position: relative;
                     display: flex;
-                    aspect-ratio: 16/9;
+                    height: rem(360);
                     border-radius: rem(12);
                     overflow: hidden;
-                    box-shadow: 0 16px 32px rgba(20, 22, 26, 0.10), 0 4px 8px rgba(20, 22, 26, 0.04);
+                    box-shadow: $box-shadow-black;
+                    @include max(lg) {
+                        height: rem(320);
+                    }
+                    @include max(md) {
+                        height: rem(240);
+                    }
 
                     &__poster {
                         position: absolute;
@@ -100,9 +125,17 @@
                 }
 
                 iframe {
+                    height: rem(360);
+                    width: 100%;
                     border-radius: rem(12);
                     overflow: hidden;
-                    box-shadow: 0 16px 32px rgba(20, 22, 26, 0.10), 0 4px 8px rgba(20, 22, 26, 0.04);
+                    box-shadow: $box-shadow-black;
+                    @include max(lg) {
+                        height: rem(320);
+                    }
+                    @include max(md) {
+                        height: rem(240);
+                    }
                 }
             }
         }

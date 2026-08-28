@@ -1,11 +1,257 @@
 .m-banner {
-    background-color: $secondary;
-
-    &__title {
-        color: $white;
+    padding: rem(64 0 48);
+    position: relative;
+    min-height: rem(360);
+    background-color: $iag-navy-700;
+    @include min(xxl) {
+        padding: rem(80 0 64);
     }
 
-    &__subtitle {
-        color: $grey_01;
+    &.is-banner {
+        &.banner-small {
+            .container {
+                display: grid;
+                grid-template-columns: 1fr .75fr;
+                gap: rem(40);
+                @include max(lg) {
+                    display: flex;
+                    flex-direction: column;
+                }
+                @include min(xxl) {
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .m-banner__media {
+                    border: 1px solid $iag-navy-200;
+                    border-radius: rem(8);
+                    overflow: hidden;
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    @include max(lg) {
+                        height: rem(260);
+                    }
+                    @include max(md) {
+                        height: rem(200);
+                    }
+
+                    &-img {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+    
+    &__banner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
+    
+    &__content {
+        position: relative;
+        max-width: rem(760);
+        display: flex;
+        flex-direction: column;
+        gap: rem(16);
+        @include max(md) {
+            align-items: center;
+            text-align: center;
+        }
+        @include min(xxl) {
+            max-width: rem(980);
+        }
+
+        .breadcrumbs {
+            margin-bottom: rem(24);
+        }
+
+        &-uptitle {
+            display: inline-flex;
+			font-size: rem(12);
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.16em;
+            color: $iag-orange-500;
+            @include min(xxl) {
+                font-size: rem(16);
+            }
+        }
+
+        &-title {
+            font-size: rem(44);
+            color: $white;
+            @include min(xxl) {
+                font-size: rem(60);
+            }
+        }
+
+        &-subtitle {
+            font-size: rem(18);
+            line-height: 1.6;
+            color: rgba($white, 0.88);
+            max-width: rem(680);
+            @include min(xxl) {
+                font-size: rem(22);
+                max-width: rem(740);
+            }
+        }
+    }
+
+    &__share {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: rem(8);
+        margin-top: rem(24);
+        @include max(md) {
+            align-items: center;
+            justify-content: center;
+        }
+        @include min(xxl) {
+            margin-top: rem(32);
+        }
+
+        .share-label {
+            font-size: rem(14);
+            font-weight: 600;
+            color: rgba($white, 0.72);
+            @include min(xxl) {
+                font-size: rem(18);
+            }
+        }
+
+        .share-link {
+            width: rem(40);
+            height: rem(40);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: rem(8);
+            border: 1px solid $iag-gray-200;
+            background-color: $white;
+            transition: $default-transition;
+            @include min(xxl) {
+                width: rem(52);
+                height: rem(52);
+            }
+            &:hover {
+                background-color: $iag-navy-100;
+                border: 1px solid $iag-navy-100;
+            }
+
+            &__img {
+                width: rem(20);
+                height: rem(20);
+                @include min(xxl) {
+                    width: rem(28);
+                    height: rem(28);
+                }
+            }
+        }
+
+        .share-button {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: rem(8);
+            height: rem(40);
+            padding: rem(0 16);
+            margin-left: rem(24);
+            border-radius: rem(8);
+            border: 1px solid $iag-gray-200;
+            background: $white;
+            color: $iag-gray-700;
+            font-size: rem(14);
+            font-weight: 600;
+            cursor: pointer;
+            transition: $default-transition;
+            @include min(xxl) {
+                font-size: rem(18);
+                height: rem(52);
+            }
+            &:hover {
+                background-color: $iag-navy-100;
+                border: 1px solid $iag-navy-100;
+            }
+
+            &__message {
+                position: absolute;
+                right: calc(-100% - rem(12));
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 6px 10px;
+                white-space: nowrap;
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transition: $default-transition;
+                color: $iag-orange-500;
+            }
+
+            &.is-copied {
+                .share-button__message {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &:after {
+                position: absolute;
+                content: '';
+                left: rem(-18);
+                top: 50%;
+                transform: translateY(-50%);
+                height: rem(24);
+                width: rem(2);
+                background-color: rgba($white, 0.25);
+                @include min(xxl) {
+                    height: rem(28);
+                }
+            }
+
+            svg {
+                width: rem(16);
+                height: rem(16);
+                @include min(xxl) {
+                    width: rem(24);
+                    height: rem(24);
+                }
+            }
+        }
+    }
+
+    &__data {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin: rem(40 0 0);
+        padding: rem(0 0 24);
+        font-family: $font-alt;
+        font-size: rem(12);
+        letter-spacing: .02em;
+        font-weight: 600;
+        text-transform: uppercase;
+        
+        .label {
+            color: rgba($white, .75);
+        }
+
+        .data {
+            color: $iag-orange-400;
+        }
+
+        .data-posted {
+            margin-right: auto;
+        }
     }
 }
+ 

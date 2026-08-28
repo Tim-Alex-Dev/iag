@@ -57,7 +57,7 @@
             },
             "choices": {
                 "white": "White",
-                "grey": "Grey",
+                "gray": "Gray",
                 "blue": "Blue"
             },
             "default_value": "",
@@ -296,7 +296,7 @@
             "layout": "table",
             "pagination": 0,
             "min": 0,
-            "max": 0,
+            "max": 4,
             "collapsed": "",
             "button_label": "Add Button",
             "rows_per_page": 20,
@@ -400,5 +400,5 @@
             "json"
         ]
     },
-    "modified": 1785814592
+    "modified": 1787549072
 }

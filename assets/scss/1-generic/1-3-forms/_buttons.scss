@@ -24,16 +24,20 @@
 	// 	padding: rem(0 16);
 	// }
 
-	// @include min(xl) {
-	// 	font-size: rem(18);
-	// 	padding: rem(0 20);
-	// }
+	@include min(xxl) {
+		font-size: rem(20);
+		padding: rem(20 28);
+	}
 
 	svg {
 		flex-shrink: 0;
 		width: rem(16);
 		height: rem(16);
 		transition: none;
+		@include min(xxl) {
+			width: rem(24);
+			height: rem(24);
+		}
 	}
 
 	// &-lg {
@@ -75,14 +79,30 @@
 
 	&-ghost {
 		background-color: transparent;
-		border-color: $iag-navy-400;
-		color: $white;
+		
+		.bg-white &,
+		.bg-gray & {
+			border-color: $iag-gray-200;
+			color: $iag-gray-700;
 
-		&:hover,
-		&:focus,
-		&:active {
-			background-color: $iag-gray-100;
-			color: $iag-gray-900;
+			&:hover,
+			&:focus,
+			&:active {
+				background-color: $iag-gray-100;
+				color: $iag-gray-900;
+			}
+		}
+
+		.bg-blue & {
+			color: $iag-navy-200;
+			border-color: $iag-navy-600;
+
+			&:hover,
+			&:focus,
+			&:active {
+				background-color: $iag-navy-800;
+				color: $white;
+			}
 		}
 	}
 

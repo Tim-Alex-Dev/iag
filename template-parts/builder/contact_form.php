@@ -5,12 +5,13 @@ $module_title     = get_sub_field( 'module_title' ) ?? false;
 $module_alignment = get_sub_field( 'module_header_alignment' ) ?: 'left';
 $module_subtitle  = get_sub_field( 'module_subtitle' ) ?? false;
 $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
+$module_type      = get_sub_field( 'module_type' ) ?? false;
 $module_link      = get_sub_field( 'module_link' ) ?? false;
 $contact_form     = get_sub_field( 'contact_form' ) ?? false;
 ?>
 
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-cf bg-<?php echo esc_attr( $color_theme ); ?>">
+<section id="<?php echo esc_attr($module_id); ?>" class="module m-cf bg-<?php echo esc_attr( $color_theme ); ?> module-<?php echo esc_attr( $module_type ); ?>  ">
 	<div class="container">
         <div class="m-cf__content">
             <?php if ( $module_title || $module_subtitle || $module_uptitle ) : ?>

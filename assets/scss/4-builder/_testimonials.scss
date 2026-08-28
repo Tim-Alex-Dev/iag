@@ -8,15 +8,27 @@
         grid-template-columns: repeat(3, 1fr);
         gap: rem(16);
         margin-bottom: rem(24);
+        @include max(lg) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        @include max(md) {
+            margin-bottom: rem(40);
+        }
 
         .info-block {
-            background: $white;
-            border: 1px solid $iag-gray-200;
             border-radius: rem(8);
             padding: rem(24);
             display: flex;
             flex-direction: column;
             gap: rem(12);
+            @include max(lg) {
+                width: calc(50% - rem(16));
+            }
+            @include max(md) {
+                width: 100%;
+            }
 
             &__title {
                 display: flex;
@@ -27,43 +39,55 @@
                     font-weight: 800;
                     font-size: rem(40);
                     letter-spacing: -0.02em;
-                    color: $iag-orange-500;
                     line-height: 1;
+                    @include min(xxl) {
+                        font-size: rem(52);
+                    }
                 }
 
                 .title-secondary {
                     font-size: rem(14);
-                    color: $iag-gray-500;
+                    @include min(xxl) {
+                        font-size: rem(20);
+                    }
                 }
             }
 
             &__description {
                 font-size: rem(16);
-                color: $iag-gray-900;
                 line-height: 1.55;
+                @include min(xxl) {
+                    font-size: rem(20);
+                }
             }
 
             &__category {
                 font-family: $font-alt;
                 font-size: rem(12);
                 letter-spacing: 0.04em;
-                color: $iag-gray-500;
                 text-transform: uppercase;
                 margin-top: auto;
+                @include min(xxl) {
+                    font-size: rem(16);
+                }
             }
         }
     }
 
     &__list {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
         gap: rem(16);
+        @include max(xl) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include max(lg) {
+            display: flex;
+            flex-direction: column;
+        }
 
         .testimonial-block {
             padding: rem(24);
-            background-color: $iag-gray-50;
-            border: 1px solid $iag-gray-200;
-            border-left: 3px solid $iag-orange-500;
             border-radius: rem(8);
             display: flex;
             flex-direction: column;
@@ -72,9 +96,11 @@
             &__content {
                 font-size: rem(18);
                 line-height: 1.55;
-                color: $iag-gray-900;
                 margin: rem(0 0 16);
                 font-weight: 500;
+                @include min(xxl) {
+                    font-size: rem(24);
+                }
             }
 
             &__author {
@@ -82,11 +108,15 @@
                 align-items: center;
                 gap: rem(12);
                 font-size: rem(14);
-                color: $iag-gray-700;
+                @include min(xxl) {
+                    font-size: rem(18);
+                }
 
                 .author {
-                    color: $iag-gray-900;
                     font-weight: 600;
+                    @include min(xxl) {
+                        font-size: rem(18);
+                    }
                 }
 
                 .company {
@@ -100,10 +130,123 @@
                         border-radius: 50%;
                         width: rem(2);
                         height: rem(2);
-                        background-color: $iag-gray-700;
                     }
                 }
             }
         }
+    }
+}
+
+// Color Mode
+.m-testimonials {
+    &.bg-blue {
+        .m-testimonials {
+            &__info {
+                .info-block {
+                    background: $iag-navy-800;
+                    border: 1px solid $iag-navy-600;
+
+                    &__title {
+                        .title-primary {
+                            color: $white;
+                        }
+
+                        .title-secondary {
+                            color: $iag-navy-100;
+                        }
+                    }
+
+                    &__description {
+                        color: $iag-navy-200;
+                    }
+
+                    &__category {
+                        color: $iag-orange-500;
+                    }
+                }
+            }
+
+            &__list {
+                .testimonial-block {
+                    background-color: $iag-navy-800;
+                    border: 1px solid $iag-navy-600;
+                    border-left: 3px solid $iag-orange-500;
+
+                    &__content {
+                        color: $white;
+                    }
+
+                    &__author {
+                        color: $iag-orange-500;
+
+                        .author {
+                            color: $iag-navy-200;
+                        }
+
+                        .company {
+                            &::before {
+                                background-color: $iag-orange-500;
+                            }
+                        }
+                    }
+                }
+            }
+        } 
+    }
+
+    &.bg-white,
+    &.bg-gray {
+        .m-testimonials {
+            &__info {
+                .info-block {
+                    background: $white;
+                    border: 1px solid $iag-gray-200;
+
+                    &__title {
+                        .title-primary {
+                            color: $iag-orange-500;
+                        }
+
+                        .title-secondary {
+                            color: $iag-gray-500;
+                        }
+                    }
+
+                    &__description {
+                        color: $iag-gray-900;
+                    }
+
+                    &__category {
+                        color: $iag-gray-500;
+                    }
+                }
+            }
+
+            &__list {
+                .testimonial-block {
+                    background-color: $iag-gray-50;
+                    border: 1px solid $iag-gray-200;
+                    border-left: 3px solid $iag-orange-500;
+
+                    &__content {
+                        color: $iag-gray-900;
+                    }
+
+                    &__author {
+                        color: $iag-gray-700;
+
+                        .author {
+                            color: $iag-gray-900;
+                        }
+
+                        .company {
+                            &::before {
+                                background-color: $iag-gray-700;
+                            }
+                        }
+                    }
+                }
+            }
+        }        
     }
 }

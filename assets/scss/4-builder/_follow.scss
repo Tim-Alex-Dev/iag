@@ -4,22 +4,29 @@
         grid-template-columns: 1.5fr 1fr;
         gap: rem(48);
         align-items: center;
-        background: $iag-navy-700;
         border-radius: rem(12);
-        box-shadow: 0 16px 32px rgba(20, 22, 26, 0.10), 0 4px 8px rgba(20, 22, 26, 0.04);
         padding: rem(52);
+        @include max(lg) {
+            display: flex;
+            flex-direction: column;
+            padding: rem(40);
+        }
+        @include max(md) {
+            padding: rem(24);
+        }
 
         .module-header {
+            @include max(lg) {
+                align-items: center;
+                text-align: center;
+            }
             &__uptitle {
-                color: $iag-orange-300;
             }
 
             &__title {
-                color: $iag-orange-300;
             }
 
             &__subtitle {
-                color: $iag-navy-100;
             }
         }
 
@@ -39,10 +46,72 @@
             .content-subtitle {
                 font-family: $font-alt;
                 font-size: rem(12);
-                color: $iag-navy-200;
                 letter-spacing: 0.02em;
+                @include min(xxl) {
+                    font-size: rem(16);
+                }
             }
         }
+    }
+}
 
+// color theme
+.m-follow {
+    &.bg-blue {
+        .m-follow__inner {
+            background: $iag-navy-800;
+            border: 1px solid $iag-navy-600;
+            box-shadow: 0 16px 32px rgba($white, .15);
+
+
+            .module-header {
+                &__uptitle {
+                    color: $iag-orange-300;
+                }
+
+                &__title {
+                    color: $iag-orange-300;
+                }
+
+                &__subtitle {
+                    color: $iag-navy-100;
+                }
+            }
+
+            &-content {
+                .content-subtitle {
+                    color: $iag-navy-200;
+                }
+            }
+        }
+    }
+
+    &.bg-white,
+    &.bg-gray {
+        .m-follow__inner {
+            background: $iag-navy-700;
+            box-shadow: 0 16px 32px rgba(20, 22, 26, 0.10), 0 4px 8px rgba(20, 22, 26, 0.04);
+
+
+            .module-header {
+                &__uptitle {
+                    color: $iag-orange-300;
+                }
+
+                &__title {
+                    color: $iag-orange-300;
+                }
+
+                &__subtitle {
+                    color: $iag-navy-100;
+                }
+            }
+
+            &-content {
+                .content-subtitle {
+                    color: $iag-navy-200;
+                }
+            }
+        }
     }
 }

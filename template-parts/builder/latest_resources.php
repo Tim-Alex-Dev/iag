@@ -252,7 +252,7 @@ if ( $resource_id) {
                     $btn_text = get_sub_field( 'button_text' ) ?? false; ?>
 
                     <?php if ( $btn_text && $btn_url ) : ?>
-                        <a class="m-latest__buttons-button" href="<?php echo esc_url( $btn_url ); ?>" target="_blank">
+                        <a class="btn btn-ghost" href="<?php echo esc_url( $btn_url ); ?>" target="_blank">
                             <?php if ( $btn_icon ) : ?>
                                 <?php echo wp_get_attachment_image( $btn_icon, 'full', false, [ 'class' => 'icon' ] ); ?>
                             <?php endif; ?>

@@ -2,7 +2,6 @@
 	display: flex;
 	align-items: center;
 	min-height: calc(100vh - var(--header-height));
-	padding: var(--header-height) 0 0;
 	background-color: $bg-blue-light;
 	color: $white;
 
@@ -11,40 +10,47 @@
 	}
 
 	.container {
-		// display: grid;
-		// grid-template-columns: repeat(2, 1fr);
-		// align-items: center;
-		display: flex;
-		justify-content: space-between;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		align-items: center;
 		gap: rem(80);
+		@include max(lg) {
+			grid-template-columns: repeat(1, 1fr);
+			gap: rem(24);
+		} 
 	}
 
 	&__content {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		// max-width: rem(840);
 		width: 100%;
 		margin-left: auto;
-		// @include min(lg) {
-		// 	padding: rem(0 24 0 40);
-		// }
-		// @include min(xl) {
-		// 	padding: rem(0 32 0 60);
-		// }
-		// @include min(xxl) {
-		// 	padding: rem(0 40 0 80);
-		// }
 	}
 
 	.module-header {
 		gap: 0;
+		@include max(lg) {
+			justify-content: center;
+			align-items: center;
+		}
 
 		&__title {
 			font-size: clamp-rem(44, 64);
 			line-height: 1.04;
 			letter-spacing: -0.025em;
 			margin: rem(0 0 20);
+			color: $white;
+			@include max(lg) {
+				text-align: center;
+				padding: rem(0 80);
+			}
+			@include max(md) {
+				padding: 0;
+			}
+			@include min(xxl) {
+				font-size: rem(80);
+			}
 		}
 
 		&__subtitle {
@@ -53,6 +59,18 @@
 			color: $iag-navy-100;
 			margin: 0 0 rem(32);
 			max-width: rem(540);
+			@include max(lg) {
+				text-align: center;
+				padding: rem(0 120);
+				max-width: none;
+			}
+			@include max(md) {
+				padding: 0;
+			}
+			@include min(xxl) {
+				font-size: rem(24);
+				max-width: rem(680);
+			}
 		}
 	}
 
@@ -60,6 +78,16 @@
 		display: flex;
 		align-items: center;
 		gap: rem(12);
+		@include max(xl) {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.btn {
+			@include max(xl) {
+				width: 100%;
+			}
+		}
 	}
 
 	&__list {
@@ -67,6 +95,9 @@
 		display: flex;
 		flex-direction: column;
 		gap: rem(12);
+		@include max(xl) {
+			align-items: center;
+		}
 
 		&-item {
 			display: flex;
@@ -78,11 +109,18 @@
 				height: rem(16);
 				fill: none;
 				stroke: $green;
+				@include min(xxl) {
+					width: rem(24);
+					height: rem(24);
+				}
 			}
 
 			.list-item__text {
 				font-size: rem(14);
 				color: $iag-navy-200;
+				@include min(xxl) {
+					font-size: rem(20);
+				}
 			}
 		}
 	}
@@ -94,12 +132,31 @@
 		border-radius: rem(12);
 		background: linear-gradient(135deg, $bg-blue-light 0%, $bg-blue 100%);
 		box-shadow: 0 rem(16) rem(32) rgba(20, 22, 26, 0.10), 0 rem(4) rem(8) rgba(20, 22, 26, 0.04);
+		@include max(xl) {
+			width: rem(380);
+		}
+		@include max(lg) {
+			width: 100%;
+			max-width: rem(600);
+		}
+		@include min(xxl) {
+			width: rem(600);
+		}
 
 		&-wrapper {
-			width: rem(560);
 			display: flex;
 			justify-content: center;
 			flex-shrink: 0;
+			width: rem(560);
+			@include max(xl) {
+				width: rem(460);
+			}
+			@include max(lg) {
+				width: 100%;
+			}
+			@include min(xxl) {
+				width: rem(640);
+			}
 		}
 
 		&-inner {
@@ -122,10 +179,9 @@
 				font-size: rem(12);
 				color: $iag-navy-200;
 				letter-spacing: 0.04em;
-			}
-
-			.blocks-header__category {
-
+				@include min(xxl) {
+					font-size: rem(16);
+				}
 			}
 		}
 
@@ -141,13 +197,23 @@
 				position: relative;
 				border: 1px solid $iag-navy-600;
 				border-radius: rem(4);
+				&::after {
+					position: absolute;
+					content: '';
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: rem(40);
+					background: linear-gradient(0deg,rgba($black, .5) 25%, rgba($black, 0) 100%);
+					z-index: 2;
+				}
 
 				&__img {
 					position: absolute;
 					width: 100%;
 					height: 100%;
 					object-fit: cover;
-					opacity: .5;
+					z-index: 1;
 				}
 
 				&__title {
@@ -158,6 +224,10 @@
 					font-size: rem(10);
 					color: rgba($white, 0.7);
 					letter-spacing: 0.04em;
+					z-index: 3;
+					@include min(xxl) {
+						font-size: rem(16);
+					}
 				}
 			}
 		}
@@ -180,12 +250,18 @@
 					font-size: rem(10);
 					color: $iag-navy-200;
 					letter-spacing: 0.04em;
+					@include min(xxl) {
+						font-size: rem(14);
+					}
 				}
 
 				&__text {
 					font-size: rem(12);
 					font-weight: 600;
 					color: $white;
+					@include min(xxl) {
+						font-size: rem(16);
+					}
 
 					&.block-status {
 						color: $green_01;

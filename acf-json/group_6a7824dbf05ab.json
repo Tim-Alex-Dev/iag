@@ -57,7 +57,7 @@
             },
             "choices": {
                 "white": "White",
-                "grey": "Grey",
+                "gray": "Gray",
                 "blue": "Blue"
             },
             "default_value": "",
@@ -98,6 +98,30 @@
             "ui": 1,
             "bidirectional_target": [],
             "save_post_type": ""
+        },
+        {
+            "key": "field_6a8415380cf18",
+            "label": "Module Type",
+            "name": "module_type",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "regular": "Regular",
+                "hero": "Hero Type"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal"
         },
         {
             "key": "field_6a7824dc13a6a",
@@ -277,7 +301,15 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a8415380cf18",
+                        "operator": "==",
+                        "value": "regular"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "50",
                 "class": "",
@@ -348,7 +380,15 @@
             "type": "link",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a8415380cf18",
+                        "operator": "==",
+                        "value": "regular"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "50",
                 "class": "",
@@ -384,5 +424,5 @@
             "json"
         ]
     },
-    "modified": 1786313172
+    "modified": 1787570615
 }

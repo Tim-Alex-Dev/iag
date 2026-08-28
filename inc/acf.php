@@ -16,7 +16,24 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 global $ACFE_SECTION_BUILDERS;
 $ACFE_SECTION_BUILDERS = array(
 	// existing flexible content layouts:
-	//'hero',   // example
+	'hero',
+	'partnership',
+	'faq',
+	'counter',
+	'contact_form',
+	'follow',
+	'latest_resources',
+	'simple_blocks',
+	'testimonials',
+	'stars',
+	'banner',
+	'cta',
+	'simple_content',
+	'simple_slider',
+	'simple_table',
+	'cells',
+	'media',
+	'locations',
 );
 
 if ( $ACFE_SECTION_BUILDERS && count( $ACFE_SECTION_BUILDERS ) > 0 && is_admin() ) {

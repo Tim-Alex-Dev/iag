@@ -56,15 +56,15 @@ $extra_classes = $has_hero ? 'has-hero' : ''; // page with Hero requires extra h
 			]); ?>
 		</nav>
 		
-		<!-- <?php if ( $header_cta_text ) : ?>
-			<div class="btn btn-primary" id="header-cta-button">
+		<?php if ( $header_cta_text ) : ?>
+			<div class="btn btn-primary header-cta-button">
 				<?php echo esc_html( $header_cta_text ); ?>
 			</div>
-		<?php endif; ?> -->
+		<?php endif; ?>
 
 		<?php if ( $header_phone_number ) :
 			$tel = it_phone_cleaner($header_phone_number); ?>
-			<a class="btn btn-primary" href="tel:<?php echo esc_attr( $tel ); ?>" aria-label="<?php echo esc_attr( 'Call ' . $header_phone_number ); ?>">
+			<a class="btn btn-primary header-phone-button" href="tel:<?php echo esc_attr( $tel ); ?>" aria-label="<?php echo esc_attr( 'Call ' . $header_phone_number ); ?>">
 				<svg class="btn-icon"><use xlink:href="#phone"></use></svg>
 				<?php echo esc_html( $header_phone_number ); ?>
 			</a>

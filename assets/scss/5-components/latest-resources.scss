@@ -20,6 +20,9 @@
         display: grid;
         grid-template-columns: 1fr rem(480);
         gap: rem(40);
+        @include max(xl) {
+            grid-template-columns: repeat(1, 1fr);
+        }
     }
 
     &__main {
@@ -193,6 +196,9 @@
         position: relative;
         overflow: hidden;
         box-shadow: rgba(8, 16, 28, 0.4) 0px 14px 44px;
+        @include max(md) {
+            padding: rem(18);
+        }
 
         &-title {
             display: flex;
@@ -224,6 +230,9 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: rem(24);
+            @include max(lg) {
+                grid-template-columns: repeat(1, 1fr);
+            }
 
             .next-post {
                 display: flex;
@@ -298,12 +307,22 @@
                         display: flex;
                         align-items: center;
                         gap: rem(24);
+                        @include max(md) {
+                            flex-direction: column;
+                            gap: 0;
+                            align-items: flex-start;
+                        }
 
                         &__item {
                             position: relative;
                             font-family: $font-alt;
                             font-size: rem(12);
                             color: rgba($white, .6);
+                            @include max(md) {
+                                &::after {
+                                    display: none;
+                                }
+                            }
                             &:last-child {
                                 &::after {
                                     display: none;

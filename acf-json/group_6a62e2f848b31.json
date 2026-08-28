@@ -40,6 +40,31 @@
             "append": ""
         },
         {
+            "key": "field_6a8aecc5e3e66",
+            "label": "Color Theme",
+            "name": "color_theme",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "White",
+                "gray": "Gray",
+                "blue": "Blue"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal"
+        },
+        {
             "key": "field_6a62e31b16739",
             "label": "Counter List",
             "name": "counter_list",
@@ -57,7 +82,7 @@
             "layout": "table",
             "pagination": 0,
             "min": 0,
-            "max": 4,
+            "max": 3,
             "collapsed": "",
             "button_label": "Add Counter Item",
             "rows_per_page": 20,
@@ -146,10 +171,10 @@
         },
         {
             "key": "field_6a62ec3c507ff",
-            "label": "Slider",
-            "name": "slider",
+            "label": "Icons Type",
+            "name": "icons_type",
             "aria-label": "",
-            "type": "true_false",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -158,16 +183,21 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui_on_text": "On",
-            "ui_off_text": "Off",
-            "ui": 1
+            "choices": {
+                "slider": "Slider",
+                "gallery": "Gallery",
+                "no-icons": "No Icons"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal"
         },
         {
             "key": "field_6a62ec18507fe",
-            "label": "Slider Title",
-            "name": "slider_title",
+            "label": "Content Title",
+            "name": "content_title",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -177,7 +207,14 @@
                     {
                         "field": "field_6a62ec3c507ff",
                         "operator": "==",
-                        "value": "1"
+                        "value": "slider"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_6a62ec3c507ff",
+                        "operator": "==",
+                        "value": "gallery"
                     }
                 ]
             ],
@@ -188,14 +225,15 @@
             },
             "default_value": "",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "placeholder": "",
             "prepend": "",
             "append": ""
         },
         {
             "key": "field_6a62eda6c33db",
-            "label": "Slider List",
-            "name": "slider_list",
+            "label": "Icons List",
+            "name": "icons_list",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -205,7 +243,14 @@
                     {
                         "field": "field_6a62ec3c507ff",
                         "operator": "==",
-                        "value": "1"
+                        "value": "slider"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_6a62ec3c507ff",
+                        "operator": "==",
+                        "value": "gallery"
                     }
                 ]
             ],
@@ -225,8 +270,8 @@
             "sub_fields": [
                 {
                     "key": "field_6a62edb2c33dc",
-                    "label": "Slider Image",
-                    "name": "slider_image",
+                    "label": "Icon",
+                    "name": "icon",
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
@@ -248,13 +293,14 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "svg, webp",
+                    "allow_in_bindings": 1,
                     "preview_size": "thumbnail",
                     "parent_repeater": "field_6a62eda6c33db"
                 },
                 {
                     "key": "field_6a62edd4c33dd",
-                    "label": "Slider Title",
-                    "name": "slider_title",
+                    "label": "Icon Title",
+                    "name": "icon_title",
                     "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
@@ -268,6 +314,7 @@
                     "default_value": "",
                     "acfe_textarea_code": 0,
                     "maxlength": "",
+                    "allow_in_bindings": 1,
                     "rows": 2,
                     "placeholder": "",
                     "new_lines": "br",
@@ -294,10 +341,13 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
     "acfe": {
         "autosync": [
             "json"
         ]
     },
-    "modified": 1784868455
+    "modified": 1787489530
 }

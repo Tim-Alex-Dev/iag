@@ -8,6 +8,7 @@ jQuery(document).ready(function ($) {
 	 */
 	$('.icon-burger').on('click', function () {
 		$('body').toggleClass('is-menu-open');
+		// $('.menu-item').removeClass('active');
 	});
 
 	$('.main-menu li:not(.menu-item-has-children) > a').on('click', function () {

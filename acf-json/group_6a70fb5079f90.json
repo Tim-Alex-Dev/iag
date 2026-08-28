@@ -158,16 +158,9 @@
         ],
         [
             {
-                "param": "post_type",
+                "param": "page_template",
                 "operator": "==",
-                "value": "webinar"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "event"
+                "value": "template-parts\/system-page.php"
             }
         ]
     ],
@@ -188,5 +181,5 @@
             "json"
         ]
     },
-    "modified": 1785796123
+    "modified": 1786765076
 }

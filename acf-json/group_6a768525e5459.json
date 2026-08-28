@@ -116,7 +116,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "template-parts\/resources-page.php"
+                "value": "home.php"
             }
         ]
     ],
@@ -137,5 +137,5 @@
             "json"
         ]
     },
-    "modified": 1786153494
+    "modified": 1786766599
 }

@@ -1,28 +1,25 @@
 <?php
 $module_id        = get_sub_field( 'module_id' ) ?: '';
 $module_title     = get_sub_field( 'module_title' ) ?? false;
-$module_alignment = get_sub_field( 'module_header_alignment' ) ?: 'left';
 $module_subtitle  = get_sub_field( 'module_subtitle' ) ?? false;
 $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
 $primary_btn      = get_sub_field('primary_button') ?? false;
 $secondary_btn    = get_sub_field('secondary_button') ?? false;
-$content_type     = get_sub_field('hero_content_type') ? get_sub_field('hero_content_type') : 'banner';
-$module_banner 	  = $content_type === 'banner' ? get_sub_field('banner_image') : false;
-$blocks_title 	  = $content_type === 'blocks' ? get_sub_field('blocks_title') : false;
-$blocks_category  = $content_type === 'blocks' ? get_sub_field('blocks_category') : false;
-$blocks_subject   = $content_type === 'blocks' ? get_sub_field('blocks_subject') : false;
-$blocks_read 	  = $content_type === 'blocks' ? get_sub_field('blocks_read') : false;
-$blocks_status 	  = $content_type === 'blocks' ? get_sub_field('blocks_status') : false;
+$blocks_title 	  = get_sub_field('blocks_title') ?? false;
+$blocks_category  = get_sub_field('blocks_category') ?? false;
+$blocks_subject   = get_sub_field('blocks_subject') ?? false;
+$blocks_read 	  = get_sub_field('blocks_read') ?? false;
+$blocks_status 	  = get_sub_field('blocks_status') ?? false;
 ?>
 
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-hero bg-blue">
+<section id="<?php echo esc_attr($module_id); ?>" class="module m-hero">
 	<div class="container">
 		<?php if ( $module_title || $module_subtitle ) : ?>
 			<div class="m-hero__content">
-				<div class="module-header alignment-<?php echo esc_attr( $module_alignment ); ?>">
+				<div class="module-header">
 					<?php if ( $module_title ) : ?>  
-						<?php get_template_part( 'template-parts/builder/components/title', null ); ?>
+						<h1 class="h1 module-header__title"> <?php echo esc_html( $module_title ); ?></h1>
 					<?php endif; ?>
 					<?php if ( $module_subtitle ) : ?>
 						<p class="module-header__subtitle">
@@ -32,7 +29,7 @@ $blocks_status 	  = $content_type === 'blocks' ? get_sub_field('blocks_status') 
 				</div>
 				
 				<?php if ( $primary_btn || $secondary_btn ) : ?>
-					<div class="m-hero__buttons btn-group-<?php echo esc_html( $module_title_alignment ); ?>">
+					<div class="m-hero__buttons">
 						<?php if ( $primary_btn ) :
 							$link_url = $primary_btn['url'];
 							$link_title = $primary_btn['title'];
@@ -75,89 +72,81 @@ $blocks_status 	  = $content_type === 'blocks' ? get_sub_field('blocks_status') 
 				<?php endif; ?>			
 			</div>
 	
-			<?php if ( $content_type === "banner" && $module_banner ) : ?>
-				<div class="m-hero__banner">
-					<?php echo wp_get_attachment_image( $module_banner, 'full', false, [ 'class' => 'm-hero__banner-image' ] ); ?>
-				</div>
-			<?php endif; ?>
+			<div class="m-hero__blocks-wrapper">
+				<div class="m-hero__blocks">
+					<div class="m-hero__blocks-inner">
+						<?php if ( $blocks_title || $blocks_category ) : ?>
+							<div class="m-hero__blocks-header">
+								<?php if ( $blocks_title ) : ?>
+									<span class="blocks-header__title">
+										<?php echo esc_html( $blocks_title ); ?>
+									</span>
+								<?php endif; ?>
+								<?php if ( $blocks_category ) : ?>
+									<span class="chip chip-primary">
+										<?php echo esc_html( $blocks_category ); ?>
+									</span>
+								<?php endif; ?>
+							</div>
+						<?php endif; ?>
 	
-			<?php if ( $content_type === "blocks" ) : ?>
-				<div class="m-hero__blocks-wrapper">
-					<div class="m-hero__blocks">
-						<div class="m-hero__blocks-inner">
-							<?php if ( $blocks_title || $blocks_category ) : ?>
-								<div class="m-hero__blocks-header">
-									<?php if ( $blocks_title ) : ?>
-										<span class="blocks-header__title">
-											<?php echo esc_html( $blocks_title ); ?>
+						<?php if ( have_rows( 'blocks_images' ) ) : ?>
+							<div class="m-hero__blocks-images">
+								<?php while ( have_rows( 'blocks_images' ) ) : the_row();
+									$image = get_sub_field( 'image' ) ?? false;
+									$title = get_sub_field( 'image_title' ) ?? false; ?>
+	
+									<?php if ( $image ) : ?>
+										<div class="image-block">
+											<?php echo wp_get_attachment_image( $image, 'medium', false, [ 'class' => 'image-block__img' ] ); ?>
+											<?php if ( $title ) : ?>
+												<span class="image-block__title">
+													<?php echo esc_html( $title ); ?>
+												</span>
+											<?php endif; ?>
+										</div>
+									<?php endif; ?>
+								<?php endwhile; ?>
+							</div>
+						<?php endif; ?>
+	
+						<?php if ( $blocks_subject || $blocks_read || $blocks_status ) : ?>
+							<div class="m-hero__blocks-footer">
+								<?php if ( $blocks_subject ) : ?>
+									<div class="footer-block">
+										<span class="footer-block__label">
+											<?php echo _e( 'Subject', '_iag' ); ?>
 										</span>
-									<?php endif; ?>
-									<?php if ( $blocks_category ) : ?>
-										<span class="chip chip-primary">
-											<?php echo esc_html( $blocks_category ); ?>
+										<span class="footer-block__text">
+											<?php echo esc_html( $blocks_subject ); ?>
 										</span>
-									<?php endif; ?>
-								</div>
-							<?php endif; ?>
-		
-							<?php if ( have_rows( 'blocks_images' ) ) : ?>
-								<div class="m-hero__blocks-images">
-									<?php while ( have_rows( 'blocks_images' ) ) : the_row();
-										$image = get_sub_field( 'image' ) ?? false;
-										$title = get_sub_field( 'image_title' ) ?? false; ?>
-		
-										<?php if ( $image ) : ?>
-											<div class="image-block">
-												<?php echo wp_get_attachment_image( $image, 'medium', false, [ 'class' => 'image-block__img' ] ); ?>
-												<?php if ( $title ) : ?>
-													<span class="image-block__title">
-														<?php echo esc_html( $title ); ?>
-													</span>
-												<?php endif; ?>
-											</div>
-										<?php endif; ?>
-									<?php endwhile; ?>
-								</div>
-							<?php endif; ?>
-		
-							<?php if ( $blocks_subject || $blocks_read || $blocks_status ) : ?>
-								<div class="m-hero__blocks-footer">
-									<?php if ( $blocks_subject ) : ?>
-										<div class="footer-block">
-											<span class="footer-block__label">
-												<?php echo _e( 'Subject', '_iag' ); ?>
-											</span>
-											<span class="footer-block__text">
-												<?php echo esc_html( $blocks_subject ); ?>
-											</span>
-										</div>
-									<?php endif; ?>
-									<?php if ( $blocks_read ) : ?>
-										<div class="footer-block">
-											<span class="footer-block__label">
-												<?php echo _e( 'Read', '_iag' ); ?>
-											</span>
-											<span class="footer-block__text">
-												<?php echo esc_html( $blocks_read ); ?>
-											</span>
-										</div>
-									<?php endif; ?>
-									<?php if ( $blocks_status ) : ?>
-										<div class="footer-block">
-											<span class="footer-block__label">
-												<?php echo _e( 'Status', '_iag' ); ?>
-											</span>
-											<span class="footer-block__text block-status">
-												<?php echo esc_html( $blocks_status ); ?>
-											</span>
-										</div>
-									<?php endif; ?>
-								</div>
-							<?php endif; ?>
-						</div>
+									</div>
+								<?php endif; ?>
+								<?php if ( $blocks_read ) : ?>
+									<div class="footer-block">
+										<span class="footer-block__label">
+											<?php echo _e( 'Read', '_iag' ); ?>
+										</span>
+										<span class="footer-block__text">
+											<?php echo esc_html( $blocks_read ); ?>
+										</span>
+									</div>
+								<?php endif; ?>
+								<?php if ( $blocks_status ) : ?>
+									<div class="footer-block">
+										<span class="footer-block__label">
+											<?php echo _e( 'Status', '_iag' ); ?>
+										</span>
+										<span class="footer-block__text block-status">
+											<?php echo esc_html( $blocks_status ); ?>
+										</span>
+									</div>
+								<?php endif; ?>
+							</div>
+						<?php endif; ?>
 					</div>
 				</div>
-			<?php endif; ?>
+			</div>
 		<?php endif; ?>
 	</div>
 </section>

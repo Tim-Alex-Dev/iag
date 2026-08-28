@@ -1,5 +1,4 @@
 .leadership {
-    padding-top: var(--header-height);
     background-color: $iag-navy-700;
 
     &-main {
@@ -12,6 +11,11 @@
             padding: rem(24);
             border-radius: rem(12);
             background-color: $iag-gray-300;
+            width: fit-content;
+            @include max(lg) {
+                width: 100%;
+                flex-direction: column;
+            }
         }
 
         &__photo {
@@ -35,25 +39,37 @@
         &__data {
             display: flex;
             flex-direction: column;
-            
+            gap: rem(12);
+
             &-uptitle {
-
+                margin: 0;
             }
-
+            
             &-title {
                 display: block;
                 width: fit-content;
                 font-size: rem(44);
                 font-weight: 700;
                 letter-spacing: -.02em;
-                margin: rem(0 0 6);
             }
+
+            &-position {
+                color: $iag-orange-500;
+                font-weight: 600;
+                font-size: rem(22);
+                line-height: 1.25;
+            }
+
 
             &-subtitle {
                 font-size: rem(18);
                 color: $iag-gray-900;
                 font-weight: 500;
                 margin: rem(0 0 18);
+            }
+
+            &-button {
+                margin: auto 0 auto 0;
             }
         }
     }
@@ -139,8 +155,13 @@
 
     &-contact {
         padding: rem(40);
+
+        .contact-form__header {
+            margin-bottom: rem(40);
+        }
+        
         &__form {
-            padding: rem(40);
+            padding: rem(40 80);
             border-radius: rem(12);
             border: 1px solid $white-border;
         }

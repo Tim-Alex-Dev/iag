@@ -3,33 +3,64 @@
     &__repeater {
         display: flex;
         flex-direction: column;
-        gap: rem(40);
+        gap: rem(24);
         margin-top: rem(40);
     }
 
     &__list {
         display: grid;
         gap: rem(16);
+        &:first-of-type {
+            border: none !important;
+            padding: 0 !important;
+        }
 
         &.grid-col-3 {
             grid-template-columns: repeat(3, 1fr);
+            @include max(xl) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @include max(md) {
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
 
         &.grid-col-4 {
             grid-template-columns: repeat(4, 1fr);
+            @include max(xl) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @include max(md) {
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
 
         &.grid-col-5 {
             grid-template-columns: repeat(5, 1fr);
+            @include max(xl) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            @include max(lg) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @include max(md) {
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
 
         &.is-follow {
             gap: rem(40);
+            @include max(xl) {
+                gap: rem(24);
+            }
+            @include max(md) {
+                gap: rem(32);
+            }
             
             .simple-block {
                 padding: rem(20);
                 position: relative;
-                &:first-child {
+                &:last-child {
                     &::after {
                         display: none;
                     }
@@ -39,17 +70,24 @@
                     content: '';
                     width: rem(24);
                     height: rem(24);
-                    left: rem(-32);
+                    right: rem(-32);
                     top: 50%;
                     transform: translateY(-50%);
                     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' data-dc-tpl='337' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%23EE7335' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline data-dc-tpl='338' points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");                
+                    @include max(xl) {
+                        right: rem(-24);
+                    }
+                    @include max(md) {
+                        right: unset;
+                        left: 50%;
+                        top: calc(100% + rem(6));
+                        transform: translateX(-50%) rotate(90deg);
+                    }
                 }
             }
         }
 
         .simple-block {
-            background: $white;
-            border: 1px solid $iag-gray-200;
             border-radius: rem(8);
             padding: rem(24);
             display: flex;
@@ -66,6 +104,9 @@
                     font-weight: 700;
                     letter-spacing: 0.08em;
                     color: $iag-orange-500;
+                    @include min(xxl) {
+                        font-size: rem(16);
+                    }
                 }
 
                 &-uptitle {
@@ -77,6 +118,10 @@
                     background-color: $iag-navy-50;
                     color: $iag-navy-600;
                     margin-left: auto;
+                    @include min(xxl) {
+                        font-size: rem(16);
+                        padding: rem(8 14);
+                    }
                 }
 
                 &-icon {
@@ -105,19 +150,26 @@
                     font-size: rem(12);
                     color: $iag-orange-400;
                     letter-spacing: 0.06em;
+                    @include min(xxl) {
+                        font-size: rem(16);
+                    }
                 }
 
                 &-title {
                     font-size: rem(18);
                     font-weight: 600;
-                    color: $iag-gray-900;
                     line-height: 1.3;
+                    @include min(xxl) {
+                        font-size: rem(22);
+                    }
                 }
 
                 &-subtitle {
                     font-size: rem(14);
-                    color: $iag-gray-700;
                     line-height: 1.6;
+                    @include min(xxl) {
+                        font-size: rem(18);
+                    }
                 }
             }
 
@@ -131,6 +183,11 @@
 // Color Mode
 .m-simple-blocks {
     &.bg-blue {
+        .m-simple-blocks__list {
+            padding-top: rem(24);
+            border-top: 1px solid $iag-navy-600;
+        }
+
         .simple-block {
             background: $iag-navy-800;
             border: 1px solid $iag-navy-600;
@@ -147,7 +204,30 @@
                 color: $iag-navy-200;
             }
         } 
-        
     }
 
+    &.bg-white,
+    &.bg-gray {
+        .m-simple-blocks__list {
+            padding-top: rem(24);
+            border-top: 1px solid $iag-gray-200;
+        }
+
+        .simple-block {            
+            background: $white;
+            border: 1px solid $iag-gray-200;
+
+            &__header-icon {
+                background-color: $iag-orange-50;
+            }
+
+            &__body-title {
+                color: $iag-gray-900;
+            }
+
+            &__body-subtitle {
+                color: $iag-gray-700;
+            }
+        }         
+    }
 }

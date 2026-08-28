@@ -120,5 +120,11 @@ $video_duration     = $video_metadata ? $video_metadata['length_formatted'] : fa
                 <video class="m-media__video right" src="<?php echo esc_url( $media_video ); ?>" controls></video>
             <?php endif; ?>
         <?php endif; ?>
+
+        <?php if ( $media_type === 'embed' && $media_embed ) : ?>
+            <div class="m-media__embed right">
+                <?php echo $media_embed; ?>
+            </div>
+        <?php endif; ?>
 	</div>
 </section>

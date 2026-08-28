@@ -10,8 +10,10 @@ $leader_id = get_the_ID();
 
 $leader_photo       = get_field( 'leadership_photo', $leader_id ) ?? false;
 $leader_name        = get_field( 'leadership_name', $leader_id ) ?? false;
+$leader_position    = get_field( 'leadership_position', $leader_id ) ?? false;
 $leader_description = get_field( 'leadership_description', $leader_id ) ?? false;
 $leader_button      = get_field( 'leadership_button', $leader_id ) ?? false;
+$leader_cf          = get_field( 'leadership_contact_form', $leader_id ) ?? false;
 $leader_cf_title    = get_field( 'contact_form_title', $leader_id ) ?? false;
 $leader_cf_subtitle = get_field( 'contact_form_subtitle', $leader_id ) ?? false;
 ?>
@@ -37,21 +39,21 @@ $leader_cf_subtitle = get_field( 'contact_form_subtitle', $leader_id ) ?? false;
                             <?php echo esc_html( $leader_name ); ?>
                         </h1>
 
+                        <?php if ( $leader_position ) : ?>
+                            <span class="leadership-main__data-position">
+                                <?php echo esc_html( $leader_position ); ?>
+                            </span>
+                        <?php endif; ?>
+
                         <?php if ( $leader_description ) : ?>
                             <span class="leadership-main__data-subtitle">
                                 <?php echo esc_html( $leader_description ); ?>
                             </span>
                         <?php endif; ?>
-
-                        <?php if ( $leader_button ) : 
-                            $link_url    = $leader_button['url'];
-                            $link_title  = $leader_button['title'];
-                            $link_target = $leader_button['target'] ? $leader_button['target'] : '_self'; ?>
-        
-                            <a class="btn btn-primary" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
-                                <?php echo esc_html( $link_title ); ?>
-                            </a>
-                        <?php endif; ?>
+    
+                        <a class="btn btn-primary leadership-main__data-button" href="#leadership-contact">
+                            <?php echo esc_html( $leader_cf_title ); ?>
+                        </a>
                     </div>
                 <?php endif; ?>
             </div>
@@ -83,11 +85,14 @@ $leader_cf_subtitle = get_field( 'contact_form_subtitle', $leader_id ) ?? false;
         </div>
     <?php endif; ?>
 
-    <?php if ( $leader_cf_title || $leader_cf_subtitle ) : ?>
+    <?php if ( $leader_cf && ( $leader_cf_title || $leader_cf_subtitle ) ) :
+        $id    = $leader_cf->ID ?? false;
+        $title = get_the_title( $leader_cf->ID ) ?? false; ?>
+
         <div class="leadership-contact bg-gray" id="leadership-contact">
             <div class="container">
                 <div class="leadership-contact__form bg-blue">
-                    <div class="form__header">
+                    <div class="contact-form__header">
                         <span class="eyebrow">
                             <?php echo _e( 'Get in touch', '_iag' ); ?>
                         </span>
@@ -98,6 +103,12 @@ $leader_cf_subtitle = get_field( 'contact_form_subtitle', $leader_id ) ?? false;
                             <?php echo esc_html( $leader_cf_subtitle ); ?>
                         </span>
                     </div>
+
+                    <?php if ( $id && $title ) : ?>
+                        <div class="contact-form__wrapper">
+                            <?php echo do_shortcode( '[contact-form-7 id="'.$id.'" title="'.$title.'"]' ); ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

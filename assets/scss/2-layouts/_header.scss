@@ -1,12 +1,15 @@
 .site-header {
 	width: 100%;
 	height: var(--header-height);
-	background-color: $secondary;
+	padding: rem(12 0);
+	background-color: $iag-navy-800;
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 100;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 	transition: background-color $time, height $time;
+	// display: none;
 
 	.has-hero:not(.is-scrolled) & {
 		background-color: transparent;
@@ -23,13 +26,45 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
-		gap: rem(30);
-		border-bottom: 1px solid rgba( $white-border, .1);
+		gap: rem(12);
+		min-width: fit-content;
+		@include max(lg) {
+			gap: rem(24);
+		}
 	}
 
 	.site-logo {
 		margin-right: auto;
 		z-index: 3;
+	}
+
+	.header-cta-button {
+		@include max(xl) {
+			display: none;
+		}
+		@include min(xxl) {
+			padding: rem(14 20);
+			height: rem(50);
+		}
+	}
+
+	.header-phone-button {
+		@include max(xl) {
+			font-size: 0;
+			width: rem(48);
+			height: rem(48);
+			border-radius: 50%;
+
+			.btn-icon {
+				width: rem(24);
+				height: rem(24);
+				margin-right: rem(-8);
+			}
+		}
+		@include min(xxl) {
+			padding: rem(14 20);
+			height: rem(50);
+		}
 	}
 }
 
@@ -41,7 +76,7 @@
 
 	img {
 		width: auto;
-		height: rem(50);
+		height: rem(40);
 	}
 }
 

@@ -8,13 +8,16 @@
  *
  * @package _iag
  */
-$logo          	      = get_field( 'footer_logo', 'option' ) ?? false;
-$enable_top_menu      = get_field( 'enable_footer_top_menu', 'option' ) ?? false;
-$enable_bottom_menu   = get_field( 'enable_footer_bottom_menu', 'option' ) ?? false;
-$enable_contacts_menu = get_field( 'enable_footer_contacts_menu', 'option' ) ?? false;
+$logo          	        = get_field( 'footer_logo', 'option' ) ?? false;
+$logo_description 	    = get_field( 'footer_logo_description', 'option' ) ?? false;
+$enable_top_menu        = get_field( 'enable_footer_top_menu', 'option' ) ?? false;
+$enable_footer_column_1 = get_field( 'enable_footer_column_1_menu', 'option' ) ?? false;
+$enable_footer_column_2 = get_field( 'enable_footer_column_2_menu', 'option' ) ?? false;
+$enable_footer_column_3 = get_field( 'enable_footer_column_3_menu', 'option' ) ?? false;
+$enable_footer_contacts = get_field( 'enable_footer_contacts_menu', 'option' ) ?? false;
 ?>
 
-</main><!-- /.site-content -->
+</main>
 
 <footer class="site-footer">
 	<div class="container">
@@ -26,59 +29,85 @@ $enable_contacts_menu = get_field( 'enable_footer_contacts_menu', 'option' ) ?? 
 			'fallback_cb'     => false
 		) ); ?>
 		<?php endif; ?>
-		<div class="site-footer__middle">
-			<div class="row">
-				<?php if ( $logo ) : ?>
-					<div class="col-4">
-						<a href="<?php echo home_url(); ?>" class="site-footer__logo" rel="home">
-							<?php echo wp_get_attachment_image( $logo, 'full' ); ?>
-						</a>
-						<?php get_template_part( 'template-parts/socials' ); ?>
-					</div>
+		<div class="site-footer__content">
+			<?php if ( $logo ) : ?>
+				<div class="site-footer__content-logo">
+					<a href="<?php echo home_url(); ?>" class="site-footer__logo" rel="home">
+						<?php echo wp_get_attachment_image( $logo, 'full' ); ?>
+					</a>
+					<?php if ( $logo_description ) : ?>
+						<span class="site-footer__content-logo__description">
+							<?php echo esc_html( $logo_description ); ?>
+						</span>
+					<?php endif; ?>
+					<?php get_template_part( 'template-parts/socials' ); ?>
+				</div>
+			<?php endif; ?>
+			<div class="site-footer__content-menus">
+				<?php if ( $enable_footer_column_1 ) : ?>
+					<?php wp_nav_menu( array(
+						'theme_location'  => 'footer-column-1',
+						'container_class' => 'footer-menu',
+						'menu_class'      => 'footer-menu__links',
+						'fallback_cb'     => false
+					) ); ?>
 				<?php endif; ?>
-
-				<?php if ( $enable_contacts_menu && have_rows( 'contacts_list', 'option' ) ) : ?>
-					<div class="col-4">
-						<div class="site-footer__contacts">
+				<?php if ( $enable_footer_column_2 ) : ?>
+					<?php wp_nav_menu( array(
+						'theme_location'  => 'footer-column-2',
+						'container_class' => 'footer-menu',
+						'menu_class'      => 'footer-menu__links',
+						'fallback_cb'     => false
+					) ); ?>
+				<?php endif; ?>
+				<?php if ( $enable_footer_column_3 ) : ?>
+					<?php wp_nav_menu( array(
+						'theme_location'  => 'footer-column-3',
+						'container_class' => 'footer-menu',
+						'menu_class'      => 'footer-menu__links',
+						'fallback_cb'     => false
+					) ); ?>
+				<?php endif; ?>
+				<?php if ( $enable_footer_contacts && have_rows( 'contacts_list', 'option' ) ) : ?>
+					<div class="footer-menu footer-menu__contacts">
+						<div class="footer-menu__links">
+							<div class="menu-item column-title">
+								<a href="#" target='_blank'>
+									<?php echo _e( 'Contacts', '_iag' ); ?>
+								</a>
+							</div>
+	
 							<?php while ( have_rows( 'contacts_list', 'option' ) ) : the_row();
 								$type 		  = get_sub_field( 'contact_type' ) ?? false;
 								$phone 		  = $type == 'phone' ? get_sub_field( 'phone' ) : false;
 								$email 		  = $type == 'email' ? get_sub_field( 'email' ) : false;
 								$address 	  = $type == 'address' ? get_sub_field( 'address_title' ) : false;
 								$address_url  = $type == 'address' ? get_sub_field( 'address_url' ) : false; ?>
-
-								<?php if ( $type == 'phone' && $phone ) : ?>
+		
+								<?php if ( $type === 'phone' && $phone ) : ?>
 									<?php $clean_phone = it_phone_cleaner( $phone ); ?>
-									<a class="contact-link" href="tel:<?php echo $clean_phone; ?>">
-										<svg class="svg-icon"><use xlink:href="#<?php echo $type; ?>"></use></svg>
-										<?php echo esc_html( $phone ); ?>
-									</a>
+									<div class="menu-item">
+										<a class="contact-link" href="tel:<?php echo $clean_phone; ?>">
+											<?php echo esc_html( $phone ); ?>
+										</a>
+									</div>
 								<?php endif; ?>
-								<?php if ( $type == 'email' && $email ) : ?>
-									<a class="contact-link" href="mailto:<?php echo esc_attr( $email ); ?>">
-										<svg class="svg-icon"><use xlink:href="#<?php echo $type; ?>"></use></svg>
-										<?php echo esc_html( $email ); ?>
-									</a>
+								<?php if ( $type === 'email' && $email ) : ?>
+									<div class="menu-item">
+										<a class="contact-link" href="mailto:<?php echo esc_attr( $email ); ?>">
+											<?php echo esc_html( $email ); ?>
+										</a>
+									</div>
 								<?php endif; ?>
-								<?php if ( $type == 'address' && $address && $address_url ) : ?>
-									<a class="contact-link" href="<?php echo esc_attr( $address_url ); ?>">
-										<svg class="svg-icon"><use xlink:href="#<?php echo $type; ?>"></use></svg>
-										<?php echo esc_html( $address ); ?>
-									</a>
+								<?php if ( $type === 'address' && $address && $address_url ) : ?>
+									<div class="menu-item">
+										<a class="contact-link" href="<?php echo esc_attr( $address_url ); ?>">
+											<?php echo esc_html( $address ); ?>
+										</a>
+									</div>
 								<?php endif; ?>
 							<?php endwhile; ?>
 						</div>
-					</div>
-				<?php endif; ?>
-
-				<?php if ( $enable_bottom_menu ) : ?>
-					<div class="col-4">
-						<?php wp_nav_menu( array(
-							'theme_location'  => 'footer-bottom',
-							'container_class' => 'site-footer__menu',
-							'menu_class'      => 'footer-links',
-							'fallback_cb'     => false
-						) ); ?>
 					</div>
 				<?php endif; ?>
 			</div>

@@ -54,7 +54,9 @@ if ( ! function_exists( 'it_setup' ) ) :
 		register_nav_menus( [
 			'main'   		   => esc_html__( 'Main Nav', '_iag' ),
 			'footer-top'       => esc_html__( 'Footer Top Nav', '_iag' ),
-			'footer-bottom'    => esc_html__( 'Footer Bottom Nav', '_iag' ),
+			'footer-column-1'  => esc_html__( 'Footer Column 1', '_iag' ),
+			'footer-column-2'  => esc_html__( 'Footer Column 2', '_iag' ),
+			'footer-column-3'  => esc_html__( 'Footer Column 3', '_iag' ),
 			'footer-copyright' => esc_html__( 'Footer Copyright', '_iag' ),
 		] );
 

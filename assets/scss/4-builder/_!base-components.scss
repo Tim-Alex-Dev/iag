@@ -1,11 +1,22 @@
 // Base blocks
 .module {
 	padding: rem(80 0);
+	@include max(lg) {
+		padding: rem(60 0);
+	}
+	@include max(md) {
+		padding: rem(40 0);
+	}
 
 	&-header {
 		display: flex;
 		flex-direction: column;
 		gap: rem(12);
+		@include max(md) {
+			align-items: center !important;
+			justify-content: center !important;
+			text-align: center !important;
+		}
 
 		&.alignment {
 			&-left {
@@ -28,6 +39,9 @@
 			font-weight: 700;
 			text-transform: uppercase;
 			letter-spacing: 0.16em;
+			@include min(xxl) {
+				font-size: rem(16);
+			}
 			.bg-blue & {
 				color: $iag-orange-300;
 			}
@@ -42,6 +56,13 @@
 		&__title {
 			font-size: clamp-rem(32, 44);
 			max-width: rem(760);
+			@include max(md) {
+				max-width: none;
+			}
+			@include min(xxl) {
+				font-size: rem(52);
+				max-width: rem(900);
+			}
 			.bg-blue & {
 				color: $white;
 			}
@@ -62,6 +83,13 @@
 			font-size: rem(18);
 			font-weight: 300;
 			max-width: rem(640);
+			@include max(md) {
+				max-width: none;
+			}
+			@include min(xxl) {
+				font-size: rem(24);
+				max-width: rem(800);
+			}
 			.bg-blue & {
 				color: $iag-navy-100;
 			}
@@ -93,12 +121,10 @@
     font-size: rem(12);
     font-weight: 600;
     letter-spacing: 0.04em;
-
-	&-lg {
-		@include min(xl) {
-			font-size: rem(16);
-			padding: rem(8 16);
-		}
+	text-align: center;
+	@include min(xxl) {
+		padding: rem(8 16);
+		font-size: rem(16);
 	}
 
 	&-primary {
@@ -112,27 +138,27 @@
 
 }
 
-.eyebrow {
-	display: inline-flex;
-	font-size: rem(12);
-    font-weight: 700;
-    color: $iag-orange-500;
-    margin: rem(0 0 12);
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-}
+// .eyebrow {
+// 	display: inline-flex;
+// 	font-size: rem(12);
+//     font-weight: 700;
+//     color: $iag-orange-500;
+//     margin: rem(0 0 12);
+//     text-transform: uppercase;
+//     letter-spacing: 0.16em;
+// }
 
-.subtitle {
-	display: inline-flex;
-	font-size: rem(18);
-	font-weight: 300;
-    color: $iag-gray-700;
-    margin: rem(12 0 0);
+// .subtitle {
+// 	display: inline-flex;
+// 	font-size: rem(18);
+// 	font-weight: 300;
+//     color: $iag-gray-700;
+//     margin: rem(12 0 0);
 
-	.bg-blue & {
-		color: $white;
-	}
-}
+// 	.bg-blue & {
+// 		color: $white;
+// 	}
+// }
 
 
 // Subtitle

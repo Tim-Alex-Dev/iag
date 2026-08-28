@@ -110,38 +110,44 @@ $expert_categories = array(
                     <div class="expert-main__photo">
                         <?php echo wp_get_attachment_image( $expert_photo, 'full', false, [ 'class' => 'expert-main__photo-img' ]); ?>
                     </div>
-                    <?php endif; ?>
+                <?php endif; ?>
                 <?php if ( $expert_name ) : ?>
                     <div class="expert-main__data">
-                        <div class="expert-main__title">
-                            <h1 class="h1 expert-main__title-name">
-                                <?php echo $expert_name; ?>
-                                <?php if ( $expert_degrees ) : ?>
-                                    <span class="expert-main__title-degree">
-                                        <?php echo $expert_degrees; ?>
-                                    </span>
+                        <div class="expert-main__data-header">
+                            <div class="expert-main__data-photo">
+                                <?php echo wp_get_attachment_image( $expert_photo, 'medium', false, [ 'class' => 'expert-main__data-photo-img' ]); ?>
+                            </div>
+                            <div class="expert-main__data-info">
+                                <div class="expert-main__title">
+                                    <h1 class="h1 expert-main__title-name">
+                                        <?php echo $expert_name; ?>
+                                        <?php if ( $expert_degrees ) : ?>
+                                            <span class="expert-main__title-degree">
+                                                <?php echo $expert_degrees; ?>
+                                            </span>
+                                        <?php endif; ?>
+                                    </h1>
+                                </div>
+                                <?php if ( $expert_subtitle ) : ?>
+                                    <p class="expert-main__subtitle">
+                                        <?php echo $expert_subtitle; ?>
+                                    </p>
                                 <?php endif; ?>
-                            </h1>
+                            </div>
                         </div>
-                        <?php if ( $expert_subtitle ) : ?>
-                            <p class="expert-main__subtitle">
-                                <?php echo $expert_subtitle; ?>
-                            </p>
-                        <?php endif; ?>
-
                         <div class="expert-main__categories">
                             <?php foreach ( $expert_categories as $group ) :
                                 $terms = get_the_terms( $expert_id, $group['taxonomy'] );
-
+    
                                 if ( empty( $terms ) || is_wp_error( $terms ) ) {
                                     continue;
                                 } ?>
-
+    
                                 <div class="expert-main__categories-group">
                                     <span class="category-title">
                                         <?php echo esc_html( $group['title'] ); ?>
                                     </span>
-
+    
                                     <div class="category-list">
                                         <?php foreach ( $terms as $term ) : ?>
                                             <span class="category-list__item chip chip-lg chip-secondary">
@@ -152,7 +158,7 @@ $expert_categories = array(
                                 </div>
                             <?php endforeach; ?>
                         </div>
-
+    
                         <a class="expert-main__btn btn btn-primary" href="#expert-contact" target="_self">
                             <?php echo _e( 'Talk to this expert', '_iag' ); ?>
                             <svg><use xlink:href="#arrow-right"></use></svg>
@@ -166,20 +172,24 @@ $expert_categories = array(
     <?php if ( have_rows( 'biography_list', $expert_id ) ) : ?>
         <div class="expert-biography expert-block bg-white">
             <div class="container">
-                <?php if ( $biography_uptitle ) : ?>
-                    <span class="eyebrow">
-                        <?php echo esc_html( $biography_uptitle ); ?>
-                    </span>
-                <?php endif; ?>
-                <?php if ( $biography_title ) : ?>
-                    <h2 class="h2 expert-block__title">
-                        <?php echo esc_html( $biography_title ); ?>
-                    </h2>
-                <?php endif; ?>
-                <?php if ( $biography_subtitle ) : ?>
-                    <span class="subtitle">
-                        <?php echo esc_html( $biography_subtitle ); ?>
-                    </span>
+                <?php if ( $biography_title || $biography_subtitle || $biography_uptitle ) : ?>
+                    <div class="expert-block__header">
+                        <?php if ( $biography_uptitle ) : ?>
+                            <span class="expert-block__uptitle">
+                                <?php echo esc_html( $biography_uptitle ); ?>
+                            </span>
+                        <?php endif; ?>
+                        <?php if ( $biography_title ) : ?>
+                            <h2 class="h2 expert-block__title">
+                                <?php echo esc_html( $biography_title ); ?>
+                            </h2>
+                        <?php endif; ?>
+                        <?php if ( $biography_subtitle ) : ?>
+                            <span class="expert-block__subtitle">
+                                <?php echo esc_html( $biography_subtitle ); ?>
+                            </span>
+                        <?php endif; ?>
+                    </div>
                 <?php endif; ?>
 
                 <div class="expert-biography__blocks">
@@ -221,26 +231,30 @@ $expert_categories = array(
     <?php if ( $case_studies_list ) : ?>
         <div class="expert-cases expert-block bg-blue">
             <div class="container">
-                <?php if ( $case_studies_uptitle ) : ?>
-                    <span class="eyebrow">
-                        <?php echo esc_html( $case_studies_uptitle ); ?>
-                    </span>
+                <?php if ( $case_studies_title || $case_studies_subtitle || $case_studies_uptitle ) : ?>
+                    <div class="expert-block__header">
+                        <?php if ( $case_studies_uptitle ) : ?>
+                            <span class="expert-block__uptitle">
+                                <?php echo esc_html( $case_studies_uptitle ); ?>
+                            </span>
+                        <?php endif; ?>
+                        <?php if ( $case_studies_title ) : ?>
+                            <h2 class="h2 expert-block__title">
+                                <?php echo esc_html( $case_studies_title ); ?>
+                            </h2>
+                        <?php endif; ?>
+                        <?php if ( $case_studies_subtitle ) : ?>
+                            <span class="expert-block__subtitle">
+                                <?php echo esc_html( $case_studies_subtitle ); ?>
+                            </span>
+                        <?php endif; ?>
+                        <div class="expert-cases__list">
+                            <?php foreach ( $case_studies_list as $resource_id ) : ?>
+                                <?php get_template_part( 'template-parts/components/resource-card', null, [ 'post_id' => $resource_id, ] );?>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 <?php endif; ?>
-                <?php if ( $case_studies_title ) : ?>
-                    <h2 class="h2 expert-block__title">
-                        <?php echo esc_html( $case_studies_title ); ?>
-                    </h2>
-                <?php endif; ?>
-                <?php if ( $case_studies_subtitle ) : ?>
-                    <span class="subtitle">
-                        <?php echo esc_html( $case_studies_subtitle ); ?>
-                    </span>
-                <?php endif; ?>
-                <div class="expert-cases__list">
-                    <?php foreach ( $case_studies_list as $resource_id ) : ?>
-                        <?php get_template_part( 'template-parts/components/resource-card', null, [ 'post_id' => $resource_id, ] );?>
-                    <?php endforeach; ?>
-                </div>
             </div>
         </div>
     <?php endif; ?>
@@ -248,20 +262,24 @@ $expert_categories = array(
     <?php if ( have_rows( 'publications_list', $expert_id ) ) : ?>
         <div class="expert-publications expert-block bg-gray">
             <div class="container">
-               <?php if ( $publications_uptitle ) : ?>
-                    <span class="eyebrow">
-                        <?php echo esc_html( $publications_uptitle ); ?>
-                    </span>
-                <?php endif; ?>
-                <?php if ( $publications_title ) : ?>
-                    <h2 class="h2 expert-block__title">
-                        <?php echo esc_html( $publications_title ); ?>
-                    </h2>
-                <?php endif; ?>
-                <?php if ( $publications_subtitle ) : ?>
-                    <span class="subtitle">
-                        <?php echo esc_html( $publications_subtitle ); ?>
-                    </span>
+                <?php if ( $publications_title || $publications_subtitle || $publications_uptitle ) : ?>
+                    <div class="expert-block__header">
+                        <?php if ( $publications_uptitle ) : ?>
+                            <span class="expert-block__uptitle">
+                                <?php echo esc_html( $publications_uptitle ); ?>
+                            </span>
+                        <?php endif; ?>
+                        <?php if ( $publications_title ) : ?>
+                            <h2 class="h2 expert-block__title">
+                                <?php echo esc_html( $publications_title ); ?>
+                            </h2>
+                        <?php endif; ?>
+                        <?php if ( $publications_subtitle ) : ?>
+                            <span class="expert-block__subtitle">
+                                <?php echo esc_html( $publications_subtitle ); ?>
+                            </span>
+                        <?php endif; ?>
+                    </div>
                 <?php endif; ?>
                 
                 <div class="expert-publications__table c-table">
@@ -340,20 +358,24 @@ $expert_categories = array(
     <?php if ( have_rows( 'content_column', $expert_id ) ) : ?>
         <div class="expert-appointments expert-block bg-blue">
             <div class="container">
-               <?php if ( $appointments_uptitle ) : ?>
-                    <span class="eyebrow">
-                        <?php echo esc_html( $appointments_uptitle ); ?>
-                    </span>
-                <?php endif; ?>
-                <?php if ( $appointments_title ) : ?>
-                    <h2 class="h2 expert-block__title">
-                        <?php echo esc_html( $appointments_title ); ?>
-                    </h2>
-                <?php endif; ?>
-                <?php if ( $appointments_subtitle ) : ?>
-                    <span class="subtitle">
-                        <?php echo esc_html( $appointments_subtitle ); ?>
-                    </span>
+                <?php if ( $appointments_title || $appointments_subtitle || $appointments_uptitle ) : ?>
+                    <div class="expert-block__header">
+                        <?php if ( $appointments_uptitle ) : ?>
+                            <span class="expert-block__uptitle">
+                                <?php echo esc_html( $appointments_uptitle ); ?>
+                            </span>
+                        <?php endif; ?>
+                        <?php if ( $appointments_title ) : ?>
+                            <h2 class="h2 expert-block__title">
+                                <?php echo esc_html( $appointments_title ); ?>
+                            </h2>
+                        <?php endif; ?>
+                        <?php if ( $appointments_subtitle ) : ?>
+                            <span class="expert-block__subtitle">
+                                <?php echo esc_html( $appointments_subtitle ); ?>
+                            </span>
+                        <?php endif; ?>
+                    </div>
                 <?php endif; ?>
 
                 <div class="expert-appointments__list">
@@ -397,20 +419,24 @@ $expert_categories = array(
     <?php if ( have_rows( 'education_and_training_list', $expert_id ) ) : ?>
         <div class="expert-education expert-block bg-white">
             <div class="container">
-               <?php if ( $education_uptitle ) : ?>
-                    <span class="eyebrow">
-                        <?php echo esc_html( $education_uptitle ); ?>
-                    </span>
-                <?php endif; ?>
-                <?php if ( $education_title ) : ?>
-                    <h2 class="h2 expert-block__title">
-                        <?php echo esc_html( $education_title ); ?>
-                    </h2>
-                <?php endif; ?>
-                <?php if ( $education_subtitle ) : ?>
-                    <span class="subtitle">
-                        <?php echo esc_html( $education_subtitle ); ?>
-                    </span>
+                <?php if ( $education_title || $education_subtitle || $education_uptitle ) : ?>
+                    <div class="expert-block__header">
+                        <?php if ( $education_uptitle ) : ?>
+                            <span class="expert-block__uptitle">
+                                <?php echo esc_html( $education_uptitle ); ?>
+                            </span>
+                        <?php endif; ?>
+                        <?php if ( $education_title ) : ?>
+                            <h2 class="h2 expert-block__title">
+                                <?php echo esc_html( $education_title ); ?>
+                            </h2>
+                        <?php endif; ?>
+                        <?php if ( $education_subtitle ) : ?>
+                            <span class="expert-block__subtitle">
+                                <?php echo esc_html( $education_subtitle ); ?>
+                            </span>
+                        <?php endif; ?>
+                    </div>
                 <?php endif; ?>
                 
                 <div class="expert-education__table c-table">
@@ -457,21 +483,25 @@ $expert_categories = array(
 
     <div class="expert-resources expert-block bg-gray">
         <div class="container">
-               <?php if ( $resources_uptitle ) : ?>
-                    <span class="eyebrow">
-                        <?php echo esc_html( $resources_uptitle ); ?>
-                    </span>
-                <?php endif; ?>
-                <?php if ( $resources_title ) : ?>
-                    <h2 class="h2 expert-block__title">
-                        <?php echo esc_html( $resources_title ); ?>
-                    </h2>
-                <?php endif; ?>
-                <?php if ( $resources_subtitle ) : ?>
-                    <span class="subtitle">
-                        <?php echo esc_html( $resources_subtitle ); ?>
-                    </span>
-                <?php endif; ?>
+            <?php if ( $resources_title || $resources_subtitle || $resources_uptitle ) : ?>
+                <div class="expert-block__header">
+                    <?php if ( $resources_uptitle ) : ?>
+                        <span class="expert-block__uptitle">
+                            <?php echo esc_html( $resources_uptitle ); ?>
+                        </span>
+                    <?php endif; ?>
+                    <?php if ( $resources_title ) : ?>
+                        <h2 class="h2 expert-block__title">
+                            <?php echo esc_html( $resources_title ); ?>
+                        </h2>
+                    <?php endif; ?>
+                    <?php if ( $resources_subtitle ) : ?>
+                        <span class="expert-block__subtitle">
+                            <?php echo esc_html( $resources_subtitle ); ?>
+                        </span>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
             <div class="expert-resources__list">
                 <?php if ( have_rows( 'websites_list', $expert_id ) ) : ?>
                     <div class="resources-column">
@@ -543,20 +573,12 @@ $expert_categories = array(
                             </span>
                         <?php endif; ?>
                         <?php while ( have_rows( 'locations_list', $expert_id ) ) : the_row();
-                            $location_type  = get_sub_field( 'location_type' ) ?? false;
                             $location_title = get_sub_field( 'location_title' ) ?? false; ?>
 
                             <?php if ( $location_title ) : ?>
-                                <div class="resources-column__location">
-                                    <span class="resources-column__location-title">
-                                        <?php echo $location_title; ?>
-                                    </span>
-                                    <?php if ( $location_type ) : ?>
-                                        <span class="resources-column__location-type">
-                                            <?php echo $location_type; ?>
-                                        </span>
-                                    <?php endif; ?>
-                                </div>
+                                <span class="resources-column__location">
+                                    <?php echo $location_title; ?>
+                                </span>
                             <?php endif; ?>
                         <?php endwhile; ?>
                     </div>

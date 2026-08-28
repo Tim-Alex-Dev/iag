@@ -2,7 +2,7 @@
     &.media-left {
         &.m-media-video {
             .container {
-                grid-template-columns: 1.35fr 1fr;
+                grid-template-columns: 1.3fr 1fr;
                 grid-template-areas: "right left";
             }
         }
@@ -13,19 +13,40 @@
                 grid-template-areas: "right left";
             }
         }
+
+        &.m-media-embed {
+            .container {
+                grid-template-columns: 1.1fr 1fr;
+                grid-template-areas: "right left";
+            }
+        }
     }
 
     &.media-right {
         &.m-media-video {
             .container {
-                grid-template-columns: 1fr 1.35fr;
+                grid-template-columns: 1fr 1.3fr;
                 grid-template-areas: "left right";
             }
         }
+
         &.m-media-image {
             .container {
                 grid-template-columns: 1fr 1.1fr;
                 grid-template-areas: "left right";
+                @include max(xl) {
+                    grid-template-columns: 1fr 1.3fr;
+                }
+            }
+        }
+
+        &.m-media-embed {
+            .container {
+                grid-template-columns: 1fr 1.1fr;
+                grid-template-areas: "left right";
+                @include max(xl) {
+                    grid-template-columns: 1fr 1.3fr;
+                }
             }
         }
     }
@@ -38,15 +59,18 @@
         grid-area: right;
     }
 
-
-
     .container {
         display: grid;
         gap: rem(64);
         align-items: center;
+        @include max(xl) {
+            gap: rem(32);
+        }
+        @include max(lg) {
+            display: flex;
+            flex-direction: column;
+        }
     }
-
- 
 
     &__banner {
         border-radius: rem(12);
@@ -55,7 +79,6 @@
         width: 100%;
         height: auto;
         overflow: hidden;
-        box-shadow: 0 16px 32px rgba(20, 22, 26, 0.10), 0 4px 8px rgba(20, 22, 26, 0.04);
 
         &-img {
             position: absolute;
@@ -70,8 +93,8 @@
         aspect-ratio: 16 / 9;
         border-radius: rem(12);
         overflow: hidden;
-        box-shadow: 0 16px 32px rgba(20, 22, 26, 0.10), 0 4px 8px rgba(20, 22, 26, 0.04);
         cursor: pointer;
+        width: 100%;
 
         &-poster {
             position: absolute;
@@ -88,7 +111,9 @@
             font-size: rem(12);
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: $iag-navy-100;
+            @include min(xxl) {
+                font-size: rem(16);
+            }
         }
 
         &-footer {
@@ -105,18 +130,21 @@
         &-title {
             font-size: rem(16);
             font-weight: 600;
-            color: $white;
             margin-right: auto;
+            @include min(xxl) {
+                font-size: rem(20);
+            }
         }
 
         &-duration {
             font-family: $font-alt;
             font-size: rem(12);
-            color: $iag-navy-100;
-            background: rgba($black, 0.5);
             border-radius: rem(4);
             padding: rem(4 8);
             margin-left: auto;
+            @include min(xxl) {
+                font-size: rem(16);
+            }
         }
 
         &-controls {
@@ -127,22 +155,37 @@
             width: rem(80);
             height: rem(80);
             border-radius: 50%;
-            background-color: $iag-orange-500;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: $default-transition;
+            @include min(xxl) {
+                width: rem(120);
+                height: rem(120);
+            }
             &:hover {
                 width: rem(88);
                 height: rem(88);
+                @include min(xxl) {
+                    width: rem(132);
+                    height: rem(132);
+                }
             }
 
             svg {
                 width: rem(32);
                 height: rem(32);
-                fill: $white;
+                @include min(xxl) {
+                    width: rem(60);
+                    height: rem(60);
+                }
             }
         }
+    }
+
+    &__embed {
+        border-radius: rem(12);
+        overflow: hidden;
     }
 
     &__list {
@@ -151,6 +194,10 @@
         gap: rem(12);
         padding: 0;
         margin: rem(24 0 32);
+        @include max(md) {
+            align-items: center;
+            text-align: center;
+        }
 
         &-item {
             display: flex;
@@ -165,14 +212,15 @@
                 width: rem(24);
                 height: rem(24);
                 border-radius: 50%;
-                background-color: $iag-orange-500;
                 margin-top: rem(2);
+                @include max(md) {
+                    display: none;
+                }
 
                 svg {
                     width: rem(16);
                     height: rem(16);
                     fill: none;
-                    stroke: $white;
                 }
             }
 
@@ -183,17 +231,139 @@
 
                 &-title {
                     font-weight: 600;
-                    color: $white;
                     font-size: rem(16);
                 }
 
                 &-description {
-                    color: $iag-navy-100;
                     font-size: rem(14);
                     line-height: 1.5;
                 }
             }
         }
     }
+
+    &__btn {
+        @include max(md) {
+            display: flex;
+            margin: 0 auto;
+        }
+    }
 }
 
+// color theme
+.m-media {
+    &.bg-blue {
+        .m-media__banner {
+            box-shadow: 0 16px 32px rgba($white, .15);
+        }
+
+        .m-media__video {
+            box-shadow: 0 16px 32px rgba($white, .15);
+
+            &-category {
+                color: $iag-navy-100;
+            }
+
+            &-title {
+                color: $white;
+            }
+
+            &-duration {
+                color: $iag-navy-100;
+                background: rgba($black, 0.5);
+            }
+
+            &-controls {
+                background-color: $iag-orange-500;
+                svg {
+                    fill: $white;
+                }
+            }
+        }
+
+        .m-media__embed {
+            box-shadow: 0 16px 32px rgba($white, .15);
+        }
+
+        .m-media__list {
+            &-item {
+                .list-item__icon {
+                    background-color: $iag-orange-500;
+
+                    svg {
+                        stroke: $white;
+                    }
+                }
+
+                .list-item__content {
+
+                    &-title {
+                        color: $white;
+                    }
+
+                    &-description {
+                        color: $iag-navy-100;
+                    }
+                }
+            }
+        }
+    }
+
+    &.bg-white,
+    &.bg-gray {
+        .m-media__banner {
+            box-shadow: 0 16px 32px rgba($black, .15);
+        }
+
+        .m-media__video {
+            box-shadow: 0 16px 32px rgba($black, .15);
+
+            &-category {
+                color: $iag-navy-100;
+            }
+
+            &-title {
+                color: $white;
+            }
+
+            &-duration {
+                color: $iag-navy-100;
+                background: rgba($black, 0.5);
+            }
+
+            &-controls {
+                background-color: $iag-orange-500;
+                svg {
+                    fill: $white;
+                }
+            }
+        }
+
+        .m-media__embed {
+            box-shadow: 0 16px 32px rgba($black, .15);
+        }
+
+        .m-media__list {
+            &-item {
+                .list-item__icon {
+                    background-color: $iag-orange-500;
+
+                    svg {
+                        stroke: $white;
+                    }
+                }
+
+                .list-item__content {
+
+                    &-title {
+                        color: $iag-gray-900;
+                    }
+
+                    &-description {
+                        color: $iag-gray-700;
+                    }
+                }
+            }
+        }
+    }
+}

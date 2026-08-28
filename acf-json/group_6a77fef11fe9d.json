@@ -57,7 +57,7 @@
             },
             "choices": {
                 "white": "White",
-                "grey": "Grey",
+                "gray": "Gray",
                 "blue": "Blue"
             },
             "default_value": "",
@@ -329,5 +329,5 @@
             "json"
         ]
     },
-    "modified": 1786249624
+    "modified": 1787569701
 }
