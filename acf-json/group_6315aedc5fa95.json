@@ -407,21 +407,21 @@
                         "id": ""
                     },
                     "choices": {
-                        "facebook": "facebook",
-                        "instagram": "instagram",
+                        "youtube": "youtube",
                         "linkedin": "linkedin"
                     },
                     "default_value": false,
                     "return_format": "value",
                     "multiple": 0,
                     "allow_null": 0,
+                    "allow_in_bindings": 1,
                     "ui": 0,
                     "ajax": 0,
                     "placeholder": "",
-                    "allow_custom": 0,
-                    "search_placeholder": "",
                     "create_options": 0,
                     "save_options": 0,
+                    "allow_custom": 0,
+                    "search_placeholder": "",
                     "parent_repeater": "field_6315aef9b8cb8"
                 },
                 {
@@ -606,44 +606,6 @@
                     "parent_repeater": "field_6a44c8b77ae5a"
                 }
             ]
-        },
-        {
-            "key": "field_6315b065b8cbb",
-            "label": "API",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_6315b073b8cbc",
-            "label": "Google Maps API key",
-            "name": "google_maps_api_key",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
         },
         {
             "key": "field_6a8c3c660ec35",
@@ -891,6 +853,254 @@
             "endpoint": 1,
             "allow_in_bindings": 0,
             "columns": "6\/12"
+        },
+        {
+            "key": "field_6a98cadc0b7f7",
+            "label": "Counter Module",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_6a98ca17c968f",
+            "label": "Counter List",
+            "name": "counter_list",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_repeater_stylised_button": 0,
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 3,
+            "collapsed": "",
+            "button_label": "Add Counter Item",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6a98ca17c9690",
+                    "label": "Animated Counter",
+                    "name": "animated_counter",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "allow_in_bindings": 1,
+                    "ui_on_text": "On",
+                    "ui_off_text": "Off",
+                    "ui": 1,
+                    "parent_repeater": "field_6a98ca17c968f"
+                },
+                {
+                    "key": "field_6a98ca17c9691",
+                    "label": "Counter Item Title",
+                    "name": "counter_item_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6a98ca17c968f"
+                },
+                {
+                    "key": "field_6a98ca17c9692",
+                    "label": "Counter Item Subtitle",
+                    "name": "counter_item_subtitle",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6a98ca17c968f"
+                }
+            ]
+        },
+        {
+            "key": "field_6a98ca2dc9693",
+            "label": "Counter Icons Type",
+            "name": "counter_icons_type",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "slider": "Slider",
+                "gallery": "Gallery",
+                "no-icons": "No Icons"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_6a98ca35c9694",
+            "label": "Counter Content Title",
+            "name": "counter_content_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a98ca2dc9693",
+                        "operator": "!=",
+                        "value": "no-icons"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6a98ca38c9695",
+            "label": "Counter Icons List",
+            "name": "counter_icons_list",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a98ca2dc9693",
+                        "operator": "!=",
+                        "value": "no-icons"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_repeater_stylised_button": 0,
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Slide",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6a98ca38c9696",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "uploader": "",
+                    "return_format": "id",
+                    "library": "all",
+                    "acfe_thumbnail": 0,
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "svg, webp",
+                    "allow_in_bindings": 1,
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_6a98ca38c9695"
+                },
+                {
+                    "key": "field_6a98ca38c9697",
+                    "label": "Icon Title",
+                    "name": "icon_title",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "acfe_textarea_code": 0,
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "rows": 2,
+                    "placeholder": "",
+                    "new_lines": "br",
+                    "parent_repeater": "field_6a98ca38c9695"
+                }
+            ]
         }
     ],
     "location": [
@@ -919,5 +1129,5 @@
             "json"
         ]
     },
-    "modified": 1787576120
+    "modified": 1788478299
 }

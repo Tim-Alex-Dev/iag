@@ -426,8 +426,8 @@
             "name": "post_banner",
             "aria-label": "",
             "type": "image",
-            "instructions": "",
-            "required": 1,
+            "instructions": "WEBP Only.\r\nRecommended image sixe - 960px x 720px (4\/3)",
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -475,5 +475,5 @@
             "json"
         ]
     },
-    "modified": 1786258541
+    "modified": 1788397407
 }

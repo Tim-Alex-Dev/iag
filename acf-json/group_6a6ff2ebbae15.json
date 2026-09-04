@@ -255,7 +255,7 @@
             "min": 0,
             "max": 0,
             "collapsed": "",
-            "button_label": "Add Row",
+            "button_label": "Add Question",
             "rows_per_page": 20,
             "sub_fields": [
                 {
@@ -333,5 +333,5 @@
             "json"
         ]
     },
-    "modified": 1787570658
+    "modified": 1788050456
 }

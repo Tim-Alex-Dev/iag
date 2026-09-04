@@ -29,9 +29,86 @@ $extra_classes = $has_hero ? 'has-hero' : ''; // page with Hero requires extra h
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+
+	<!-- Start of Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-VPPRV7J2ZE"></script>
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+
+		gtag('js', new Date());
+		gtag('config', 'G-VPPRV7J2ZE');
+	</script>
+	<!-- End of Google tag -->
+
+
+	<!-- Start of Clarity -->
+	<script type="text/javascript">
+		(function(c, l, a, r, i, t, y) {
+			c[a] = c[a] || function() {
+				(c[a].q = c[a].q || []).push(arguments);
+			};
+
+			t = l.createElement(r);
+			t.async = 1;
+			t.src = 'https://www.clarity.ms/tag/' + i;
+
+			y = l.getElementsByTagName(r)[0];
+			y.parentNode.insertBefore(t, y);
+
+		})(window, document, 'clarity', 'script', 'xbzyzucf2o');
+	</script>
+	<!-- End of Clarity -->
+
+
+	<!-- Start of RB2B -->
+	<script>
+		!function(key) {
+
+			if (window.reb2b) {
+				return;
+			}
+
+			window.reb2b = {
+				loaded: true
+			};
+
+			var s = document.createElement('script');
+
+			s.async = true;
+			s.src = 'https://ddwl4m2hdecbv.cloudfront.net/b/' + key + '/' + key + '.js.gz';
+
+			document
+				.getElementsByTagName('script')[0]
+				.parentNode
+				.insertBefore(
+					s,
+					document.getElementsByTagName('script')[0]
+				);
+
+		}('GOYPYHQ90KOX');
+	</script>
+	<!-- End of RB2B -->
+
+
+	<!-- Start of HubSpot -->
+	<script
+		type="text/javascript"
+		id="hs-script-loader"
+		async
+		defer
+		src="//js-eu1.hs-scripts.com/144692094.js">
+	</script>
+	<!-- End of HubSpot -->
+
 </head>
 
 <body <?php body_class( $extra_classes ); ?> id="top">

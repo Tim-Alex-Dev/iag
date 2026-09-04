@@ -81,6 +81,15 @@ class IAG_Mega_Menu_Walker extends Walker_Nav_Menu {
 		}
 
 		$html .= '</div>';
+		$html .= '<div class="mega-menu__next">';
+
+		ob_start();
+
+		get_template_part( 'template-parts/components/latest-next' );
+
+		$html .= ob_get_clean();
+
+		$html .= '</div>';
 		$html .= '</div>';
 
 		return $html;

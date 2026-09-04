@@ -72,7 +72,15 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a98c8cc2dc89",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -170,6 +178,30 @@
             "endpoint": 0
         },
         {
+            "key": "field_6a98c8cc2dc89",
+            "label": "Content Type",
+            "name": "content_type",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "global": "Global",
+                "custom": "Custom"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal"
+        },
+        {
             "key": "field_6a62ec3c507ff",
             "label": "Icons Type",
             "name": "icons_type",
@@ -177,9 +209,17 @@
             "type": "button_group",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a98c8cc2dc89",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
-                "width": "50",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -208,6 +248,11 @@
                         "field": "field_6a62ec3c507ff",
                         "operator": "==",
                         "value": "slider"
+                    },
+                    {
+                        "field": "field_6a98c8cc2dc89",
+                        "operator": "==",
+                        "value": "custom"
                     }
                 ],
                 [
@@ -215,11 +260,16 @@
                         "field": "field_6a62ec3c507ff",
                         "operator": "==",
                         "value": "gallery"
+                    },
+                    {
+                        "field": "field_6a98c8cc2dc89",
+                        "operator": "==",
+                        "value": "custom"
                     }
                 ]
             ],
             "wrapper": {
-                "width": "50",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -244,6 +294,11 @@
                         "field": "field_6a62ec3c507ff",
                         "operator": "==",
                         "value": "slider"
+                    },
+                    {
+                        "field": "field_6a98c8cc2dc89",
+                        "operator": "==",
+                        "value": "custom"
                     }
                 ],
                 [
@@ -251,6 +306,11 @@
                         "field": "field_6a62ec3c507ff",
                         "operator": "==",
                         "value": "gallery"
+                    },
+                    {
+                        "field": "field_6a98c8cc2dc89",
+                        "operator": "==",
+                        "value": "custom"
                     }
                 ]
             ],
@@ -349,5 +409,5 @@
             "json"
         ]
     },
-    "modified": 1787489530
+    "modified": 1788398200
 }

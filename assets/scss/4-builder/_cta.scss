@@ -33,15 +33,16 @@
             gap: rem(28);
             
             .meeting-item {
-                display: flex;
-                flex-direction: column;
-                gap: rem(8);
+
 
                 &-image {
                     flex-shrink: 0;
                 }
 
                 &-text {
+                    display: flex;
+                    flex-direction: column;
+                    gap: rem(8);
                     @include max(md) {
                         text-align: center;
                     }
@@ -49,8 +50,9 @@
                 
                 &__image {
                     height: 100%;
-                    max-height: rem(100);
                     width: auto;
+                    max-height: rem(100);
+                    max-width: rem(300);
                     @include min(xxl) {
                         max-height: rem(120);
                     }
