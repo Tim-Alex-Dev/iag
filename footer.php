@@ -101,7 +101,7 @@ $enable_footer_contacts = get_field( 'enable_footer_contacts_menu', 'option' ) ?
 								<?php endif; ?>
 								<?php if ( $type === 'address' && $address && $address_url ) : ?>
 									<div class="menu-item">
-										<a class="contact-link" href="<?php echo esc_attr( $address_url ); ?>">
+										<a class="contact-link" href="<?php echo esc_attr( $address_url ); ?>" target="_blank">
 											<?php echo esc_html( $address ); ?>
 										</a>
 									</div>

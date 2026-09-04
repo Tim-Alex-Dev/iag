@@ -51,7 +51,7 @@ $leader_cf_subtitle = get_field( 'contact_form_subtitle', $leader_id ) ?? false;
                             </span>
                         <?php endif; ?>
     
-                        <a class="btn btn-primary leadership-main__data-button" href="#leadership-contact">
+                        <a class="btn btn-primary leadership-main__data-button" href="/contact-us/#contact-us">
                             <?php echo esc_html( $leader_cf_title ); ?>
                         </a>
                     </div>

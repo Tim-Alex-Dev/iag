@@ -159,7 +159,7 @@ $expert_categories = array(
                             <?php endforeach; ?>
                         </div>
     
-                        <a class="expert-main__btn btn btn-primary" href="#expert-contact" target="_self">
+                        <a class="expert-main__btn btn btn-primary" href="/contact-us/#contact-us" target="_self">
                             <?php echo _e( 'Talk to this expert', '_iag' ); ?>
                             <svg><use xlink:href="#arrow-right"></use></svg>
                         </a>
@@ -587,11 +587,11 @@ $expert_categories = array(
         </div>
     </div>
 
-    <div class="expert-contact" id="expert-contacts">
+    <!-- <div class="expert-contact" id="expert-contacts">
         <div class="container">
             form here
         </div>
-    </div>
+    </div> -->
 </article>
 
 

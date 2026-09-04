@@ -210,9 +210,6 @@ jQuery(document).ready(function ($) {
                 spaceBetween: 24,
                 slidesPerView: 1,
                 breakpoints: {
-                    640: {
-                    slidesPerView: 2,
-                    },
                     1024: {
                     slidesPerView: 2,
 					slidesPerGroup: 2,
