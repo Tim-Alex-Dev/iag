@@ -108,6 +108,10 @@
 							margin-bottom: rem(12);
 							padding: 0;
 						}
+
+						&.inactive {
+							pointer-events: none;
+						}
 					}
 				}
 			}

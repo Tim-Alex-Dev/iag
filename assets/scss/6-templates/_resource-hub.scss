@@ -115,8 +115,13 @@
 
         &-list {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             gap: rem(4);
+            row-gap: 0;
+            @include max(md) {
+                justify-content: space-around;
+            }
 
             .list-item {
                 display: flex;

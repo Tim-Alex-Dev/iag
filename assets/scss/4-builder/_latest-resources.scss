@@ -32,12 +32,18 @@
             @include max(lg) {
                 height: rem(360);
             }
+            @include max(md) {
+                height: auto;
+            }
 
             &__img {
                 position: absolute;
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                @include max(md) {
+                    position: relative;
+                }
             }
         }
 
@@ -50,6 +56,7 @@
             @include max(md) {
                 align-items: center;
                 text-align: center;
+                padding: rem(20);
             }
 
             &__header {

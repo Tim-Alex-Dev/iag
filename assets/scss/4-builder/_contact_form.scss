@@ -78,6 +78,9 @@
                     font-weight: 600;
                     color: $white;
                     font-size: rem(16);
+                    @include max(md) {
+                        text-align: center;
+                    }
                 }
     
                 &-description {

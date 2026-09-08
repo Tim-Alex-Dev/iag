@@ -31,10 +31,11 @@
             display: flex;
             align-items: center;
             gap: rem(28);
+            @include max(md) {
+                flex-direction: column;
+            }
             
             .meeting-item {
-
-
                 &-image {
                     flex-shrink: 0;
                 }

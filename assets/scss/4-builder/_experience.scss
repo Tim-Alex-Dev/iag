@@ -28,6 +28,7 @@
             }
             @include max(md) {
                 justify-content: center;
+                text-align: center;
             }
 
             &-title {
@@ -74,7 +75,7 @@
         }
 
         &-pagination {
-            // background-color: grey;
+            width: auto !important;
         }
 
         // &-navigation {
