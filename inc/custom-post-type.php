@@ -53,11 +53,17 @@ function iag_expert_cpt_init() {
 				'singular_name' => __( 'Expertise Area', '_iag' ),
 				'add_new_item'  => __( 'Add New Expertise Area', '_iag' ),
 			),
-			'hierarchical'      => false,
-			'show_admin_column' => true,
-			'show_ui'           => true,
-			'query_var'         => true,
-			'rewrite'           => array( 'slug' => 'expertise' )
+			'hierarchical'       => false,
+
+			'show_ui'            => true,
+			'show_admin_column'  => true,
+			'show_in_rest'       => true,
+
+			'public'             => false,
+			'publicly_queryable' => false,
+			'show_in_nav_menus'  => false,
+			'query_var'          => false,
+			'rewrite'            => false,
 		)
 	);
 
@@ -70,11 +76,17 @@ function iag_expert_cpt_init() {
                 'singular_name' => __( 'Therapeutic Area', '_iag' ),
                 'add_new_item'  => __( 'Add New Therapeutic Area', '_iag' ),
             ),
-            'hierarchical'      => true,
-            'show_admin_column' => true,
-            'show_ui'           => true,
-            'query_var'         => true,
-            'rewrite'           => array( 'slug' => 'therapeutic-area' )
+			'hierarchical'       => false,
+
+			'show_ui'            => true,
+			'show_admin_column'  => true,
+			'show_in_rest'       => true,
+
+			'public'             => false,
+			'publicly_queryable' => false,
+			'show_in_nav_menus'  => false,
+			'query_var'          => false,
+			'rewrite'            => false,
         )
     );
 
@@ -87,11 +99,17 @@ function iag_expert_cpt_init() {
                 'singular_name' => __( 'Indicator Area', '_iag' ),
                 'add_new_item'  => __( 'Add New Indicator Area', '_iag' ),
             ),
-            'hierarchical'      => false,
-            'show_admin_column' => true,
-            'show_ui'           => true,
-            'query_var'         => true,
-            'rewrite'           => array( 'slug' => 'indicator-area' )
+			'hierarchical'       => false,
+
+			'show_ui'            => true,
+			'show_admin_column'  => true,
+			'show_in_rest'       => true,
+
+			'public'             => false,
+			'publicly_queryable' => false,
+			'show_in_nav_menus'  => false,
+			'query_var'          => false,
+			'rewrite'            => false,
         )
     );
 }
