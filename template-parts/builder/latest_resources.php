@@ -86,7 +86,7 @@ if ( $resource_type === 'webinar' ) {
     $resource_time       = get_field( 'webinar_time', $resource_id ) ?? false; 
     $resource_link       = get_field( 'webinar_link', $resource_id ) ?? false;
     $resource_link_label = __( 'Register Now', '_iag' );
-    $resource_archive    = get_term_link( 'webinar', 'source' );
+    $resource_archive    = get_term_link( 'webinars', 'source' );
     $archive_title       = __( 'View All Webinars', '_iag' );
 }
 
@@ -120,7 +120,7 @@ if ( $resource_type === 'event' ) {
     $resource_time     = get_field( 'event_time', $resource_id ) ?? false;
     $resource_link     = get_field( 'event_url', $resource_id ) ?? false;
     $resource_link_label = __( 'Learn More', '_iag' );
-    $resource_archive    = get_term_link( 'event', 'source' );
+    $resource_archive    = get_term_link( 'events', 'source' );
     $archive_title       = __( 'View All Events', '_iag' );
     $resource_status     = false; 
     $resource_duration   = false;

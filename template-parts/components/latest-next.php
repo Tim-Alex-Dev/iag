@@ -12,7 +12,7 @@ $latest_webinar_id = get_posts(
             [
                 'taxonomy' => 'source',
                 'field'    => 'name',
-                'terms'    => 'Webinar',
+                'terms'    => 'Webinars',
             ],
         ],
         'meta_query' => [
@@ -37,7 +37,7 @@ $latest_event_id = get_posts(
             [
                 'taxonomy' => 'source',
                 'field'    => 'name',
-                'terms'    => 'Event',
+                'terms'    => 'Events',
             ],
         ],
         'meta_query' => [
