@@ -31,6 +31,7 @@ require IT_DIR . '/inc/scripts-styles.php'; // Scripts and styles enqueue | dequ
 require IT_DIR . '/inc/svg-support.php'; // Adds support for SVG upload
 require IT_DIR . '/inc/widgets.php'; // Sidebars and widgets
 require IT_DIR . '/inc/walker.php'; // Custom Menu Walker
+require IT_DIR . '/inc/hubspot.php'; // Hubspot API integration
 
 if ( class_exists( 'WooCommerce' ) ) {
 	require IT_DIR . '/inc/woo.php'; // Woocommerce functions
