@@ -1,31 +1,78 @@
 <?php
-$field_group = isset( $args['field_group'] ) ? $args['field_group'] : 'video';
-$video_group = get_sub_field( $field_group )['video_group'];
+/**
+ * Video Box Component
+ */
+
+$type     = $args['type'] ?? 'file';
+$video    = $args['video'] ?? '';
+$banner   = $args['banner'] ?? false;
+$category = $args['category'] ?? '';
+$title    = $args['title'] ?? '';
+$duration = $args['duration'] ?? '';
+$class    = $args['class'] ?? '';
+$video_id           = ( $type === 'file' && $video ) ? attachment_url_to_postid( $video ) : false;
+$video_metadata     = $video_id ? wp_get_attachment_metadata( $video_id ) : false;
+$video_duration     = $video_metadata ? $video_metadata['length_formatted'] : false;
+
+if ( ! $video ) {
+	return;
+}
+
+$classes = array_filter( [
+	'video-box',
+	'video-box-' . $type,
+	$class,
+] );
+
+$class_attr = implode( ' ', $classes );
 ?>
-<?php if ( ! empty( $video_group ) ) : ?>
-	<?php
-	$type   = $video_group['type']; // possible values: embed, file
-	$file   = $video_group['file'];
-	$poster = $video_group['poster'];
-	$embed  = $video_group['embed'];
-	?>
 
-	<?php if ( 'embed' === $type && $embed ) : ?>
 
-		<?php echo $embed; ?>
+<?php if ( $type === 'file' ) : ?>
 
-	<?php elseif ( 'file' === $type && $file ) : ?>
+	<?php if ( $banner ) : ?>
 
-		<?php if ( $poster ) : ?>
-			<a class="c-video" data-fancybox="video" href="<?php echo esc_url( $file ); ?>">
-				<span class="c-video__poster">
-					<?php echo wp_get_attachment_image( $poster, 'large', false, [ 'class' => 'img-cover' ] ); ?>
-					<svg><use xlink:href="#play-circle"></use></svg>
+		<a class="<?php echo esc_attr( $class_attr ); ?>" data-fancybox="video" href="<?php echo esc_url( $video ); ?>">
+
+			<?php echo wp_get_attachment_image( $banner, 'large', false, [ 'class' => 'video-box__banner' ] ); ?>
+
+			<div class="video-box__controls">
+				<svg><use xlink:href="#play-circle"></use></svg>
+			</div>
+
+			<?php if ( $category ) : ?>
+				<span class="video-box__category">
+					<?php echo esc_html( $category ); ?>
 				</span>
-			</a>
-		<?php else: ?>
-			<video class="c-video" src="<?php echo esc_url( $file ); ?>" controls></video>
-		<?php endif; ?>
+			<?php endif; ?>
+
+			<?php if ( $title || $duration ) : ?>
+				<div class="video-box__footer">
+					<?php if ( $title ) : ?>
+						<span class="video-box__footer-title">
+							<?php echo esc_html( $title ); ?>
+						</span>
+					<?php endif; ?>
+
+					<?php if ( $video_duration ) : ?>
+						<span class="video-box__footer-duration">
+							<?php echo esc_html( $video_duration ); ?>
+						</span>
+					<?php endif; ?>
+				</div>
+			<?php endif; ?>
+		</a>
+	<?php else : ?>
+
+		<video class="<?php echo esc_attr( $class_attr ); ?>" src="<?php echo esc_url( $video ); ?>" controls playsinline preload="metadata"></video>
 
 	<?php endif; ?>
+
+
+<?php elseif ( $type === 'embed' ) : ?>
+
+	<div class="<?php echo esc_attr( $class_attr ); ?>">
+		<?php echo $video; ?>
+	</div>
+
 <?php endif; ?>

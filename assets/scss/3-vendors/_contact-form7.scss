@@ -13,6 +13,14 @@
 		flex-wrap: wrap;
 		gap: rem(16);
 
+		&__title {
+			width: 100%;
+			text-align: center;
+			justify-content: center;
+			margin-bottom: rem(24);
+			font-size: rem(32);
+		}
+
 		&__field {
 			display: flex;
 			flex-direction: column;

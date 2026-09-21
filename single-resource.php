@@ -12,7 +12,7 @@ $linkedin_url    = get_field( 'main_linkedin_url', 'options' ) ?? false;
 $youtube_icon    = get_field( 'main_youtube_icon', 'options' ) ?? false;
 $linkedin_icon   = get_field( 'main_linkedin_icon', 'options' ) ?? false;
 $category        = get_primary_category( $resource_id, 'id' );
-$category_banner = (!$post_banner && $category ) ? get_field( 'resource_banner', 'source_' . $category ) : false;
+$banner_image    = (!$post_banner && $category ) ? get_field( 'resource_banner', 'source_' . $category ) : $post_banner;
 
 $cta_icon        = get_field( 'default_cta_icon', 'options' ) ?? false;
 $cta_uptitle     = get_field( 'default_cta_uptitle', 'options' ) ?? false;
@@ -23,8 +23,8 @@ $cta_link        = get_field( 'default_cta_link', 'options' ) ?? false;
 
 <article class="resource">
 	<div class="resource-banner">
-		<?php if ( $category_banner ) : ?>
-			<?php echo wp_get_attachment_image( $category_banner, 'full', false, [ 'class' => 'resource-banner__category-banner' ] ); ?>
+		<?php if ( $banner_image ) : ?>
+			<?php echo wp_get_attachment_image( $banner_image, 'full', false, [ 'class' => 'resource-banner__category-banner' ] ); ?>
 		<?php endif; ?>
 		<div class="container">
 			<div class="resource-banner__inner">
@@ -86,11 +86,6 @@ $cta_link        = get_field( 'default_cta_link', 'options' ) ?? false;
 					</div> -->
 				</div>
 			</div>
-			<?php if ( $post_banner ) : ?>
-				<div class="resource-banner__media">
-					<?php echo wp_get_attachment_image( $post_banner, 'full', false, [ 'class' => 'resource-banner__media-img' ] ); ?>
-				</div>
-			<?php endif; ?>
 		</div>
 	</div>
 	<div class="resource-main">

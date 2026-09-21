@@ -15,6 +15,10 @@ $expert_degrees     = get_field( 'expert_degrees', $expert_id ) ?? false;
 $expert_subtitle    = get_field( 'expert_subtitle', $expert_id ) ?? false;
 $sticky_header      = get_field( 'add_sticky_header', $expert_id ) ?? false;
 $sticky_header_link = get_field( 'sticky_header_button', $expert_id ) ?? false;
+$expert_video_type  = get_field( 'expert_video', $expert_id ) ?? false;
+$video_url          = get_field( 'video_url', $expert_id ) ?? false;
+$video_file         = get_field( 'video_file', $expert_id ) ?? false;
+$video_banner       = get_field( 'video_banner', $expert_id ) ?? false;
 
 // Expert Biography
 $biography_title    = get_field( 'biography_title', $expert_id ) ?? false;
@@ -159,10 +163,33 @@ $expert_categories = array(
                             <?php endforeach; ?>
                         </div>
     
-                        <a class="expert-main__btn btn btn-primary" href="/contact-us/#contact-us" target="_self">
-                            <?php echo _e( 'Talk to this expert', '_iag' ); ?>
-                            <svg><use xlink:href="#arrow-right"></use></svg>
-                        </a>
+                        <div class="expert-main__buttons">
+                            <?php if ( ( $expert_video_type === 'embed' && $video_url ) || ( $expert_video_type === 'file' && $video_file ) ) : ?>
+
+                                <div class="expert-video-btn js-modal-open"
+                                    data-modal="video"
+                                    data-video-type="<?php echo esc_attr( $expert_video_type ); ?>"
+                                    <?php if ( $expert_video_type === 'embed' && $video_url ) : ?>
+                                        data-video-url="<?php echo esc_url( $video_url ); ?>"
+                                    <?php endif; ?>
+                                    <?php if ( $expert_video_type === 'file' && $video_file ) : ?>
+                                        data-video-file="<?php echo esc_url( $video_file ); ?>"
+
+                                        <?php if ( $video_banner ) : ?>
+                                            data-video-banner="<?php echo esc_url( wp_get_attachment_image_url( $video_banner, 'full' ) ); ?>"
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                    >
+                                    <svg><use xlink:href="#youtube"></use></svg>
+
+                                </div>
+
+                            <?php endif; ?>
+                            <a class="expert-main__buttons-btn btn btn-primary" href="/contact-us/#contact-us" target="_self">
+                                <?php echo _e( 'Talk to this expert', '_iag' ); ?>
+                                <svg><use xlink:href="#arrow-right"></use></svg>
+                            </a>
+                        </div>
                     </div>
                 <?php endif; ?>
             </div>

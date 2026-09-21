@@ -1,6 +1,8 @@
-// Modal
+// *Modal*
+
 .modal {
-	// local variables:
+
+	// *Local variables:*
 	--modal-margin: #{rem(20)};
 	--modal-max-width: #{rem(800)};
 
@@ -53,9 +55,9 @@
 	&__content {
 		width: 100%;
 		max-height: 100%;
-		background-color: $white;
+		background-color: $iag-navy-700;
 		border-radius: $radius;
-		padding: rem(30);
+		padding: rem(40);
 		overflow-y: auto;
 		position: relative;
 		pointer-events: auto;
@@ -69,15 +71,34 @@
 		display: inline-block;
 		line-height: 0;
 		position: absolute;
-		top: rem(15);
-		right: rem(15);
+		top: rem(12);
+		right: rem(12);
 		cursor: pointer;
-
+		&:hover {
+			svg {
+				transform: scale(1.1);
+			}
+		}
 
 		svg {
-			width: rem(22);
-			height: rem(22);
+			width: rem(32);
+			height: rem(32);
 			fill: $primary;
+			transition: $default-transition;
+		}
+	}
+
+
+	// *Video Modal*
+	&--video {
+
+		--modal-max-width: #{rem(1200)};
+
+		.modal__content {
+			// background: $white;
+			// border-radius: rem(16);
+			// padding: rem(40);
+			// overflow: visible;
 		}
 	}
 }

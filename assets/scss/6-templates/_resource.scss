@@ -4,43 +4,6 @@
 }
 
 .resource {
-    .container {
-        position: relative;
-        z-index: 2;
-        display: grid;
-        grid-template-columns: 1fr .75fr;
-        gap: rem(40);
-        @include max(lg) {
-            display: flex;
-            flex-direction: column;
-        }
-        @include min(xxl) {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .resource-banner__media {
-            border: 1px solid $iag-navy-200;
-            border-radius: rem(8);
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-            height: 100%;
-            @include max(lg) {
-                height: rem(320);
-            }
-            @include max(md) {
-                height: rem(260);
-            }
-
-            &-img {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-    }
-
     &-banner {
         padding: rem(64 0 40);
         position: relative;

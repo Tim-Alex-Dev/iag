@@ -14,9 +14,6 @@ $video_title        = $media_video ? get_sub_field( 'video_title' ) : false;
 $video_category     = $media_video ? get_sub_field( 'video_category' ) : false;
 $media_embed        = get_sub_field( 'embed_video' ) ?? false;
 $media_video_banner = get_sub_field( 'video_banner' ) ?? false;
-$video_id           = ( $media_type === 'video' && $media_video ) ? attachment_url_to_postid( $media_video ) : false;
-$video_metadata     = $video_id ? wp_get_attachment_metadata( $video_id ) : false;
-$video_duration     = $video_metadata ? $video_metadata['length_formatted'] : false;
 ?>
 
 
@@ -87,44 +84,31 @@ $video_duration     = $video_metadata ? $video_metadata['length_formatted'] : fa
         <?php endif; ?>
 
         <?php if ( $media_type === 'video' && $media_video ) : ?>
-            <?php if ( $media_video_banner ) : ?>
-                <a class="m-media__video right" data-fancybox="video" href="<?php echo esc_url( $media_video ); ?>">
-                    <?php echo wp_get_attachment_image( $media_video_banner, 'large', false, [ 'class' => 'm-media__video-poster' ] ); ?>
-                    
-                    <div class="m-media__video-controls">
-                        <svg><use xlink:href="#play-circle"></use></svg>
-                    </div>
-                    <?php if ( $video_category ) : ?>
-                        <span class="m-media__video-category">
-                            <?php echo esc_html( $video_category ); ?>
-                        </span>
-                    <?php endif; ?>
-
-                    <?php if ( $video_title || $video_duration ) : ?>
-                        <div class="m-media__video-footer">
-                            <?php if ( $video_title ) : ?>
-                                <span class="m-media__video-title">
-                                    <?php echo esc_html( $video_title ); ?>
-                                </span>
-                            <?php endif; ?>
-
-                            <?php if ( $video_duration ) : ?>
-                                <span class="m-media__video-duration">
-                                    <?php echo esc_html( $video_duration ); ?>
-                                </span>
-                            <?php endif; ?>
-                        </div>
-                    <?php endif; ?>
-                </a>
-            <?php else: ?>
-                <video class="m-media__video right" src="<?php echo esc_url( $media_video ); ?>" controls></video>
-            <?php endif; ?>
+            <?php get_template_part(
+                'template-parts/builder/components/video',
+                null,
+                [
+                    'type'     => 'file',
+                    'video'    => $media_video,
+                    'banner'   => $media_video_banner,
+                    'category' => $video_category,
+                    'title'    => $video_title,
+                    'class'    => 'right',
+                ]
+            ); ?>
         <?php endif; ?>
 
         <?php if ( $media_type === 'embed' && $media_embed ) : ?>
-            <div class="m-media__embed right">
-                <?php echo $media_embed; ?>
-            </div>
+            <?php get_template_part(
+                'template-parts/builder/components/video',
+                null,
+                [
+                    'type'  => 'embed',
+                    'video' => $media_embed,
+                    'class' => 'right',
+                ]
+            ); ?>
         <?php endif; ?>
+       
 	</div>
 </section>

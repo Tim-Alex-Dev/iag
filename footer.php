@@ -11,6 +11,9 @@
 $logo          	        = get_field( 'footer_logo', 'option' ) ?? false;
 $logo_description 	    = get_field( 'footer_logo_description', 'option' ) ?? false;
 $enable_top_menu        = get_field( 'enable_footer_top_menu', 'option' ) ?? false;
+$modal_cf_header        = get_field( 'header_cta_cf', 'option' ) ?? false;
+$modal_cf_id            = $modal_cf_header ? $modal_cf_header->ID : false;
+$modal_cf_title 		= $modal_cf_header ? get_the_title( $modal_cf_header->ID ) : false;
 $enable_footer_column_1 = get_field( 'enable_footer_column_1_menu', 'option' ) ?? false;
 $enable_footer_column_2 = get_field( 'enable_footer_column_2_menu', 'option' ) ?? false;
 $enable_footer_column_3 = get_field( 'enable_footer_column_3_menu', 'option' ) ?? false;
@@ -130,6 +133,32 @@ $enable_footer_contacts = get_field( 'enable_footer_contacts_menu', 'option' ) ?
 </footer>
 
 <?php get_template_part( 'template-parts/svg' ); ?>
+
+<?php if ( $modal_cf_header && $modal_cf_id && $modal_cf_title ) : ?>
+	<div id="contact" class="modal modal--contact">
+
+		<div class="modal__overlay"></div>
+
+		<div class="modal__inner">
+
+			<div class="modal__content bg-white">
+
+				<div class="modal__close js-modal-close" aria-label="Close modal">
+					<svg>
+						<use xlink:href="#close"></use>
+					</svg>
+				</div>
+
+				<div class="contact-form__wrapper">
+					<h2 class="contact-form__title">
+						<?php _e( 'Submit RFP', '_iag' ); ?>
+					</h2>
+					<?php echo do_shortcode( '[contact-form-7 id="'.$modal_cf_id.'" title="'.$modal_cf_title.'"]' ); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>
 
 <?php wp_footer(); ?>
 

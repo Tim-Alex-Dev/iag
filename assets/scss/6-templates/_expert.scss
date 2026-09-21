@@ -232,8 +232,26 @@
             }
         }
 
-        &__btn {
+        &__buttons {
+            display: flex;
+            align-items: center;
+            gap: rem(12);
             margin-top: rem(28);
+
+            .expert-video-btn {
+                // height: rem(60);
+                cursor: pointer;
+                &:hover {
+                    svg {
+                        transform: scale(1.2);
+                    }
+                }
+                svg {
+                    height: rem(60);
+                    width: rem(80);
+                    fill: $red-01;
+                }
+            }
         }
 
         &__photo {

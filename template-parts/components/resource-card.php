@@ -6,7 +6,8 @@ if ( ! $resource_id ) {
     return;
 }
 
-$post_banner       = get_field( 'post_banner', $resource_id ) ?? false;
+$post_thumbnail    = get_field( 'post_thumbnail', $resource_id ) ?? false;
+$post_banner       = $post_thumbnail ? $post_thumbnail : get_field( 'post_banner', $resource_id ) ?? false;
 $post_title        = get_field( 'post_title', $resource_id ) ?? false;
 $resource_date     = get_the_date( 'M j, Y', $resource_id );
 $resource_link     = get_permalink( $resource_id );

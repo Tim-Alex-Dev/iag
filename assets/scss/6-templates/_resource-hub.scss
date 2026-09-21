@@ -230,9 +230,11 @@
                     }
 
                     .resource-post-card {
-                        width: calc(50% - rem(12));
-                        &:nth-child(3) {
-                            width: 75%;
+                        @include max(lg) {
+                            width: calc(50% - rem(12));
+                            &:nth-child(3) {
+                                width: 75%;
+                            }
                         }
                         @include max(md) {
                             width: 100% !important;

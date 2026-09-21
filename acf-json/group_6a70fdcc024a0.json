@@ -426,7 +426,7 @@
             "name": "post_banner",
             "aria-label": "",
             "type": "image",
-            "instructions": "WEBP Only.\r\nRecommended image sixe - 960px x 720px (4\/3)",
+            "instructions": "WEBP Only.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -447,6 +447,34 @@
             "mime_types": "webp",
             "allow_in_bindings": 0,
             "preview_size": "large"
+        },
+        {
+            "key": "field_6ab09e0f54912",
+            "label": "Post Thumbnail",
+            "name": "post_thumbnail",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "WEBP Only.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "uploader": "",
+            "return_format": "id",
+            "library": "all",
+            "acfe_thumbnail": 0,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "webp",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
         }
     ],
     "location": [
@@ -475,5 +503,5 @@
             "json"
         ]
     },
-    "modified": 1788397407
+    "modified": 1789961209
 }

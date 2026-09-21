@@ -11,6 +11,7 @@
 $logo     			 = get_field( 'logo', 'option' );
 $header_phone_number = get_field( 'header_phone_button', 'option' );
 $header_cta_text     = get_field( 'header_cta_button', 'option' );
+$header_cta_cf       = get_field( 'header_cta_cf', 'option' );
 
 $has_hero = false;
 if ( have_rows( 'builder' ) ) {
@@ -133,8 +134,8 @@ $extra_classes = $has_hero ? 'has-hero' : ''; // page with Hero requires extra h
 			]); ?>
 		</nav>
 		
-		<?php if ( $header_cta_text ) : ?>
-			<div class="btn btn-primary header-cta-button">
+		<?php if ( $header_cta_text && $header_cta_cf ) : ?>
+			<div class="btn btn-primary header-cta-button js-modal-open" data-modal="contact">
 				<?php echo esc_html( $header_cta_text ); ?>
 			</div>
 		<?php endif; ?>
