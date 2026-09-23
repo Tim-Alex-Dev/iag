@@ -165,25 +165,9 @@ $expert_categories = array(
     
                         <div class="expert-main__buttons">
                             <?php if ( ( $expert_video_type === 'embed' && $video_url ) || ( $expert_video_type === 'file' && $video_file ) ) : ?>
-
-                                <div class="expert-video-btn js-modal-open"
-                                    data-modal="video"
-                                    data-video-type="<?php echo esc_attr( $expert_video_type ); ?>"
-                                    <?php if ( $expert_video_type === 'embed' && $video_url ) : ?>
-                                        data-video-url="<?php echo esc_url( $video_url ); ?>"
-                                    <?php endif; ?>
-                                    <?php if ( $expert_video_type === 'file' && $video_file ) : ?>
-                                        data-video-file="<?php echo esc_url( $video_file ); ?>"
-
-                                        <?php if ( $video_banner ) : ?>
-                                            data-video-banner="<?php echo esc_url( wp_get_attachment_image_url( $video_banner, 'full' ) ); ?>"
-                                        <?php endif; ?>
-                                    <?php endif; ?>
-                                    >
+                                <a class="expert-video-btn" href="#expert_video">
                                     <svg><use xlink:href="#youtube"></use></svg>
-
-                                </div>
-
+                                </a>
                             <?php endif; ?>
                             <a class="expert-main__buttons-btn btn btn-primary" href="/contact-us/#contact-us" target="_self">
                                 <?php echo _e( 'Talk to this expert', '_iag' ); ?>
@@ -253,6 +237,36 @@ $expert_categories = array(
                 </div>
             </div>
         </div>
+    <?php endif; ?>
+
+    <?php if ( ( $expert_video_type === 'embed' && $video_url ) || ( $expert_video_type === 'file' && $video_file ) ) : ?>
+        <div class="expert-video expert-block bg-gray" id="expert_video">
+            <div class="container">
+                <?php if ( $expert_video_type === 'file' && $video_file ) : ?>
+                    <?php get_template_part(
+                        'template-parts/builder/components/video',
+                        null,
+                        [
+                            'type'     => 'file',
+                            'video'    => $video_file,
+                            'banner'   => $video_banner,
+                        ]
+                    ); ?>
+                <?php endif; ?>
+
+                <?php if ( $expert_video_type === 'embed' && $video_url ) : ?>
+                    <?php get_template_part(
+                        'template-parts/builder/components/video',
+                        null,
+                        [
+                            'type'  => 'embed',
+                            'video' => $video_url,
+                        ]
+                    ); ?>
+                <?php endif; ?>
+            </div>
+        </div>
+
     <?php endif; ?>
 
     <?php if ( $case_studies_list ) : ?>

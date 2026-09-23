@@ -72,7 +72,7 @@ $class_attr = implode( ' ', $classes );
 <?php elseif ( $type === 'embed' ) : ?>
 
 	<div class="<?php echo esc_attr( $class_attr ); ?>">
-		<?php echo $video; ?>
+		<?php echo wp_oembed_get($video); ?>
 	</div>
 
 <?php endif; ?>
