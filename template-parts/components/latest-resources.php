@@ -37,14 +37,15 @@ if ( ! $resource_ids ) {
     return;
 }
 
-$main_resource_id   = array_shift( $resource_ids );
-$main_post_title    = get_field( 'post_title', $main_resource_id ) ?? false;
-$main_post_subtitle = get_field( 'post_subtitle', $main_resource_id ) ?? false;
-$main_post_banner   = get_field( 'post_banner', $main_resource_id ) ?? false;
-$main_post_date     = get_the_date( 'M j, Y', $main_resource_id ) ?? false;
-$main_post_link     = get_permalink( $main_resource_id ) ?? false;
-$main_post_category = get_primary_category( $main_resource_id ) ?? false;
-$posts_page_url     = get_permalink( get_option( 'page_for_posts' ) );
+$main_resource_id    = array_shift( $resource_ids );
+$main_post_title     = get_field( 'post_title', $main_resource_id ) ?? false;
+$main_post_subtitle  = get_field( 'post_subtitle', $main_resource_id ) ?? false;
+$main_post_thumbnail = get_field( 'post_thumbnail', $main_resource_id ) ?? false;
+$main_post_banner    = $post_thumbnail ? $post_thumbnail : get_field( 'post_banner', $main_resource_id ) ?? false;
+$main_post_date      = get_the_date( 'M j, Y', $main_resource_id ) ?? false;
+$main_post_link      = get_permalink( $main_resource_id ) ?? false;
+$main_post_category  = get_primary_category( $main_resource_id ) ?? false;
+$posts_page_url      = get_permalink( get_option( 'page_for_posts' ) );
 ?>
 
 
@@ -106,11 +107,12 @@ $posts_page_url     = get_permalink( get_option( 'page_for_posts' ) );
 
         <div class="c-latest-resources__list">
             <?php foreach ( $resource_ids as $resource_id ) :
-                $resource_category = get_primary_category( $resource_id );
-                $resource_title    = get_field( 'post_title', $resource_id );
-                $resource_banner   = get_field( 'post_banner', $resource_id );
-                $resource_date     = get_the_date( 'M j, Y', $resource_id );
-                $resource_link     = get_permalink( $resource_id ); ?>
+                $resource_category  = get_primary_category( $resource_id );
+                $resource_title     = get_field( 'post_title', $resource_id );
+                $resource_thumbnail = get_field( 'post_thumbnail', $resource_id ) ?? false;
+                $resource_banner    = $post_thumbnail ? $post_thumbnail : get_field( 'post_banner', $resource_id ) ?? false;
+                $resource_date      = get_the_date( 'M j, Y', $resource_id );
+                $resource_link      = get_permalink( $resource_id ); ?>
 
                 <?php if ( $resource_title && $resource_banner ) : ?>
                     
