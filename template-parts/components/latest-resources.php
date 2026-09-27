@@ -118,7 +118,7 @@ $posts_page_url      = get_permalink( get_option( 'page_for_posts' ) );
                     
                     <a class="list-post" href="<?php echo esc_url( $resource_link ); ?>" target="_blank">
                         <div class="list-post__banner">
-                            <?php echo wp_get_attachment_image( $main_post_banner, 'full', false, [ 'class' => 'list-post__banner-img' ] ); ?>
+                            <?php echo wp_get_attachment_image( $resource_banner, 'full', false, [ 'class' => 'list-post__banner-img' ] ); ?>
                         </div>
 
                         <div class="list-post__content">
