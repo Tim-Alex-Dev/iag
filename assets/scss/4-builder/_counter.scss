@@ -159,9 +159,14 @@
                 &__title {
                     font-family: $font-alt;
                     font-size: rem(12);
+                    transition: $default-transition;  
                     @include min(xxl) {
                         font-size: rem(18);
                     }
+                }
+
+                &-url {
+                    cursor: pointer;
                 }
             }
         }
@@ -227,6 +232,7 @@
                 font-family: $font-alt;
                 font-size: rem(12);
                 text-align: center;
+                transition: $default-transition;
                 @include min(xxl) {
                     font-size: rem(18);
                 }
@@ -286,10 +292,17 @@
             }
 
             &-list {
-
                 .icon-item {
                     &__title {
                         color: $iag-navy-100;
+                    }
+
+                    &-url {
+                        &:hover {
+                            .icon-item__title {
+                                color: $iag-orange-500 !important;
+                            }
+                        }
                     }
                 }
             }
@@ -313,6 +326,14 @@
 
             &-title {
                 color: $iag-navy-200;
+            }
+
+            &-slide-link {
+                &:hover {
+                    .slide-title {
+                        color: $iag-orange-500 !important;
+                    }
+                }
             }
         }
     }
@@ -380,10 +401,17 @@
             }
 
             &-list {
-
                 .icon-item {
                     &__title {
                         color: $iag-gray-700;
+                    }
+
+                    &-url {
+                        &:hover {
+                            .icon-item__title {
+                                color: $iag-orange-500 !important;
+                            }
+                        }
                     }
                 }
             }
@@ -398,6 +426,14 @@
 
             &-title {
                 color: $iag-gray-900;
+            }
+
+            &-slide-link {
+                &:hover {
+                    .slide-title {
+                        color: $iag-orange-500 !important;
+                    }
+                }
             }
         }        
     }

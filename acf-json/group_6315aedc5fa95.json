@@ -1092,7 +1092,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "40",
+                        "width": "25",
                         "class": "",
                         "id": ""
                     },
@@ -1112,6 +1112,25 @@
                     "parent_repeater": "field_6a98ca38c9695"
                 },
                 {
+                    "key": "field_6ab883107f6e7",
+                    "label": "Icon URL",
+                    "name": "icon_url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_6a98ca38c9695"
+                },
+                {
                     "key": "field_6a98ca38c9697",
                     "label": "Icon Title",
                     "name": "icon_title",
@@ -1121,7 +1140,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "60",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -1163,5 +1182,5 @@
             "json"
         ]
     },
-    "modified": 1789727395
+    "modified": 1790477115
 }

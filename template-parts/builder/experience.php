@@ -31,20 +31,26 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
         <?php if ( have_rows( 'tabs_list' ) ) : ?>
             <div class="m-experience__tabs js-tabs tabs ">
                 <div class="m-experience__tabs-titles tabs__titles">
-                    <?php while ( have_rows( 'tabs_list' ) ) : the_row(); 
-                        $title     = get_sub_field( 'tab_title' ) ?? false; 
-                        $index     = get_row_index(); 
-                        $is_active = $index === 1 ? ' is-active' : ''; ?>
-                        
+                    <?php while ( have_rows( 'tabs_list' ) ) : the_row();
+                        $title     = get_sub_field( 'tab_title' ) ?? false;
+                        $title_url = get_sub_field( 'tab_title_url' ) ?? false;
+                        $index     = get_row_index();
+                        $is_active = $index === 1 ? ' is-active' : '';
+                        $has_url   = $title_url ? ' has-url' : ''; ?>
+
                         <?php if ( $title ) : ?>
-                            <div class="m-experience__tabs-titles-title js-tab-title<?php echo esc_attr( $is_active ); ?>" 
-                                data-item="expert-tab-<?php echo $index; ?>">
+                            <div class="m-experience__tabs-titles-title js-tab-title<?php echo esc_attr( $is_active . $has_url ); ?>"
+                                data-item="expert-tab-<?php echo esc_attr( $index ); ?>"
+                                <?php if ( $title_url ) : ?>
+                                    data-url="<?php echo esc_url( $title_url ); ?>"
+                                <?php endif; ?>>
+
                                 <?php echo esc_html( $title ); ?>
+                                
                             </div>
                         <?php endif; ?>
-    
+
                     <?php endwhile; ?>
-    
                 </div>
 
 

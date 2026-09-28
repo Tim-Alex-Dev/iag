@@ -239,6 +239,25 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
+                    "key": "field_6aba3c038ed24",
+                    "label": "(Column 3\/12)",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "acfe_column",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "columns": "3\/12",
+                    "endpoint": 0,
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_6a3d309b23570"
+                },
+                {
                     "key": "field_6a3d30ab23571",
                     "label": "Tab Title",
                     "name": "tab_title",
@@ -248,15 +267,54 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "25",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
                     "maxlength": "",
+                    "allow_in_bindings": 1,
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
+                    "parent_repeater": "field_6a3d309b23570"
+                },
+                {
+                    "key": "field_6aba3c4e8091d",
+                    "label": "Tab Title URL",
+                    "name": "tab_title_url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_6a3d309b23570"
+                },
+                {
+                    "key": "field_6aba3c188ed25",
+                    "label": "(Column 9\/12)",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "acfe_column",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "columns": "9\/12",
+                    "endpoint": 0,
+                    "allow_in_bindings": 0,
                     "parent_repeater": "field_6a3d309b23570"
                 },
                 {
@@ -269,7 +327,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "75",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
@@ -371,6 +429,25 @@
                         }
                     ],
                     "parent_repeater": "field_6a3d309b23570"
+                },
+                {
+                    "key": "field_6aba3c248ed26",
+                    "label": "(Column Endpoint)",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "acfe_column",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "endpoint": 1,
+                    "allow_in_bindings": 0,
+                    "columns": "6\/12",
+                    "parent_repeater": "field_6a3d309b23570"
                 }
             ]
         }
@@ -401,5 +478,5 @@
             "json"
         ]
     },
-    "modified": 1788488411
+    "modified": 1790590055
 }

@@ -38,7 +38,7 @@ $is_slider  = $icons_type === 'slider';
 $content_title = ( $is_gallery || $is_slider )
 	? $content_title
 	: false;
-?>
+?>''
 
 <section
 	id="<?php echo esc_attr( $module_id ); ?>"
@@ -88,26 +88,27 @@ $content_title = ( $is_gallery || $is_slider )
 				<?php endif; ?>
 
 				<div class="m-counter__gallery-list">
-
 					<?php foreach ( $icons_list as $icon_item ) :
 						$icon_id    = $icon_item['icon'] ?? false;
 						$icon_title = $icon_item['icon_title'] ?? false;
-						?>
+						$icon_url   = $icon_item['icon_url'] ?? false; ?>
 
 						<?php if ( $icon_id ) : ?>
-							<div class="icon-item">
+							<?php if ( $icon_url ) : ?>
+								<a class="icon-item icon-item-url" href="<?php echo esc_url( $icon_url ); ?>">
+							<?php else : ?>
+								<div class="icon-item">
+							<?php endif; ?>
 
 								<div class="icon-item__image">
-									<?php
-									echo wp_get_attachment_image(
+									<?php echo wp_get_attachment_image(
 										$icon_id,
 										'thumbnail',
 										false,
 										[
 											'class' => 'icon-item__image-icon',
 										]
-									);
-									?>
+									); ?>
 								</div>
 
 								<?php if ( $icon_title ) : ?>
@@ -116,11 +117,14 @@ $content_title = ( $is_gallery || $is_slider )
 									</span>
 								<?php endif; ?>
 
-							</div>
+							<?php if ( $icon_url ) : ?>
+								</a>
+							<?php else : ?>
+								</div>
+							<?php endif; ?>
+
 						<?php endif; ?>
-
 					<?php endforeach; ?>
-
 				</div>
 			</div>
 		<?php endif; ?>
@@ -141,28 +145,38 @@ $content_title = ( $is_gallery || $is_slider )
 						<?php foreach ( $icons_list as $icon_item ) :
 							$icon_id    = $icon_item['icon'] ?? false;
 							$icon_title = $icon_item['icon_title'] ?? false;
-							?>
+							$icon_url   = $icon_item['icon_url'] ?? false; ?>
 
 							<?php if ( $icon_id ) : ?>
 								<div class="m-counter__slider-slide swiper-slide">
 
-									<div class="slide-image">
-										<?php
-										echo wp_get_attachment_image(
-											$icon_id,
-											'thumbnail',
-											false,
-											[
-												'class' => 'slide-image__img',
-											]
-										);
-										?>
-									</div>
+									<?php if ( $icon_url ) : ?>
+										<a class="m-counter__slider-slide-link" href="<?php echo esc_url( $icon_url ); ?>" >
+									<?php else : ?>
+										<div class="m-counter__slider-slide-inner">
+									<?php endif; ?>
 
-									<?php if ( $icon_title ) : ?>
-										<span class="slide-title">
-											<?php echo esc_html( $icon_title ); ?>
-										</span>
+										<div class="slide-image">
+											<?php echo wp_get_attachment_image(
+												$icon_id,
+												'thumbnail',
+												false,
+												[
+													'class' => 'slide-image__img',
+												]
+											); ?>
+										</div>
+
+										<?php if ( $icon_title ) : ?>
+											<span class="slide-title">
+												<?php echo esc_html( $icon_title ); ?>
+											</span>
+										<?php endif; ?>
+
+									<?php if ( $icon_url ) : ?>
+										</a>
+									<?php else : ?>
+										</div>
 									<?php endif; ?>
 
 								</div>

@@ -167,7 +167,7 @@
 		align-items: center;
 		padding-top: rem(24);
 		border-top: 1px solid rgba($iag-gray-200, .5);
-		@include max(md) {
+		@include max(lg) {
 			flex-direction: column-reverse;
 			gap: rem(12);
 		}

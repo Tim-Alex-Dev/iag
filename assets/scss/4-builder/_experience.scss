@@ -39,7 +39,10 @@
                 color: #0F1F33;
                 letter-spacing: 0.05em;
                 transition: $default-transition;
-                &:hover {}
+                cursor: pointer;
+                &:hover {
+                    color: $iag-orange-500;
+                }
 
                 &:after {
                     position: absolute;
@@ -53,9 +56,17 @@
                 }
 
                 &.is-active {
-                    &::after {
-                        width: 100%;
-                        background-color: $primary;
+                    color: $iag-orange-500;
+                    pointer-events: none;
+                }
+
+                &.is-active.has-url {
+                    pointer-events: all;
+                    &:hover {
+                        &::after {
+                            width: 100%;
+                            background-color: $iag-orange-500;
+                        }
                     }
                 }
             }
