@@ -1,7 +1,7 @@
 <?php $expert_id = $args['expert_id'] ?? false;
       $class     = $args['class'] ?? false;
 
-if ( ! $expert_id ) {
+if ( ! $expert_id || get_post_status( $expert_id ) !== 'publish' ) {
     return;
 }
 

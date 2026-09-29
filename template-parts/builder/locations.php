@@ -128,23 +128,4 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
             </div>
         <?php endif; ?>  
     </div>
-    <div class="container">
-        <div class="test-form" style="background: white;">
-            <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
-
-            <script>
-
-            hbspt.forms.create({
-
-                portalId: "144692094",
-
-                formId: "b88b0e9c-fc2d-4b6a-a1d6-06ac59477278",
-
-                region: "eu1"
-
-            });
-
-            </script>
-        </div>
-    </div>
 </section>
