@@ -5,7 +5,7 @@
 			$url  = get_sub_field( 'social_url' ); ?>
 
 			<?php if ( $name ) : ?>
-				<a class="socials__item" href="<?php echo esc_url( $url ) ?>" target="_blank" rel="nofollow">
+				<a class="socials__item" href="<?php echo esc_url( $url ) ?>" target="_blank" rel="noopener">
 					<svg class="icon-<?php echo esc_attr( $name ); ?>">
 						<use xlink:href="#<?php echo esc_attr( $name ); ?>"></use>
 					</svg>
