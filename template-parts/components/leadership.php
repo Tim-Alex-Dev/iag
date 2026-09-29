@@ -1,7 +1,7 @@
 <?php $leadership_id = $args['leadership_id'] ?? false;
       $class         = $args['class'] ?? false;
 
-if ( ! $leadership_id ) {
+if ( ! $leadership_id || get_post_status( $leadership_id ) !== 'publish' ) {
     return;
 }
 
