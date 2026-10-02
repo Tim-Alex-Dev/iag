@@ -110,7 +110,7 @@ $posts_page_url      = get_permalink( get_option( 'page_for_posts' ) );
                 $resource_category  = get_primary_category( $resource_id );
                 $resource_title     = get_field( 'post_title', $resource_id );
                 $resource_thumbnail = get_field( 'post_thumbnail', $resource_id ) ?? false;
-                $resource_banner    = $post_thumbnail ? $post_thumbnail : get_field( 'post_banner', $resource_id ) ?? false;
+                $resource_banner    = $resource_thumbnail ? $resource_thumbnail : get_field( 'post_banner', $resource_id ) ?? false;
                 $resource_date      = get_the_date( 'M j, Y', $resource_id );
                 $resource_link      = get_permalink( $resource_id ); ?>
 
