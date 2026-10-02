@@ -286,6 +286,18 @@
             }
         }
 
+        &__content {
+            display: flex;
+            flex-direction: column;
+            gap: rem(40);
+
+            .module {
+                .container {
+                    display: block !important;
+                }
+            }
+        }
+
         &__cta {
             position: sticky;
             top: rem(100);
