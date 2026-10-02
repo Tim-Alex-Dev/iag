@@ -7,8 +7,7 @@ $module_subtitle  = get_sub_field( 'module_subtitle' ) ?? false;
 $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
 $module_type      = get_sub_field( 'module_type' ) ?? false;
 $module_link      = get_sub_field( 'module_link' ) ?? false;
-$contact_form     = get_sub_field( 'contact_form' ) ?? false;
-?>
+$contact_form     = get_field( 'hubspot_default_form', 'option' ) ?? false;?>
 
 
 <section id="<?php echo esc_attr($module_id); ?>" class="module m-cf bg-<?php echo esc_attr( $color_theme ); ?> module-<?php echo esc_attr( $module_type ); ?>  ">
@@ -70,16 +69,11 @@ $contact_form     = get_sub_field( 'contact_form' ) ?? false;
             <?php endif; ?>
         </div>
 
-        <?php if ( $contact_form ) : 
-            $id    = $contact_form->ID ?? false;
-            $title = get_the_title( $contact_form->ID ) ?? false; ?>
-
+        <?php if ( $contact_form ) : ?>
             <div class="m-cf__form">
-                <?php if ( $id && $title ) : ?>
-                    <div class="contact-form__wrapper">
-                        <?php echo do_shortcode( '[contact-form-7 id="'.$id.'" title="'.$title.'"]' ); ?>
-                    </div>
-                <?php endif; ?>
+                <div class="contact-form__wrapper hs-form__wrapper">
+                    <?php echo $contact_form; ?>
+                </div>
             </div>
         <?php endif; ?>
 

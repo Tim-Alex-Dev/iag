@@ -11,7 +11,7 @@
 $logo     			 = get_field( 'logo', 'option' );
 $header_phone_number = get_field( 'header_phone_button', 'option' );
 $header_cta_text     = get_field( 'header_cta_button', 'option' );
-$header_cta_cf       = get_field( 'header_cta_cf', 'option' );
+$header_cta_cf       = get_field( 'hubspot_header_form', 'option' );
 
 $has_hero = false;
 if ( have_rows( 'builder' ) ) {

@@ -1652,45 +1652,6 @@
             "endpoint": 1,
             "allow_in_bindings": 1,
             "columns": "6\/12"
-        },
-        {
-            "key": "field_6a2b01826d1fe",
-            "label": "CTA Form",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0,
-            "selected": 0
-        },
-        {
-            "key": "field_6a2fdfa0a14af",
-            "label": "Education Title",
-            "name": "education_",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -1719,5 +1680,5 @@
             "json"
         ]
     },
-    "modified": 1789551926
+    "modified": 1790861121
 }

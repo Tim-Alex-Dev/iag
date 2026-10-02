@@ -30,7 +30,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -58,48 +58,16 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "placeholder": "",
             "prepend": "",
             "append": ""
-        },
-        {
-            "key": "field_6aad0dc6078df",
-            "label": "Header CTA CF",
-            "name": "header_cta_cf",
-            "aria-label": "",
-            "type": "post_object",
-            "instructions": "Enter CTA Button Text",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "wpcf7_contact_form"
-            ],
-            "post_status": "",
-            "taxonomy": "",
-            "return_format": "object",
-            "multiple": 0,
-            "save_custom": 0,
-            "save_post_status": "publish",
-            "acfe_bidirectional": {
-                "acfe_bidirectional_enabled": "0"
-            },
-            "allow_null": 0,
-            "allow_in_bindings": 0,
-            "bidirectional": 0,
-            "ui": 1,
-            "bidirectional_target": [],
-            "save_post_type": ""
         },
         {
             "key": "field_6a37ddfbab673",
@@ -111,12 +79,13 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "placeholder": "+1 234 567 8901",
             "prepend": "",
             "append": ""
@@ -661,7 +630,7 @@
         },
         {
             "key": "field_6a8c3e8c8aa3c",
-            "label": "(Column 3\/12)",
+            "label": "(Column 2\/12)",
             "name": "",
             "aria-label": "",
             "type": "acfe_column",
@@ -673,7 +642,7 @@
                 "class": "",
                 "id": ""
             },
-            "columns": "3\/12",
+            "columns": "2\/12",
             "endpoint": 0,
             "allow_in_bindings": 0
         },
@@ -706,25 +675,8 @@
             "preview_size": "thumbnail"
         },
         {
-            "key": "field_6a8c3d9e0ec3c",
-            "label": "Default CTA Link",
-            "name": "default_cta_link",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "allow_in_bindings": 0
-        },
-        {
             "key": "field_6a8c3ea98aa3d",
-            "label": "(Column 3\/12)",
+            "label": "(Column 5\/12)",
             "name": "",
             "aria-label": "",
             "type": "acfe_column",
@@ -736,7 +688,7 @@
                 "class": "",
                 "id": ""
             },
-            "columns": "3\/12",
+            "columns": "5\/12",
             "endpoint": 0,
             "allow_in_bindings": 0
         },
@@ -784,24 +736,6 @@
             "new_lines": ""
         },
         {
-            "key": "field_6a8c3eae8aa3e",
-            "label": "(Column 6\/12)",
-            "name": "",
-            "aria-label": "",
-            "type": "acfe_column",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "columns": "6\/12",
-            "endpoint": 0,
-            "allow_in_bindings": 0
-        },
-        {
             "key": "field_6a8c3d620ec39",
             "label": "Default CTA Description",
             "name": "default_cta_description",
@@ -822,6 +756,24 @@
             "rows": 2,
             "placeholder": "",
             "new_lines": ""
+        },
+        {
+            "key": "field_6abf8b69ae188",
+            "label": "(Column 5\/12)",
+            "name": "",
+            "aria-label": "",
+            "type": "acfe_column",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "columns": "5\/12",
+            "endpoint": 0,
+            "allow_in_bindings": 0
         },
         {
             "key": "field_6a8c3d7c0ec3a",
@@ -1154,6 +1106,112 @@
                     "parent_repeater": "field_6a98ca38c9695"
                 }
             ]
+        },
+        {
+            "key": "field_6abe5d443ebd3",
+            "label": "Hubspot Forms",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_6abe5da53ebd7",
+            "label": "Hubspot Default Form",
+            "name": "hubspot_default_form",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Enter CTA Button Text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "acfe_textarea_code": 0,
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_6aad0dc6078df",
+            "label": "Hubspot Header Form",
+            "name": "hubspot_header_form",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Enter CTA Button Text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "acfe_textarea_code": 0,
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_6abe5d853ebd4",
+            "label": "Hubspot Expert Form",
+            "name": "hubspot_expert_form",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Enter CTA Button Text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "acfe_textarea_code": 0,
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_6abe5d913ebd5",
+            "label": "Hubspot Resource Form",
+            "name": "hubspot_resource_form",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Enter CTA Button Text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "acfe_textarea_code": 0,
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -1182,5 +1240,5 @@
             "json"
         ]
     },
-    "modified": 1790477115
+    "modified": 1790938061
 }

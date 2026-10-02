@@ -55,6 +55,9 @@ $websites_title     = get_field( 'websites_column_title', $expert_id ) ?? false;
 $profiles_title     = get_field( 'profiles_column_title', $expert_id ) ?? false;
 $locations_title    = get_field( 'locations_column_title', $expert_id ) ?? false;
 
+// Expert Form
+$contact_form = get_field( 'hubspot_expert_form', 'option' ) ?? false;
+
 
 $expert_categories = array(
     array(
@@ -70,8 +73,6 @@ $expert_categories = array(
         'title'    => __( 'Expertise Areas', '_iag' ),
     ),
 );
-
-// CTA Form
 ?>
 
 
@@ -169,7 +170,7 @@ $expert_categories = array(
                                     <svg><use xlink:href="#youtube"></use></svg>
                                 </a>
                             <?php endif; ?>
-                            <a class="expert-main__buttons-btn btn btn-primary" href="/contact-us/#contact-us" target="_self">
+                            <a class="expert-main__buttons-btn btn btn-primary" href="#expert-contacts" target="_self">
                                 <?php echo _e( 'Talk to this expert', '_iag' ); ?>
                                 <svg><use xlink:href="#arrow-right"></use></svg>
                             </a>
@@ -628,11 +629,27 @@ $expert_categories = array(
         </div>
     </div>
 
-    <!-- <div class="expert-contact" id="expert-contacts">
-        <div class="container">
-            form here
+    <?php if ( $contact_form ) : ?>
+        <div class="expert-contact expert-block bg-orange" id="expert-contacts">
+            <div class="container">
+                <div class="expert-block__header alignment-center">
+                    <span class="expert-block__uptitle">
+                        <?php _e( 'Let`s be in touch', '_iag' ); ?>
+                    </span>
+                    <h2 class="h2 expert-block__title">
+                        <?php _e( 'Contact Our Expert', '_iag' ); ?>
+                    </h2>
+                    <span class="expert-block__subtitle">
+                        <?php _e( 'If you are planning a clinical trial which will use imaging to assess the safety and efficacy of your new drug candidate, share your challenges with our expert.', '_iag' ); ?>
+                    </span>
+                </div>
+                <div class="contact-form__wrapper hs-form__wrapper">
+                    <?php echo $contact_form; ?>
+                </div>
+            </div>
         </div>
-    </div> -->
+    <?php endif; ?>
+
 </article>
 
 

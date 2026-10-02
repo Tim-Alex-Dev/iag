@@ -18,7 +18,7 @@ $cta_icon        = get_field( 'default_cta_icon', 'options' ) ?? false;
 $cta_uptitle     = get_field( 'default_cta_uptitle', 'options' ) ?? false;
 $cta_title       = get_field( 'default_cta_title', 'options' ) ?? false;
 $cta_description = get_field( 'default_cta_description', 'options' ) ?? false;
-$cta_link        = get_field( 'default_cta_link', 'options' ) ?? false;
+$contact_form    = get_field( 'hubspot_resource_form', 'option' ) ?? false;
 ?>
 
 <article class="resource">
@@ -148,15 +148,12 @@ $cta_link        = get_field( 'default_cta_link', 'options' ) ?? false;
 								<?php endwhile; ?>
 							</div>
 						<?php endif; ?>
-						<?php if ( $cta_link ) : 
-							$link_url    = $cta_link['url'];
-							$link_title  = $cta_link['title'];
-							$link_target = $cta_link['target'] ? $cta_link['target'] : '_self'; ?>
-	
-							<a class="btn btn-primary" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
-								<?php echo esc_html( $link_title ); ?>
+
+						<?php if ( $contact_form ) : ?>
+							<div class="btn btn-primary js-modal-open" data-modal="booking">
+								<?php _e( 'Book a consultation', '_iag' ); ?>
 								<svg><use xlink:href="#arrow-right"></use></svg>
-							</a>
+							</div>
 						<?php endif; ?>
 					</div>
 				</div>
@@ -166,7 +163,31 @@ $cta_link        = get_field( 'default_cta_link', 'options' ) ?? false;
 
 </article>
 
+<?php if ( $contact_form ) : ?>
+	<div id="booking" class="modal modal--booking">
 
+		<div class="modal__overlay"></div>
+
+		<div class="modal__inner">
+
+			<div class="modal__content bg-white">
+
+				<div class="modal__close js-modal-close" aria-label="Close modal">
+					<svg>
+						<use xlink:href="#close"></use>
+					</svg>
+				</div>
+
+				<div class="contact-form__wrapper">
+					<h2 class="contact-form__title">
+						<?php _e( 'Book a Consultation', '_iag' ); ?>
+					</h2>
+					<?php echo $contact_form; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>
 
 <?php
 get_footer();

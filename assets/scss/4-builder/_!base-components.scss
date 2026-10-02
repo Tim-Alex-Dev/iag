@@ -42,14 +42,13 @@
 			@include min(xxl) {
 				font-size: rem(16);
 			}
+			.bg-white &,
+			.bg-gray &,
 			.bg-blue & {
-				color: $iag-orange-300;
-			}
-			.bg-white & {
 				color: $iag-orange-500;
 			}
-			.bg-gray & {
-				color: $iag-orange-500;
+			.bg-orange & {
+				color: $white;
 			}
 		}
 
@@ -63,18 +62,17 @@
 				font-size: rem(52);
 				max-width: rem(900);
 			}
-			.bg-blue & {
+			.bg-blue &,
+			.bg-orange & {
 				color: $white;
 			}
-			.bg-white & {
-				color: $iag-gray-900;
-			}
-			.bg-gray & {
+			.bg-white &,
+			.bg-gray &  {
 				color: $iag-gray-900;
 			}
 
 			span {
-				color: $iag-orange-300 !important;
+				color: $iag-orange-500 !important;
 			}
 		}
 
@@ -93,11 +91,12 @@
 			.bg-blue & {
 				color: $iag-navy-100;
 			}
-			.bg-white & {
-				color: $iag-gray-700;
-			}
+			.bg-white &,
 			.bg-gray & {
 				color: $iag-gray-700;
+			}
+			.bg-orange & {
+				color: $white;
 			}
 		}
 	}
@@ -111,6 +110,9 @@
 }
 .bg-blue {
 	background-color: $bg-blue-light;
+}
+.bg-orange {
+	background-color: $bg-orange;
 }
 
 .chip {
