@@ -164,6 +164,8 @@ $cta_link        = get_field( 'default_cta_link', 'options' ) ?? false;
 		</div>
 	</div>
 
+	<?php get_template_part( 'template-parts/components/related-resources', null, [ 'category_id' => $category ] ); ?>
+	
 </article>
 
 

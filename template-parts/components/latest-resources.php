@@ -1,6 +1,12 @@
 <?php
+$category_id = (int) ( $args['category_id'] ?? 0 );
+$source_term = $category_id ? get_term( $category_id, 'source' ) : false;
 
-$category_id = $args['category_id'] ?? false;
+$is_events = (
+    $source_term
+    && ! is_wp_error( $source_term )
+    && $source_term->slug === 'events'
+);
 
 $resource_query = [
     'post_type'      => 'resource',
@@ -25,10 +31,26 @@ if ( $category_id ) {
         [
             'taxonomy'         => 'source',
             'field'            => 'term_id',
-            'terms'            => $category_id,
+            'terms'            => [ $category_id ],
             'include_children' => false,
         ],
     ];
+}
+
+if ( $is_events ) {
+    $resource_query['meta_query']['upcoming_event'] = [
+        'key'     => 'event_date',
+        'value'   => current_time( 'Ymd' ),
+        'compare' => '>=',
+        'type'    => 'NUMERIC',
+    ];
+
+    $resource_query['orderby'] = [
+        'upcoming_event' => 'ASC',
+        'date'           => 'DESC',
+    ];
+
+    $resource_query['order'] = 'ASC';
 }
 
 $resource_ids = get_posts( $resource_query );
