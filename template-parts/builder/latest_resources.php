@@ -129,10 +129,11 @@ if ( $resource_type === 'event' ) {
 }
 
 if ( $resource_id) {
-    $resource_title    = get_field( 'post_title', $resource_id ) ?? false;
-    $resource_subtitle = get_field( 'post_subtitle', $resource_id ) ?? false;
-    $resource_banner   = get_field( 'post_banner', $resource_id ) ?? false;
-    $resource_category = get_primary_category( $resource_id ) ?? false;
+    $resource_title     = get_field( 'post_title', $resource_id ) ?? false;
+    $resource_subtitle  = get_field( 'post_subtitle', $resource_id ) ?? false;
+    $resource_category  = get_primary_category( $resource_id ) ?? false;
+    $resource_thumbnail = get_field( 'post_thumbnail', $resource_id ) ?? false;
+    $resource_banner    = $resource_thumbnail ? $resource_thumbnail : get_field( 'post_banner', $resource_id ) ?? false;   
 }
 ?>
 

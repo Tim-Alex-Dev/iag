@@ -30,21 +30,31 @@ $latest_event_id = get_posts(
         'post_type'      => 'resource',
         'post_status'    => 'publish',
         'posts_per_page' => 1,
-        'orderby'        => 'date',
-        'order'          => 'DESC',
         'fields'         => 'ids',
-        'tax_query'      => [
+        'orderby'        => [
+            'upcoming_event' => 'ASC',
+            'date'           => 'DESC',
+        ],
+        'tax_query' => [
             [
-                'taxonomy' => 'source',
-                'field'    => 'name',
-                'terms'    => 'Events',
+                'taxonomy'         => 'source',
+                'field'            => 'slug',
+                'terms'            => 'events',
+                'include_children' => false,
             ],
         ],
         'meta_query' => [
+            'relation' => 'AND',
             [
                 'key'     => 'post_type',
                 'value'   => 'event',
                 'compare' => '=',
+            ],
+            'upcoming_event' => [
+                'key'     => 'event_date',
+                'value'   => current_time( 'Ymd' ),
+                'compare' => '>=',
+                'type'    => 'NUMERIC',
             ],
         ],
     ]
