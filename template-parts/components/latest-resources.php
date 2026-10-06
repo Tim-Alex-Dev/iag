@@ -1,6 +1,12 @@
 <?php
+$category_id = (int) ( $args['category_id'] ?? 0 );
+$source_term = $category_id ? get_term( $category_id, 'source' ) : false;
 
-$category_id = $args['category_id'] ?? false;
+$is_events = (
+    $source_term
+    && ! is_wp_error( $source_term )
+    && $source_term->slug === 'events'
+);
 
 $resource_query = [
     'post_type'      => 'resource',
@@ -25,10 +31,26 @@ if ( $category_id ) {
         [
             'taxonomy'         => 'source',
             'field'            => 'term_id',
-            'terms'            => $category_id,
+            'terms'            => [ $category_id ],
             'include_children' => false,
         ],
     ];
+}
+
+if ( $is_events ) {
+    $resource_query['meta_query']['upcoming_event'] = [
+        'key'     => 'event_date',
+        'value'   => current_time( 'Ymd' ),
+        'compare' => '>=',
+        'type'    => 'NUMERIC',
+    ];
+
+    $resource_query['orderby'] = [
+        'upcoming_event' => 'ASC',
+        'date'           => 'DESC',
+    ];
+
+    $resource_query['order'] = 'ASC';
 }
 
 $resource_ids = get_posts( $resource_query );
@@ -110,7 +132,7 @@ $posts_page_url      = get_permalink( get_option( 'page_for_posts' ) );
                 $resource_category  = get_primary_category( $resource_id );
                 $resource_title     = get_field( 'post_title', $resource_id );
                 $resource_thumbnail = get_field( 'post_thumbnail', $resource_id ) ?? false;
-                $resource_banner    = $post_thumbnail ? $post_thumbnail : get_field( 'post_banner', $resource_id ) ?? false;
+                $resource_banner    = $resource_thumbnail ? $resource_thumbnail : get_field( 'post_banner', $resource_id ) ?? false;
                 $resource_date      = get_the_date( 'M j, Y', $resource_id );
                 $resource_link      = get_permalink( $resource_id ); ?>
 

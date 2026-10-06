@@ -161,6 +161,8 @@ $contact_form    = get_field( 'hubspot_resource_form', 'option' ) ?? false;
 		</div>
 	</div>
 
+	<?php get_template_part( 'template-parts/components/related-resources', null, [ 'category_id' => $category ] ); ?>
+	
 </article>
 
 <?php if ( $contact_form ) : ?>
