@@ -82,7 +82,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
                                     </a>
                                 </div>
                                 <?php if ( $google_maps_url ) : ?>
-                                    <a class="location-content__url" href="<?php echo esc_url( $google_maps_url ); ?>" target="_blank">
+                                    <a class="location-content__url" href="<?php echo esc_url( $google_maps_url ); ?>" target="_blank" rel="noopener">
                                         <svg><use xlink:href="#pointer"></use></svg>
                                         <?php _e( 'Get Directions', '_iag' ); ?>
                                     </a>
@@ -117,7 +117,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
                                     $link_title = $item_url['title'];
                                     $link_target = $item_url['target'] ? $item_url['target'] : '_self'; ?>
 
-                                    <a class="link-item__url" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                    <a class="link-item__url" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                                         <?php echo esc_html( $link_title ); ?>
                                     </a>
                                 <?php endif; ?>

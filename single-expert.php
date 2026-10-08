@@ -100,7 +100,7 @@ $expert_categories = array(
                     $link_title  = $sticky_header_link['title'];
                     $link_target = $sticky_header_link['target'] ? $sticky_header_link['target'] : '_self'; ?>
 
-                    <a class="btn btn-outline-primary sticky-header__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                    <a class="btn btn-outline-primary sticky-header__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                         <?php echo esc_html( $link_title ); ?>
                     </a>
                 <?php endif; ?>
@@ -365,7 +365,7 @@ $expert_categories = array(
                                             $link_title  = $link['title'];
                                             $link_target = $link['target'] ? $link['target'] : '_self'; ?>
         
-                                            <a class="link-element__button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                            <a class="link-element__button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                                                 <?php echo esc_html( $link_title ); ?>
                                                 <svg class="icon">
                                                     <use xlink:href="#arrow-top-right"></use>
@@ -386,7 +386,7 @@ $expert_categories = array(
                     $link_title  = $publications_link['title'];
                     $link_target = $publications_link['target'] ? $publications_link['target'] : '_self'; ?>
 
-                    <a class="btn btn-simple expert-publications__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                    <a class="btn btn-simple expert-publications__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                         <?php echo esc_html( $link_title ); ?>
                         <svg class="icon">
                             <use xlink:href="#arrow-right"></use>
@@ -561,7 +561,7 @@ $expert_categories = array(
                                     $link_title  = $website_link['title'];
                                     $link_target = $website_link['target'] ? $website_link['target'] : '_self'; ?>
 
-                                    <a class="btn btn-simple resources-column__website" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                    <a class="btn btn-simple resources-column__website" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                                         <?php echo esc_html( $link_title ); ?>
                                         <svg class="icon">
                                             <use xlink:href="#arrow-top-right"></use>
@@ -590,7 +590,7 @@ $expert_categories = array(
                                         $link_title  = $link['title'];
                                         $link_target = $link['target'] ? $link['target'] : '_self'; ?>
     
-                                        <a class="btn btn-simple resources-column__profile-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                        <a class="btn btn-simple resources-column__profile-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                                             <?php echo esc_html( $link_title ); ?>
                                             <svg class="icon">
                                                 <use xlink:href="#arrow-top-right"></use>

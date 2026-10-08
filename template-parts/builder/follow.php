@@ -38,7 +38,7 @@ $follow_subtitle  = get_sub_field( 'cta_button_subtitle' ) ?? false;
                 $link_target = $follow_link['target'] ? $follow_link['target'] : '_self'; ?>
                 
                 <div class="m-follow__inner-content">                
-                    <a class="btn btn-primary content-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                    <a class="btn btn-primary content-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                         <?php if ( $follow_icon ) : ?>
                         	<?php echo wp_get_attachment_image( $follow_icon, 'thumbnail', false, [ 'class' => 'content-link__icon' ] ); ?>
                         <?php endif; ?>

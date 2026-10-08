@@ -56,7 +56,7 @@ $video_duration     = $video_metadata ? $video_metadata['length_formatted'] : fa
                         $link_title  = $module_link['title'];
                         $link_target = $module_link['target'] ? $module_link['target'] : '_self'; ?>
             
-                        <a class="btn btn-primary link-content" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                        <a class="btn btn-primary link-content" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                             <?php echo esc_html( $link_title ); ?>
                         </a>
                     <?php endif; ?>

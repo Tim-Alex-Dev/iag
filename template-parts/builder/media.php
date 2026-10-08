@@ -70,7 +70,7 @@ $media_video_banner = get_sub_field( 'video_banner' ) ?? false;
                 $link_title  = $module_link['title'];
                 $link_target = $module_link['target'] ? $module_link['target'] : '_self'; ?>
 
-                <a class="btn btn-primary m-media__btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                <a class="btn btn-primary m-media__btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                     <?php echo esc_html( $link_title ); ?>
                 </a>
             <?php endif; ?>

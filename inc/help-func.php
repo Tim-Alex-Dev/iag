@@ -147,3 +147,10 @@ function it_inline_svg( $svg_url ) {
 	$svg_content     = wp_remote_retrieve_body( $remote_svg_file );
 	return $svg_content;
 }
+
+/**
+ * rel attribute for links opened in a new tab (ACF link "target" value)
+ */
+function it_link_rel( $target ) {
+	return '_blank' === $target ? ' rel="noopener"' : '';
+}

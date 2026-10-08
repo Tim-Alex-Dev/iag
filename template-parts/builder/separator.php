@@ -33,7 +33,7 @@ $module_gallery 		= get_sub_field('slider_gallery') ?? false;
 					$link_title = $module_cta_btn['title'];
 					$link_target = $module_cta_btn['target'] ? $module_cta_btn['target'] : '_self'; ?>
 			
-					<a class="btn btn-primary btn-lg m-separator__btn btn-<?php echo esc_html( $module_title_alignment ); ?>" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+					<a class="btn btn-primary btn-lg m-separator__btn btn-<?php echo esc_html( $module_title_alignment ); ?>" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
 						<?php echo esc_html( $link_title ); ?>
 					</a>
 				<?php endif; ?>

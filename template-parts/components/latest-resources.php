@@ -118,7 +118,7 @@ $posts_page_url      = get_permalink( get_option( 'page_for_posts' ) );
             <?php endif; ?>
 
             <?php if ( $main_post_link ) : ?>
-                <a class="btn btn-primary main-post__link" href="<?php echo esc_url( $main_post_link ); ?>" target="_blank">
+                <a class="btn btn-primary main-post__link" href="<?php echo esc_url( $main_post_link ); ?>" target="_blank" rel="noopener">
                     <?php echo _e( 'Read the release notes', '_iag' ); ?>
                     <svg class="arrow-right"><use xlink:href="#angle-right"></use></svg>
                 </a>
@@ -138,7 +138,7 @@ $posts_page_url      = get_permalink( get_option( 'page_for_posts' ) );
 
                 <?php if ( $resource_title && $resource_banner ) : ?>
                     
-                    <a class="list-post" href="<?php echo esc_url( $resource_link ); ?>" target="_blank">
+                    <a class="list-post" href="<?php echo esc_url( $resource_link ); ?>" target="_blank" rel="noopener">
                         <div class="list-post__banner">
                             <?php echo wp_get_attachment_image( $resource_banner, 'full', false, [ 'class' => 'list-post__banner-img' ] ); ?>
                         </div>

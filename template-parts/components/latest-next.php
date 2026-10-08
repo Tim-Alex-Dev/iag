@@ -1,5 +1,9 @@
 <?php
 
+// In the mega menu this block sits above the page H1, so the walker passes 'p' (styled as .h3).
+$title_tag   = in_array( $args['title_tag'] ?? '', [ 'h2', 'h3', 'p' ], true ) ? $args['title_tag'] : 'h3';
+$title_class = 'p' === $title_tag ? 'h3 content-title' : 'content-title';
+
 $latest_webinar_id = get_posts(
     [
         'post_type'      => 'resource',
@@ -135,9 +139,9 @@ if ( $latest_webinar_id ) {
                         <?php _e( 'Next Event', '_iag' ); ?>
                     </span>
 
-                    <h3 class="content-title">
+                    <<?php echo tag_escape( $title_tag ); ?> class="<?php echo esc_attr( $title_class ); ?>">
                         <?php echo esc_html( $event_title ); ?>
-                    </h3>
+                    </<?php echo tag_escape( $title_tag ); ?>>
 
                     <div class="content-details">
                         <?php if ( $event_location ) : ?>
@@ -185,9 +189,9 @@ if ( $latest_webinar_id ) {
                         <?php _e( 'Next Webinar', '_iag' ); ?>
                     </span>
 
-                    <h3 class="content-title">
+                    <<?php echo tag_escape( $title_tag ); ?> class="<?php echo esc_attr( $title_class ); ?>">
                         <?php echo esc_html( $webinar_title ); ?>
-                    </h3>
+                    </<?php echo tag_escape( $title_tag ); ?>>
 
                     <div class="content-details">
                         <?php if ( $webinar_status ) : ?>

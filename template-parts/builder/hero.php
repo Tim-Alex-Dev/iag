@@ -35,7 +35,7 @@ $blocks_status 	  = get_sub_field('blocks_status') ?? false;
 							$link_title = $primary_btn['title'];
 							$link_target = $primary_btn['target'] ? $primary_btn['target'] : '_self'; ?>
 			
-							<a class="btn btn-primary" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+							<a class="btn btn-primary" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
 								<?php echo esc_html( $link_title ); ?>
 								<svg><use xlink:href="#arrow-right"></use></svg>
 
@@ -47,7 +47,7 @@ $blocks_status 	  = get_sub_field('blocks_status') ?? false;
 							$link_title = $secondary_btn['title'];
 							$link_target = $secondary_btn['target'] ? $secondary_btn['target'] : '_self'; ?>
 			
-							<a class="btn btn-ghost" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+							<a class="btn btn-ghost" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
 								<?php echo esc_html( $link_title ); ?>
 							</a>
 						<?php endif; ?>

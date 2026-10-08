@@ -14,7 +14,7 @@ $permalink        = get_permalink( $leadership_id );
 
 
 <?php if ( $class === 'swiper-slide' ) : ?>
-    <a class="leadership-card <?php echo esc_attr( $class ); ?>" href="<?php echo esc_url( $permalink ); ?>" target="_blank">
+    <a class="leadership-card <?php echo esc_attr( $class ); ?>" href="<?php echo esc_url( $permalink ); ?>" target="_blank" rel="noopener">
         <?php if ( $photo ) : ?>
             <div class="leadership-card__photo">
                 <?php echo wp_get_attachment_image( $photo, 'medium', false, [ 'class' => 'leadership-card__photo-img', ] ); ?>
@@ -65,7 +65,7 @@ $permalink        = get_permalink( $leadership_id );
             </div>
         <?php endif; ?>
 
-        <a class="btn btn-simple leadership-card__link" href="<?php echo esc_url( $permalink ); ?>" target="_blank">
+        <a class="btn btn-simple leadership-card__link" href="<?php echo esc_url( $permalink ); ?>" target="_blank" rel="noopener">
             <?php echo _e( 'View Profile', '_iag' ); ?>
             <svg class="arrow-right"><use xlink:href="#arrow-right"></use></svg>
         </a>

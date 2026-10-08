@@ -63,7 +63,7 @@ $contact_form     = get_field( 'hubspot_default_form', 'option' ) ?? false;?>
                 $link_title  = $module_link['title'];
                 $link_target = $module_link['target'] ? $module_link['target'] : '_self'; ?>
 
-                <a class="btn btn-primary m-cf__btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                <a class="btn btn-primary m-cf__btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                     <?php echo esc_html( $link_title ); ?>
                 </a>
             <?php endif; ?>

@@ -70,36 +70,6 @@ $extra_classes = $has_hero ? 'has-hero' : ''; // page with Hero requires extra h
 	<!-- End of Clarity -->
 
 
-	<!-- Start of RB2B -->
-	<script>
-		!function(key) {
-
-			if (window.reb2b) {
-				return;
-			}
-
-			window.reb2b = {
-				loaded: true
-			};
-
-			var s = document.createElement('script');
-
-			s.async = true;
-			s.src = 'https://ddwl4m2hdecbv.cloudfront.net/b/' + key + '/' + key + '.js.gz';
-
-			document
-				.getElementsByTagName('script')[0]
-				.parentNode
-				.insertBefore(
-					s,
-					document.getElementsByTagName('script')[0]
-				);
-
-		}('GOYPYHQ90KOX');
-	</script>
-	<!-- End of RB2B -->
-
-
 	<!-- Start of HubSpot -->
 	<script
 		type="text/javascript"

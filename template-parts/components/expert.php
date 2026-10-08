@@ -35,7 +35,7 @@ if ( ! $name  ) {
 
 
 <?php if ( $class === 'swiper-slide' ) : ?>
-    <a class="expert-card <?php echo esc_attr( $class ); ?>" href="<?php echo esc_url( $permalink ); ?>" target="_blank">
+    <a class="expert-card <?php echo esc_attr( $class ); ?>" href="<?php echo esc_url( $permalink ); ?>" target="_blank" rel="noopener">
         <?php if ( $photo ) : ?>
             <div class="expert-card__photo">
                 <?php echo wp_get_attachment_image( $photo, 'medium', false, [ 'class' => 'expert-card__photo-img', ] ); ?>
@@ -105,7 +105,7 @@ if ( ! $name  ) {
                 </span>
             <?php endif; ?>
 
-            <a class="btn btn-simple expert-card__footer-link" href="<?php echo esc_url( $permalink ); ?>" target="_blank">
+            <a class="btn btn-simple expert-card__footer-link" href="<?php echo esc_url( $permalink ); ?>" target="_blank" rel="noopener">
                 <?php echo _e( 'View Profile', '_iag' ); ?>
                 <svg class="arrow-right"><use xlink:href="#arrow-right"></use></svg>
             </a>

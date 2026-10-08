@@ -86,13 +86,13 @@ get_header();
             </span>
 
             <?php if ( $linkedin_url && $linkedin_icon ) : ?>
-                <a class="share-link" href="<?php echo esc_url( $linkedin_url ); ?>" target="_blank">
+                <a class="share-link" href="<?php echo esc_url( $linkedin_url ); ?>" target="_blank" rel="noopener">
                     <?php echo wp_get_attachment_image( $linkedin_icon, 'thumbnail', false, [ 'class' => 'share-link__img' ] ); ?>
                 </a>
             <?php endif; ?>
 
             <?php if ( $youtube_url && $youtube_icon ) : ?>
-                <a class="share-link" href="<?php echo esc_url( $youtube_url ); ?>" target="_blank">
+                <a class="share-link" href="<?php echo esc_url( $youtube_url ); ?>" target="_blank" rel="noopener">
                     <?php echo wp_get_attachment_image( $youtube_icon, 'thumbnail', false, [ 'class' => 'share-link__img' ] ); ?>
                 </a>
             <?php endif; ?>

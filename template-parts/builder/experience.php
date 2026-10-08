@@ -89,7 +89,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
                                                             $link_title = $link['title'];
                                                             $link_target = $link['target'] ? $link['target'] : '_self'; ?>
                 
-                                                            <a class="btn btn-primary m-experience__card-btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                                            <a class="btn btn-primary m-experience__card-btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                                                                 <?php echo esc_html( $link_title ); ?>
                                                             </a>
                                                         <?php endif; ?>

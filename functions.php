@@ -28,6 +28,7 @@ require IT_DIR . '/inc/help-func.php'; // Helper functions
 require IT_DIR . '/inc/lazy-load.php'; // Images and iframes lazyload
 require IT_DIR . '/inc/login.php'; // Login screen customisation
 require IT_DIR . '/inc/scripts-styles.php'; // Scripts and styles enqueue | dequeue
+require IT_DIR . '/inc/seo.php'; // Source archives pagination, security headers
 require IT_DIR . '/inc/svg-support.php'; // Adds support for SVG upload
 require IT_DIR . '/inc/widgets.php'; // Sidebars and widgets
 require IT_DIR . '/inc/walker.php'; // Custom Menu Walker

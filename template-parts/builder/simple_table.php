@@ -45,7 +45,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
                                     <?php echo esc_html( $content_left ); ?>
                                 </div>
                                 <?php if ( $is_link_left && $url_left ) : ?>
-                                    <a class="table-item__link" href="<?php echo esc_url( $url_left ); ?>" target="_blank">
+                                    <a class="table-item__link" href="<?php echo esc_url( $url_left ); ?>" target="_blank" rel="noopener">
                                         <svg><use xlink:href="#pointer"></use></svg>
                                     </a>
                                 <?php endif; ?>
@@ -55,7 +55,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
                                     <?php echo esc_html( $content_right ); ?>
                                 </div>
                                 <?php if ( $is_link_right && $url_right ) : ?>
-                                    <a class="table-item__link" href="<?php echo esc_url( $url_right ); ?>" target="_blank">
+                                    <a class="table-item__link" href="<?php echo esc_url( $url_right ); ?>" target="_blank" rel="noopener">
                                         <svg><use xlink:href="#pointer"></use></svg>
                                     </a>
                                 <?php endif; ?>
