@@ -44,7 +44,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
 
                             <?php if ( $slide_icon && $slide_text ) : ?>
                             <div class="m-partnership__swiper-slide swiper-slide">
-                                <?php echo wp_get_attachment_image( $slide_icon, 'thumbnail', false, [ 'class' => 'slide-icon' ] ); ?>
+                                <?php echo wp_get_attachment_image( $slide_icon, 'thumbnail', false, [ 'class' => 'slide-icon no-lazyload' ] ); ?>
 
                                 <div class="slide-text">
                                     <?php echo wp_kses_post( $slide_text ); ?>
@@ -72,7 +72,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
 
                             <?php if ( $slide_icon && $slide_text ) : ?>
                                 <div class="m-partnership__swiper-slide swiper-slide">
-                                    <?php echo wp_get_attachment_image( $slide_icon, 'thumbnail', false, [ 'class' => 'slide-icon' ] ); ?>
+                                    <?php echo wp_get_attachment_image( $slide_icon, 'thumbnail', false, [ 'class' => 'slide-icon no-lazyload' ] ); ?>
 
                                     <div class="slide-text">
                                         <?php echo wp_kses_post( $slide_text ); ?>
