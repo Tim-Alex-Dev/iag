@@ -1,7 +1,8 @@
 .site-footer {
 	flex-shrink: 0;
 	width: 100%;
-	background: $bg-gradient;
+	// background: $bg-gradient;
+	background-color: $secondary;
 	color: $white;
 	padding: rem(40 0 24);
 

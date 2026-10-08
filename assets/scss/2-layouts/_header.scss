@@ -2,7 +2,7 @@
 	width: 100%;
 	height: var(--header-height);
 	padding: rem(12 0);
-	// background-color: $iag-navy-800;
+	background-color: $iag-navy-800;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -11,7 +11,7 @@
 	transition: background-color $time, height $time;
 	// background: $bg-gradient;
 	// display: none;
-	background-color: $brand-blue;
+	// background-color: $brand-blue;
 
 	.has-hero:not(.is-scrolled) & {
 		background-color: transparent;
