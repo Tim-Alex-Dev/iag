@@ -268,6 +268,7 @@ Files starting with `_!` are loaded first inside their folder.
 * **Roles** — `$primary`, `$secondary`, `$color-text`, `$color-link` — aliases for global roles. Change a role here, not in components.
 * **Extra colors** — a few colors outside the palette (`$grey-border`, `$green`, `$red`...). Add a new variable only if the color really is new; never create a second variable with the same value.
 * **Every color is a HEX variable**, no color functions (`rgba()`, `darken()`...). Transparent colors: `{color}-a{opacity %}` as 8-digit HEX, e.g. `$white-a88: #FFFFFFE0` (alpha = opacity × 255).
+* Old content written with the block editor keeps classes like `has-vivid-cyan-blue-color`: WordPress global styles are not loaded, so the presets the content uses are defined in `1-1-base/_wp-core.scss` (`$wp-*` variables).
 * Sass modules instead of global functions: `@use "sass:map";` then `map.get()`, `math.div()`, `list.nth()`.
 * Units: write sizes with `rem(16)` / `rem(16 24)`; fluid sizes with `clamp-rem(min, max)`.
 * Breakpoints: `md 640`, `lg 1024`, `xl 1440`, `xxl 1920` (same values in `assets/js/_vars.js`). Use `@include min(lg) { }` / `@include max(lg) { }` (`max` = value − 1px).
@@ -305,7 +306,7 @@ All files are loaded from `functions.php`.
 | `acf.php` | Theme Settings options page, ACFE layout thumbnails (every `dist/img/acfe-thumbnails/{layout}.jpg` automatically), disabled ACFE modules |
 | `custom-post-type.php` | CPTs **Expert** (+ taxonomies Expertise, Therapeutic Area, Indicator Area), **Leadership**, **Resource** (+ taxonomy **Source** = "Resource Type") |
 | `disables.php` + `disables/` | switched-off WP features, one file each: admin bar logo, auto-updates, head links, comments, dashboard widgets, emoji, Gutenberg, embeds, XML-RPC (`jquery-migrate`, `theme-plugin-editor` available but off) |
-| `editor.php` | TinyMCE style formats (titles, text, buttons, lists) and text colors |
+| `editor.php` | TinyMCE style formats (titles, text, buttons, lists), text colors, `force_balance_tags` on content and ACF WYSIWYG output (pasted tables otherwise leave stray tags) |
 | `help-func.php` | helpers: `it_id_attr()`, `it_excerpt()`, `it_posted_on()`, `it_phone_cleaner()`, `[email]` shortcode, `it_inline_svg()`, `it_link_rel()`, `get_primary_category()`, `it_console_log()` (admins only) |
 | `login.php` | login screen logo and link |
 | `scripts-styles.php` | enqueue of `main.css`, `main.js` (+ `itSettings`), admin assets; version = file time (`it_asset_ver()`, cache busting) |
