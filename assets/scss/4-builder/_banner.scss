@@ -1,6 +1,7 @@
 .m-banner {
     padding: rem(64 0 48);
     position: relative;
+    overflow-x: clip; // the hidden "Link copied" message of the share button must not make the page wider on mobile
     min-height: rem(360);
     background-color: $iag-navy-700;
     @include min(xxl) {
