@@ -2,7 +2,7 @@
 	display: flex;
 	align-items: center;
 	min-height: calc(100vh - var(--header-height));
-	background-color: $bg-blue-light;
+	background-color: $iag-navy-700;
 	color: $white;
 
 	.container {
@@ -126,7 +126,7 @@
 		height: fit-content;
 		padding: rem(20);
 		border-radius: rem(12);
-		background: linear-gradient(135deg, $bg-blue-light 0%, $bg-blue 100%);
+		background: linear-gradient(135deg, $iag-navy-700 0%, $iag-navy-800 100%);
 		box-shadow: 0 rem(16) rem(32) rgba(20, 22, 26, 0.10), 0 rem(4) rem(8) rgba(20, 22, 26, 0.04);
 		@include max(xl) {
 			width: rem(380);
@@ -157,15 +157,15 @@
 
 		&-inner {
 			width: 100%;
-			background-color: $bg-blue;
+			background-color: $iag-navy-800;
 			border-radius: rem(8);
-			border: 1px solid $border-blue;
+			border: 1px solid $iag-navy-500;
     		box-shadow: rgba($black, 0.4) 0 rem(24) rem(60) 0;
 		}
 
 		&-header {
 			padding: rem(16);
-    		border-bottom: 1px solid $border-blue_01;
+    		border-bottom: 1px solid $iag-navy-600;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -234,7 +234,7 @@
 			align-items: flex-start;
 			justify-content: space-between;
 			gap: rem(12);
-			border-top: 1px solid $border-blue_01;
+			border-top: 1px solid $iag-navy-600;
 
 			.footer-block {
 				display: flex;

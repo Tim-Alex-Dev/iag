@@ -8,16 +8,14 @@
     &.content-mixed {
         &.media-left {
             .m-simple-content__inner {
-                // grid-template-columns: 1.3fr 1fr;
                 grid-template-areas: "right left";
-                
+
             }
         }
         &.media-right {
             .m-simple-content__inner {
-                // grid-template-columns: 1fr 1.3fr;
                 grid-template-areas: "left right";
-                
+
             }
         }
     }

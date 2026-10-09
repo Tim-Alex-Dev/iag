@@ -162,7 +162,7 @@
 			}
 
 			&.column-advanced {
-				background: linear-gradient(135deg, $bg-white 0%, $white 100%);
+				background: linear-gradient(135deg, $white 0%, $white 100%);
 				border: 1px solid $grey-border;
 				padding: rem(16);
 				border-radius: rem(8);
@@ -296,7 +296,7 @@
 					}
 
 					&.menu-item__advanced {
-						background: linear-gradient(135deg, $bg-white 0%, $white 100%);
+						background: linear-gradient(135deg, $white 0%, $white 100%);
 						border: 1px solid $grey-border;
 						padding: rem(12);
 						border-radius: rem(8);

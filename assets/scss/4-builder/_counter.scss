@@ -355,10 +355,10 @@
         .m-counter__slider {
             &-swiper {
                 &::after {
-                    background: linear-gradient(270deg, $bg-gray 0%,rgba($bg-gray, 0) 100%);
+                    background: linear-gradient(270deg, $iag-gray-50 0%,rgba($iag-gray-50, 0) 100%);
                 }
                 &::before {
-                    background: linear-gradient(90deg, $bg-gray 0%,rgba($bg-gray, 0) 100%);
+                    background: linear-gradient(90deg, $iag-gray-50 0%,rgba($iag-gray-50, 0) 100%);
                 }
             }
         } 

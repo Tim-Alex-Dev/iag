@@ -115,7 +115,7 @@
             height: rem(40);
             position: relative;
             border-radius: 50%;
-            border: 1px solid $gray-border;
+            border: 1px solid $iag-gray-400;
             overflow: hidden;
 
             &-img {
@@ -440,7 +440,7 @@
                     font-weight: 600;
                     color: $white;
                     padding-bottom: rem(8);
-                    border-bottom: 1px solid $white-border;
+                    border-bottom: 1px solid $iag-gray-200;
                 }
 
                 &__item {

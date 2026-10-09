@@ -1,14 +1,14 @@
 /***************************
 * Custom Admin styles
 ***************************/
-$blue: #0073aa;
-$green: #009688;
-$green-hover: darken($green, 8%);
+$admin-blue: #0073aa;
+$admin-green: #009688;
+$admin-green-hover: darken($admin-green, 8%);
 
 // ACF flexible content
 .acf-flexible-content {
 	.layout {
-		border: 2px solid $blue;
+		border: 2px solid $admin-blue;
 	}
 }
 
@@ -29,8 +29,6 @@ $green-hover: darken($green, 8%);
 }
 
 .acf-fc-layout-handle {
-	// background: $blue;
-	// color: #fff !important;
 	font-size: 1.2rem;
 	font-weight: 600;
 }
@@ -44,11 +42,11 @@ $green-hover: darken($green, 8%);
 }
 
 .acf-field.acf-accordion {
-	border: 2px solid $blue;
+	border: 2px solid $admin-blue;
 	margin-top: 3px;
 
 	.acf-label.acf-accordion-title {
-		background: $blue;
+		background: $admin-blue;
 		color: #fff;
 		font-size: 1.2rem;
 		font-weight: 600;
@@ -68,9 +66,9 @@ $green-hover: darken($green, 8%);
 	}
 
 	.acf-button {
-		background: $green;
+		background: $admin-green;
 		color: #fff;
-		border: 3px solid $green;
+		border: 3px solid $admin-green;
 		padding: 4px 80px;
 		font-weight: 700;
 		transition: all 0.2s;
@@ -78,9 +76,9 @@ $green-hover: darken($green, 8%);
 		&:hover,
 		&:active,
 		&:focus {
-			background: $green-hover;
+			background: $admin-green-hover;
 			color: #fff;
-			border-color: $green-hover;
+			border-color: $admin-green-hover;
 		}
 	}
 }

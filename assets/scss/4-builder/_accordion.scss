@@ -88,7 +88,7 @@
             background-color: $white_03;
             border: 1px solid $grey-border;
             &:hover {
-                background-color: $white_02;
+                background-color: $grey-border;
             }
             &.is-open {
                 background-color: $white;
@@ -130,7 +130,7 @@
             background-color: $white_03;
             border: 1px solid $grey-border;
             &:hover {
-                background-color: $white_02;
+                background-color: $grey-border;
             }
             &.is-open {
                 background-color: $white_03;

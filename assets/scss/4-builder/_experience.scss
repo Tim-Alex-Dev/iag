@@ -80,7 +80,7 @@
     &__swiper {
         height: 100%;
         padding-bottom: rem(40);
-        
+
         .swiper-wrapper {
             align-items: stretch;
         }
@@ -88,31 +88,6 @@
         &-pagination {
             width: auto !important;
         }
-
-        // &-navigation {
-        //     position: absolute;
-        //     left: 50%;
-        //     transform: translateX(-50%);
-        //     bottom: 0;
-        //     background-color: grey;
-        //     display: flex;
-        //     align-items: center;
-        //     justify-content: space-between;
-        //     gap: rem(24);
-
-        //     .swiper-button-prev,
-        //     .swiper-button-next {
-        //         transform: none;
-        //     }
-
-
-        //     .swiper-button-prev {
-        //         position: relative;
-        //     }
-        //     .swiper-button-next {
-        //         position: relative;
-        //     }
-        // }
     }
 
     &__card {
@@ -196,51 +171,4 @@
             transition: all .5s;
         }
     }
-
-	// &__swiper {
-	// 	// width: 50%;
-
-	// 	&-button-next,
-	// 	&-button-prev {
-	// 		height: 100%;
-	// 		width: rem(64);
-	// 	}
-
-	// 	&-button-next {
-	// 		justify-content: flex-end;
-	// 		background: linear-gradient(to left, $secondary 0%, rgba($secondary, 0) 100%);
-	// 	}
-	// 	&-button-prev {
-	// 		justify-content: flex-start;
-	// 		background: linear-gradient(to right, $secondary 0%, rgba($secondary, 0) 100%);
-	// 	}
-
-	// 	&-slide {
-	// 		display: flex;
-	// 		align-items: center;
-	// 		justify-content: center;
-	// 		width: fit-content;
-
-	// 		.slide-icon__wrapper {
-	// 			position: relative;
-	// 			width: rem(84);
-	// 			height: rem(84);
-	// 			border: 1px solid $primary;
-	// 			border-radius: 50%;
-	// 			display: flex;
-	// 			align-items: center;
-	// 			justify-content: center;
-
-	// 			.slide-icon {
-	// 				position: absolute;
-	// 				left: 50%;
-	// 				top: 50%;
-	// 				width: rem(62);
-	// 				height: rem(62);
-	// 				transform: translate(-50%, -50%);
-	// 				object-fit: cover;
-	// 			}
-	// 		}
-	// 	}
-	// }
 }

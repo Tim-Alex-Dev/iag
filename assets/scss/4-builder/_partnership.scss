@@ -97,10 +97,10 @@
         .m-partnership__swipers {
             .swiper {
                 &:after {
-                    background: linear-gradient(270deg, $bg-gray 0%,rgba($bg-gray, 0) 100%);
+                    background: linear-gradient(270deg, $iag-gray-50 0%,rgba($iag-gray-50, 0) 100%);
                 }
                 &:before {
-                    background: linear-gradient(90deg, $bg-gray 0%,rgba($bg-gray, 0) 100%);
+                    background: linear-gradient(90deg, $iag-gray-50 0%,rgba($iag-gray-50, 0) 100%);
                 }
             }
 
@@ -111,10 +111,10 @@
         .m-partnership__swipers {
             .swiper {
                 &:after {
-                    background: linear-gradient(270deg, $bg-blue-light 0%,rgba($bg-blue-light, 0) 100%);
+                    background: linear-gradient(270deg, $iag-navy-700 0%,rgba($iag-navy-700, 0) 100%);
                 }
                 &:before {
-                    background: linear-gradient(90deg, $bg-blue-light 0%,rgba($bg-blue-light, 0) 100%);
+                    background: linear-gradient(90deg, $iag-navy-700 0%,rgba($iag-navy-700, 0) 100%);
                 }
             }
         }
@@ -124,10 +124,10 @@
         .m-partnership__swipers {
             .swiper {
                 &:after {
-                    background: linear-gradient(270deg, $bg-white 0%,rgba($bg-white, 0) 100%);
+                    background: linear-gradient(270deg, $white 0%,rgba($white, 0) 100%);
                 }
                 &:before {
-                    background: linear-gradient(90deg, $bg-white 0%,rgba($bg-white, 0) 100%);
+                    background: linear-gradient(90deg, $white 0%,rgba($white, 0) 100%);
                 }
             }
         }

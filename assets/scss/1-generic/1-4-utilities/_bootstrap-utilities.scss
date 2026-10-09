@@ -1,4 +1,6 @@
-// -------------------------------------------------------------------
+// BOOTSTRAP UTILITIES:
+// Only the utilities listed in map-get-multiple() below are compiled.
+// Full list of available keys: node_modules/bootstrap/scss/_utilities.scss
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/maps";
@@ -12,44 +14,15 @@
 @import "bootstrap/scss/vendor/rfs";
 
 @import "bootstrap/scss/utilities";
-// Only use the utilities we need
+
 // stylelint-disable-next-line scss/dollar-variable-default
 $utilities: map-get-multiple(
-		$utilities,
-				(
-						//"display",
-						//"order",
-						//"flex",
-						"flex-direction",
-						//"flex-grow",
-						//"flex-shrink",
-						//"flex-wrap",
-						"justify-content",
-						"align-items",
-						//"align-content",
-						//"align-self",
-						//"margin",
-						//"margin-x",
-						//"margin-y",
-						//"margin-top",
-						//"margin-end",
-						//"margin-bottom",
-						//"margin-start",
-						//"negative-margin",
-						//"negative-margin-x",
-						//"negative-margin-y",
-						//"negative-margin-top",
-						//"negative-margin-end",
-						//"negative-margin-bottom",
-						//"negative-margin-start",
-						//"padding",
-						//"padding-x",
-						//"padding-y",
-						//"padding-top",
-						//"padding-end",
-						//"padding-bottom",
-						//"padding-start",
-				)
+	$utilities,
+	(
+		"flex-direction",
+		"justify-content",
+		"align-items",
+	)
 );
 
 @import "bootstrap/scss/utilities/api";

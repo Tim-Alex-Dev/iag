@@ -29,8 +29,8 @@
         display: flex;
         flex-direction: column;
         gap: rem(12);
-        border-left: 1px solid $white-border;
-        border-right: 1px solid $white-border;
+        border-left: 1px solid $iag-gray-200;
+        border-right: 1px solid $iag-gray-200;
 
         &-category {
             font-family: $font-alt;
@@ -55,7 +55,7 @@
         justify-content: center;
         gap: rem(8);
         height: rem(50);
-        border: 1px solid $white-border;
+        border: 1px solid $iag-gray-200;
         background-color: $white;
         font-size: rem(14);
         font-weight: 600;
