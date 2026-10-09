@@ -62,6 +62,10 @@ $green_01: #4ade80;
 $red: #dc3232;
 $red-01: #FF0000;
 
+// WordPress block editor color presets still used in older content (classes has-{name}-color, see 1-1-base/_wp-core.scss)
+$wp-vivid-cyan-blue: #0693e3;
+$wp-luminous-vivid-orange: #ff6900;
+
 // Transparent colors: {color}-a{opacity %} (8-digit HEX, alpha = opacity * 255)
 $black-a00: #00000000;
 $black-a08: #00000014;

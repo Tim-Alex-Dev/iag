@@ -222,3 +222,22 @@ span {
 	margin-top: 0;
 	padding: 0;
 }
+
+// Block editor color presets -------------------------------------------
+// Content written with the block editor keeps these classes; WordPress global styles are not loaded (inc/disables/gutenberg.php),
+// so the colors that the content uses are defined here (same values and !important as WordPress).
+.has-vivid-cyan-blue-color {
+	color: $wp-vivid-cyan-blue !important;
+}
+
+.has-luminous-vivid-orange-color {
+	color: $wp-luminous-vivid-orange !important;
+}
+
+.has-black-color {
+	color: $black !important;
+}
+
+.has-white-color {
+	color: $white !important;
+}
