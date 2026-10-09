@@ -81,7 +81,7 @@ $media_video_banner = get_sub_field( 'video_banner' ) ?? false;
 
         <?php if ( $media_type === 'image' && $media_image ) : ?>
             <div class="m-media__banner right">
-                <?php echo wp_get_attachment_image( $media_image, 'full', false, array_merge( [ 'class' => 'm-media__banner-img' ], $image_loading ) ); ?>
+                <?php echo wp_get_attachment_image( $media_image, 'full', false, array_merge( [ 'class' => 'm-media__banner-img', 'sizes' => '(min-width: 640px) 600px, 100vw' ], $image_loading ) ); ?>
             </div>
         <?php endif; ?>
 

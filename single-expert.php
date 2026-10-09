@@ -113,7 +113,7 @@ $expert_categories = array(
             <div class="expert-main__content">
                 <?php if ( $expert_photo ) : ?>
                     <div class="expert-main__photo">
-                        <?php echo wp_get_attachment_image( $expert_photo, 'full', false, [ 'class' => 'expert-main__photo-img', 'loading' => 'eager', 'fetchpriority' => 'high' ]); ?>
+                        <?php echo wp_get_attachment_image( $expert_photo, 'full', false, [ 'class' => 'expert-main__photo-img', 'sizes' => '(min-width: 1440px) 400px, 300px', 'loading' => 'eager', 'fetchpriority' => 'high' ]); ?>
                     </div>
                 <?php endif; ?>
                 <?php if ( $expert_name ) : ?>

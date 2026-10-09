@@ -73,7 +73,7 @@ $linkedin_icon    = get_field( 'main_linkedin_icon', 'options' ) ?? false;
 		</div>
 		<?php if ( $is_banner && $banner_size === 'small' && $module_banner ) : ?>
 			<div class="m-banner__media">
-				<?php echo wp_get_attachment_image( $module_banner, 'full', false, array_merge( [ 'class' => 'm-banner__media-img' ], $image_loading ) ); ?>
+				<?php echo wp_get_attachment_image( $module_banner, 'full', false, array_merge( [ 'class' => 'm-banner__media-img', 'sizes' => '(min-width: 1920px) 768px, (min-width: 1024px) 40vw, 100vw' ], $image_loading ) ); ?>
 			</div>
 		<?php endif; ?>
 	</div>
