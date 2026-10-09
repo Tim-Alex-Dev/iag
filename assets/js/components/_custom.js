@@ -1,41 +1,10 @@
-import vars from './_vars';
-
-// Helper functions:
-import {throttle} from './functions/throttle';
-
-// Plugins (NPM modules and uploaded files):
-import Swiper, {Navigation, Pagination, Autoplay, Thumbs} from 'swiper/bundle'; // import Swiper bundle with all modules installed
-// available Swiper.js modules = [Virtual, Keyboard, Mousewheel, Navigation, Pagination, Scrollbar, Parallax, Zoom, Lazy, Controller, A11y, History, HashNavigation, Autoplay, Thumbs, FreeMode, Grid, Manipulation, EffectFade, EffectCube, EffectFlip, EffectCoverflow, EffectCreative, EffectCards]
-import './vendors/jquery.nice-select.min.js'; // jQuery Nice Select
-import { Fancybox } from "@fancyapps/ui"; // Fancybox
+// Small site-wide snippets and inits, too small for their own component file
+import '../vendors/jquery.nice-select.min.js';
 
 jQuery(document).ready(function ($) {
 	"use strict";
 
-	/**
-	 * Tweak for mobiles (full height)
-	 */
-	const fixFullheight = () => {
-		const vh = window.innerHeight * 0.01;
-		vars.htmlEl.style.setProperty('--vh', `${vh}px`);
-	};
-
-	fixFullheight();
-	const fixHeight = throttle(fixFullheight);
-	window.addEventListener('resize', fixHeight);
-
-
-	/**
-	 * Force load of all lazy-loading images
-	 */
-	setTimeout(function () {
-		$('.lazyload.loading').removeClass('loading').addClass('loaded');
-	}, 3000);
-
-
-	/**
-	 * Nice select
-	 */
+	// styled <select> fields
 	$('select').niceSelect();
 
 
@@ -75,103 +44,6 @@ jQuery(document).ready(function ($) {
 		}, 2000);
 	}
 
-
-	/**
-	 * Sliders
-	 */
-	document.querySelectorAll('.m-counter__slider-swiper').forEach((slider) => {
-		new Swiper(slider, {
-			spaceBetween: 12,
-			loop: true,
-			slidesPerView: 3,
-			breakpoints: {
-				640: {
-					spaceBetween: 24,
-				},
-				1024: {
-					spaceBetween: 40,
-					slidesPerView: 5,
-				},
-				1440: {
-					spaceBetween: 80,
-					slidesPerView: 'auto',
-				},
-			},
-			speed: 2500,
-			autoplay: {
-				delay: 0,
-				disableOnInteraction: false,
-			},
-		});
-	});
-
-	document.querySelectorAll('.m-experience__swiper').forEach((slider) => {
-		const wrapper = slider.closest('.m-experience').getAttribute('id');
-
-		new Swiper(slider, {
-			loop: false,
-			spaceBetween: 24,
-			slidesPerView: 1,
-			breakpoints: {
-				1024: {
-					slidesPerView: 2,
-					slidesPerGroup: 2,
-				},
-			},
-			speed: 1000,
-			pagination: {
-				el: '#' + wrapper + ' .m-experience__swiper-pagination',
-				dynamicBullets: true,
-				clickable: true,
-			},
-		});
-	});
-
-	// Simple Slider and Stars modules share the same slider settings
-	['m-slider', 'm-stars'].forEach((module) => {
-		document.querySelectorAll('.' + module + '__swiper').forEach((slider) => {
-			const wrapper = slider.closest('.' + module).getAttribute('id');
-
-			new Swiper(slider, {
-				loop: false,
-				spaceBetween: 24,
-				slidesPerView: 1,
-				breakpoints: {
-					640: {
-						slidesPerView: 2,
-					},
-					1024: {
-						slidesPerView: 4,
-					},
-				},
-				speed: 1000,
-				navigation: {
-					nextEl: '#' + wrapper + ' .' + module + '__swiper-button-next',
-					prevEl: '#' + wrapper + ' .' + module + '__swiper-button-prev',
-				},
-			});
-		});
-	});
-
-	// Partnership logos: two endless rows
-	document.querySelectorAll('.m-partnership__swiper-top, .m-partnership__swiper-bottom').forEach((slider) => {
-		if (slider.swiper) {
-			return;
-		}
-
-		new Swiper(slider, {
-			slidesPerView: 'auto',
-			spaceBetween: 20,
-			loop: true,
-			speed: 6000,
-			allowTouchMove: false,
-			autoplay: {
-				delay: 0,
-				disableOnInteraction: false,
-				pauseOnMouseEnter: false,
-			},
-		});
-	});
 
 	// Observer for Animated Counter
 	function observeElements(selector, callback, options = {}) {

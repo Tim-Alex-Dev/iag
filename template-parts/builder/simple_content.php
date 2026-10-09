@@ -1,5 +1,5 @@
 <?php
-$module_id          = get_sub_field( 'module_id' ) ?: '';
+$module_id          = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
 $color_theme        = get_sub_field( 'color_theme' ) ?: 'white';
 $module_type        = get_sub_field( 'content_type' ) ?? false;
 $media_type         = get_sub_field( 'media_type' ) ? get_sub_field( 'media_type' ) : 'image';
@@ -25,7 +25,7 @@ $video_duration     = $video_metadata ? $video_metadata['length_formatted'] : fa
 ?>
 
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-simple-content content-<?php echo esc_attr( $module_type ); ?> <?php echo esc_attr( $module_orientation ); ?> bg-<?php echo esc_attr( $color_theme ); ?>">
+<section<?php echo $module_id; ?> class="module m-simple-content content-<?php echo esc_attr( $module_type ); ?> <?php echo esc_attr( $module_orientation ); ?> bg-<?php echo esc_attr( $color_theme ); ?>">
 	<div class="container">
         <?php if ( $module_title || $module_subtitle || $module_uptitle ) : ?>
             <div class="module-header alignment-<?php echo esc_attr( $module_alignment ); ?>">

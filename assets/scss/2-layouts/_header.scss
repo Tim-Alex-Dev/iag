@@ -81,6 +81,12 @@
 
 // Mobile menu toggle
 .icon-burger {
+	// it is a <button>: reset the browser styles
+	padding: 0;
+	border: 0;
+	background: none;
+	appearance: none;
+
 	flex-shrink: 0;
 	display: inline-block;
 	width: rem(30);

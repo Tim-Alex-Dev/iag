@@ -61,7 +61,7 @@ get_header();
 
 <section class="category-banner">
 
-    <?php echo wp_get_attachment_image( $page_banner, 'full', false, [ 'class' => 'category-banner-img' ] ); ?>
+    <?php echo wp_get_attachment_image( $page_banner, 'full', false, [ 'class' => 'category-banner-img', 'loading' => 'eager', 'fetchpriority' => 'high' ] ); ?>
     
     <div class="container">
         <div class="category-banner__content">

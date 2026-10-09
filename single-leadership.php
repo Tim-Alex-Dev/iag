@@ -25,7 +25,7 @@ $leader_cf_subtitle = get_field( 'contact_form_subtitle', $leader_id ) ?? false;
             <div class="leadership-main__content">
                 <?php if ( $leader_photo ) : ?>
                     <div class="leadership-main__photo">
-                        <?php echo wp_get_attachment_image( $leader_photo, 'full', false, [ 'class' => 'leadership-main__photo-img' ]); ?>
+                        <?php echo wp_get_attachment_image( $leader_photo, 'full', false, [ 'class' => 'leadership-main__photo-img', 'loading' => 'eager', 'fetchpriority' => 'high' ]); ?>
                     </div>
                 <?php endif; ?>
 

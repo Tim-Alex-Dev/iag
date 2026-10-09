@@ -33,7 +33,7 @@ $enable_footer_contacts = get_field( 'enable_footer_contacts_menu', 'option' ) ?
 		<div class="site-footer__content">
 			<?php if ( $logo ) : ?>
 				<div class="site-footer__content-logo">
-					<a href="<?php echo home_url(); ?>" class="site-footer__logo" rel="home">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-footer__logo" rel="home">
 						<?php echo wp_get_attachment_image( $logo, 'full' ); ?>
 					</a>
 					<?php if ( $logo_description ) : ?>
@@ -88,7 +88,7 @@ $enable_footer_contacts = get_field( 'enable_footer_contacts_menu', 'option' ) ?
 								<?php if ( $type === 'phone' && $phone ) : ?>
 									<?php $clean_phone = it_phone_cleaner( $phone ); ?>
 									<div class="menu-item">
-										<a class="contact-link" href="tel:<?php echo $clean_phone; ?>">
+										<a class="contact-link" href="tel:<?php echo esc_attr( $clean_phone ); ?>">
 											<?php echo esc_html( $phone ); ?>
 										</a>
 									</div>
@@ -117,7 +117,7 @@ $enable_footer_contacts = get_field( 'enable_footer_contacts_menu', 'option' ) ?
 
 		<div class="site-footer__bottom">
 			<div class="site-footer__bottom-copyright">
-				<span>&copy; <?php echo date( 'Y' ) ?> <?php esc_html_e( 'All rights reserved', '_iag' ); ?></span>
+				<span>&copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> <?php esc_html_e( 'All rights reserved', '_iag' ); ?></span>
 			</div>
 			<?php wp_nav_menu( array(
 				'theme_location'  => 'footer-copyright',

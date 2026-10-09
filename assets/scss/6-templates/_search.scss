@@ -1,0 +1,8 @@
+// search.php: pagination keeps the grid gap above it (it was part of the results row before)
+.search-results .grid + .pagination {
+	margin-top: calc(#{rem(50)} + #{$grid-gutter-width});
+
+	@include min(lg) {
+		margin-top: calc(#{rem(70)} + #{$grid-gutter-width});
+	}
+}

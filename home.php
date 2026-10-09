@@ -81,7 +81,7 @@ get_header();
 
 <section class="resource-hub__banner">
 
-    <?php echo wp_get_attachment_image( $page_banner, 'full', false, [ 'class' => 'resource-hub__banner-img' ] ); ?>
+    <?php echo wp_get_attachment_image( $page_banner, 'full', false, [ 'class' => 'resource-hub__banner-img', 'loading' => 'eager', 'fetchpriority' => 'high' ] ); ?>
     
     <div class="container">
         <div class="resource-hub__banner-content">

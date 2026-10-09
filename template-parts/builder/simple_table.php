@@ -1,5 +1,5 @@
 <?php
-$module_id        = get_sub_field( 'module_id' ) ?: '';
+$module_id        = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
 $color_theme      = get_sub_field( 'color_theme' ) ?: 'white';
 $table_header     = get_sub_field( 'table_header' ) ? 'true' : 'false';
 $module_title     = get_sub_field( 'module_title' ) ?? false;
@@ -8,7 +8,7 @@ $module_subtitle  = get_sub_field( 'module_subtitle' ) ?? false;
 $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
 ?>
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-table bg-<?php echo esc_attr( $color_theme ); ?>">
+<section<?php echo $module_id; ?> class="module m-table bg-<?php echo esc_attr( $color_theme ); ?>">
 	<div class="container">
         <?php if ( $module_title || $module_subtitle || $module_uptitle ) : ?>
             <div class="module-header alignment-<?php echo esc_attr( $module_alignment ); ?>">

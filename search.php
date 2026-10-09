@@ -1,8 +1,6 @@
 <?php
 /**
- * The template for displaying search results pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
+ * Search results
  *
  * @package _iag
  */
@@ -21,34 +19,35 @@ get_header();
 				</h1>
 			</header>
 
-			<div class="row">
-				<div class="col-lg-6">
+			<div class="grid grid-lg-2">
+				<div>
 					<?php get_search_form(); ?>
 				</div>
 			</div>
 
-			<div class="row">
+			<?php if ( have_posts() ) : ?>
 
-				<?php if ( have_posts() ) : ?>
-
+				<div class="grid grid-md-2 grid-lg-3">
 					<?php while ( have_posts() ) : the_post(); ?>
 
-						<div class="col-md-6 col-lg-4">
+						<div>
 							<?php get_template_part( 'template-parts/article' ); ?>
 						</div>
 
 					<?php endwhile; ?>
+				</div>
 
-					<?php get_template_part( 'template-parts/pagination' ); ?>
+				<?php get_template_part( 'template-parts/pagination' ); ?>
 
-				<?php else : ?>
+			<?php else : ?>
 
-					<div class="col-lg-6">
+				<div class="grid grid-lg-2">
+					<div>
 						<?php get_template_part( 'template-parts/content-none' ); ?>
 					</div>
+				</div>
 
-				<?php endif; ?>
-			</div>
+			<?php endif; ?>
 
 		</div>
 	</div>

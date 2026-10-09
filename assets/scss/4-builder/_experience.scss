@@ -71,10 +71,6 @@
                 }
             }
         }
-
-        &-contents {
-
-        }
     }
 
     &__swiper {
@@ -144,7 +140,6 @@
             letter-spacing: 0.2em;
             font-size: rem(32);
             text-transform: uppercase;
-            transition: all .5s;
             text-shadow: 0 0 rem(40) $white;
             color: $white !important;
             transition: $default-transition;

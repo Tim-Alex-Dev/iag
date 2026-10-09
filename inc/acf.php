@@ -1,56 +1,27 @@
 <?php
 /**
- * ACF Options page
+ * ACF Pro + ACF Extended setup (both are required)
  *
- * @link https://www.advancedcustomfields.com/resources/options-page/
+ * @package _iag
  */
-if ( function_exists( 'acf_add_options_page' ) ) {
+
+// Theme Settings options page. On acf/init: earlier, ACF would load its translations too early (notice since WP 6.7)
+add_action( 'acf/init', function () {
 	acf_add_options_page( 'Theme Settings' );
-}
+} );
 
-/**
- * ACF Extended: Page Builder layout thumbnails (dist/img/acfe-thumbnails/{layout}.jpg)
- *
- * @link https://wpsocket.com/plugin/acf-extended/faq/
- */
-global $ACFE_SECTION_BUILDERS;
-$ACFE_SECTION_BUILDERS = array(
-	// existing flexible content layouts:
-	'hero',
-	'partnership',
-	'faq',
-	'counter',
-	'contact_form',
-	'follow',
-	'latest_resources',
-	'simple_blocks',
-	'testimonials',
-	'stars',
-	'banner',
-	'cta',
-	'simple_content',
-	'simple_slider',
-	'simple_table',
-	'cells',
-	'media',
-	'locations',
-);
-
-if ( $ACFE_SECTION_BUILDERS && count( $ACFE_SECTION_BUILDERS ) > 0 && is_admin() ) {
-	foreach ( $ACFE_SECTION_BUILDERS as $layout ) {
-		add_filter( 'acfe/flexible/thumbnail/layout=' . $layout, 'acf_flexible_layout_thumbnail', 10, 3 );
+// Page Builder layout previews in admin: every dist/img/acfe-thumbnails/{layout name}.jpg (400x320px) is used automatically
+if ( is_admin() ) {
+	foreach ( (array) glob( IT_DIR . '/dist/img/acfe-thumbnails/*.jpg' ) as $it_thumbnail_file ) {
+		add_filter( 'acfe/flexible/thumbnail/layout=' . basename( $it_thumbnail_file, '.jpg' ), 'it_acf_flexible_layout_thumbnail', 10, 3 );
 	}
 }
-function acf_flexible_layout_thumbnail( $thumbnail, $field, $layout ) {
-	$layout_name = $layout['name'];
-	$path        = IT_IMG . 'acfe-thumbnails/' . $layout_name . '.jpg'; // recommended image size: 400x320px
 
-	return $path;
+function it_acf_flexible_layout_thumbnail( $thumbnail, $field, $layout ) {
+	return IT_IMG . 'acfe-thumbnails/' . $layout['name'] . '.jpg';
 }
 
-/**
- * Disable ACFE Modules that not needed
- */
+// ACF Extended modules the theme does not use
 add_action( 'acfe/init', 'it_acfe_modules' );
 function it_acfe_modules() {
 	acf_update_setting( 'acfe/modules/ui', false );

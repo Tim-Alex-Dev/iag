@@ -1,36 +1,11 @@
-/**
- * Swiper
- * Most modern mobile touch slider and framework with hardware accelerated transitions
- * https://swiperjs.com
- *
- */
-$themeColor: $white;
-
-// base styles
+// Swiper (plain CSS, inlined by Sass): base + only the modules used in JS (modules/slider.js).
+// Another module in JS = import its CSS here (e.g. @import "swiper/modules/effect-fade";)
 @import "swiper/swiper";
-
-// modules:
-@import "swiper/modules/navigation/navigation";
-@import "swiper/modules/pagination/pagination";
-@import "swiper/modules/effect-fade/effect-fade";
-@import "swiper/modules/free-mode/free-mode";
-@import "swiper/modules/grid/grid";
-@import "swiper/modules/scrollbar/scrollbar";
-@import "swiper/modules/thumbs/thumbs";
-
-// Custom styling:
-.swiper-container-horizontal {
-	> .swiper-pagination-bullets {
-		bottom: rem(24);
-	}
-}
+@import "swiper/modules/navigation";
+@import "swiper/modules/pagination";
 
 .swiper-slide {
 	box-sizing: border-box;
-
-	img.lazyload:not(.loaded) {
-		visibility: hidden;
-	}
 }
 
 .swiper-pagination {

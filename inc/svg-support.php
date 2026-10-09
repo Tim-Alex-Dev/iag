@@ -1,88 +1,26 @@
 <?php
 /**
- * Allow SVG through WordPress Media Uploader
- *
- * @package _iag
+ * SVG uploads in the Media Library. SVG is XML and can carry scripts, so:
+ * - only administrators can upload it (`manage_options`, filter `it_svg_upload_capability`);
+ * - every uploaded SVG is sanitized (allow-lists below), unparsable files are rejected.
  */
 
-/**
- * Screen check function
- * Checks if the current page is the Media Library page
- */
-function itmix_svgs_specific_pages_media_library() {
-
-	// check current page
-	$screen = get_current_screen();
-
-	// check if we're on Media Library page
-	if ( is_object( $screen ) && $screen->id == 'upload' ) {
-
-		return true;
-
-	} else {
-
-		return false;
-
-	}
+function it_svg_can_upload() {
+	return current_user_can( apply_filters( 'it_svg_upload_capability', 'manage_options' ) );
 }
 
-/**
- * Screen check function
- * Check if the current page is a post edit page
- */
-function itmix_svgs_is_edit_page( $new_edit = null ) {
+add_filter( 'upload_mimes', 'it_svg_upload_mimes', 99 );
+function it_svg_upload_mimes( $mimes = array() ) {
 
-	global $pagenow;
-
-	if ( ! is_admin() ) {
-		return false;
+	if ( it_svg_can_upload() ) {
+		$mimes['svg'] = 'image/svg+xml';
 	}
 
-	if ( $new_edit == 'edit' ) {
-
-		return in_array( $pagenow, array( 'post.php', ) );
-
-	} elseif ( $new_edit == "new" ) { //check for new post page
-
-		return in_array( $pagenow, array( 'post-new.php' ) );
-
-	} else { //check for either new or edit
-
-		return in_array( $pagenow, array( 'post.php', 'post-new.php' ) );
-
-	}
-
+	return $mimes;
 }
 
-/**
- * Add Mime Types
- */
-add_filter( 'upload_mimes', 'itmix_svgs_upload_mimes', 99 );
-function itmix_svgs_upload_mimes( $mimes = array() ) {
-
-	global $itmix_svgs_options;
-
-	if ( empty( $itmix_svgs_options['restrict'] ) || current_user_can( 'administrator' ) ) {
-
-		// allow SVG file upload
-		$mimes['svg']  = 'image/svg+xml';
-		$mimes['svgz'] = 'image/svg+xml';
-
-		return $mimes;
-
-	} else {
-
-		return $mimes;
-	}
-}
-
-
-
-/**
- * Check Mime Types
- */
-add_filter( 'wp_check_filetype_and_ext', 'itmix_svgs_upload_check', 10, 4 );
-function itmix_svgs_upload_check( $checked, $file, $filename, $mimes ) {
+add_filter( 'wp_check_filetype_and_ext', 'it_svg_upload_check', 10, 4 );
+function it_svg_upload_check( $checked, $file, $filename, $mimes ) {
 
 	if ( ! $checked['type'] ) {
 
@@ -102,22 +40,114 @@ function itmix_svgs_upload_check( $checked, $file, $filename, $mimes ) {
 
 }
 
-/**
- * Proper SVG resposnse for JS
- */
-add_filter( 'wp_prepare_attachment_for_js', 'itmix_svgs_response_for_svg', 10, 3 );
-function itmix_svgs_response_for_svg( $response, $attachment, $meta ) {
+// Sanitized SVG code, or false if it is not a valid SVG
+function it_svg_sanitize( $svg ) {
+
+	if ( ! is_string( $svg ) || '' === trim( $svg ) || ! class_exists( 'DOMDocument' ) ) {
+		return false;
+	}
+
+	// Entity declarations can be used for XML bombs and external entity attacks.
+	if ( preg_match( '/<!ENTITY/i', $svg ) ) {
+		return false;
+	}
+
+	$allowed_tags = array(
+		'svg', 'g', 'defs', 'symbol', 'use', 'title', 'desc', 'path', 'rect', 'circle', 'ellipse', 'line', 'polyline', 'polygon',
+		'text', 'tspan', 'textpath', 'image', 'lineargradient', 'radialgradient', 'stop', 'pattern', 'clippath', 'mask', 'marker',
+		'style', 'filter', 'feblend', 'fecolormatrix', 'fecomponenttransfer', 'fecomposite', 'feconvolvematrix', 'fediffuselighting',
+		'fedisplacementmap', 'fedistantlight', 'fedropshadow', 'feflood', 'fefunca', 'fefuncb', 'fefuncg', 'fefuncr',
+		'fegaussianblur', 'feimage', 'femerge', 'femergenode', 'femorphology', 'feoffset', 'fepointlight', 'fespecularlighting',
+		'fespotlight', 'fetile', 'feturbulence',
+	);
+
+	// Matches CSS, which can load external resources or run code.
+	$unsafe_css = '/@import|javascript:|expression\s*\(|behavior\s*:|url\s*+\(\s*+[\'"]?+\s*+(?!#|data:image)/i';
+
+	$use_errors = libxml_use_internal_errors( true );
+	$dom        = new DOMDocument();
+	$loaded     = $dom->loadXML( $svg, LIBXML_NONET | LIBXML_NOBLANKS );
+	libxml_clear_errors();
+	libxml_use_internal_errors( $use_errors );
+
+	if ( ! $loaded || ! $dom->documentElement || 'svg' !== strtolower( $dom->documentElement->localName ) ) {
+		return false;
+	}
+
+	// Remove DOCTYPE and processing instructions (e.g. external stylesheets).
+	foreach ( iterator_to_array( $dom->childNodes ) as $child ) {
+		if ( $child instanceof DOMDocumentType || $child instanceof DOMProcessingInstruction ) {
+			$dom->removeChild( $child );
+		}
+	}
+
+	foreach ( iterator_to_array( $dom->getElementsByTagName( '*' ) ) as $node ) {
+
+		if ( ! in_array( strtolower( $node->localName ), $allowed_tags, true ) ) {
+			$node->parentNode->removeChild( $node );
+			continue;
+		}
+
+		if ( 'style' === strtolower( $node->localName ) && preg_match( $unsafe_css, $node->textContent ) ) {
+			$node->parentNode->removeChild( $node );
+			continue;
+		}
+
+		foreach ( iterator_to_array( $node->attributes ) as $attr ) {
+			$name  = strtolower( $attr->nodeName );
+			$value = trim( $attr->nodeValue );
+
+			$remove = 0 === strpos( $name, 'on' ) // event handlers.
+			          || preg_match( '/javascript:|vbscript:|data:text/i', $value )
+			          || ( in_array( $name, array( 'href', 'xlink:href' ), true ) && ! preg_match( '/^#|^data:image\/(png|jpe?g|gif|webp);base64,/i', $value ) ) // only internal links and embedded raster images.
+			          || ( 'style' === $name && preg_match( $unsafe_css, $value ) );
+
+			if ( $remove ) {
+				$node->removeAttributeNode( $attr );
+			}
+		}
+	}
+
+	return $dom->saveXML( $dom->documentElement ) . "\n";
+
+}
+
+// Sanitize on upload (Media Library) and on sideload (importers, plugins, media_handle_sideload())
+add_filter( 'wp_handle_upload_prefilter', 'it_svg_sanitize_upload' );
+add_filter( 'wp_handle_sideload_prefilter', 'it_svg_sanitize_upload' );
+function it_svg_sanitize_upload( $file ) {
+
+	if ( empty( $file['tmp_name'] ) || empty( $file['name'] ) || 'svg' !== strtolower( pathinfo( $file['name'], PATHINFO_EXTENSION ) ) ) {
+		return $file;
+	}
+
+	$clean = it_svg_sanitize( file_get_contents( $file['tmp_name'] ) );
+
+	if ( false === $clean ) {
+		$file['error'] = __( 'Sorry, this SVG file is not valid or not safe, so it was rejected.', '_iag' );
+
+		return $file;
+	}
+
+	file_put_contents( $file['tmp_name'], $clean );
+
+	return $file;
+
+}
+
+// Media Library (JS): sizes for SVG previews
+add_filter( 'wp_prepare_attachment_for_js', 'it_svg_response_for_js', 10, 3 );
+function it_svg_response_for_js( $response, $attachment, $meta ) {
 
 	if ( $response['mime'] == 'image/svg+xml' && empty( $response['sizes'] ) ) {
 
 		$svg_path = get_attached_file( $attachment->ID );
 
-		if ( ! file_exists( $svg_path ) ) {
-			// If SVG is external, use the URL instead of the path
-			$svg_path = $response['url'];
+		if ( ! $svg_path || ! file_exists( $svg_path ) ) {
+			return $response;
 		}
 
-		$dimensions = itmix_svgs_get_dimensions( $svg_path );
+		$dimensions = it_svg_get_dimensions( $svg_path );
 
 		$response['sizes'] = array(
 			'full' => array(
@@ -134,52 +164,51 @@ function itmix_svgs_response_for_svg( $response, $attachment, $meta ) {
 
 }
 
-/**
- * Helper function to get SVG dimensions
- * @param $svg
- *
- * @return object
- */
-function itmix_svgs_get_dimensions( $svg ) {
+// Width and height of an SVG file (attributes, or the viewBox)
+function it_svg_get_dimensions( $svg ) {
 
-	$svg = simplexml_load_file( $svg );
+	$width  = 0;
+	$height = 0;
 
-	if ( $svg === false ) {
+	$use_errors = libxml_use_internal_errors( true );
+	$xml        = is_readable( $svg ) ? simplexml_load_file( $svg, 'SimpleXMLElement', LIBXML_NONET ) : false;
+	libxml_clear_errors();
+	libxml_use_internal_errors( $use_errors );
 
-		$width  = '0';
-		$height = '0';
+	if ( false !== $xml ) {
 
-	} else {
+		$attributes = $xml->attributes();
+		$width      = (int) $attributes->width;
+		$height     = (int) $attributes->height;
 
-		$attributes = $svg->attributes();
-		$width      = (string) $attributes->width;
-		$height     = (string) $attributes->height;
-
+		if ( ( ! $width || ! $height ) && ! empty( $attributes->viewBox ) ) {
+			$view_box = preg_split( '/[\s,]+/', trim( (string) $attributes->viewBox ) );
+			if ( 4 === count( $view_box ) ) {
+				$width  = (int) $view_box[2];
+				$height = (int) $view_box[3];
+			}
+		}
 	}
 
 	return (object) array( 'width' => $width, 'height' => $height );
 
 }
 
-/**
- * Generate attachment metadata (Thanks @surml)
- *
- * Fixes Illegal String Offset Warning for Height & Width
- */
-add_filter( 'wp_generate_attachment_metadata', 'itmix_svgs_generate_svg_attachment_metadata', 10, 3 );
-function itmix_svgs_generate_svg_attachment_metadata( $metadata, $attachment_id ) {
+// Attachment metadata for SVG (width, height; every image size points to the original file)
+add_filter( 'wp_generate_attachment_metadata', 'it_svg_attachment_metadata', 10, 2 );
+function it_svg_attachment_metadata( $metadata, $attachment_id ) {
+
+	global $_wp_additional_image_sizes;
 
 	$mime = get_post_mime_type( $attachment_id );
 
 	if ( $mime == 'image/svg+xml' ) {
 
-		$svg_path   = get_attached_file( $attachment_id );
-		$upload_dir = wp_upload_dir();
-		// get the path relative to /uploads/ - found no better way:
-		$relative_path = str_replace( $upload_dir['basedir'], '', $svg_path );
+		$svg_path      = get_attached_file( $attachment_id );
+		$relative_path = _wp_relative_upload_path( $svg_path );
 		$filename      = basename( $svg_path );
 
-		$dimensions = itmix_svgs_get_dimensions( $svg_path );
+		$dimensions = it_svg_get_dimensions( $svg_path );
 
 		$metadata = array(
 			'width'  => intval( $dimensions->width ),
@@ -187,28 +216,24 @@ function itmix_svgs_generate_svg_attachment_metadata( $metadata, $attachment_id 
 			'file'   => $relative_path,
 		);
 
-		// Might come in handy to create the sizes array too - But it's not needed for this workaround! Always links to original svg-file => Hey, it's a vector graphic! ;)
 		$sizes = array();
 		foreach ( get_intermediate_image_sizes() as $s ) {
 			$sizes[ $s ] = array( 'width' => '', 'height' => '', 'crop' => false );
 			if ( isset( $_wp_additional_image_sizes[ $s ]['width'] ) ) {
 				$sizes[ $s ]['width'] = intval( $_wp_additional_image_sizes[ $s ]['width'] );
-			} // For theme-added sizes
-			else {
+			} else {
 				$sizes[ $s ]['width'] = get_option( "{$s}_size_w" );
-			} // For default sizes set in options
+			}
 			if ( isset( $_wp_additional_image_sizes[ $s ]['height'] ) ) {
 				$sizes[ $s ]['height'] = intval( $_wp_additional_image_sizes[ $s ]['height'] );
-			} // For theme-added sizes
-			else {
+			} else {
 				$sizes[ $s ]['height'] = get_option( "{$s}_size_h" );
-			} // For default sizes set in options
+			}
 			if ( isset( $_wp_additional_image_sizes[ $s ]['crop'] ) ) {
 				$sizes[ $s ]['crop'] = intval( $_wp_additional_image_sizes[ $s ]['crop'] );
-			} // For theme-added sizes
-			else {
+			} else {
 				$sizes[ $s ]['crop'] = get_option( "{$s}_crop" );
-			} // For default sizes set in options
+			}
 
 			$sizes[ $s ]['file']      = $filename;
 			$sizes[ $s ]['mime-type'] = 'image/svg+xml';
@@ -219,11 +244,9 @@ function itmix_svgs_generate_svg_attachment_metadata( $metadata, $attachment_id 
 	return $metadata;
 }
 
-/**
- * Add custom CSS for back-end proper output of SVG
- */
-add_action( 'admin_head', 'itmix_fix_svg_thumb' );
-function itmix_fix_svg_thumb() {
+// SVG previews in admin lists and the featured image box
+add_action( 'admin_head', 'it_svg_admin_styles' );
+function it_svg_admin_styles() {
 
 	?>
 	<style>
@@ -240,46 +263,4 @@ function itmix_fix_svg_thumb() {
 			}
 	</style>
 	<?php
-}
-
-
-/**
- * Add ability to preview SVG
- */
-add_action( 'admin_init', 'itmix_svgs_display_thumbs' );
-function itmix_svgs_display_thumbs() {
-
-	if ( itmix_svgs_specific_pages_media_library() ) {
-
-		function itmix_svgs_thumbs_filter( $content ) {
-
-			return apply_filters( 'final_output', $content );
-
-		}
-
-		ob_start( 'itmix_svgs_thumbs_filter' );
-
-		add_filter( 'final_output', 'itmix_svgs_final_output' );
-		function itmix_svgs_final_output( $content ) {
-
-			$content = str_replace( '<# } else if ( \'image\' === data.type && data.sizes && data.sizes.full ) { #>', '<# } else if ( \'svg+xml\' === data.subtype ) { #>
-					<img class="details-image" src="{{ data.url }}" draggable="false" />
-					<# } else if ( \'image\' === data.type && data.sizes && data.sizes.full ) { #>',
-
-				$content );
-
-			$content = str_replace( '<# } else if ( \'image\' === data.type && data.sizes ) { #>', '<# } else if ( \'svg+xml\' === data.subtype ) { #>
-					<div class="centered">
-						<img src="{{ data.url }}" class="thumbnail" draggable="false" />
-					</div>
-					<# } else if ( \'image\' === data.type && data.sizes ) { #>',
-
-				$content );
-
-			return $content;
-
-		}
-
-	}
-
 }

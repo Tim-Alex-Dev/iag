@@ -87,10 +87,10 @@ $expert_categories = array(
                 <?php endif; ?>
 
                 <span class="sticky-header__name">
-                    <?php echo $expert_name; ?>
+                    <?php echo wp_kses_post( $expert_name ); ?>
                     <?php if ( $expert_degrees ) : ?>
                         <span class="sticky-header__name-degree">
-                            <?php echo $expert_degrees; ?>
+                            <?php echo wp_kses_post( $expert_degrees ); ?>
                         </span>
                     <?php endif; ?>
                 </span>
@@ -113,7 +113,7 @@ $expert_categories = array(
             <div class="expert-main__content">
                 <?php if ( $expert_photo ) : ?>
                     <div class="expert-main__photo">
-                        <?php echo wp_get_attachment_image( $expert_photo, 'full', false, [ 'class' => 'expert-main__photo-img' ]); ?>
+                        <?php echo wp_get_attachment_image( $expert_photo, 'full', false, [ 'class' => 'expert-main__photo-img', 'loading' => 'eager', 'fetchpriority' => 'high' ]); ?>
                     </div>
                 <?php endif; ?>
                 <?php if ( $expert_name ) : ?>
@@ -125,17 +125,17 @@ $expert_categories = array(
                             <div class="expert-main__data-info">
                                 <div class="expert-main__title">
                                     <h1 class="h1 expert-main__title-name">
-                                        <?php echo $expert_name; ?>
+                                        <?php echo wp_kses_post( $expert_name ); ?>
                                         <?php if ( $expert_degrees ) : ?>
                                             <span class="expert-main__title-degree">
-                                                <?php echo $expert_degrees; ?>
+                                                <?php echo wp_kses_post( $expert_degrees ); ?>
                                             </span>
                                         <?php endif; ?>
                                     </h1>
                                 </div>
                                 <?php if ( $expert_subtitle ) : ?>
                                     <p class="expert-main__subtitle">
-                                        <?php echo $expert_subtitle; ?>
+                                        <?php echo wp_kses_post( $expert_subtitle ); ?>
                                     </p>
                                 <?php endif; ?>
                             </div>
@@ -497,21 +497,21 @@ $expert_categories = array(
                                 <div class="table-body__item-element text-element">
                                     <?php if ( $year ) : ?>
                                         <span class="text-element__content">
-                                            <?php echo $year; ?>
+                                            <?php echo wp_kses_post( $year ); ?>
                                         </span>
                                     <?php endif; ?>
                                 </div>
                                 <div class="table-body__item-element text-element">
                                     <?php if ( $qualification ) : ?>
                                         <span class="text-element__content">
-                                            <?php echo $qualification; ?>
+                                            <?php echo wp_kses_post( $qualification ); ?>
                                         </span>
                                     <?php endif; ?>
                                 </div>
                                 <div class="table-body__item-element text-element">
                                     <?php if ( $institution ) : ?>
                                         <span class="text-element__content">
-                                            <?php echo $institution; ?>
+                                            <?php echo wp_kses_post( $institution ); ?>
                                         </span>
                                     <?php endif; ?>
                                 </div>
@@ -549,7 +549,7 @@ $expert_categories = array(
                     <div class="resources-column">
                         <?php if ( $websites_title ) : ?>
                             <span class="resources-column__title">
-                                <?php echo $websites_title; ?>
+                                <?php echo wp_kses_post( $websites_title ); ?>
                             </span>
                         <?php endif; ?>
                         <?php while ( have_rows( 'websites_list', $expert_id ) ) : the_row();
@@ -576,7 +576,7 @@ $expert_categories = array(
                     <div class="resources-column">
                         <?php if ( $profiles_title ) : ?>
                             <span class="resources-column__title">
-                                <?php echo $profiles_title; ?>
+                                <?php echo wp_kses_post( $profiles_title ); ?>
                             </span>
                         <?php endif; ?>
                         <?php while ( have_rows( 'profiles_list', $expert_id ) ) : the_row();
@@ -599,7 +599,7 @@ $expert_categories = array(
                                     <?php endif; ?>
                                     <?php if ( $data ) : ?>
                                         <span class="resources-column__profile-data">
-                                            <?php echo $data; ?>
+                                            <?php echo wp_kses_post( $data ); ?>
                                         </span>
                                     <?php endif; ?>
                                 </div>
@@ -611,7 +611,7 @@ $expert_categories = array(
                     <div class="resources-column">
                         <?php if ( $locations_title ) : ?>
                             <span class="resources-column__title">
-                                <?php echo $locations_title; ?>
+                                <?php echo wp_kses_post( $locations_title ); ?>
                             </span>
                         <?php endif; ?>
                         <?php while ( have_rows( 'locations_list', $expert_id ) ) : the_row();
@@ -619,7 +619,7 @@ $expert_categories = array(
 
                             <?php if ( $location_title ) : ?>
                                 <span class="resources-column__location">
-                                    <?php echo $location_title; ?>
+                                    <?php echo wp_kses_post( $location_title ); ?>
                                 </span>
                             <?php endif; ?>
                         <?php endwhile; ?>

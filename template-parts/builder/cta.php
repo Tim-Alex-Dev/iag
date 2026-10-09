@@ -1,11 +1,11 @@
 <?php
-$module_id        = get_sub_field('module_id') ?: '';
+$module_id        = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
 $primary_btn      = get_sub_field('primary_button') ?? false;
 $secondary_btn    = get_sub_field('secondary_button') ?? false;
 ?>
 
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-cta">
+<section<?php echo $module_id; ?> class="module m-cta">
 	<div class="container">
 		<div class="m-cta__meeting">
 			<?php if ( have_rows( 'meeting_list' ) ) : ?>

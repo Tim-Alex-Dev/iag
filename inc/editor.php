@@ -130,7 +130,7 @@ function it_tiny_mce_before_init_formats( $settings ) {
 		$style_formats      = array_merge( $orig_style_formats, $style_formats );
 	}
 
-	$settings['style_formats'] = json_encode( $style_formats );
+	$settings['style_formats'] = wp_json_encode( $style_formats );
 
 	return $settings;
 }

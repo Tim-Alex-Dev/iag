@@ -24,7 +24,7 @@ $contact_form    = get_field( 'hubspot_resource_form', 'option' ) ?? false;
 <article class="resource">
 	<div class="resource-banner">
 		<?php if ( $banner_image ) : ?>
-			<?php echo wp_get_attachment_image( $banner_image, 'full', false, [ 'class' => 'resource-banner__category-banner' ] ); ?>
+			<?php echo wp_get_attachment_image( $banner_image, 'full', false, [ 'class' => 'resource-banner__category-banner', 'loading' => 'eager', 'fetchpriority' => 'high' ] ); ?>
 		<?php endif; ?>
 		<div class="container">
 			<div class="resource-banner__inner">

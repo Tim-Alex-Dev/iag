@@ -1,4 +1,4 @@
-import vars from '../_vars';
+import {minWidth} from '../functions/breakpoint';
 
 jQuery(document).ready(function ($) {
 
@@ -47,6 +47,14 @@ jQuery(document).ready(function ($) {
 	}
 
 
+	// keep aria-expanded of the burger button in sync with the menu state (the menu can be closed by other scripts too)
+	const burger = document.querySelector('.icon-burger');
+	if (burger) {
+		const syncBurger = () => burger.setAttribute('aria-expanded', document.body.classList.contains('is-menu-open') ? 'true' : 'false');
+		syncBurger();
+		new MutationObserver(syncBurger).observe(document.body, {attributes: true, attributeFilter: ['class']});
+	}
+
 	/**
 	 * Toggle main menu
 	 */
@@ -78,7 +86,7 @@ jQuery(document).ready(function ($) {
 
 		$('.main-menu .sub-menu, .footer-links .sub-menu').css('display', '');
 
-		if ($(window).width() >= vars.bp.lg) {
+		if (minWidth('lg')) {
 
 			if ($('body').hasClass('is-menu-open')) {
 				closeMegaMenu();
