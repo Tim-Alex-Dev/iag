@@ -1,4 +1,5 @@
 // Webpack entry. Components: always loaded. Modules: separate files, loaded only on pages with their selector
+import './public-path'; // first: tells webpack where the module files are
 import {loadModules} from './functions/load-modules';
 import {inFirstScreen} from './functions/first-screen';
 

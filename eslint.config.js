@@ -16,6 +16,7 @@ module.exports = [
 				...globals.browser,
 				jQuery: 'readonly',
 				itSettings: 'readonly', // wp_localize_script (inc/scripts-styles.php)
+				__webpack_public_path__: 'writable', // assets/js/public-path.js
 				wpAdminSettings: 'readonly'
 			}
 		},

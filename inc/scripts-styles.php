@@ -19,6 +19,7 @@ function it_scripts() {
 	wp_localize_script( 'theme-js', 'itSettings', [
 		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
 		'nonce'   => wp_create_nonce( 'ajax-nonce' ),
+		'jsUrl'   => IT_JS, // where the on-demand modules are (dist/js/), see assets/js/public-path.js
 	] );
 }
 
