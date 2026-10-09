@@ -161,3 +161,8 @@ function it_tiny_mce_before_init_colors( $init ) {
 
 	return $init;
 }
+
+// Content pasted with tables (e.g. from Word) can leave wpautop() output with stray closing tags; browsers turn them into
+// extra empty paragraphs. Repair the markup (the removed lazy-load code did it as a side effect, the layout depends on it).
+add_filter( 'the_content', 'force_balance_tags', 20 );
+add_filter( 'acf_the_content', 'force_balance_tags', 20 );
