@@ -120,7 +120,7 @@
 
 	&__top {
 		padding-bottom: rem(24);
-		border-bottom: 1px solid rgba($iag-gray-200, .5);
+		border-bottom: 1px solid $iag-gray-200-a50;
 
 		.footer-links {
 			display: flex;
@@ -166,7 +166,7 @@
 		justify-content: space-between;
 		align-items: center;
 		padding-top: rem(24);
-		border-top: 1px solid rgba($iag-gray-200, .5);
+		border-top: 1px solid $iag-gray-200-a50;
 		@include max(lg) {
 			flex-direction: column-reverse;
 			gap: rem(12);

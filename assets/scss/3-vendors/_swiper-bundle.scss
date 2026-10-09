@@ -70,7 +70,7 @@ $themeColor: $white;
 		&:not(.swiper-pagination-bullet-active) {
 			&:hover {
 				&:after {
-					background-color: rgba($primary, .5);
+					background-color: $primary-a50;
 				}
 			}
 		}

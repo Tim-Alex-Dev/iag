@@ -97,22 +97,23 @@
 	}
 }
 
-// Custom scrollbar styling
-@mixin scrollbar($width: 10px, $color-track: $black, $color-border: #ccc) {
+// Custom scrollbar: standard properties + ::-webkit-scrollbar fallback for browsers without scrollbar-color
+@mixin scrollbar($width: 10px, $color-thumb: $grey, $color-track: $black-a10) {
+	scrollbar-width: thin;
+	scrollbar-color: $color-thumb $color-track;
+
 	&::-webkit-scrollbar {
 		width: $width;
 	}
+
 	&::-webkit-scrollbar-track {
-		-webkit-box-shadow: inset 0 0 6px rgba($color-track, 0.2);
+		background: $color-track;
 		border-radius: calc($width / 2);
 	}
+
 	&::-webkit-scrollbar-thumb {
-		width: $width;
-		height: 60px;
+		background: $color-thumb;
 		border-radius: calc($width / 2);
-		border: 1px solid $color-border;
-		background: $color-border;
-		-webkit-box-shadow: inset 0 0 6px rgba($color-track, 0.3);
 	}
 }
 

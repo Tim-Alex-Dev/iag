@@ -7,7 +7,7 @@
 	top: 0;
 	left: 0;
 	z-index: 100;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+	border-bottom: 1px solid $white-a06;
 	transition: background-color $time, height $time;
 
 	.has-hero:not(.is-scrolled) & {
@@ -16,7 +16,7 @@
 
 	.is-scrolled & {
 		height: var(--header-scrolled-height);
-		box-shadow: 0 10px 10px rgba($black, 0.1);
+		box-shadow: 0 10px 10px $black-a10;
 	}
 
 	> .container {

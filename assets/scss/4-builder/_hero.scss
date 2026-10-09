@@ -127,7 +127,7 @@
 		padding: rem(20);
 		border-radius: rem(12);
 		background: linear-gradient(135deg, $iag-navy-700 0%, $iag-navy-800 100%);
-		box-shadow: 0 rem(16) rem(32) rgba(20, 22, 26, 0.10), 0 rem(4) rem(8) rgba(20, 22, 26, 0.04);
+		box-shadow: 0 rem(16) rem(32) $iag-gray-900-a10, 0 rem(4) rem(8) $iag-gray-900-a04;
 		@include max(xl) {
 			width: rem(380);
 		}
@@ -160,7 +160,7 @@
 			background-color: $iag-navy-800;
 			border-radius: rem(8);
 			border: 1px solid $iag-navy-500;
-    		box-shadow: rgba($black, 0.4) 0 rem(24) rem(60) 0;
+    		box-shadow: $black-a40 0 rem(24) rem(60) 0;
 		}
 
 		&-header {
@@ -200,7 +200,7 @@
 					left: 0;
 					width: 100%;
 					height: rem(40);
-					background: linear-gradient(0deg,rgba($black, .5) 25%, rgba($black, 0) 100%);
+					background: linear-gradient(0deg,$black-a50 25%, $black-a00 100%);
 					z-index: 2;
 				}
 
@@ -218,7 +218,7 @@
 					left: rem(8);
 					font-family: $font-alt;
 					font-size: rem(10);
-					color: rgba($white, 0.7);
+					color: $white-a70;
 					letter-spacing: 0.04em;
 					z-index: 3;
 					@include min(xxl) {
@@ -276,7 +276,7 @@
 			top: 0;
 			width: rem(200);
 			height: 100%;
-			background: linear-gradient(to right, $secondary 0%, rgba($secondary, 0) 100%);
+			background: linear-gradient(to right, $secondary 0%, $secondary-a00 100%);
 		}
 
 		&-image {

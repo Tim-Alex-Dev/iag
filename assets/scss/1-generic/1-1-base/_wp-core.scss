@@ -9,7 +9,7 @@
 
 // Adminbar -------------------------------------------
 #wpadminbar {
-	--wp-blue: #2271b1;
+	--wp-blue: #{$system-color};
 	transition: transform 0.3s !important;
 	transform: translateY(-100%);
 

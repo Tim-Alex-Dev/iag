@@ -106,7 +106,7 @@ input[type="radio"] {
 
 	&:checked {
 		background-color: $black;
-		background: radial-gradient(circle, rgba($black, 1) 0%, rgba($black, 1) rem(4), rgba($white, 1) rem(4));
+		background: radial-gradient(circle, $black 0%, $black rem(4), $white rem(4));
 		border-color: $black;
 	}
 

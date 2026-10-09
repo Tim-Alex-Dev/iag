@@ -130,12 +130,12 @@
 	}
 
 	&-primary {
-		background: rgba($iag-orange-500, 0.18);
+		background: $iag-orange-500-a18;
     	color: $iag-orange-300;
 	}
 
 	&-secondary {
-		background-color: rgba($iag-navy-500, 0.2);
+		background-color: $iag-navy-500-a20;
 	}
 
 }

@@ -205,7 +205,7 @@
         .m-latest__resource {
             background: $white;
             border: 1px solid $iag-navy-600;
-            box-shadow: 0 6px 20px rgba($white, .1);
+            box-shadow: 0 6px 20px $white-a10;
 
             .resource-content {
                 background: linear-gradient(135deg, $iag-gray-50, $iag-gray-100);
@@ -256,7 +256,7 @@
         .m-latest__resource {
             background: $white;
             border: 1px solid $iag-gray-200;
-            box-shadow: 0 6px 20px rgba($black, .25);
+            box-shadow: 0 6px 20px $black-a25;
 
             .resource-content {
                 background: linear-gradient(135deg, $iag-navy-700, $iag-navy-800);

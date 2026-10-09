@@ -56,7 +56,7 @@
                     font-weight: 600;
                     padding: rem(6 12 6 20);
                     border-radius: rem(999);
-                    background-color: rgba(122, 145, 183, 0.22);
+                    background-color: $iag-navy-300-a22;
                     color: rgb(207, 224, 245);
                     &::after {
                         position: absolute;
@@ -112,7 +112,7 @@
             align-items: center;
             gap: rem(16);
             padding: rem(16 0);
-            border-bottom: 1px solid rgba($white, 0.12);
+            border-bottom: 1px solid $white-a12;
             &:hover {
                 .list-post__icon {
                     background-color: $iag-orange-500;
@@ -162,7 +162,7 @@
                     gap: rem(8);
                     font-family: $font-alt;
                     font-size: rem(12);
-                    color: rgba($white, 0.5);
+                    color: $white-a50;
                 }
             }
 
@@ -179,7 +179,7 @@
                 margin-left: auto;
 
                 svg {
-                    fill: rgba( $white,.8);
+                    fill: $white-a80;
                     width: rem(16);
                     height: rem(16);
                 }

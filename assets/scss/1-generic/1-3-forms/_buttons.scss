@@ -35,7 +35,7 @@
 	&-primary {
 		background-color: $iag-orange-500;
 		border-color: $iag-orange-500;
-		box-shadow: 0 rem(8) rem(24) rgba($iag-orange-500, 0.22);
+		box-shadow: 0 rem(8) rem(24) $iag-orange-500-a22;
 		color: $white;
 
 		&:hover,
@@ -101,7 +101,7 @@
 		&:active {
 			color: $white;
 			background-color: $iag-orange-500;
-			box-shadow: 0 rem(8) rem(24) rgba($iag-orange-500, 0.22);
+			box-shadow: 0 rem(8) rem(24) $iag-orange-500-a22;
 		}
 	}
 }

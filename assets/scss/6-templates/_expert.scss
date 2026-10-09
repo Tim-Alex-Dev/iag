@@ -92,7 +92,7 @@
         background-color: $iag-gray-50;
         z-index: 99;
         padding: rem(12 0);
-        box-shadow: rem(0 10 10) rgba(0,0,0,.1);
+        box-shadow: rem(0 10 10) $black-a10;
         transition: all .5s;
         opacity: 0;
         visibility: hidden;
