@@ -311,10 +311,10 @@
         .m-counter__slider {
             &-swiper {
                 &::after {
-                    background: linear-gradient(270deg, $iag-navy-700 0%,rgba($iag-navy-700, 0) 100%);
+                    background: linear-gradient(270deg, $iag-navy-700 0%,$iag-navy-700-a00 100%);
                 }
                 &::before {
-                    background: linear-gradient(90deg, $iag-navy-700 0%,rgba($iag-navy-700, 0) 100%);
+                    background: linear-gradient(90deg, $iag-navy-700 0%,$iag-navy-700-a00 100%);
                 }
             }
 
@@ -342,10 +342,10 @@
         .m-counter__slider {
             &-swiper {
                 &::after {
-                    background: linear-gradient(270deg, $white 0%,rgba($white, 0) 100%);
+                    background: linear-gradient(270deg, $white 0%,$white-a00 100%);
                 }
                 &::before {
-                    background: linear-gradient(90deg, $white 0%,rgba($white, 0) 100%);
+                    background: linear-gradient(90deg, $white 0%,$white-a00 100%);
                 }
             }
         } 
@@ -355,10 +355,10 @@
         .m-counter__slider {
             &-swiper {
                 &::after {
-                    background: linear-gradient(270deg, $bg-gray 0%,rgba($bg-gray, 0) 100%);
+                    background: linear-gradient(270deg, $iag-gray-50 0%,$iag-gray-50-a00 100%);
                 }
                 &::before {
-                    background: linear-gradient(90deg, $bg-gray 0%,rgba($bg-gray, 0) 100%);
+                    background: linear-gradient(90deg, $iag-gray-50 0%,$iag-gray-50-a00 100%);
                 }
             }
         } 

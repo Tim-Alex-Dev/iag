@@ -48,7 +48,7 @@ $resource_category = get_primary_category( $resource_id );
         </div>
     </div>
 
-    <a class="post-permalink" href="<?php echo esc_url( $resource_link ); ?>" target="_blank">
+    <a class="post-permalink" href="<?php echo esc_url( $resource_link ); ?>" target="_blank" rel="noopener">
         <?php esc_html_e( 'Read More', '_iag' ); ?>
         <svg class="icon">
             <use xlink:href="#arrow-right"></use>

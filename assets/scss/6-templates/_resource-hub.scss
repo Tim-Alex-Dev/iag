@@ -34,7 +34,7 @@
             .content-subtitle {
                 font-size: rem(18);
                 line-height: 1.6;
-                color: rgba($white, 0.88);
+                color: $white-a88;
                 max-width: rem(680);
             }
         }
@@ -49,7 +49,7 @@
             .share-label {
                 font-size: rem(14);
                 font-weight: 600;
-                color: rgba($white, 0.72);
+                color: $white-a72;
             }
 
             .share-link {
@@ -93,7 +93,7 @@
                     transform: translateY(-50%);
                     height: rem(24);
                     width: rem(2);
-                    background-color: rgba($white, 0.25);
+                    background-color: $white-a25;
                 }
 
                 svg {
@@ -108,10 +108,10 @@
         position: sticky;
         top: var(--header-scrolled-height);
         z-index: 40;
-        background: rgba($white, 0.95);
+        background: $white-a95;
         backdrop-filter: blur(8px);
         border-bottom: 1px solid $iag-gray-200;
-        box-shadow: 0 1px 2px rgba(20, 22, 26, 0.06);
+        box-shadow: 0 1px 2px $iag-gray-900-a06;
 
         &-list {
             display: flex;
@@ -152,7 +152,7 @@
 
     &__categories {
         padding: rem(64 0 80);
-        background-color: $bg-gray;
+        background-color: $iag-gray-50;
 
         .resource-categories {
             display: flex;

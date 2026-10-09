@@ -2,12 +2,12 @@
     &__next {
             margin-top: rem(40);
             background: $iag-navy-600;
-            border: 1px solid rgba($black, 0.12);
+            border: 1px solid $black-a12;
             border-radius: rem(16);
             padding: rem(26 30 30);
             position: relative;
             overflow: hidden;
-            box-shadow: rgba(8, 16, 28, 0.4) 0px 14px 44px;
+            box-shadow: $iag-navy-900-a40 0px 14px 44px;
             @include max(md) {
                 padding: rem(18);
             }
@@ -51,7 +51,7 @@
                     align-items: flex-start;
                     gap: rem(24);
                     background: $iag-navy-800;
-                    border: 1px solid rgba($white, .1);
+                    border: 1px solid $white-a10;
                     border-radius: rem(12);
                     padding: rem(24);
                     transition: $default-transition;
@@ -63,7 +63,7 @@
                         border-radius: rem(10);
                         overflow: hidden;
                         text-align: center;
-                        border: 1px solid rgba($white, 0.14);
+                        border: 1px solid $white-a14;
                         flex-shrink: 0;
 
                         .date-month {
@@ -88,7 +88,7 @@
                         .date-year {
                             font-family: $font-alt;
                             font-size: rem(12);
-                            color: rgba($white, 0.55);
+                            color: $white-a55;
                             margin-top: rem(4);
                             padding-bottom: rem(8);
                         }
@@ -131,7 +131,7 @@
                                 position: relative;
                                 font-family: $font-alt;
                                 font-size: rem(12);
-                                color: rgba($white, .6);
+                                color: $white-a60;
                                 @include max(md) {
                                     &::after {
                                         display: none;
@@ -151,7 +151,7 @@
                                     width: rem(2);
                                     height: rem(2);
                                     border-radius: 50%;
-                                    background-color: rgba($white, .6);
+                                    background-color: $white-a60;
                                 }
                             }
                         }

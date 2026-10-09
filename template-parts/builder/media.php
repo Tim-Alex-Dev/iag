@@ -1,5 +1,7 @@
 <?php
-$module_id          = get_sub_field( 'module_id' ) ?: '';
+$module_id          = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
+$above_fold       = 1 === ( $args['index'] ?? 0 ); // first module: images are not lazy-loaded
+$image_loading    = $above_fold ? [ 'loading' => 'eager', 'fetchpriority' => 'high' ] : [];
 $color_theme        = get_sub_field( 'color_theme' ) ?: 'white';
 $module_orientation = get_sub_field( 'media_orientation' ) ?: 'media-right';
 $module_title       = get_sub_field( 'module_title' ) ?? false;
@@ -17,7 +19,7 @@ $media_video_banner = get_sub_field( 'video_banner' ) ?? false;
 ?>
 
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-media m-media-<?php echo esc_attr( $media_type ); ?> <?php echo esc_attr( $module_orientation ); ?> bg-<?php echo esc_attr( $color_theme ); ?>">
+<section<?php echo $module_id; ?> class="module m-media m-media-<?php echo esc_attr( $media_type ); ?> <?php echo esc_attr( $module_orientation ); ?> bg-<?php echo esc_attr( $color_theme ); ?>">
 	<div class="container">
         <div class="m-media__content left">
             <?php if ( $module_title || $module_subtitle || $module_uptitle ) : ?>
@@ -70,7 +72,7 @@ $media_video_banner = get_sub_field( 'video_banner' ) ?? false;
                 $link_title  = $module_link['title'];
                 $link_target = $module_link['target'] ? $module_link['target'] : '_self'; ?>
 
-                <a class="btn btn-primary m-media__btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                <a class="btn btn-primary m-media__btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                     <?php echo esc_html( $link_title ); ?>
                 </a>
             <?php endif; ?>
@@ -79,7 +81,7 @@ $media_video_banner = get_sub_field( 'video_banner' ) ?? false;
 
         <?php if ( $media_type === 'image' && $media_image ) : ?>
             <div class="m-media__banner right">
-                <?php echo wp_get_attachment_image( $media_image, 'full', false, [ 'class' => 'm-media__banner-img' ] ); ?>
+                <?php echo wp_get_attachment_image( $media_image, 'full', false, array_merge( [ 'class' => 'm-media__banner-img', 'sizes' => '(min-width: 640px) 600px, 100vw' ], $image_loading ) ); ?>
             </div>
         <?php endif; ?>
 

@@ -1,7 +1,10 @@
-// Primary Colors -------------------------------------------
-$primary: #FC7624;
-$secondary: #0F1F33;
+@use "sass:map";
 
+// Colors -------------------------------------------
+// Brand palette (IAG design system) is the single source of truth.
+// Use these tokens directly; add a new token only if the design introduces a new color.
+
+// Navy
 $iag-navy-50: #EEF2F8;
 $iag-navy-100: #D5DEEC;
 $iag-navy-200: #A8B8D2;
@@ -13,6 +16,7 @@ $iag-navy-700: #162B48;
 $iag-navy-800: #0F1F33;
 $iag-navy-900: #08101C;
 
+// Orange
 $iag-orange-50: #FDF1EA;
 $iag-orange-100: #FBDFCE;
 $iag-orange-200: #F6B791;
@@ -24,6 +28,7 @@ $iag-orange-700: #9F3A0E;
 $iag-orange-800: #762A0A;
 $iag-orange-900: #4A1A06;
 
+// Gray
 $iag-gray-50: #F7F8FA;
 $iag-gray-100: #EEF0F3;
 $iag-gray-200: #DDE1E6;
@@ -35,91 +40,84 @@ $iag-gray-700: #3F434A;
 $iag-gray-800: #272A30;
 $iag-gray-900: #14161A;
 
-// Main Colors
+// Base
 $black: #000;
-$black_01: #1C1C1F;
-
 $white: #fff;
-$white-50: rgba($white, 0.5);
 
+// Roles (aliases of the palette, change here to re-theme)
+$primary: #FC7624;
+$secondary: $iag-navy-800;
+$color-text: $iag-gray-700;
+$color-link: $primary;
 
-$box-shadow-white: 0 16px 32px rgba($white, .15);
-$box-shadow-black: 0 16px 32px rgba($black, .25);
-
-$white_01: #f7f7f8;
-$white_02: #d0dcfa;
-$white_03: #f3f6fe;
-$white_04: #d0dcfa;
-
+// Extra colors (outside the brand palette)
+$grey-light: #eff1f2; // code, pre
+$grey-lighter: #f9f9f9; // zebra tables
+$placeholder-bg: #e2e2e2; // image placeholder
+$grey-wp-focus: #f1f1f1; // .screen-reader-text:focus (WordPress)
 $grey: #a0a0a0;
-$grey_01: #D9D9DE;
-$grey_02: #78839e;
-
-//
-$brand-blue: #194B8F;
-
-// Backgrounds
-$bg-blue: $iag-navy-800;
-$bg-orange: $iag-orange-500;
-$bg-blue-light: #162B48;
-$bg-white: #fff;
-$bg-gray: #F7F8FA;
-$bg-gradient: linear-gradient(158deg, #194B8F 0%, #00112B 92%);
-
-
-// Borders
-$border-blue: #2A4E80; //navy-500
-$border-blue_01: #1F3B62; //navy-600
-
-
 $grey-border: #d0dcfa;
-$grey-shadow: #B9B9C1;
-
-
-
-
-$blue: #0f224e;
-$blue_01: #78839e;
-
-
-
-
-// $bg-module-white-hover: #d0dcfa;
-$bg-module-grey: #f3f6fe;
-$bg-module-grey-hover: #d0dcfa;
-// $bg-dark: #0F1F33;
-// $bg-module-dark: #0f224e;
-
-
-$black: #000;
-$black_01: #1C1C1F;
-$white: #fff;
-$white_01: #f7f7f8;
-$white-50: rgba($white, 0.5);
-$grey: #a0a0a0;
-$grey_01: #D9D9DE;
-
-
-$nav-title: #162B48; // submenu titles
-$nav-orange: #EB5C1E; // orange lines / arrows / CTA
-$submenu-bg: #FFFFFF; // submenu background
-
-
-$white-border: $iag-gray-200;
-$gray-border: $iag-gray-400;
-
 $green: #1F8A5B;
 $green_01: #4ade80;
-
 $red: #dc3232;
 $red-01: #FF0000;
-$orange: #f56e28;
-$yellow: #F2C94C;
+$brand-blue: #194B8F; // hero gradient start
+$navy-deep: #00112B; // hero gradient end
 
+// WordPress block editor color presets still used in older content (classes has-{name}-color, see 1-1-base/_wp-core.scss)
+$wp-vivid-cyan-blue: #0693e3;
+$wp-luminous-vivid-orange: #ff6900;
 
-$color-text: $iag-gray-700;
-$color-heading: $primary;
-$color-link: $primary;
+// Transparent colors: {color}-a{opacity %} (8-digit HEX, alpha = opacity * 255)
+$black-a00: #00000000;
+$black-a08: #00000014;
+$black-a10: #0000001A;
+$black-a12: #0000001F;
+$black-a15: #00000026;
+$black-a25: #00000040;
+$black-a30: #0000004D;
+$black-a40: #00000066;
+$black-a50: #00000080;
+$black-a60: #00000099;
+$iag-gray-200-a50: #DDE1E680;
+$iag-gray-50-a00: #F7F8FA00;
+$iag-gray-900-a04: #14161A0A;
+$iag-gray-900-a06: #14161A0F;
+$iag-gray-900-a10: #14161A1A;
+$iag-navy-300-a22: #7A91B738;
+$iag-navy-500-a20: #2A4E8033;
+$iag-navy-700-a00: #162B4800;
+$iag-navy-900-a40: #08101C66;
+$iag-orange-500-a18: #FF60152E;
+$iag-orange-500-a22: #FF601538;
+$iag-orange-500-a50: #FF601580;
+$icon-orange-a15: #EB5C1E26;
+$primary-a50: #FC762480;
+$secondary-a00: #0F1F3300;
+$white-a00: #FFFFFF00;
+$white-a06: #FFFFFF0F;
+$white-a08: #FFFFFF14;
+$white-a10: #FFFFFF1A;
+$white-a12: #FFFFFF1F;
+$white-a14: #FFFFFF24;
+$white-a15: #FFFFFF26;
+$white-a25: #FFFFFF40;
+$white-a50: #FFFFFF80;
+$white-a55: #FFFFFF8C;
+$white-a60: #FFFFFF99;
+$white-a70: #FFFFFFB3;
+$white-a72: #FFFFFFB8;
+$white-a75: #FFFFFFBF;
+$white-a80: #FFFFFFCC;
+$white-a88: #FFFFFFE0;
+$white-a95: #FFFFFFF2;
+
+// Gradients
+$bg-gradient: linear-gradient(158deg, $brand-blue 0%, $navy-deep 92%); // hero background
+
+// Shadows
+$box-shadow-white: 0 16px 32px $white-a15;
+$box-shadow-black: 0 16px 32px $black-a25;
 
 
 // Fonts -------------------------------------------
@@ -142,13 +140,12 @@ $radius: rem(8); // global border-radius (can be 0, but need to keep it)
 // Transitions -------------------------------------------
 $time: 0.5s;
 $default-transition: all $time 0s;
-$medium-transition: all 0.5s 0s;
 
 
 // Grid breakpoints -------------------------------------------
 // for min-width = values, for max-width = value - 1px.
-// example: @include min(lg) = @media (min-width: 1025px)
-// example: @include max(lg) = @media (max-width: 1024px)
+// example: @include min(lg) = @media (min-width: 1024px)
+// example: @include max(lg) = @media (max-width: 1023px)
 $grid-breakpoints: (
 	xs: 0,
 	md: 640px,
@@ -159,7 +156,7 @@ $grid-breakpoints: (
 
 // Grid columns
 // Set the number of columns and specify the width of the gutters.
-$grid-columns: 12;
+$grid-columns: 12; // used by Bootstrap grid
 $grid-gutter-width: 30px; // 15px on each side
 
 // Grid containers
@@ -172,18 +169,13 @@ $container-max-widths: (
 	xxl: 1680px,
 );
 
-// Container padding
+// Container padding (total for both sides)
 $container-gutter-x-values: (
 	xs: 40px,
-	// 20px on each side
 	md: 80px,
-	// 40px on each side
 	lg: 80px,
-	// 40px on each side
 	xl: 60px,
-	// 30px on each side
 	xxl: 100px,
-	// 50px on each side
 );
 
 // Container fluid maximum width
@@ -195,10 +187,10 @@ $container-fluid-max-width: 1920px;
 :root {
 	--container-width: 100%;
 
-	@each $bp in map-keys($grid-breakpoints) {
-		@media (min-width: map-get($grid-breakpoints, $bp)) {
-			--container-width: #{map-get($container-max-widths, $bp)};
-			--container-gutter-x: #{map-get($container-gutter-x-values, $bp)};
+	@each $bp in map.keys($grid-breakpoints) {
+		@media (min-width: map.get($grid-breakpoints, $bp)) {
+			--container-width: #{map.get($container-max-widths, $bp)};
+			--container-gutter-x: #{map.get($container-gutter-x-values, $bp)};
 		}
 	}
 

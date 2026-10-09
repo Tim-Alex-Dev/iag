@@ -1,5 +1,7 @@
 <?php
-$module_id        = get_sub_field( 'module_id' ) ?: '';
+$module_id        = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
+$above_fold       = 1 === ( $args['index'] ?? 0 ); // first module: images are not lazy-loaded
+$image_loading    = $above_fold ? [ 'loading' => 'eager', 'fetchpriority' => 'high' ] : [];
 $is_banner        = get_sub_field( 'add_banner' ) ?? false;
 $is_breadcrumbs   = get_sub_field( 'add_banner' ) ?? false;
 $module_title     = get_sub_field( 'module_title' ) ?? false;
@@ -14,9 +16,9 @@ $linkedin_icon    = get_field( 'main_linkedin_icon', 'options' ) ?? false;
 ?>
 
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-banner <?php echo $is_banner ? 'is-banner' : 'no-banner'; ?> banner-<?php echo esc_attr( $banner_size ); ?>">
+<section<?php echo $module_id; ?> class="module m-banner <?php echo $is_banner ? 'is-banner' : 'no-banner'; ?> banner-<?php echo esc_attr( $banner_size ); ?>">
 	<?php if ( $is_banner && $banner_size === 'full' && $module_banner ) : ?>
-		<?php echo wp_get_attachment_image( $module_banner, 'full', false, [ 'class' => 'm-banner__banner' ] ); ?>
+		<?php echo wp_get_attachment_image( $module_banner, 'full', false, array_merge( [ 'class' => 'm-banner__banner' ], $image_loading ) ); ?>
 	<?php endif; ?>
 
 	<div class="container">
@@ -46,14 +48,14 @@ $linkedin_icon    = get_field( 'main_linkedin_icon', 'options' ) ?? false;
 				<?php if ( $youtube_url && $linkedin_url && $youtube_icon && $linkedin_icon ) : ?>
 					<div class="m-banner__share">
 						<span class="share-label">
-							<?php echo _e( 'Follow & Share:'); ?>
+							<?php esc_html_e( 'Follow & Share:', '_iag' ); ?>
 						</span>
 	
-						<a class="share-link" href="<?php echo esc_url( $linkedin_url ); ?>" target="_blank">
+						<a class="share-link" href="<?php echo esc_url( $linkedin_url ); ?>" target="_blank" rel="noopener">
 							<?php echo wp_get_attachment_image( $linkedin_icon, 'thumbnail', false, [ 'class' => 'share-link__img' ] ); ?>
 						</a>
 			
-						<a class="share-link" href="<?php echo esc_url( $youtube_url ); ?>" target="_blank">
+						<a class="share-link" href="<?php echo esc_url( $youtube_url ); ?>" target="_blank" rel="noopener">
 							<?php echo wp_get_attachment_image( $youtube_icon, 'thumbnail', false, [ 'class' => 'share-link__img' ] ); ?>
 						</a>
 	
@@ -71,7 +73,7 @@ $linkedin_icon    = get_field( 'main_linkedin_icon', 'options' ) ?? false;
 		</div>
 		<?php if ( $is_banner && $banner_size === 'small' && $module_banner ) : ?>
 			<div class="m-banner__media">
-				<?php echo wp_get_attachment_image( $module_banner, 'full', false, [ 'class' => 'm-banner__media-img' ] ); ?>
+				<?php echo wp_get_attachment_image( $module_banner, 'full', false, array_merge( [ 'class' => 'm-banner__media-img', 'sizes' => '(min-width: 1920px) 768px, (min-width: 1024px) 40vw, 100vw' ], $image_loading ) ); ?>
 			</div>
 		<?php endif; ?>
 	</div>

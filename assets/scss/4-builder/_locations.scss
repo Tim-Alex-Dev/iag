@@ -264,7 +264,7 @@
 
                     &__title {
                         &-icon {
-                            background-color: rgba(235, 92, 30, 0.15);
+                            background-color: $icon-orange-a15;
                             color: $iag-orange-600;
                         }
 
@@ -275,7 +275,7 @@
 
                     &__phone {
                         &-icon {
-                            background-color: rgba(235, 92, 30, 0.15);
+                            background-color: $icon-orange-a15;
                             color: $iag-orange-600;
                         }
 
@@ -302,7 +302,7 @@
 
             .link-item {
                 &__icon {
-                    background-color: rgba(235, 92, 30, 0.15);
+                    background-color: $icon-orange-a15;
                     color: $iag-orange-500;
                 }
 

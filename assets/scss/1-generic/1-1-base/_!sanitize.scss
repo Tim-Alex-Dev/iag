@@ -42,7 +42,7 @@ html {
 	tab-size: 4; /* 3 */
 	-ms-text-size-adjust: 100%; /* 4 */
 	-webkit-text-size-adjust: 100%; /* 4 */
-	word-break: break-word; /* 5 */
+	word-break: break-word; /* 5 */ // stylelint-disable-line declaration-property-value-keyword-no-deprecated
 }
 
 /* Sections

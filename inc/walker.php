@@ -83,11 +83,18 @@ class IAG_Mega_Menu_Walker extends Walker_Nav_Menu {
 		$html .= '</div>';
 		$html .= '<div class="mega-menu__next">';
 
-		ob_start();
+		// Same block in every mega menu: render it once per request instead of re-running its queries.
+		static $latest_next = null;
 
-		get_template_part( 'template-parts/components/latest-next' );
+		if ( null === $latest_next ) {
+			ob_start();
 
-		$html .= ob_get_clean();
+			get_template_part( 'template-parts/components/latest-next', null, [ 'title_tag' => 'p' ] );
+
+			$latest_next = ob_get_clean();
+		}
+
+		$html .= $latest_next;
 
 		$html .= '</div>';
 		$html .= '</div>';

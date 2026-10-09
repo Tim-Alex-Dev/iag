@@ -1,5 +1,5 @@
 <?php
-$module_id        = get_sub_field( 'module_id' ) ?: '';
+$module_id        = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
 $color_theme      = get_sub_field( 'color_theme' ) ?: 'white';
 $module_title     = get_sub_field( 'module_title' ) ?? false;
 $module_alignment = get_sub_field( 'module_header_alignment' ) ?: 'left';
@@ -11,7 +11,7 @@ $follow_subtitle  = get_sub_field( 'cta_button_subtitle' ) ?? false;
 
 ?>
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-follow bg-<?php echo esc_attr( $color_theme ); ?>">
+<section<?php echo $module_id; ?> class="module m-follow bg-<?php echo esc_attr( $color_theme ); ?>">
 	<div class="container">
         <div class="m-follow__inner">
             <?php if ( $module_title || $module_subtitle || $module_uptitle ) : ?>
@@ -38,7 +38,7 @@ $follow_subtitle  = get_sub_field( 'cta_button_subtitle' ) ?? false;
                 $link_target = $follow_link['target'] ? $follow_link['target'] : '_self'; ?>
                 
                 <div class="m-follow__inner-content">                
-                    <a class="btn btn-primary content-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                    <a class="btn btn-primary content-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                         <?php if ( $follow_icon ) : ?>
                         	<?php echo wp_get_attachment_image( $follow_icon, 'thumbnail', false, [ 'class' => 'content-link__icon' ] ); ?>
                         <?php endif; ?>

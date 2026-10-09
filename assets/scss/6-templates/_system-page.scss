@@ -44,7 +44,7 @@
             .content-subtitle {
                 font-size: rem(18);
                 line-height: 1.6;
-                color: rgba($white, 0.88);
+                color: $white-a88;
                 max-width: rem(680);
             }
 
@@ -57,7 +57,7 @@
                 .share-label {
                     font-size: rem(14);
                     font-weight: 600;
-                    color: rgba($white, 0.72);
+                    color: $white-a72;
                 }
         
                 .share-link {
@@ -101,7 +101,7 @@
                         transform: translateY(-50%);
                         height: rem(24);
                         width: rem(2);
-                        background-color: rgba($white, 0.25);
+                        background-color: $white-a25;
                     }
         
                     svg {

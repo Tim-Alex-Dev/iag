@@ -110,7 +110,7 @@
 
         &:hover {
             border: 1px solid $iag-navy-400;
-            box-shadow: 0 6px 20px rgba($white, .08);
+            box-shadow: 0 6px 20px $white-a08;
         }
 
         .leadership-card__header {
@@ -145,7 +145,7 @@
         border: 1px solid $iag-gray-200;
         &:hover {
             border: 1px solid $iag-gray-400;
-            box-shadow: 0 6px 20px rgba($black, .08);
+            box-shadow: 0 6px 20px $black-a08;
         }
 
         .leadership-card__header {
@@ -181,7 +181,7 @@
         border: 1px solid $iag-navy-600;
         &:hover {
             border: 1px solid $iag-navy-400;
-            box-shadow: 0 6px 20px rgba($white, .08);
+            box-shadow: 0 6px 20px $white-a08;
         }
         
         .leadership-card {
@@ -209,7 +209,7 @@
         border: 1px solid $iag-gray-200;
         &:hover {
             border: 1px solid $iag-gray-400;
-            box-shadow: 0 6px 20px rgba($black, .08);
+            box-shadow: 0 6px 20px $black-a08;
         }
         
         .leadership-card {

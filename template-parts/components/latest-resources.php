@@ -74,11 +74,11 @@ $posts_page_url      = get_permalink( get_option( 'page_for_posts' ) );
 <div class="c-latest-resources">
     <div class="c-latest-resources__header">
         <h2 class="c-latest-resources__header-title">
-            <?php echo _e( 'Latest Resources', '_iag' ); ?>
+            <?php esc_html_e( 'Latest Resources', '_iag' ); ?>
         </h2>    
         <?php if ( !is_home() ) : ?>
             <a href="<?php echo esc_url( $posts_page_url ); ?>" class="btn btn-ghost c-latest-resources__header-button">
-                <?php echo _e( 'View All Articles', '_iag' ); ?>
+                <?php esc_html_e( 'View All Articles', '_iag' ); ?>
                 <svg><use xlink:href="#arrow-right"></use></svg>
             </a>
         <?php endif; ?>
@@ -118,8 +118,8 @@ $posts_page_url      = get_permalink( get_option( 'page_for_posts' ) );
             <?php endif; ?>
 
             <?php if ( $main_post_link ) : ?>
-                <a class="btn btn-primary main-post__link" href="<?php echo esc_url( $main_post_link ); ?>" target="_blank">
-                    <?php echo _e( 'Read the release notes', '_iag' ); ?>
+                <a class="btn btn-primary main-post__link" href="<?php echo esc_url( $main_post_link ); ?>" target="_blank" rel="noopener">
+                    <?php esc_html_e( 'Read the release notes', '_iag' ); ?>
                     <svg class="arrow-right"><use xlink:href="#angle-right"></use></svg>
                 </a>
             <?php endif; ?>
@@ -138,7 +138,7 @@ $posts_page_url      = get_permalink( get_option( 'page_for_posts' ) );
 
                 <?php if ( $resource_title && $resource_banner ) : ?>
                     
-                    <a class="list-post" href="<?php echo esc_url( $resource_link ); ?>" target="_blank">
+                    <a class="list-post" href="<?php echo esc_url( $resource_link ); ?>" target="_blank" rel="noopener">
                         <div class="list-post__banner">
                             <?php echo wp_get_attachment_image( $resource_banner, 'full', false, [ 'class' => 'list-post__banner-img' ] ); ?>
                         </div>

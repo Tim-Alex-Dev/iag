@@ -44,24 +44,24 @@ $linkedin_icon   = get_field( 'main_linkedin_icon', 'options' ) ?? false;
     
                 <div class="system-page__banner-content__share">
                     <span class="share-label">
-                        <?php echo _e( 'Follow & Share: '); ?>
+                        <?php esc_html_e( 'Follow & Share: ', '_iag' ); ?>
                     </span>
                 
                     <?php if ( $linkedin_url && $linkedin_icon ) : ?>
-                        <a class="share-link" href="<?php echo esc_url( $linkedin_url ); ?>" target="_blank">
+                        <a class="share-link" href="<?php echo esc_url( $linkedin_url ); ?>" target="_blank" rel="noopener">
                             <?php echo wp_get_attachment_image( $linkedin_icon, 'thumbnail', false, [ 'class' => 'share-link__img' ] ); ?>
                         </a>
                     <?php endif; ?>
                 
                     <?php if ( $youtube_url && $youtube_icon ) : ?>
-                        <a class="share-link" href="<?php echo esc_url( $youtube_url ); ?>" target="_blank">
+                        <a class="share-link" href="<?php echo esc_url( $youtube_url ); ?>" target="_blank" rel="noopener">
                             <?php echo wp_get_attachment_image( $youtube_icon, 'thumbnail', false, [ 'class' => 'share-link__img' ] ); ?>
                         </a>
                     <?php endif; ?>
                 
                     <div class="share-button">
                         <svg><use xlink:href="#chain"></use></svg>
-                        <?php echo _e( 'Share', '_iag' ); ?>
+                        <?php esc_html_e( 'Share', '_iag' ); ?>
                     </div>
                 </div>
             </div>      
@@ -73,7 +73,7 @@ $linkedin_icon   = get_field( 'main_linkedin_icon', 'options' ) ?? false;
     <div class="container">
         <div class="system-page__main-table">
             <div class="table-of-content hidden">
-                <span class="table-of-content__title"><?php echo _e( 'Table of Content', '_iag' ); ?></span>
+                <span class="table-of-content__title"><?php esc_html_e( 'Table of Content', '_iag' ); ?></span>
                 <div id="table_of_content"></div>
             </div>
         </div>

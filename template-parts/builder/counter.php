@@ -1,6 +1,6 @@
 <?php
 
-$module_id    = get_sub_field( 'module_id' ) ?: '';
+$module_id    = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
 $color_theme  = get_sub_field( 'color_theme' ) ?: 'white';
 $content_type = get_sub_field( 'content_type' ) ?: 'global';
 
@@ -40,8 +40,7 @@ $content_title = ( $is_gallery || $is_slider )
 	: false;
 ?>''
 
-<section
-	id="<?php echo esc_attr( $module_id ); ?>"
+<section<?php echo $module_id; ?>
 	class="module m-counter bg-<?php echo esc_attr( $color_theme ); ?>"
 >
 	<div class="container">

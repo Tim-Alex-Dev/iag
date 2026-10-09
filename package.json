@@ -1,53 +1,47 @@
 {
-  "name": "it-starter",
-  "version": "2.0.0",
-  "description": "Starter theme for WordPress development",
-  "license": "GPL-2.0",
-  "repository": {
-    "type": "git"
+  "name": "iag",
+  "version": "1.0.0",
+  "description": "IAG WordPress theme (Image Analysis Group), built on WordPress Starter v1.0",
+  "license": "GPL-2.0-or-later",
+  "private": true,
+  "engines": {
+    "node": ">=20.19"
   },
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
     "start": "gulp",
-    "lint:scss:fix": "wp-scripts lint-style 'assets/scss/**/*.scss' --fix",
-    "lint:scss": "wp-scripts lint-style 'assets/scss/**/*.scss'",
-    "lint:js": "wp-scripts lint-js 'assets/js/**/*.js'"
+    "watch": "gulp watch",
+    "build": "gulp prod",
+    "lint": "npm run lint:scss && npm run lint:js",
+    "lint:scss": "stylelint \"assets/scss/**/*.scss\"",
+    "lint:scss:fix": "stylelint \"assets/scss/**/*.scss\" --fix",
+    "lint:js": "eslint \"assets/js/**/*.js\" gulpfile.js eslint.config.js"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.5",
-    "@babel/preset-env": "^7.10.4",
-    "@popperjs/core": "^2.11.6",
-    "@wordpress/scripts": "^19.2.2",
-    "autoprefixer": "^9.8.5",
-    "babel-loader": "^8.2.5",
-    "bootstrap": "^5.2.0",
-    "browser-sync": "^2.26.10",
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-clean-css": "^4.3.0",
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "@eslint/js": "^10.0.1",
+    "babel-loader": "^10.0.0",
+    "browser-sync": "^3.0.4",
+    "browserslist": "^4.29.0",
+    "eslint": "^10.0.0",
+    "globals": "^17.0.0",
+    "gulp": "^5.0.1",
     "gulp-if": "^3.0.0",
-    "gulp-notify": "^4.0.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-postcss": "^8.0.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-replace": "^1.0.0",
-    "gulp-rimraf": "^1.0.0",
-    "gulp-sass": "^5.1.0",
-    "gulp-sass-glob": "^1.0.9",
-    "gulp-size": "^3.0.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2",
-    "plugin-error": "^2.0.0",
-    "sass": "^1.54.9",
-    "webpack": "^5.74.0",
+    "gulp-replace": "^1.1.4",
+    "gulp-sass": "^6.0.1",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-size": "^4.0.1",
+    "lightningcss": "^1.33.0",
+    "plugin-error": "^2.0.1",
+    "sass": "^1.104.0",
+    "stylelint": "^17.0.0",
+    "stylelint-config-recommended-scss": "^17.0.0",
+    "webpack": "^5.101.0",
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {
     "@fancyapps/ui": "^4.0.31",
-    "swiper": "^8.3.2"
-  },
-  "resolutions": {
-    "glob-parent": "^6.0.1"
+    "swiper": "^14.2.0"
   },
   "browserslist": [
     "last 1 version",

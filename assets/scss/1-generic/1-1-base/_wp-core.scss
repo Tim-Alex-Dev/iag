@@ -9,7 +9,7 @@
 
 // Adminbar -------------------------------------------
 #wpadminbar {
-	--wp-blue: #2271b1;
+	--wp-blue: #{$system-color};
 	transition: transform 0.3s !important;
 	transform: translateY(-100%);
 
@@ -75,8 +75,7 @@
 
 	// hide some menu items to prevent horizontal overflow
 	ul#wp-admin-bar-root-default>li {
-		&#wp-admin-bar-wpseo-menu,
-		&#wp-admin-bar-gform-forms {
+		&#wp-admin-bar-wpseo-menu {
 			@include max(782) {
 				display: none !important;
 			}
@@ -222,4 +221,23 @@ span {
 	margin-bottom: 0;
 	margin-top: 0;
 	padding: 0;
+}
+
+// Block editor color presets -------------------------------------------
+// Content written with the block editor keeps these classes; WordPress global styles are not loaded (inc/disables/gutenberg.php),
+// so the colors that the content uses are defined here (same values and !important as WordPress).
+.has-vivid-cyan-blue-color {
+	color: $wp-vivid-cyan-blue !important;
+}
+
+.has-luminous-vivid-orange-color {
+	color: $wp-luminous-vivid-orange !important;
+}
+
+.has-black-color {
+	color: $black !important;
+}
+
+.has-white-color {
+	color: $white !important;
 }

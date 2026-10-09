@@ -1,9 +1,11 @@
+@use "sass:map";
+
 // Mixins for Media Queries
 // example usage: @include min(lg) || @include min(720)
 // --- min-width
 @mixin min($bp) {
-	@if map-has-key($grid-breakpoints, $bp) {
-		@media (min-width: map-get($grid-breakpoints, $bp)) {
+	@if map.has-key($grid-breakpoints, $bp) {
+		@media (min-width: map.get($grid-breakpoints, $bp)) {
 			@content;
 		}
 	} @else {
@@ -15,8 +17,8 @@
 
 // --- min-height
 @mixin minh($bp) {
-	@if map-has-key($grid-breakpoints, $bp) {
-		@media (min-height: map-get($grid-breakpoints, $bp)) {
+	@if map.has-key($grid-breakpoints, $bp) {
+		@media (min-height: map.get($grid-breakpoints, $bp)) {
 			@content;
 		}
 	} @else {
@@ -28,8 +30,8 @@
 
 // --- max-width
 @mixin max($bp) {
-	@if map-has-key($grid-breakpoints, $bp) {
-		$bp_max: map-get($grid-breakpoints, $bp) - 1;
+	@if map.has-key($grid-breakpoints, $bp) {
+		$bp_max: map.get($grid-breakpoints, $bp) - 1;
 		@media (max-width: $bp_max) {
 			@content;
 		}
@@ -42,8 +44,8 @@
 
 // --- max-height
 @mixin maxh($bp) {
-	@if map-has-key($grid-breakpoints, $bp) {
-		$bp_max: map-get($grid-breakpoints, $bp) - 1;
+	@if map.has-key($grid-breakpoints, $bp) {
+		$bp_max: map.get($grid-breakpoints, $bp) - 1;
 		@media (max-height: $bp_max) {
 			@content;
 		}

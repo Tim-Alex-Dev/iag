@@ -1,5 +1,5 @@
 <?php
-$module_id        = get_sub_field( 'module_id' ) ?: '';
+$module_id        = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
 $color_theme      = get_sub_field( 'color_theme' ) ?: 'white';
 $module_title     = get_sub_field( 'module_title' ) ?? false;
 $module_alignment = get_sub_field( 'module_header_alignment' ) ?: 'left';
@@ -138,7 +138,7 @@ if ( $resource_id) {
 ?>
 
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-latest bg-<?php echo esc_attr( $color_theme ); ?>">
+<section<?php echo $module_id; ?> class="module m-latest bg-<?php echo esc_attr( $color_theme ); ?>">
 	<div class="container">
         <div class="m-latest__header">
             <?php if ( $module_title || $module_subtitle || $module_uptitle ) : ?>
@@ -164,7 +164,7 @@ if ( $resource_id) {
                 $link_title = $header_link['title'];
                 $link_target = $header_link['target'] ? $header_link['target'] : '_self'; ?>
     
-                <a class="btn btn-simple" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                <a class="btn btn-simple" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                     <?php echo esc_html( $link_title ); ?>
                     <svg><use xlink:href="#arrow-right"></use></svg>
                 </a>
@@ -229,14 +229,14 @@ if ( $resource_id) {
                 </div>
                 <div class="resource-content__footer">
                     <?php if ( $resource_link && $resource_link_label ) : ?>
-                        <a class="btn btn-primary" href="<?php echo esc_url( $resource_link ); ?>" target="_blank">
+                        <a class="btn btn-primary" href="<?php echo esc_url( $resource_link ); ?>" target="_blank" rel="noopener">
                             <?php echo esc_html( $resource_link_label ); ?>
                             <svg><use xlink:href="#arrow-right"></use></svg>
                         </a>
                     <?php endif; ?>
 
                     <?php if ( $resource_archive && $archive_title ) : ?>
-                        <a class="btn btn-simple" href="<?php echo esc_url( $resource_archive ); ?>" target="_blank">
+                        <a class="btn btn-simple" href="<?php echo esc_url( $resource_archive ); ?>" target="_blank" rel="noopener">
                             <?php echo esc_html( $archive_title ); ?>
                             <svg><use xlink:href="#arrow-right"></use></svg>
                         </a>
@@ -253,7 +253,7 @@ if ( $resource_id) {
                     $btn_text = get_sub_field( 'button_text' ) ?? false; ?>
 
                     <?php if ( $btn_text && $btn_url ) : ?>
-                        <a class="btn btn-ghost" href="<?php echo esc_url( $btn_url ); ?>" target="_blank">
+                        <a class="btn btn-ghost" href="<?php echo esc_url( $btn_url ); ?>" target="_blank" rel="noopener">
                             <?php if ( $btn_icon ) : ?>
                                 <?php echo wp_get_attachment_image( $btn_icon, 'full', false, [ 'class' => 'icon' ] ); ?>
                             <?php endif; ?>

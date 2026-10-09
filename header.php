@@ -70,36 +70,6 @@ $extra_classes = $has_hero ? 'has-hero' : ''; // page with Hero requires extra h
 	<!-- End of Clarity -->
 
 
-	<!-- Start of RB2B -->
-	<script>
-		!function(key) {
-
-			if (window.reb2b) {
-				return;
-			}
-
-			window.reb2b = {
-				loaded: true
-			};
-
-			var s = document.createElement('script');
-
-			s.async = true;
-			s.src = 'https://ddwl4m2hdecbv.cloudfront.net/b/' + key + '/' + key + '.js.gz';
-
-			document
-				.getElementsByTagName('script')[0]
-				.parentNode
-				.insertBefore(
-					s,
-					document.getElementsByTagName('script')[0]
-				);
-
-		}('GOYPYHQ90KOX');
-	</script>
-	<!-- End of RB2B -->
-
-
 	<!-- Start of HubSpot -->
 	<script
 		type="text/javascript"
@@ -119,8 +89,8 @@ $extra_classes = $has_hero ? 'has-hero' : ''; // page with Hero requires extra h
 <header class="site-header">
 	<div class="container">
 		<?php if ( $logo ) : ?>
-			<a href="<?php echo home_url(); ?>" class="site-logo" rel="home">
-				<?php echo wp_get_attachment_image( $logo, 'medium' ); ?>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo" rel="home">
+				<?php echo wp_get_attachment_image( $logo, 'medium', false, [ 'loading' => 'eager' ] ); ?>
 			</a>
 		<?php endif; ?>
 
@@ -149,7 +119,7 @@ $extra_classes = $has_hero ? 'has-hero' : ''; // page with Hero requires extra h
 		<?php endif; ?>
 
 
-		<span class="icon-burger hidden-lg-up" aria-label="<?php esc_html_e( 'Toggle navigation', '_iag' ); ?>"><i></i></span>
+		<button type="button" class="icon-burger hidden-lg-up" aria-label="<?php esc_attr_e( 'Toggle navigation', '_iag' ); ?>" aria-expanded="false"><i></i></button>
 	</div>
 </header>
 

@@ -87,10 +87,10 @@ $expert_categories = array(
                 <?php endif; ?>
 
                 <span class="sticky-header__name">
-                    <?php echo $expert_name; ?>
+                    <?php echo wp_kses_post( $expert_name ); ?>
                     <?php if ( $expert_degrees ) : ?>
                         <span class="sticky-header__name-degree">
-                            <?php echo $expert_degrees; ?>
+                            <?php echo wp_kses_post( $expert_degrees ); ?>
                         </span>
                     <?php endif; ?>
                 </span>
@@ -100,7 +100,7 @@ $expert_categories = array(
                     $link_title  = $sticky_header_link['title'];
                     $link_target = $sticky_header_link['target'] ? $sticky_header_link['target'] : '_self'; ?>
 
-                    <a class="btn btn-outline-primary sticky-header__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                    <a class="btn btn-outline-primary sticky-header__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                         <?php echo esc_html( $link_title ); ?>
                     </a>
                 <?php endif; ?>
@@ -113,7 +113,7 @@ $expert_categories = array(
             <div class="expert-main__content">
                 <?php if ( $expert_photo ) : ?>
                     <div class="expert-main__photo">
-                        <?php echo wp_get_attachment_image( $expert_photo, 'full', false, [ 'class' => 'expert-main__photo-img' ]); ?>
+                        <?php echo wp_get_attachment_image( $expert_photo, 'full', false, [ 'class' => 'expert-main__photo-img', 'sizes' => '(min-width: 1440px) 400px, 300px', 'loading' => 'eager', 'fetchpriority' => 'high' ]); ?>
                     </div>
                 <?php endif; ?>
                 <?php if ( $expert_name ) : ?>
@@ -125,17 +125,17 @@ $expert_categories = array(
                             <div class="expert-main__data-info">
                                 <div class="expert-main__title">
                                     <h1 class="h1 expert-main__title-name">
-                                        <?php echo $expert_name; ?>
+                                        <?php echo wp_kses_post( $expert_name ); ?>
                                         <?php if ( $expert_degrees ) : ?>
                                             <span class="expert-main__title-degree">
-                                                <?php echo $expert_degrees; ?>
+                                                <?php echo wp_kses_post( $expert_degrees ); ?>
                                             </span>
                                         <?php endif; ?>
                                     </h1>
                                 </div>
                                 <?php if ( $expert_subtitle ) : ?>
                                     <p class="expert-main__subtitle">
-                                        <?php echo $expert_subtitle; ?>
+                                        <?php echo wp_kses_post( $expert_subtitle ); ?>
                                     </p>
                                 <?php endif; ?>
                             </div>
@@ -171,7 +171,7 @@ $expert_categories = array(
                                 </a>
                             <?php endif; ?>
                             <a class="expert-main__buttons-btn btn btn-primary" href="#expert-contacts" target="_self">
-                                <?php echo _e( 'Talk to this expert', '_iag' ); ?>
+                                <?php esc_html_e( 'Talk to this expert', '_iag' ); ?>
                                 <svg><use xlink:href="#arrow-right"></use></svg>
                             </a>
                         </div>
@@ -227,7 +227,7 @@ $expert_categories = array(
                                             <?php echo wp_kses_post( $hidden_content ); ?>
                                         </div>
                                         <div class="js-accordion-title block-content__btn">
-                                            <?php echo _e( 'Read More', '_iag' ); ?>
+                                            <?php esc_html_e( 'Read More', '_iag' ); ?>
                                         </div>
                                     </div>
                                 <?php endif; ?>
@@ -326,10 +326,10 @@ $expert_categories = array(
                 
                 <div class="expert-publications__table c-table">
                     <div class="table-header">
-                        <span class="table-header__title"><?php echo _e( 'Title', '_iag' ); ?></span>
-                        <span class="table-header__title"><?php echo _e( 'Journal', '_iag' ); ?></span>
-                        <span class="table-header__title"><?php echo _e( 'Year', '_iag' ); ?></span>
-                        <span class="table-header__title"><?php echo _e( 'Link', '_iag' ); ?></span>
+                        <span class="table-header__title"><?php esc_html_e( 'Title', '_iag' ); ?></span>
+                        <span class="table-header__title"><?php esc_html_e( 'Journal', '_iag' ); ?></span>
+                        <span class="table-header__title"><?php esc_html_e( 'Year', '_iag' ); ?></span>
+                        <span class="table-header__title"><?php esc_html_e( 'Link', '_iag' ); ?></span>
                     </div>
                     <div class="table-body">
                         <?php while ( have_rows( 'publications_list', $expert_id ) ) : the_row(); 
@@ -365,7 +365,7 @@ $expert_categories = array(
                                             $link_title  = $link['title'];
                                             $link_target = $link['target'] ? $link['target'] : '_self'; ?>
         
-                                            <a class="link-element__button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                            <a class="link-element__button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                                                 <?php echo esc_html( $link_title ); ?>
                                                 <svg class="icon">
                                                     <use xlink:href="#arrow-top-right"></use>
@@ -386,7 +386,7 @@ $expert_categories = array(
                     $link_title  = $publications_link['title'];
                     $link_target = $publications_link['target'] ? $publications_link['target'] : '_self'; ?>
 
-                    <a class="btn btn-simple expert-publications__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                    <a class="btn btn-simple expert-publications__link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                         <?php echo esc_html( $link_title ); ?>
                         <svg class="icon">
                             <use xlink:href="#arrow-right"></use>
@@ -483,9 +483,9 @@ $expert_categories = array(
                 
                 <div class="expert-education__table c-table">
                     <div class="table-header">
-                        <span class="table-header__title"><?php echo _e( 'Year', '_iag' ); ?></span>
-                        <span class="table-header__title"><?php echo _e( 'Qualification / Role', '_iag' ); ?></span>
-                        <span class="table-header__title"><?php echo _e( 'Institution', '_iag' ); ?></span>
+                        <span class="table-header__title"><?php esc_html_e( 'Year', '_iag' ); ?></span>
+                        <span class="table-header__title"><?php esc_html_e( 'Qualification / Role', '_iag' ); ?></span>
+                        <span class="table-header__title"><?php esc_html_e( 'Institution', '_iag' ); ?></span>
                     </div>
                     <div class="table-body">
                         <?php while ( have_rows( 'education_and_training_list', $expert_id ) ) : the_row(); 
@@ -497,21 +497,21 @@ $expert_categories = array(
                                 <div class="table-body__item-element text-element">
                                     <?php if ( $year ) : ?>
                                         <span class="text-element__content">
-                                            <?php echo $year; ?>
+                                            <?php echo wp_kses_post( $year ); ?>
                                         </span>
                                     <?php endif; ?>
                                 </div>
                                 <div class="table-body__item-element text-element">
                                     <?php if ( $qualification ) : ?>
                                         <span class="text-element__content">
-                                            <?php echo $qualification; ?>
+                                            <?php echo wp_kses_post( $qualification ); ?>
                                         </span>
                                     <?php endif; ?>
                                 </div>
                                 <div class="table-body__item-element text-element">
                                     <?php if ( $institution ) : ?>
                                         <span class="text-element__content">
-                                            <?php echo $institution; ?>
+                                            <?php echo wp_kses_post( $institution ); ?>
                                         </span>
                                     <?php endif; ?>
                                 </div>
@@ -549,7 +549,7 @@ $expert_categories = array(
                     <div class="resources-column">
                         <?php if ( $websites_title ) : ?>
                             <span class="resources-column__title">
-                                <?php echo $websites_title; ?>
+                                <?php echo wp_kses_post( $websites_title ); ?>
                             </span>
                         <?php endif; ?>
                         <?php while ( have_rows( 'websites_list', $expert_id ) ) : the_row();
@@ -561,7 +561,7 @@ $expert_categories = array(
                                     $link_title  = $website_link['title'];
                                     $link_target = $website_link['target'] ? $website_link['target'] : '_self'; ?>
 
-                                    <a class="btn btn-simple resources-column__website" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                    <a class="btn btn-simple resources-column__website" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                                         <?php echo esc_html( $link_title ); ?>
                                         <svg class="icon">
                                             <use xlink:href="#arrow-top-right"></use>
@@ -576,7 +576,7 @@ $expert_categories = array(
                     <div class="resources-column">
                         <?php if ( $profiles_title ) : ?>
                             <span class="resources-column__title">
-                                <?php echo $profiles_title; ?>
+                                <?php echo wp_kses_post( $profiles_title ); ?>
                             </span>
                         <?php endif; ?>
                         <?php while ( have_rows( 'profiles_list', $expert_id ) ) : the_row();
@@ -590,7 +590,7 @@ $expert_categories = array(
                                         $link_title  = $link['title'];
                                         $link_target = $link['target'] ? $link['target'] : '_self'; ?>
     
-                                        <a class="btn btn-simple resources-column__profile-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                        <a class="btn btn-simple resources-column__profile-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                                             <?php echo esc_html( $link_title ); ?>
                                             <svg class="icon">
                                                 <use xlink:href="#arrow-top-right"></use>
@@ -599,7 +599,7 @@ $expert_categories = array(
                                     <?php endif; ?>
                                     <?php if ( $data ) : ?>
                                         <span class="resources-column__profile-data">
-                                            <?php echo $data; ?>
+                                            <?php echo wp_kses_post( $data ); ?>
                                         </span>
                                     <?php endif; ?>
                                 </div>
@@ -611,7 +611,7 @@ $expert_categories = array(
                     <div class="resources-column">
                         <?php if ( $locations_title ) : ?>
                             <span class="resources-column__title">
-                                <?php echo $locations_title; ?>
+                                <?php echo wp_kses_post( $locations_title ); ?>
                             </span>
                         <?php endif; ?>
                         <?php while ( have_rows( 'locations_list', $expert_id ) ) : the_row();
@@ -619,7 +619,7 @@ $expert_categories = array(
 
                             <?php if ( $location_title ) : ?>
                                 <span class="resources-column__location">
-                                    <?php echo $location_title; ?>
+                                    <?php echo wp_kses_post( $location_title ); ?>
                                 </span>
                             <?php endif; ?>
                         <?php endwhile; ?>
@@ -634,13 +634,13 @@ $expert_categories = array(
             <div class="container">
                 <div class="expert-block__header alignment-center">
                     <span class="expert-block__uptitle">
-                        <?php _e( 'Let`s be in touch', '_iag' ); ?>
+                        <?php esc_html_e( 'Let`s be in touch', '_iag' ); ?>
                     </span>
                     <h2 class="h2 expert-block__title">
-                        <?php _e( 'Contact Our Expert', '_iag' ); ?>
+                        <?php esc_html_e( 'Contact Our Expert', '_iag' ); ?>
                     </h2>
                     <span class="expert-block__subtitle">
-                        <?php _e( 'If you are planning a clinical trial which will use imaging to assess the safety and efficacy of your new drug candidate, share your challenges with our expert.', '_iag' ); ?>
+                        <?php esc_html_e( 'If you are planning a clinical trial which will use imaging to assess the safety and efficacy of your new drug candidate, share your challenges with our expert.', '_iag' ); ?>
                     </span>
                 </div>
                 <div class="contact-form__wrapper hs-form__wrapper">

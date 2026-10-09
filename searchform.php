@@ -5,7 +5,7 @@
  *
  */
 ?>
-<form class="search-form" id="searchform" role="search" action="<?php echo home_url(); ?>">
+<form class="search-form" id="searchform" role="search" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<input class="search-form__input" id="s" name="s" type="text" placeholder="<?php esc_html_e('Search', '_iag'); ?>" required>
 	<button class="search-form__submit" type="submit">
 		<svg>

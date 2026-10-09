@@ -59,7 +59,7 @@
             padding: rem(4 8);
             margin-left: auto;
             color: $iag-navy-100;
-            background: rgba($black, 0.5);
+            background: $black-a50;
             @include min(xxl) {
                 font-size: rem(16);
             }
@@ -133,7 +133,7 @@
         
             &-duration {
                 color: $iag-navy-100;
-                background: rgba($black, 0.5);
+                background: $black-a50;
             }
         }
 

@@ -1,16 +1,16 @@
 <?php
-$module_id        = get_sub_field('module_id') ?: '';
+$module_id        = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
 $primary_btn      = get_sub_field('primary_button') ?? false;
 $secondary_btn    = get_sub_field('secondary_button') ?? false;
 ?>
 
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-cta">
+<section<?php echo $module_id; ?> class="module m-cta">
 	<div class="container">
 		<div class="m-cta__meeting">
 			<?php if ( have_rows( 'meeting_list' ) ) : ?>
 				<div class="m-cta__meeting-title">
-					<?php echo _e( 'Meet Us Next', '_iag' ); ?>
+					<?php esc_html_e( 'Meet Us Next', '_iag' ); ?>
 				</div>
 				
 				<div class="m-cta__meeting-list">
@@ -49,7 +49,7 @@ $secondary_btn    = get_sub_field('secondary_button') ?? false;
 						$link_title = $primary_btn['title'];
 						$link_target = $primary_btn['target'] ? $primary_btn['target'] : '_self'; ?>
 		
-						<a class="btn btn-primary" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+						<a class="btn btn-primary" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
 							<?php echo esc_html( $link_title ); ?>
 						</a>
 					<?php endif; ?>
@@ -59,7 +59,7 @@ $secondary_btn    = get_sub_field('secondary_button') ?? false;
 						$link_title = $secondary_btn['title'];
 						$link_target = $secondary_btn['target'] ? $secondary_btn['target'] : '_self'; ?>
 		
-						<a class="btn btn-ghost" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+						<a class="btn btn-ghost" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
 							<?php echo esc_html( $link_title ); ?>
 							<svg><use xlink:href="#arrow-right"></use></svg>
 						</a>

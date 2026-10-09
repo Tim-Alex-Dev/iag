@@ -1,5 +1,9 @@
 <?php
 
+// In the mega menu this block sits above the page H1, so the walker passes 'p' (styled as .h3).
+$title_tag   = in_array( $args['title_tag'] ?? '', [ 'h2', 'h3', 'p' ], true ) ? $args['title_tag'] : 'h3';
+$title_class = 'p' === $title_tag ? 'h3 content-title' : 'content-title';
+
 $latest_webinar_id = get_posts(
     [
         'post_type'      => 'resource',
@@ -108,7 +112,7 @@ if ( $latest_webinar_id ) {
 <div class="c-latest-resources__next">
     <span class="c-latest-resources__next-title">
         <svg class="icon"><use xlink:href="#calendar"></use></svg>
-        <?php _e( 'Up Next', '_iag' ); ?>
+        <?php esc_html_e( 'Up Next', '_iag' ); ?>
     </span>
 
     <div class="c-latest-resources__next-grid">
@@ -132,12 +136,12 @@ if ( $latest_webinar_id ) {
 
                 <div class="next-post__content">
                     <span class="content-label">
-                        <?php _e( 'Next Event', '_iag' ); ?>
+                        <?php esc_html_e( 'Next Event', '_iag' ); ?>
                     </span>
 
-                    <h3 class="content-title">
+                    <<?php echo tag_escape( $title_tag ); ?> class="<?php echo esc_attr( $title_class ); ?>">
                         <?php echo esc_html( $event_title ); ?>
-                    </h3>
+                    </<?php echo tag_escape( $title_tag ); ?>>
 
                     <div class="content-details">
                         <?php if ( $event_location ) : ?>
@@ -155,7 +159,7 @@ if ( $latest_webinar_id ) {
 
                     <a class="btn btn-simple content-link"
                        href="<?php echo esc_url( $event_permalink ); ?>">
-                        <?php _e( 'View Event', '_iag' ); ?>
+                        <?php esc_html_e( 'View Event', '_iag' ); ?>
                         <svg><use xlink:href="#arrow-right"></use></svg>
                     </a>
                 </div>
@@ -182,12 +186,12 @@ if ( $latest_webinar_id ) {
 
                 <div class="next-post__content">
                     <span class="content-label">
-                        <?php _e( 'Next Webinar', '_iag' ); ?>
+                        <?php esc_html_e( 'Next Webinar', '_iag' ); ?>
                     </span>
 
-                    <h3 class="content-title">
+                    <<?php echo tag_escape( $title_tag ); ?> class="<?php echo esc_attr( $title_class ); ?>">
                         <?php echo esc_html( $webinar_title ); ?>
-                    </h3>
+                    </<?php echo tag_escape( $title_tag ); ?>>
 
                     <div class="content-details">
                         <?php if ( $webinar_status ) : ?>
@@ -205,7 +209,7 @@ if ( $latest_webinar_id ) {
 
                     <a class="btn btn-simple content-link"
                        href="<?php echo esc_url( $webinar_permalink ); ?>">
-                        <?php _e( 'View Webinar', '_iag' ); ?>
+                        <?php esc_html_e( 'View Webinar', '_iag' ); ?>
                         <svg><use xlink:href="#arrow-right"></use></svg>
                     </a>
                 </div>

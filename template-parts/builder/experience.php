@@ -1,5 +1,5 @@
 <?php
-$module_id        = get_sub_field( 'module_id' ) ?: '';
+$module_id        = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
 $color_theme      = get_sub_field( 'color_theme' ) ?: 'white';
 $module_title     = get_sub_field( 'module_title' ) ?? false;
 $module_alignment = get_sub_field( 'module_header_alignment' ) ?: 'left';
@@ -8,7 +8,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
 ?>
 
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-experience bg-<?php echo esc_attr( $color_theme ); ?>">
+<section<?php echo $module_id; ?> class="module m-experience bg-<?php echo esc_attr( $color_theme ); ?>">
     <div class="container">
         <?php if ( $module_title || $module_subtitle || $module_uptitle ) : ?>
             <div class="module-header alignment-<?php echo esc_attr( $module_alignment ); ?>">
@@ -89,7 +89,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
                                                             $link_title = $link['title'];
                                                             $link_target = $link['target'] ? $link['target'] : '_self'; ?>
                 
-                                                            <a class="btn btn-primary m-experience__card-btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                                            <a class="btn btn-primary m-experience__card-btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                                                                 <?php echo esc_html( $link_title ); ?>
                                                             </a>
                                                         <?php endif; ?>

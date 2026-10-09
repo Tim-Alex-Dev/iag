@@ -21,7 +21,7 @@
 	&__overlay {
 		width: 100vw;
 		height: 100vh;
-		background-color: rgba($black, 0.3);
+		background-color: $black-a30;
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -91,14 +91,6 @@
 
 	// *Video Modal*
 	&--video {
-
 		--modal-max-width: #{rem(1200)};
-
-		.modal__content {
-			// background: $white;
-			// border-radius: rem(16);
-			// padding: rem(40);
-			// overflow: visible;
-		}
 	}
 }

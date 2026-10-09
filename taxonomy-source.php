@@ -61,7 +61,7 @@ get_header();
 
 <section class="category-banner">
 
-    <?php echo wp_get_attachment_image( $page_banner, 'full', false, [ 'class' => 'category-banner-img' ] ); ?>
+    <?php echo wp_get_attachment_image( $page_banner, 'full', false, [ 'class' => 'category-banner-img', 'loading' => 'eager', 'fetchpriority' => 'high' ] ); ?>
     
     <div class="container">
         <div class="category-banner__content">
@@ -82,24 +82,24 @@ get_header();
 
         <div class="category-banner__share">
             <span class="share-label">
-                <?php echo _e( 'Follow & Share:'); ?>
+                <?php esc_html_e( 'Follow & Share:', '_iag' ); ?>
             </span>
 
             <?php if ( $linkedin_url && $linkedin_icon ) : ?>
-                <a class="share-link" href="<?php echo esc_url( $linkedin_url ); ?>" target="_blank">
+                <a class="share-link" href="<?php echo esc_url( $linkedin_url ); ?>" target="_blank" rel="noopener">
                     <?php echo wp_get_attachment_image( $linkedin_icon, 'thumbnail', false, [ 'class' => 'share-link__img' ] ); ?>
                 </a>
             <?php endif; ?>
 
             <?php if ( $youtube_url && $youtube_icon ) : ?>
-                <a class="share-link" href="<?php echo esc_url( $youtube_url ); ?>" target="_blank">
+                <a class="share-link" href="<?php echo esc_url( $youtube_url ); ?>" target="_blank" rel="noopener">
                     <?php echo wp_get_attachment_image( $youtube_icon, 'thumbnail', false, [ 'class' => 'share-link__img' ] ); ?>
                 </a>
             <?php endif; ?>
 
             <div class="share-button">
                 <svg><use xlink:href="#chain"></use></svg>
-                <?php echo _e( 'Share', '_iag' ); ?>
+                <?php esc_html_e( 'Share', '_iag' ); ?>
             </div>
         </div>
     </div>

@@ -92,7 +92,7 @@ address {
 
 pre {
 	max-width: 100%;
-	background: #eff1f2;
+	background: $grey-light;
 	font-family: $font-pre;
 	font-size: 14px;
 	margin: rem(16 0);
@@ -102,7 +102,7 @@ pre {
 }
 
 code, kbd, tt, var {
-	background: #eff1f2;
+	background: $grey-light;
 	font-family: $font-code;
 	font-size: 14px;
 	padding: 3px 6px;

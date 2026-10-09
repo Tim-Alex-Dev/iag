@@ -1,51 +1,33 @@
 <?php
 /**
- * Include scripts and styles into theme
- *
- * @link https://developer.wordpress.org/reference/functions/wp_register_style/
- * @link https://developer.wordpress.org/reference/functions/wp_register_script/
- * @link https://developer.wordpress.org/reference/functions/wp_enqueue_style/
- * @link https://developer.wordpress.org/reference/functions/wp_enqueue_script/
- * @link https://developer.wordpress.org/reference/functions/wp_dequeue_style/
- * @link https://developer.wordpress.org/reference/functions/wp_dequeue_script/
+ * Scripts and styles
  *
  * @package _iag
  */
 
+// Version of a built file (path relative to dist/) = its modification time: browsers reload it only after a new build
+function it_asset_ver( $file ) {
+	$path = IT_DIR . '/dist/' . ltrim( $file, '/' );
 
-/**
- * Enqueue scripts and styles.
- */
+	return file_exists( $path ) ? filemtime( $path ) : wp_get_theme()->get( 'Version' );
+}
+
 function it_scripts() {
-	$ver = time(); // time() - value for development, '1.0.0' - format for production
+	wp_enqueue_style( 'theme-styles', IT_CSS . 'main.css', [], it_asset_ver( 'css/main.css' ) );
 
-	/**
-	 * Global Styles
-	 */
-	wp_enqueue_style( 'theme-styles', IT_CSS . 'main.css', [], $ver );
-
-	/**
-	 * Global JavaScript
-	 */
-	wp_enqueue_script( 'theme-js', IT_JS . 'main.js', [ 'jquery' ], $ver, true );
-	wp_localize_script( 'theme-js', 'wpApiSettings', [
+	wp_enqueue_script( 'theme-js', IT_JS . 'main.js', [ 'jquery' ], it_asset_ver( 'js/main.js' ), true );
+	wp_localize_script( 'theme-js', 'itSettings', [
 		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-		'nonce'    => wp_create_nonce( 'ajax-nonce' )
+		'nonce'   => wp_create_nonce( 'ajax-nonce' ),
 	] );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
 }
 
 add_action( 'wp_enqueue_scripts', 'it_scripts' );
 
-// Enqueue admin scripts
 add_action( 'admin_enqueue_scripts', function () {
-	wp_enqueue_style( 'admin-styles', IT_CSS . 'admin-styles.css' );
-	wp_enqueue_script( 'admin-js', IT_JS . 'admin.js' );
+	wp_enqueue_style( 'admin-styles', IT_CSS . 'admin-styles.css', [], it_asset_ver( 'css/admin-styles.css' ) );
+	wp_enqueue_script( 'admin-js', IT_JS . 'admin.js', [ 'jquery' ], it_asset_ver( 'js/admin.js' ), true );
 	wp_localize_script( 'admin-js', 'wpAdminSettings', [
-		// WP already has global variable 'ajaxurl' for backend
-		'nonce' => wp_create_nonce( 'ajax-admin-nonce' )
+		'nonce' => wp_create_nonce( 'ajax-admin-nonce' ), // the admin AJAX URL is the global `ajaxurl` of WordPress
 	] );
 }, 99 );

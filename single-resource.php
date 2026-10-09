@@ -24,7 +24,7 @@ $contact_form    = get_field( 'hubspot_resource_form', 'option' ) ?? false;
 <article class="resource">
 	<div class="resource-banner">
 		<?php if ( $banner_image ) : ?>
-			<?php echo wp_get_attachment_image( $banner_image, 'full', false, [ 'class' => 'resource-banner__category-banner' ] ); ?>
+			<?php echo wp_get_attachment_image( $banner_image, 'full', false, [ 'class' => 'resource-banner__category-banner', 'loading' => 'eager', 'fetchpriority' => 'high' ] ); ?>
 		<?php endif; ?>
 		<div class="container">
 			<div class="resource-banner__inner">
@@ -45,45 +45,35 @@ $contact_form    = get_field( 'hubspot_resource_form', 'option' ) ?? false;
 				</div>
 				<div class="resource-banner__share">
 					<span class="share-label">
-						<?php echo _e( 'Follow & Share:'); ?>
+						<?php esc_html_e( 'Follow & Share:', '_iag' ); ?>
 					</span>
 	
 					<?php if ( $linkedin_url && $linkedin_icon ) : ?>
-						<a class="share-link" href="<?php echo esc_url( $linkedin_url ); ?>" target="_blank">
+						<a class="share-link" href="<?php echo esc_url( $linkedin_url ); ?>" target="_blank" rel="noopener">
 							<?php echo wp_get_attachment_image( $linkedin_icon, 'thumbnail', false, [ 'class' => 'share-link__img' ] ); ?>
 						</a>
 					<?php endif; ?>
 	
 					<?php if ( $youtube_url && $youtube_icon ) : ?>
-						<a class="share-link" href="<?php echo esc_url( $youtube_url ); ?>" target="_blank">
+						<a class="share-link" href="<?php echo esc_url( $youtube_url ); ?>" target="_blank" rel="noopener">
 							<?php echo wp_get_attachment_image( $youtube_icon, 'thumbnail', false, [ 'class' => 'share-link__img' ] ); ?>
 						</a>
 					<?php endif; ?>
 	
 					<div class="share-button">
 						<svg><use xlink:href="#chain"></use></svg>
-						<?php echo _e( 'Share', '_iag' ); ?>
+						<?php esc_html_e( 'Share', '_iag' ); ?>
 					</div>
 				</div>
 				<div class="resource-banner__data">
 					<div class="data-posted">
 						<span class="label">
-							<?php echo _e( 'Posted:', '_iag' ); ?>
+							<?php esc_html_e( 'Posted:', '_iag' ); ?>
 						</span>
 						<span class="data">
 							<?php echo esc_html( $post_date ); ?>
 						</span>
 					</div>
-					<!-- <div class="data-reading">
-						<span class="label">
-							<?php echo _e( 'Reading Time:', '_iag' ); ?>
-						</span>
-					</div>
-					<div class="data-views">
-						<span class="label">
-							<?php echo _e( 'Views:', '_iag' ); ?>
-						</span>
-					</div> -->
 				</div>
 			</div>
 		</div>
@@ -92,7 +82,7 @@ $contact_form    = get_field( 'hubspot_resource_form', 'option' ) ?? false;
 		<div class="container">
 			<div class="resource-main__table">
 				<div class="table-of-content hidden">
-					<span class="table-of-content__title"><?php echo _e( 'Table of Content', '_iag' ); ?></span>
+					<span class="table-of-content__title"><?php esc_html_e( 'Table of Content', '_iag' ); ?></span>
 					<div id="table_of_content"></div>
 				</div>
 			</div>
@@ -151,7 +141,7 @@ $contact_form    = get_field( 'hubspot_resource_form', 'option' ) ?? false;
 
 						<?php if ( $contact_form ) : ?>
 							<div class="btn btn-primary js-modal-open" data-modal="booking">
-								<?php _e( 'Book a consultation', '_iag' ); ?>
+								<?php esc_html_e( 'Book a consultation', '_iag' ); ?>
 								<svg><use xlink:href="#arrow-right"></use></svg>
 							</div>
 						<?php endif; ?>
@@ -182,7 +172,7 @@ $contact_form    = get_field( 'hubspot_resource_form', 'option' ) ?? false;
 
 				<div class="contact-form__wrapper">
 					<h2 class="contact-form__title">
-						<?php _e( 'Book a Consultation', '_iag' ); ?>
+						<?php esc_html_e( 'Book a Consultation', '_iag' ); ?>
 					</h2>
 					<?php echo $contact_form; ?>
 				</div>

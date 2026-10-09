@@ -4,7 +4,7 @@
 .main-nav {
 	@include max(lg) {
 		width: 100%;
-		height: calc(var(--vh, 1vh) * 100); // tweak for mobiles
+		height: 100dvh;
 		background-color: $iag-navy-700;
 		color: $black;
 		overflow-y: auto;
@@ -162,13 +162,12 @@
 			}
 
 			&.column-advanced {
-				background: linear-gradient(135deg, $bg-white 0%, $white 100%);
+				background: linear-gradient(135deg, $white 0%, $white 100%);
 				border: 1px solid $grey-border;
 				padding: rem(16);
 				border-radius: rem(8);
 				@include max(lg) {
 					border: none;
-					background-color: $iag-navy-700;
 					padding: 0;
 					background: transparent;
 				}
@@ -296,7 +295,7 @@
 					}
 
 					&.menu-item__advanced {
-						background: linear-gradient(135deg, $bg-white 0%, $white 100%);
+						background: linear-gradient(135deg, $white 0%, $white 100%);
 						border: 1px solid $grey-border;
 						padding: rem(12);
 						border-radius: rem(8);
@@ -386,7 +385,6 @@
 						&-arrow {
 							width: rem(16);
 							height: rem(16);
-							margin-left: auto;
 							margin-left: auto;
 							transition: $default-transition;
 							@include max(lg) {

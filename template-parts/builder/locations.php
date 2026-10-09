@@ -1,5 +1,5 @@
 <?php
-$module_id        = get_sub_field( 'module_id' ) ?: '';
+$module_id        = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
 $color_theme      = get_sub_field( 'color_theme' ) ?: 'white';
 $module_title     = get_sub_field( 'module_title' ) ?? false;
 $module_alignment = get_sub_field( 'module_header_alignment' ) ?: 'left';
@@ -7,7 +7,7 @@ $module_subtitle  = get_sub_field( 'module_subtitle' ) ?? false;
 $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
 ?>
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-locations bg-<?php echo esc_attr( $color_theme ); ?>">
+<section<?php echo $module_id; ?> class="module m-locations bg-<?php echo esc_attr( $color_theme ); ?>">
 	<div class="container">
         <?php if ( $module_title || $module_subtitle || $module_uptitle ) : ?>
             <div class="module-header alignment-<?php echo esc_attr( $module_alignment ); ?>">
@@ -82,9 +82,9 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
                                     </a>
                                 </div>
                                 <?php if ( $google_maps_url ) : ?>
-                                    <a class="location-content__url" href="<?php echo esc_url( $google_maps_url ); ?>" target="_blank">
+                                    <a class="location-content__url" href="<?php echo esc_url( $google_maps_url ); ?>" target="_blank" rel="noopener">
                                         <svg><use xlink:href="#pointer"></use></svg>
-                                        <?php _e( 'Get Directions', '_iag' ); ?>
+                                        <?php esc_html_e( 'Get Directions', '_iag' ); ?>
                                     </a>
                                 <?php endif; ?>
                             <?php endif; ?>
@@ -117,7 +117,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
                                     $link_title = $item_url['title'];
                                     $link_target = $item_url['target'] ? $item_url['target'] : '_self'; ?>
 
-                                    <a class="link-item__url" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+                                    <a class="link-item__url" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"<?php echo it_link_rel( $link_target ); ?>>
                                         <?php echo esc_html( $link_title ); ?>
                                     </a>
                                 <?php endif; ?>

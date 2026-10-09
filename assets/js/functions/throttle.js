@@ -1,13 +1,4 @@
-/**
- * Throttle helper function
- * @param func
- * @param delay
- * @returns {(function(...[*]): void)|*}
- */
-
-// usage example:
-// let f = throttle(custom_function);
-// window.addEventListener('resize', f);
+// Runs func at most once per delay (ms), the last call is not lost: window.addEventListener('resize', throttle(fn));
 
 export const throttle = (func, delay = 250) => {
   let isThrottled = false;
@@ -16,7 +7,8 @@ export const throttle = (func, delay = 250) => {
 
   return function wrap(...args) {
     if (isThrottled) {
-      savedArgs = args,
+      // remember the latest call, it will be executed when the delay is over
+      savedArgs = args;
       savedThis = this;
       return;
     }
@@ -27,10 +19,12 @@ export const throttle = (func, delay = 250) => {
     setTimeout(() => {
       isThrottled = false;
 
-      if (savedThis) {
-        wrap.apply(savedThis, savedArgs);
-        savedThis = null;
+      if (savedArgs) {
+        const args = savedArgs;
+        const context = savedThis;
         savedArgs = null;
+        savedThis = null;
+        wrap.apply(context, args);
       }
 
     }, delay);

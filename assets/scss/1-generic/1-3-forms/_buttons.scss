@@ -1,6 +1,3 @@
-// richard.brennan@ia-grp.com
-// N2N1@xl!7nZx^z^d&HOqCEjl
-
 .btn {
 	@include tr;
 	width: fit-content;
@@ -19,11 +16,6 @@
 	flex-shrink: 0;
 	letter-spacing: 0.01em;
 
-	// @include min(lg) {
-	// 	font-size: rem(16);
-	// 	padding: rem(0 16);
-	// }
-
 	@include min(xxl) {
 		font-size: rem(20);
 		padding: rem(20 28);
@@ -40,17 +32,10 @@
 		}
 	}
 
-	// &-lg {
-	// 	font-size: rem(24);
-	// 	height: rem(60);
-	// 	padding: rem(0 40);
-	// }
-
-
 	&-primary {
 		background-color: $iag-orange-500;
 		border-color: $iag-orange-500;
-		box-shadow: 0 rem(8) rem(24) rgba($iag-orange-500, 0.22);
+		box-shadow: 0 rem(8) rem(24) $iag-orange-500-a22;
 		color: $white;
 
 		&:hover,
@@ -116,26 +101,10 @@
 		&:active {
 			color: $white;
 			background-color: $iag-orange-500;
-			box-shadow: 0 rem(8) rem(24) rgba($iag-orange-500, 0.22);
+			box-shadow: 0 rem(8) rem(24) $iag-orange-500-a22;
 		}
 	}
 }
-
-// .btn-outline {
-// 	background-color: transparent;
-// 	border-color: $primary;
-// 	color: $primary;
-
-// 	&:hover,
-// 	&:focus,
-// 	&:active {
-// 		background-color: $primary;
-// 		border-color: $primary;
-// 		color: $white;
-// 	}
-// }
-
-
 
 // Label styled as button
 .btn-label {

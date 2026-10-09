@@ -1,5 +1,5 @@
 <?php
-$module_id        = get_sub_field( 'module_id' ) ?: '';
+$module_id        = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
 $color_theme      = get_sub_field( 'color_theme' ) ?: 'white';
 $module_title     = get_sub_field( 'module_title' ) ?? false;
 $module_alignment = get_sub_field( 'module_header_alignment' ) ?: 'left';
@@ -7,7 +7,7 @@ $module_subtitle  = get_sub_field( 'module_subtitle' ) ?? false;
 $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
 ?>
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-partnership bg-<?php echo esc_attr( $color_theme ); ?>">
+<section<?php echo $module_id; ?> class="module m-partnership bg-<?php echo esc_attr( $color_theme ); ?>">
 	<div class="container">
         <?php if ( $module_title || $module_subtitle || $module_uptitle ) : ?>
             <div class="module-header alignment-<?php echo esc_attr( $module_alignment ); ?>">
@@ -44,7 +44,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
 
                             <?php if ( $slide_icon && $slide_text ) : ?>
                             <div class="m-partnership__swiper-slide swiper-slide">
-                                <?php echo wp_get_attachment_image( $slide_icon, 'thumbnail', false, [ 'class' => 'slide-icon' ] ); ?>
+                                <?php echo wp_get_attachment_image( $slide_icon, 'thumbnail', false, [ 'class' => 'slide-icon no-lazyload' ] ); ?>
 
                                 <div class="slide-text">
                                     <?php echo wp_kses_post( $slide_text ); ?>
@@ -72,7 +72,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
 
                             <?php if ( $slide_icon && $slide_text ) : ?>
                                 <div class="m-partnership__swiper-slide swiper-slide">
-                                    <?php echo wp_get_attachment_image( $slide_icon, 'thumbnail', false, [ 'class' => 'slide-icon' ] ); ?>
+                                    <?php echo wp_get_attachment_image( $slide_icon, 'thumbnail', false, [ 'class' => 'slide-icon no-lazyload' ] ); ?>
 
                                     <div class="slide-text">
                                         <?php echo wp_kses_post( $slide_text ); ?>
