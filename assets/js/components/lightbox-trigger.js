@@ -9,6 +9,6 @@ document.addEventListener('click', (e) => {
 	e.stopPropagation();
 
 	import(/* webpackChunkName: "lightbox" */ '../modules/lightbox')
-		.then(({Fancybox}) => Fancybox.fromOpener(opener))
+		.then(({Fancybox}) => Fancybox.fromOpener('[data-fancybox]', {target: opener}))
 		.catch(error => console.error('Lightbox failed to load', error));
 }, true);
