@@ -19,8 +19,6 @@ if ( ! function_exists( 'it_setup' ) ) :
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on IT Starter, use a find and replace
-		 * to change '_iag' to the name of your theme in all the template files.
 		 */
 		load_theme_textdomain( '_iag', get_template_directory() . '/languages' );
 
@@ -40,19 +38,12 @@ if ( ! function_exists( 'it_setup' ) ) :
 		add_theme_support( 'post-thumbnails' );
 
 		/**
-		 * Register new image presets
-		 *
-		 * @link https://developer.wordpress.org/reference/functions/add_image_size/
-		 */
-		// add_image_size('full-hd', 1920, 1080, true);     //example.
-
-		/**
-		 * This theme uses wp_nav_menu() in one location.
+		 * Navigation menu locations (header mega menu and footer menus).
 		 *
 		 * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
 		 */
 		register_nav_menus( [
-			'main'   		   => esc_html__( 'Main Nav', '_iag' ),
+			'main'             => esc_html__( 'Main Nav', '_iag' ),
 			'footer-top'       => esc_html__( 'Footer Top Nav', '_iag' ),
 			'footer-column-1'  => esc_html__( 'Footer Column 1', '_iag' ),
 			'footer-column-2'  => esc_html__( 'Footer Column 2', '_iag' ),
@@ -111,17 +102,6 @@ function it_slug_body_class( $classes ) {
 add_filter( 'body_class', 'it_slug_body_class' );
 
 /**
- * Changes Gravity Forms Ajax Spinner (next, back, submit) to a transparent image
- *
- * this allows us to target the css and create a pure css spinner or add different image instead.
- */
-add_filter( 'gform_ajax_spinner_url', 'spinner_url', 10, 2 );
-function spinner_url( $image_src, $form ) {
-	return 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; // relative to your theme images folder
-}
-
-
-/**
  * Remove archive title prefix
  */
 add_filter( 'get_the_archive_title_prefix', 'it_archive_prefix' );
@@ -130,7 +110,6 @@ function it_archive_prefix( $prefix ) {
 
 	return $prefix;
 }
-
 
 /**
  * Limit post excerpt length
@@ -143,7 +122,6 @@ add_filter( 'excerpt_length', function ( $length ) {
 
 // This will add a filter on `excerpt_more` that returns an empty string.
 add_filter( 'excerpt_more', '__return_empty_string' );
-
 
 /**
  * Function To get primary category of the resource post

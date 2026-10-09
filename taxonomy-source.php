@@ -82,7 +82,7 @@ get_header();
 
         <div class="category-banner__share">
             <span class="share-label">
-                <?php echo _e( 'Follow & Share:'); ?>
+                <?php esc_html_e( 'Follow & Share:', '_iag' ); ?>
             </span>
 
             <?php if ( $linkedin_url && $linkedin_icon ) : ?>
@@ -99,7 +99,7 @@ get_header();
 
             <div class="share-button">
                 <svg><use xlink:href="#chain"></use></svg>
-                <?php echo _e( 'Share', '_iag' ); ?>
+                <?php esc_html_e( 'Share', '_iag' ); ?>
             </div>
         </div>
     </div>

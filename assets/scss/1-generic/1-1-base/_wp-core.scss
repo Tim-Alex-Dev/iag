@@ -75,8 +75,7 @@
 
 	// hide some menu items to prevent horizontal overflow
 	ul#wp-admin-bar-root-default>li {
-		&#wp-admin-bar-wpseo-menu,
-		&#wp-admin-bar-gform-forms {
+		&#wp-admin-bar-wpseo-menu {
 			@include max(782) {
 				display: none !important;
 			}

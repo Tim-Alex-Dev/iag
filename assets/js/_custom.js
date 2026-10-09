@@ -36,20 +36,8 @@ jQuery(document).ready(function ($) {
 	/**
 	 * Nice select
 	 */
-	// do not activate NiceSelect on those pages, where it might conflict with Select2
-	if (!$('body').hasClass('woocommerce-account')) {
-		$('select').niceSelect();
-	}
+	$('select').niceSelect();
 
-
-	/**
-	 * Trigger NiceSelect update after Woocommerce Update variations
-	 */
-	$(".variations_form").on("woocommerce_variation_has_changed", function () {
-		$('.variations_form select').niceSelect('update');
-	});
-
-	
 
 	/**
 	 * Share Button functionality
@@ -89,230 +77,101 @@ jQuery(document).ready(function ($) {
 
 
 	/**
-	 * Slider Images
+	 * Sliders
 	 */
-	if ($('.m-counter').length > 0) {
-        document.querySelectorAll('.m-counter__slider-swiper').forEach(slider => {
-            const swiper = new Swiper(slider, {
-  				spaceBetween: 12,
-				loop: true,
-				speed: 5000,
-				slidesPerView: 3,
-                breakpoints: {
-                    640: {
-						spaceBetween: 24,
-                    },
-                    1024: {
-						spaceBetween: 40,
-                    	slidesPerView: 5,
-                    },
-                    1440: {
-						spaceBetween: 80,
-                    	slidesPerView: 'auto',
-                    },
-                },
-                speed: 2500,
-				autoplay: {
-					delay: 0,
-					disableOnInteraction: false,
+	document.querySelectorAll('.m-counter__slider-swiper').forEach((slider) => {
+		new Swiper(slider, {
+			spaceBetween: 12,
+			loop: true,
+			slidesPerView: 3,
+			breakpoints: {
+				640: {
+					spaceBetween: 24,
 				},
-            });
-        });
-    };
-
-	if ($('.m-separator__swiper').length > 0) {
-		document.querySelectorAll('.m-separator__swiper').forEach((slider) => {
-			const wrapper = slider.closest('.m-separator').getAttribute('id');
-			let swiper = null;
-
-			const getSlidesPerView = () => {
-				const width = window.innerWidth;
-
-				if (width >= 1920) return 5;
-				if (width >= 1680) return 4;
-				if (width >= 1440) return 3;
-				if (width >= 1024) return 2;
-				if (width >= 640) return 2;
-
-				return 1;
-			};
-
-			const initSwiper = () => {
-				swiper = new Swiper(slider, {
-					loop: true,
-					slidesPerView: 1,
-					breakpoints: {
-						640: {
-							slidesPerView: 2,
-						},
-						1024: {
-							slidesPerView: 2,
-						},
-						1440: {
-							slidesPerView: 2,
-						},
-						1680: {
-							slidesPerView: 3,
-						},
-						1920: {
-							slidesPerView: 4,
-						},
-					},
-					speed: 1000,
-					navigation: {
-						nextEl: '#'+wrapper+' .m-separator__swiper-button-next',
-						prevEl: '#'+wrapper+' .m-separator__swiper-button-prev',
-					},
-				});
-			};
-
-			const destroySwiper = () => {
-				if (!swiper) return;
-
-				swiper.destroy(true, true);
-				swiper = null;
-			};
-
-			const updateSliderState = () => {
-				const slidesCount = slider.querySelectorAll(
-					'.swiper-slide:not(.swiper-slide-duplicate)'
-				).length;
-
-				const enoughSlides = slidesCount > getSlidesPerView();
-
-				slider.classList.add('visible');
-
-				if (enoughSlides) {
-					slider.classList.remove('is-centered');
-
-					if (!swiper) {
-						initSwiper();
-					}
-
-					return;
-				}
-
-				destroySwiper();
-				slider.classList.add('is-centered');
-			};
-
-			updateSliderState();
-
-			window.addEventListener('resize', updateSliderState);
+				1024: {
+					spaceBetween: 40,
+					slidesPerView: 5,
+				},
+				1440: {
+					spaceBetween: 80,
+					slidesPerView: 'auto',
+				},
+			},
+			speed: 2500,
+			autoplay: {
+				delay: 0,
+				disableOnInteraction: false,
+			},
 		});
-	}
+	});
 
-	if ($('.m-experience').length > 0) {
-        document.querySelectorAll('.m-experience__swiper').forEach(slider => {
-            const wrapper = slider.closest('.m-experience').getAttribute('id');
-            const swiper = new Swiper(slider, {
-                loop: false,
-                spaceBetween: 24,
-                slidesPerView: 1,
-                breakpoints: {
-                    1024: {
-                    slidesPerView: 2,
+	document.querySelectorAll('.m-experience__swiper').forEach((slider) => {
+		const wrapper = slider.closest('.m-experience').getAttribute('id');
+
+		new Swiper(slider, {
+			loop: false,
+			spaceBetween: 24,
+			slidesPerView: 1,
+			breakpoints: {
+				1024: {
+					slidesPerView: 2,
 					slidesPerGroup: 2,
-                    }
-                },
-                speed: 1000,
-				pagination: {
-					el: '#'+wrapper+' .m-experience__swiper-pagination',
-					dynamicBullets: true,
-					clickable: true,
 				},
-            });
-        });
-    };
+			},
+			speed: 1000,
+			pagination: {
+				el: '#' + wrapper + ' .m-experience__swiper-pagination',
+				dynamicBullets: true,
+				clickable: true,
+			},
+		});
+	});
 
-	if ($('.m-slider').length > 0) {
-        document.querySelectorAll('.m-slider__swiper').forEach(slider => {
-            const wrapper = slider.closest('.m-slider').getAttribute('id');
-            const swiper = new Swiper(slider, {
-                loop: false,
-                spaceBetween: 24,
-                slidesPerView: 1,
-                breakpoints: {
-                    640: {
-                    slidesPerView: 2,
-                    },
-                    1024: {
-                    slidesPerView: 4,
-                    }
-                },
-                speed: 1000,
-                navigation: {
-                    nextEl: '#'+wrapper+' .m-slider__swiper-button-next',
-                    prevEl: '#'+wrapper+' .m-slider__swiper-button-prev',
-                },
-            });
-        });
-    };
-	if ($('.m-stars').length > 0) {
-        document.querySelectorAll('.m-stars__swiper').forEach(slider => {
-            const wrapper = slider.closest('.m-stars').getAttribute('id');
-            const swiper = new Swiper(slider, {
-                loop: false,
-                spaceBetween: 24,
-                slidesPerView: 1,
-                breakpoints: {
-                    640: {
-                    slidesPerView: 2,
-                    },
-                    1024: {
-                    slidesPerView: 4,
-                    }
-                },
-                speed: 1000,
-                navigation: {
-                    nextEl: '#'+wrapper+' .m-stars__swiper-button-next',
-                    prevEl: '#'+wrapper+' .m-stars__swiper-button-prev',
-                },
-            });
-        });
-    };
-
-	if ($('.m-partnership').length > 0) {
-		document.querySelectorAll('.m-partnership__swiper-top').forEach((slider) => {
-			if (slider.swiper) {
-				return;
-			}
+	// Simple Slider and Stars modules share the same slider settings
+	['m-slider', 'm-stars'].forEach((module) => {
+		document.querySelectorAll('.' + module + '__swiper').forEach((slider) => {
+			const wrapper = slider.closest('.' + module).getAttribute('id');
 
 			new Swiper(slider, {
-				slidesPerView: 'auto',
-				spaceBetween: 20,
-				loop: true,
-				speed: 6000,
-				allowTouchMove: false,
-
-				autoplay: {
-					delay: 0,
-					disableOnInteraction: false,
-					pauseOnMouseEnter: false,
+				loop: false,
+				spaceBetween: 24,
+				slidesPerView: 1,
+				breakpoints: {
+					640: {
+						slidesPerView: 2,
+					},
+					1024: {
+						slidesPerView: 4,
+					},
+				},
+				speed: 1000,
+				navigation: {
+					nextEl: '#' + wrapper + ' .' + module + '__swiper-button-next',
+					prevEl: '#' + wrapper + ' .' + module + '__swiper-button-prev',
 				},
 			});
 		});
+	});
 
-		document.querySelectorAll('.m-partnership__swiper-bottom').forEach((slider) => {
-			if (slider.swiper) {
-				return;
-			}
+	// Partnership logos: two endless rows
+	document.querySelectorAll('.m-partnership__swiper-top, .m-partnership__swiper-bottom').forEach((slider) => {
+		if (slider.swiper) {
+			return;
+		}
 
-			new Swiper(slider, {
-				slidesPerView: 'auto',
-				spaceBetween: 20,
-				loop: true,
-				speed: 6000,
-				allowTouchMove: false,
-
-				autoplay: {
-					delay: 0,
-					disableOnInteraction: false,
-					pauseOnMouseEnter: false,
-				},
-			});
+		new Swiper(slider, {
+			slidesPerView: 'auto',
+			spaceBetween: 20,
+			loop: true,
+			speed: 6000,
+			allowTouchMove: false,
+			autoplay: {
+				delay: 0,
+				disableOnInteraction: false,
+				pauseOnMouseEnter: false,
+			},
 		});
-	}
+	});
 
 	// Observer for Animated Counter
 	function observeElements(selector, callback, options = {}) {

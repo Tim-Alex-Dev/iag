@@ -74,7 +74,7 @@ $enable_footer_contacts = get_field( 'enable_footer_contacts_menu', 'option' ) ?
 						<div class="footer-menu__links">
 							<div class="menu-item column-title">
 								<a href="#">
-									<?php echo _e( 'Contacts', '_iag' ); ?>
+									<?php esc_html_e( 'Contacts', '_iag' ); ?>
 								</a>
 							</div>
 	
@@ -149,7 +149,7 @@ $enable_footer_contacts = get_field( 'enable_footer_contacts_menu', 'option' ) ?
 
 				<div class="contact-form__wrapper">
 					<h2 class="contact-form__title">
-						<?php _e( 'Submit RFP', '_iag' ); ?>
+						<?php esc_html_e( 'Submit RFP', '_iag' ); ?>
 					</h2>
 					<?php echo $modal_cf_header; ?>
 				</div>

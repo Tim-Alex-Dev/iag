@@ -1,7 +1,8 @@
 node_modules
+vendor
 .idea
 .DS_Store
 Thumbs.db
 *.log
-# dist
-vendor
+
+# dist/ is committed on purpose: the cPanel deploy (.cpanel.yml) copies the repo as-is, no build on the server

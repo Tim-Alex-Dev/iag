@@ -46,7 +46,7 @@ $linkedin_icon    = get_field( 'main_linkedin_icon', 'options' ) ?? false;
 				<?php if ( $youtube_url && $linkedin_url && $youtube_icon && $linkedin_icon ) : ?>
 					<div class="m-banner__share">
 						<span class="share-label">
-							<?php echo _e( 'Follow & Share:'); ?>
+							<?php esc_html_e( 'Follow & Share:', '_iag' ); ?>
 						</span>
 	
 						<a class="share-link" href="<?php echo esc_url( $linkedin_url ); ?>" target="_blank" rel="noopener">

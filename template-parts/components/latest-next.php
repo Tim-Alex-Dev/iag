@@ -112,7 +112,7 @@ if ( $latest_webinar_id ) {
 <div class="c-latest-resources__next">
     <span class="c-latest-resources__next-title">
         <svg class="icon"><use xlink:href="#calendar"></use></svg>
-        <?php _e( 'Up Next', '_iag' ); ?>
+        <?php esc_html_e( 'Up Next', '_iag' ); ?>
     </span>
 
     <div class="c-latest-resources__next-grid">
@@ -136,7 +136,7 @@ if ( $latest_webinar_id ) {
 
                 <div class="next-post__content">
                     <span class="content-label">
-                        <?php _e( 'Next Event', '_iag' ); ?>
+                        <?php esc_html_e( 'Next Event', '_iag' ); ?>
                     </span>
 
                     <<?php echo tag_escape( $title_tag ); ?> class="<?php echo esc_attr( $title_class ); ?>">
@@ -159,7 +159,7 @@ if ( $latest_webinar_id ) {
 
                     <a class="btn btn-simple content-link"
                        href="<?php echo esc_url( $event_permalink ); ?>">
-                        <?php _e( 'View Event', '_iag' ); ?>
+                        <?php esc_html_e( 'View Event', '_iag' ); ?>
                         <svg><use xlink:href="#arrow-right"></use></svg>
                     </a>
                 </div>
@@ -186,7 +186,7 @@ if ( $latest_webinar_id ) {
 
                 <div class="next-post__content">
                     <span class="content-label">
-                        <?php _e( 'Next Webinar', '_iag' ); ?>
+                        <?php esc_html_e( 'Next Webinar', '_iag' ); ?>
                     </span>
 
                     <<?php echo tag_escape( $title_tag ); ?> class="<?php echo esc_attr( $title_class ); ?>">
@@ -209,7 +209,7 @@ if ( $latest_webinar_id ) {
 
                     <a class="btn btn-simple content-link"
                        href="<?php echo esc_url( $webinar_permalink ); ?>">
-                        <?php _e( 'View Webinar', '_iag' ); ?>
+                        <?php esc_html_e( 'View Webinar', '_iag' ); ?>
                         <svg><use xlink:href="#arrow-right"></use></svg>
                     </a>
                 </div>

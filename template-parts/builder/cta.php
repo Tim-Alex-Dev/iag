@@ -10,7 +10,7 @@ $secondary_btn    = get_sub_field('secondary_button') ?? false;
 		<div class="m-cta__meeting">
 			<?php if ( have_rows( 'meeting_list' ) ) : ?>
 				<div class="m-cta__meeting-title">
-					<?php echo _e( 'Meet Us Next', '_iag' ); ?>
+					<?php esc_html_e( 'Meet Us Next', '_iag' ); ?>
 				</div>
 				
 				<div class="m-cta__meeting-list">

@@ -84,13 +84,13 @@ function it_tiny_mce_before_init_formats( $settings ) {
 				[
 					'title'    => 'Button (primary)',
 					'selector' => 'a',
-					'classes'  => 'btn',
+					'classes'  => 'btn btn-primary',
 					'wrapper'  => false,
 				],
 				[
 					'title'    => 'Button (outline)',
 					'selector' => 'a',
-					'classes'  => 'btn btn-outline',
+					'classes'  => 'btn btn-outline-primary',
 					'wrapper'  => false,
 				],
 				[
@@ -145,7 +145,8 @@ function it_tiny_mce_before_init_colors( $init ) {
 		'Black'   => '000',
 		'White'   => 'fff',
 		'Grey'    => 'ccc',
-		'Primary' => 'b91c1c'
+		'Orange'  => 'FF6015',
+		'Navy'    => '0F1F33'
 	];
 
 	$textcolor_map = [];

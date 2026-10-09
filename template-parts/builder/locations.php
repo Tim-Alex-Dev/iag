@@ -84,7 +84,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
                                 <?php if ( $google_maps_url ) : ?>
                                     <a class="location-content__url" href="<?php echo esc_url( $google_maps_url ); ?>" target="_blank" rel="noopener">
                                         <svg><use xlink:href="#pointer"></use></svg>
-                                        <?php _e( 'Get Directions', '_iag' ); ?>
+                                        <?php esc_html_e( 'Get Directions', '_iag' ); ?>
                                     </a>
                                 <?php endif; ?>
                             <?php endif; ?>

@@ -102,7 +102,7 @@ get_header();
 
         <div class="resource-hub__banner-share">
             <span class="share-label">
-                <?php echo _e( 'Follow & Share'); ?>
+                <?php esc_html_e( 'Follow & Share', '_iag' ); ?>
             </span>
 
             <?php if ( $linkedin_url && $linkedin_icon ) : ?>
@@ -119,7 +119,7 @@ get_header();
 
             <div class="share-button">
                 <svg><use xlink:href="#chain"></use></svg>
-                <?php echo _e( 'Share', '_iag' ); ?>
+                <?php esc_html_e( 'Share', '_iag' ); ?>
             </div>
         </div>
     </div>
@@ -161,7 +161,7 @@ get_header();
                                 <?php echo esc_html( $resource_category['title'] ); ?>
                             </h2>
                             <a class="btn btn-simple" href="<?php echo esc_url( $resource_category['link'] ); ?>" target="_blank" rel="noopener">
-                                <?php echo _e( 'VIEW ALL', '_iag'); ?>
+                                <?php esc_html_e( 'VIEW ALL', '_iag'); ?>
                                 <svg><use xlink:href="#arrow-right"></use></svg>
                             </a>
                         </div>

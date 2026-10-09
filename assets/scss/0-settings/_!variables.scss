@@ -51,9 +51,6 @@ $color-link: $primary;
 // Extra colors (outside the brand palette)
 $grey: #a0a0a0;
 $grey-border: #d0dcfa;
-$blue: #0f224e;
-$blue_01: #78839e;
-$white_03: #f3f6fe;
 $green: #1F8A5B;
 $green_01: #4ade80;
 $red: #dc3232;
@@ -100,7 +97,7 @@ $grid-breakpoints: (
 
 // Grid columns
 // Set the number of columns and specify the width of the gutters.
-$grid-columns: 12;
+$grid-columns: 12; // used by Bootstrap grid
 $grid-gutter-width: 30px; // 15px on each side
 
 // Grid containers

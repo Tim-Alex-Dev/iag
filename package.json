@@ -1,16 +1,21 @@
 {
-  "name": "it-starter",
-  "version": "2.0.0",
-  "description": "Starter theme for WordPress development",
+  "name": "iag",
+  "version": "1.0.0",
+  "private": true,
+  "description": "IAG WordPress theme (Image Analysis Group)",
   "license": "GPL-2.0",
   "repository": {
     "type": "git"
   },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
     "start": "gulp",
-    "lint:scss:fix": "wp-scripts lint-style 'assets/scss/**/*.scss' --fix",
+    "watch": "gulp watch",
+    "build": "gulp prod",
     "lint:scss": "wp-scripts lint-style 'assets/scss/**/*.scss'",
+    "lint:scss:fix": "wp-scripts lint-style 'assets/scss/**/*.scss' --fix",
     "lint:js": "wp-scripts lint-js 'assets/js/**/*.js'"
   },
   "devDependencies": {
@@ -45,9 +50,6 @@
   "dependencies": {
     "@fancyapps/ui": "^4.0.31",
     "swiper": "^8.3.2"
-  },
-  "resolutions": {
-    "glob-parent": "^6.0.1"
   },
   "browserslist": [
     "last 1 version",

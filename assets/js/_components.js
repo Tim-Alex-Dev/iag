@@ -4,11 +4,9 @@ import './components/header-scrolled'; // Handle scrolled header behavior
 import './components/navigation.js'; // Toggle mobile menu and sub-menus
 import './components/skip-link-focus-fix'; // mobile helper
 import './components/to-top'; // To top button
-import './components/ajax'; // Custom AJAX scripts
 import './components/cf7-events'; // Custom Contact Form 7 scripts
-import './components/table-of-content';
+import './components/table-of-content'; // Table of content for resources and system pages
 
 import './components/accordion';
 import './components/modal';
 import './components/tabs';
-import './components/toggle';

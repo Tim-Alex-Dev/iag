@@ -171,7 +171,7 @@ $expert_categories = array(
                                 </a>
                             <?php endif; ?>
                             <a class="expert-main__buttons-btn btn btn-primary" href="#expert-contacts" target="_self">
-                                <?php echo _e( 'Talk to this expert', '_iag' ); ?>
+                                <?php esc_html_e( 'Talk to this expert', '_iag' ); ?>
                                 <svg><use xlink:href="#arrow-right"></use></svg>
                             </a>
                         </div>
@@ -227,7 +227,7 @@ $expert_categories = array(
                                             <?php echo wp_kses_post( $hidden_content ); ?>
                                         </div>
                                         <div class="js-accordion-title block-content__btn">
-                                            <?php echo _e( 'Read More', '_iag' ); ?>
+                                            <?php esc_html_e( 'Read More', '_iag' ); ?>
                                         </div>
                                     </div>
                                 <?php endif; ?>
@@ -326,10 +326,10 @@ $expert_categories = array(
                 
                 <div class="expert-publications__table c-table">
                     <div class="table-header">
-                        <span class="table-header__title"><?php echo _e( 'Title', '_iag' ); ?></span>
-                        <span class="table-header__title"><?php echo _e( 'Journal', '_iag' ); ?></span>
-                        <span class="table-header__title"><?php echo _e( 'Year', '_iag' ); ?></span>
-                        <span class="table-header__title"><?php echo _e( 'Link', '_iag' ); ?></span>
+                        <span class="table-header__title"><?php esc_html_e( 'Title', '_iag' ); ?></span>
+                        <span class="table-header__title"><?php esc_html_e( 'Journal', '_iag' ); ?></span>
+                        <span class="table-header__title"><?php esc_html_e( 'Year', '_iag' ); ?></span>
+                        <span class="table-header__title"><?php esc_html_e( 'Link', '_iag' ); ?></span>
                     </div>
                     <div class="table-body">
                         <?php while ( have_rows( 'publications_list', $expert_id ) ) : the_row(); 
@@ -483,9 +483,9 @@ $expert_categories = array(
                 
                 <div class="expert-education__table c-table">
                     <div class="table-header">
-                        <span class="table-header__title"><?php echo _e( 'Year', '_iag' ); ?></span>
-                        <span class="table-header__title"><?php echo _e( 'Qualification / Role', '_iag' ); ?></span>
-                        <span class="table-header__title"><?php echo _e( 'Institution', '_iag' ); ?></span>
+                        <span class="table-header__title"><?php esc_html_e( 'Year', '_iag' ); ?></span>
+                        <span class="table-header__title"><?php esc_html_e( 'Qualification / Role', '_iag' ); ?></span>
+                        <span class="table-header__title"><?php esc_html_e( 'Institution', '_iag' ); ?></span>
                     </div>
                     <div class="table-body">
                         <?php while ( have_rows( 'education_and_training_list', $expert_id ) ) : the_row(); 
@@ -634,13 +634,13 @@ $expert_categories = array(
             <div class="container">
                 <div class="expert-block__header alignment-center">
                     <span class="expert-block__uptitle">
-                        <?php _e( 'Let`s be in touch', '_iag' ); ?>
+                        <?php esc_html_e( 'Let`s be in touch', '_iag' ); ?>
                     </span>
                     <h2 class="h2 expert-block__title">
-                        <?php _e( 'Contact Our Expert', '_iag' ); ?>
+                        <?php esc_html_e( 'Contact Our Expert', '_iag' ); ?>
                     </h2>
                     <span class="expert-block__subtitle">
-                        <?php _e( 'If you are planning a clinical trial which will use imaging to assess the safety and efficacy of your new drug candidate, share your challenges with our expert.', '_iag' ); ?>
+                        <?php esc_html_e( 'If you are planning a clinical trial which will use imaging to assess the safety and efficacy of your new drug candidate, share your challenges with our expert.', '_iag' ); ?>
                     </span>
                 </div>
                 <div class="contact-form__wrapper hs-form__wrapper">

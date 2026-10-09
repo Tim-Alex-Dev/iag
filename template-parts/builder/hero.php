@@ -115,7 +115,7 @@ $blocks_status 	  = get_sub_field('blocks_status') ?? false;
 								<?php if ( $blocks_subject ) : ?>
 									<div class="footer-block">
 										<span class="footer-block__label">
-											<?php echo _e( 'Subject', '_iag' ); ?>
+											<?php esc_html_e( 'Subject', '_iag' ); ?>
 										</span>
 										<span class="footer-block__text">
 											<?php echo esc_html( $blocks_subject ); ?>
@@ -125,7 +125,7 @@ $blocks_status 	  = get_sub_field('blocks_status') ?? false;
 								<?php if ( $blocks_read ) : ?>
 									<div class="footer-block">
 										<span class="footer-block__label">
-											<?php echo _e( 'Read', '_iag' ); ?>
+											<?php esc_html_e( 'Read', '_iag' ); ?>
 										</span>
 										<span class="footer-block__text">
 											<?php echo esc_html( $blocks_read ); ?>
@@ -135,7 +135,7 @@ $blocks_status 	  = get_sub_field('blocks_status') ?? false;
 								<?php if ( $blocks_status ) : ?>
 									<div class="footer-block">
 										<span class="footer-block__label">
-											<?php echo _e( 'Status', '_iag' ); ?>
+											<?php esc_html_e( 'Status', '_iag' ); ?>
 										</span>
 										<span class="footer-block__text block-status">
 											<?php echo esc_html( $blocks_status ); ?>

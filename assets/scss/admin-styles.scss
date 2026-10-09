@@ -88,25 +88,3 @@ $admin-green-hover: darken($admin-green, 8%);
 .acfe-flexible-field-setting[data-name="acfe_flexible_thumbnail_label"] {
 	display: none;
 }
-
-// Disable Woocommerce Header in WP Admin
-.woocommerce-layout__header {
-	display: none;
-}
-
-.woocommerce-layout__activity-panel-tabs {
-	display: none;
-}
-
-.woocommerce-layout__header-breadcrumbs {
-	display: none;
-}
-
-.woocommerce-embed-page .woocommerce-layout__primary {
-	display: none;
-}
-
-.woocommerce-embed-page #screen-meta,
-.woocommerce-embed-page #screen-meta-links {
-	top: 0;
-}

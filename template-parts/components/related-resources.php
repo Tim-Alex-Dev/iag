@@ -36,7 +36,6 @@ if ( $source_term && ! is_wp_error( $source_term ) ) {
     $related_ids   = $related_query->posts;
 
     if ( $related_ids ) {
-        // $section_title = $source_term->name;
         $term_link     = get_term_link( $source_term );
         $section_link  = ! is_wp_error( $term_link ) ? $term_link : false;
     }
