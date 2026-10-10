@@ -1,7 +1,7 @@
 .m-hero {
 	display: flex;
 	align-items: center;
-	min-height: calc(100vh - var(--header-height));
+	min-height: 100vh;
 	background: $bg-gradient;
 	color: $white;
 
