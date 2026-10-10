@@ -4,8 +4,6 @@ Custom theme for the **Image Analysis Group** website, built on **WordPress Star
 Pages are built from **modules** (ACF Pro Flexible Content), styles follow **ITCSS + BEM** (own grid, no CSS framework),
 assets are compiled by **Gulp 5 + Webpack + Dart Sass + LightningCSS** into `dist/`. Heavy scripts (sliders, lightbox) load only on pages that need them.
 
-Rules for working on the theme (also read by Claude Code): `.claude/CLAUDE.md` (IAG specifics) and `.claude/rules/*.md` (starter rules).
-
 ## Contents
 
 1. [Requirements](#requirements)
@@ -78,7 +76,6 @@ npm run build
 | `npm run watch` (`gulp watch`) | Same + BrowserSync on `http://localhost:8000` (proxy to the local URL) |
 | `npm run build` (`gulp prod`) | Clean `dist/` and make the production build (minified, no source maps). Fails on Sass/CSS/JS errors. **Run before every commit.** |
 | `npm run lint` | Stylelint (SCSS) + ESLint (JS). `npm run lint:scss:fix` fixes what it can |
-| `bash .claude/tests/run.sh` | Unit tests (PHP + JS, no WordPress needed) |
 | `gulp init` | Applies `starter.config.json` (text domain, theme name, package name). Safe to run again |
 | `SASS_VERBOSE=1 gulp css` | Shows all Sass deprecation warnings |
 
@@ -119,7 +116,6 @@ iag/
 │   ├── components/          cards and blocks reused by templates (expert, resource card...)
 │   └── *.php                breadcrumbs, pagination, socials, svg sprite, builders loops...
 ├── *.php                    WordPress templates (header, footer, page, single-*, taxonomy-*, home...)
-├── .claude/                 project rules (CLAUDE.md, rules/), unit tests (tests/)
 ├── gulpfile.js              build configuration
 ├── starter.config.json      theme name, text domain, local URL (gulp init)
 └── style.css                theme header only (styles are in dist/css/main.css)
@@ -343,8 +339,7 @@ get `'loading' => 'eager'` (+ `'fetchpriority' => 'high'` for the main image).
 
 ## Quality checks
 
-After every change: `php -l` on edited PHP files, `npm run lint`, `npm run build`, `bash .claude/tests/run.sh`.
-The tests run without WordPress (stubs): SVG sanitizer, helper functions, ACF setup, the title component, JS helpers.
+After every change: `php -l` on edited PHP files, `npm run lint`, `npm run build`.
 
 ---
 
