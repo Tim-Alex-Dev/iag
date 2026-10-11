@@ -305,6 +305,7 @@ All files are loaded from `functions.php`.
 | `editor.php` | TinyMCE style formats (titles, text, buttons, lists), text colors, `force_balance_tags` on content and ACF WYSIWYG output (pasted tables otherwise leave stray tags) |
 | `help-func.php` | helpers: `it_id_attr()`, `it_excerpt()`, `it_posted_on()`, `it_phone_cleaner()`, `[email]` shortcode, `it_inline_svg()`, `it_link_rel()`, `get_primary_category()`, `it_console_log()` (admins only) |
 | `login.php` | login screen logo and link |
+| `migrations.php` | WP-CLI only, nothing runs on its own. `wp iag migrate-simple-content [--dry-run]` moves the old single block of every Simple Content module into row 1 of the `content_list` repeater (safe to run twice, old values stay in the DB). Run it once on every environment right after deploying the Simple Content repeater, after a DB backup |
 | `scripts-styles.php` | enqueue of `main.css`, `main.js` (+ `itSettings`), admin assets; version = file time (`it_asset_ver()`, cache busting) |
 | `seo.php` | Source archive pagination redirects, Complianz URL fix, security headers |
 | `svg-support.php` | SVG uploads for administrators only; every SVG is sanitized (scripts, events, external links removed) |
