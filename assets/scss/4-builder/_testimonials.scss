@@ -143,8 +143,8 @@
         .m-testimonials {
             &__info {
                 .info-block {
-                    background: $iag-navy-800;
-                    border: 1px solid $iag-navy-600;
+                    background: $iag-navy;
+                    border: 1px solid $iag-navy-light;
 
                     &__title {
                         .title-primary {
@@ -152,40 +152,40 @@
                         }
 
                         .title-secondary {
-                            color: $iag-navy-100;
+                            color: $white-a90;
                         }
                     }
 
                     &__description {
-                        color: $iag-navy-200;
+                        color: $white-a75;
                     }
 
                     &__category {
-                        color: $iag-orange-500;
+                        color: $iag-orange;
                     }
                 }
             }
 
             &__list {
                 .testimonial-block {
-                    background-color: $iag-navy-800;
-                    border: 1px solid $iag-navy-600;
-                    border-left: 3px solid $iag-orange-500;
+                    background-color: $iag-navy;
+                    border: 1px solid $iag-navy-light;
+                    border-left: 3px solid $iag-orange;
 
                     &__content {
                         color: $white;
                     }
 
                     &__author {
-                        color: $iag-orange-500;
+                        color: $iag-orange;
 
                         .author {
-                            color: $iag-navy-200;
+                            color: $white-a75;
                         }
 
                         .company {
                             &::before {
-                                background-color: $iag-orange-500;
+                                background-color: $iag-orange;
                             }
                         }
                     }
@@ -200,48 +200,48 @@
             &__info {
                 .info-block {
                     background: $white;
-                    border: 1px solid $iag-gray-200;
+                    border: 1px solid $iag-grey-light;
 
                     &__title {
                         .title-primary {
-                            color: $iag-orange-500;
+                            color: $iag-orange;
                         }
 
                         .title-secondary {
-                            color: $iag-gray-500;
+                            color: $iag-grey;
                         }
                     }
 
                     &__description {
-                        color: $iag-gray-900;
+                        color: $iag-navy;
                     }
 
                     &__category {
-                        color: $iag-gray-500;
+                        color: $iag-grey;
                     }
                 }
             }
 
             &__list {
                 .testimonial-block {
-                    background-color: $iag-gray-50;
-                    border: 1px solid $iag-gray-200;
-                    border-left: 3px solid $iag-orange-500;
+                    background-color: $iag-grey-50;
+                    border: 1px solid $iag-grey-light;
+                    border-left: 3px solid $iag-orange;
 
                     &__content {
-                        color: $iag-gray-900;
+                        color: $iag-navy;
                     }
 
                     &__author {
-                        color: $iag-gray-700;
+                        color: $iag-navy;
 
                         .author {
-                            color: $iag-gray-900;
+                            color: $iag-navy;
                         }
 
                         .company {
                             &::before {
-                                background-color: $iag-gray-700;
+                                background-color: $iag-grey;
                             }
                         }
                     }

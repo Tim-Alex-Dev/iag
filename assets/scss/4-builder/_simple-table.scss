@@ -73,11 +73,11 @@
 .m-table {
     &.bg-blue {
         .m-table__main {
-            border: 1px solid $iag-navy-600;
+            border: 1px solid $iag-navy-light;
             &.main-header-true {
                 .m-table__main-row {
                     &:first-child {
-                        background-color: $iag-orange-500 !important;
+                        background-color: $iag-orange !important;
     
                         .table-item {
                             color: $white;
@@ -90,18 +90,18 @@
                 }
             }
             &-row {
-                border: 1px solid $iag-navy-600;
-                background-color: $iag-navy-800;
+                border: 1px solid $iag-navy-light;
+                background-color: $iag-navy;
                 &:nth-child(odd) {
-                    background-color: $iag-navy-700;
+                    background-color: $iag-navy;
                 }
 
                 .table-item {
-                    color: $iag-navy-100;
+                    color: $white-a90;
 
                     &__link {
                         svg {
-                            color: $iag-orange-500;
+                            color: $iag-orange;
                         }
                     }
                 }
@@ -112,11 +112,11 @@
     &.bg-white,
     &.bg-gray {
         .m-table__main {
-            border: 1px solid $iag-gray-200;
+            border: 1px solid $iag-grey-light;
             
             &.main-header-true {
                 &:first-child {
-                    background-color: $iag-navy-700;
+                    background-color: $iag-navy;
 
                     .table-item {
                         color: $white;
@@ -124,20 +124,20 @@
                 }
                 
                 .table-item__left {
-                    color: $iag-gray-900;
+                    color: $iag-navy;
                 }
             }
             &-row {
-                border-bottom: 1px solid $iag-gray-200;
+                border-bottom: 1px solid $iag-grey-light;
                 background-color: $white;
                 &:nth-child(odd) {
-                    background-color: $iag-gray-100;
+                    background-color: $iag-grey-50;
                 }
 
                 .table-item {
                     &__link {
                         svg {
-                            color: $iag-orange-500;
+                            color: $iag-orange;
                         }
                     }
                 }

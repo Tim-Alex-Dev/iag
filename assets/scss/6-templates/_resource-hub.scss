@@ -34,7 +34,7 @@
             .content-subtitle {
                 font-size: rem(18);
                 line-height: 1.6;
-                color: $white-a88;
+                color: $white-a90;
                 max-width: rem(680);
             }
         }
@@ -49,7 +49,7 @@
             .share-label {
                 font-size: rem(14);
                 font-weight: 600;
-                color: $white-a72;
+                color: $white-a75;
             }
 
             .share-link {
@@ -59,7 +59,7 @@
                 align-items: center;
                 justify-content: center;
                 border-radius: rem(8);
-                border: 1px solid $iag-gray-200;
+                border: 1px solid $iag-grey-light;
                 background: $white;
 
                 &__img {
@@ -77,9 +77,9 @@
                 padding: rem(0 16);
                 margin-left: rem(24);
                 border-radius: rem(8);
-                border: 1px solid $iag-gray-200;
+                border: 1px solid $iag-grey-light;
                 background: $white;
-                color: $iag-gray-700;
+                color: $iag-navy;
                 font-size: rem(14);
                 font-weight: 600;
                 cursor: pointer;
@@ -108,10 +108,10 @@
         position: sticky;
         top: var(--header-scrolled-height);
         z-index: 40;
-        background: $white-a95;
+        background: $white-a90;
         backdrop-filter: blur(8px);
-        border-bottom: 1px solid $iag-gray-200;
-        box-shadow: 0 1px 2px $iag-gray-900-a06;
+        border-bottom: 1px solid $iag-grey-light;
+        box-shadow: 0 1px 2px $iag-navy-a06;
 
         &-list {
             display: flex;
@@ -130,20 +130,20 @@
                 padding: rem(16 14);
                 font-size: rem(14);
                 font-weight: 500;
-                color: $iag-gray-700;
+                color: $iag-navy;
                 transition: $default-transition;
                 border-bottom: 3px solid transparent;
                 margin-bottom: rem(-2);
                 
                 &.is-active {
                     font-weight: 600;
-                    color: $iag-gray-900;
-                    border-bottom: 3px solid $iag-orange-500;
+                    color: $iag-navy;
+                    border-bottom: 3px solid $iag-orange;
                     pointer-events: none;
                 }
                 &:hover {
-                    color: $iag-gray-900;
-                    border-bottom: 3px solid $iag-orange-500;
+                    color: $iag-navy;
+                    border-bottom: 3px solid $iag-orange;
                 }
             }
         }
@@ -152,7 +152,7 @@
 
     &__categories {
         padding: rem(64 0 80);
-        background-color: $iag-gray-50;
+        background-color: $iag-grey-50;
 
         .resource-categories {
             display: flex;
@@ -163,29 +163,29 @@
                 &.col-primary {
                     .category-title {
                         &::after {
-                            background-color: $iag-orange-500;
+                            background-color: $iag-orange;
                         }
                     }
                         
                     .post-content__category {
-                        background-color: $iag-orange-50;
-                        color: $iag-orange-700;
+                        background-color: $iag-orange-tint;
+                        color: $iag-red;
                         &:after {
-                            background-color: $iag-orange-700;
+                            background-color: $iag-red;
                         }
                     }
                 }
                 &.col-secondary {
                     .category-title {
                         &::after {
-                            background-color: $iag-navy-500;
+                            background-color: $iag-navy-light;
                         }
                     }
                     .post-content__category {
-                        background-color: $iag-navy-50;
-                        color: $iag-navy-600;
+                        background-color: $iag-grey-50;
+                        color: $iag-navy-light;
                         &:after {
-                            background-color: $iag-navy-600;
+                            background-color: $iag-navy-light;
                         }
                     }
                 }
@@ -195,7 +195,7 @@
                     align-items: flex-end;
                     justify-content: space-between;
                     gap: rem(24);
-                    border-bottom: 1px solid $iag-gray-200;
+                    border-bottom: 1px solid $iag-grey-light;
                     padding-bottom: rem(16);
                     margin-bottom: rem(28);
 

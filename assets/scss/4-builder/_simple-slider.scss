@@ -98,8 +98,8 @@
 .m-slider {
     &.bg-blue {
         .swiper-slide {
-            background: $iag-navy-800;
-            border: 1px solid $iag-navy-600;
+            background: $iag-navy;
+            border: 1px solid $iag-navy-light;
 
             &__content {
                 &-title {
@@ -107,13 +107,13 @@
                 }
 
                 &-description {
-                    color: $iag-navy-100;
+                    color: $white-a90;
                 }
     
                 &-footer {
                     .footer-category {
-                        background-color: $iag-navy-50;
-                        color: $iag-navy-600;
+                        background-color: $iag-grey-50;
+                        color: $iag-navy-light;
                     }
                 }
             }
@@ -124,17 +124,17 @@
     &.bg-gray {
         .swiper-slide {
             background-color: $white;
-            border: 1px solid $iag-gray-200;
+            border: 1px solid $iag-grey-light;
 
             &__content {
                 &-title {
-                    color: $iag-gray-700;
+                    color: $iag-navy;
                 }
 
                 &-footer {
                     .footer-category {
-                        background-color: $iag-navy-50;
-                        color: $iag-navy-600;
+                        background-color: $iag-grey-50;
+                        color: $iag-navy-light;
                     }
                 }
             }

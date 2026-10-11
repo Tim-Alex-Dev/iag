@@ -196,7 +196,7 @@
 .m-simple-content {
     &.bg-blue {
         .m-simple-content__media {
-            box-shadow: 0 16px 32px $white-a15;
+            box-shadow: 0 16px 32px $white-a10;
         }
 
         .video {
@@ -205,12 +205,12 @@
             }
 
             &-footer__duration {
-                color: $iag-navy-100;
+                color: $white-a90;
                 background: $black-a50;
             }
 
             &-controls {
-                background-color: $iag-orange-500;
+                background-color: $iag-orange;
                 svg {
                     fill: $white;
                 }
@@ -218,14 +218,14 @@
         }
 
         .m-media__embed {
-            box-shadow: 0 16px 32px $white-a15;
+            box-shadow: 0 16px 32px $white-a10;
         }
     }
 
     &.bg-white,
     &.bg-grey {
         .m-simple-content__media {
-            box-shadow: 0 16px 32px $black-a15;
+            box-shadow: 0 16px 32px $black-a10;
         }
 
         .video {
@@ -234,12 +234,12 @@
             }
 
             &-footer__duration {
-                color: $iag-navy-100;
+                color: $white-a90;
                 background: $black-a50;
             }
 
             &-controls {
-                background-color: $iag-orange-500;
+                background-color: $iag-orange;
                 svg {
                     fill: $white;
                 }

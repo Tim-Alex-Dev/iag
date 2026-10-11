@@ -61,7 +61,7 @@
 
 	// Change text in autofill textbox
 	&:-webkit-autofill {
-		-webkit-text-fill-color: $black;
+		-webkit-text-fill-color: $iag-navy;
 	}
 }
 
@@ -98,7 +98,7 @@
 }
 
 // Custom scrollbar: standard properties + ::-webkit-scrollbar fallback for browsers without scrollbar-color
-@mixin scrollbar($width: 10px, $color-thumb: $grey, $color-track: $black-a10) {
+@mixin scrollbar($width: 10px, $color-thumb: $iag-grey, $color-track: $black-a10) {
 	scrollbar-width: thin;
 	scrollbar-color: $color-thumb $color-track;
 

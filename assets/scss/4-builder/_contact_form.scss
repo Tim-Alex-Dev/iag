@@ -1,6 +1,6 @@
 .m-cf {
     &.module-hero {
-        background-color: $iag-orange-500 !important;
+        background-color: $iag-orange !important;
 
         .container {
             display: flex;
@@ -55,7 +55,7 @@
                 width: rem(24);
                 height: rem(24);
                 border-radius: 50%;
-                background-color: $iag-orange-500;
+                background-color: $iag-orange;
                 margin-top: rem(2);
     
                 svg {
@@ -84,7 +84,7 @@
                 }
     
                 &-description {
-                    color: $iag-navy-100;
+                    color: $white-a90;
                     font-size: rem(14);
                     line-height: 1.5;
                 }

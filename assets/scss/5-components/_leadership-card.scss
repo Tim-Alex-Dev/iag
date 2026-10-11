@@ -105,17 +105,17 @@
 // color theme
 .leadership-card.grid-element {
     .bg-blue & {
-        background: $iag-navy-800;
-        border: 1px solid $iag-navy-600;
+        background: $iag-navy;
+        border: 1px solid $iag-navy-light;
 
         &:hover {
-            border: 1px solid $iag-navy-400;
-            box-shadow: 0 6px 20px $white-a08;
+            border: 1px solid $iag-navy-light;
+            box-shadow: 0 6px 20px $white-a10;
         }
 
         .leadership-card__header {
             &-photo {
-                border: 1px solid $iag-navy-400;
+                border: 1px solid $iag-navy-light;
             }
 
             &-data {
@@ -124,14 +124,14 @@
                 }
 
                 .data-position {
-                    color: $iag-orange-500;
+                    color: $iag-orange;
                 }
             }
         }
     
     
         .leadership-card__description {
-            color: $iag-navy-200;
+            color: $white-a75;
         }
         
         .leadership-card__link {
@@ -142,34 +142,34 @@
     .bg-white &,
     .bg-gray & {
         background: $white;
-        border: 1px solid $iag-gray-200;
+        border: 1px solid $iag-grey-light;
         &:hover {
-            border: 1px solid $iag-gray-400;
-            box-shadow: 0 6px 20px $black-a08;
+            border: 1px solid $iag-grey;
+            box-shadow: 0 6px 20px $black-a10;
         }
 
         .leadership-card__header {
             &-photo {
-                border: 1px solid $iag-gray-200;
+                border: 1px solid $iag-grey-light;
             }
 
             &-data {
                 .data-name {
-                    color: $iag-gray-900;
+                    color: $iag-navy;
                 }
 
                 .data-position {
-                    color: $iag-orange-500;
+                    color: $iag-orange;
                 }
             }
         }
     
         .leadership-card__description {
-            color: $iag-gray-700;
+            color: $iag-navy;
         }
 
         .leadership-card__link {
-            color: $iag-orange-500;
+            color: $iag-orange;
         }
 
     }
@@ -177,16 +177,16 @@
 
 .leadership-card.swiper-slide {
     .bg-blue & {
-        background: $iag-navy-800;
-        border: 1px solid $iag-navy-600;
+        background: $iag-navy;
+        border: 1px solid $iag-navy-light;
         &:hover {
-            border: 1px solid $iag-navy-400;
-            box-shadow: 0 6px 20px $white-a08;
+            border: 1px solid $iag-navy-light;
+            box-shadow: 0 6px 20px $white-a10;
         }
         
         .leadership-card {
             &__photo {
-                border: 1px solid $iag-orange-500;
+                border: 1px solid $iag-orange;
             }
             
             &__name {
@@ -194,11 +194,11 @@
             }
         
             &__position {
-                color: $iag-orange-500;
+                color: $iag-orange;
             }
         
             &__description {
-                color: $iag-navy-200;
+                color: $white-a75;
             }
         }
     }
@@ -206,27 +206,27 @@
     .bg-white &,
     .bg-gray & {
         background: $white;
-        border: 1px solid $iag-gray-200;
+        border: 1px solid $iag-grey-light;
         &:hover {
-            border: 1px solid $iag-gray-400;
-            box-shadow: 0 6px 20px $black-a08;
+            border: 1px solid $iag-grey;
+            box-shadow: 0 6px 20px $black-a10;
         }
         
         .leadership-card {
             &__photo {
-                border: 1px solid $iag-orange-500;
+                border: 1px solid $iag-orange;
             }
             
             &__name {
-                color: $iag-gray-900;
+                color: $iag-navy;
             }
         
             &__position {
-                color: $iag-orange-500;
+                color: $iag-orange;
             }
         
             &__description {
-                color: $iag-gray-700;
+                color: $iag-navy;
             }
         }
     }

@@ -13,7 +13,7 @@
 	letter-spacing: -0.02em;
 	margin: 0;
 	padding: 0;
-	color: $iag-gray-900;
+	color: $iag-navy;
 
 	a {
 		color: inherit;
@@ -23,10 +23,10 @@
 h1,h2,h3,h4,h5,h6,
 .h1,.h2,.h3,.h4,.h5,.h6 {
 	.bg-white & {
-		color: $iag-gray-900;
+		color: $iag-navy;
 	}
 	.bg-gray & {
-		color: $iag-gray-900;
+		color: $iag-navy;
 	}
 	.bg-blue & {
 		color: $white;

@@ -44,7 +44,7 @@
 						top: 0;
 						width: rem(4);
 						height: rem(4);
-						color: $red-01;
+						color: $iag-red;
 					}
 				}
 			}
@@ -52,7 +52,7 @@
 			label {
 				font-size: rem(12);
 				font-weight: 600;
-				color: $iag-gray-700;
+				color: $iag-navy;
 				width: fit-content;
 			}
 		}
@@ -73,7 +73,7 @@
 				align-items: center;
 				font-family: $font-alt;
 				font-size: rem(12);
-				color: $iag-navy-400;
+				color: $iag-navy-light;
 				letter-spacing: 0.02em;
 				@include max(md) {
 					text-align: center;

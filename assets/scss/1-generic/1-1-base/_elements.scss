@@ -16,7 +16,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	background-color: $iag-navy-800;
+	background-color: $iag-navy;
 	color: $color-text;
 	font-size: rem($font-size-base);
 	font-family: $font-text;
@@ -67,7 +67,7 @@ a {
 }
 
 hr {
-	background-color: $black;
+	background-color: $iag-grey-light;
 	border: 0;
 	height: 1px;
 	margin: 1.25rem 0;
@@ -92,7 +92,7 @@ address {
 
 pre {
 	max-width: 100%;
-	background: $grey-light;
+	background: $iag-grey-50;
 	font-family: $font-pre;
 	font-size: 14px;
 	margin: rem(16 0);
@@ -102,7 +102,7 @@ pre {
 }
 
 code, kbd, tt, var {
-	background: $grey-light;
+	background: $iag-grey-50;
 	font-family: $font-code;
 	font-size: 14px;
 	padding: 3px 6px;
@@ -114,7 +114,7 @@ code var {
 }
 
 kbd {
-	background-color: $black;
+	background-color: $iag-navy;
 	color: $white;
 	font-size: 14px;
 	border-radius: 4px;
