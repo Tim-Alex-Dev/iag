@@ -24,7 +24,7 @@
             gap: rem(16);
 
             .content-title {
-                font-weight: 800;
+                font-weight: 700;
                 font-size: rem(44);
                 line-height: 1.05;
                 letter-spacing: -0.025em;
@@ -129,7 +129,7 @@
                 justify-content: center;
                 padding: rem(16 14);
                 font-size: rem(14);
-                font-weight: 500;
+                font-weight: 450;
                 color: $iag-navy;
                 transition: $default-transition;
                 border-bottom: 3px solid transparent;
@@ -201,7 +201,7 @@
 
                     .category-title {
                         position: relative;
-                        font-weight: 800;
+                        font-weight: 700;
                         font-size: rem(24);
                         letter-spacing: -0.015em;
                         margin: 0px;

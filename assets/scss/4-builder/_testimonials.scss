@@ -36,7 +36,7 @@
                 gap: rem(8);
 
                 .title-primary {
-                    font-weight: 800;
+                    font-weight: 700;
                     font-size: rem(40);
                     letter-spacing: -0.02em;
                     line-height: 1;
@@ -97,7 +97,7 @@
                 font-size: rem(18);
                 line-height: 1.55;
                 margin: rem(0 0 16);
-                font-weight: 500;
+                font-weight: 450;
                 @include min(xxl) {
                     font-size: rem(24);
                 }
