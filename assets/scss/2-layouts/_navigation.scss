@@ -273,6 +273,9 @@
 					color: $iag-grey;
 					font-size: rem(12);
 					text-transform: uppercase;
+					@include max(lg) {
+						color: $white-a75;
+					}
 				}
 			}
 
@@ -378,6 +381,7 @@
 							letter-spacing: 0.1em;
 							margin-bottom: rem(8);
 							@include max(lg) {
+								color: $white-a75;
 								margin-bottom: 0;
 							}
 						}
