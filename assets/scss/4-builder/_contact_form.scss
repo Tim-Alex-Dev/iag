@@ -99,3 +99,11 @@
         }
     }
 }
+
+// HubSpot forms ---------------------------------------------------------------
+// HubSpot injects its own form styles at runtime (after this stylesheet) with its
+// own font-family. Force the single brand font (Avenir) on every form element.
+.hs-form,
+.hs-form * {
+    font-family: $font-text !important;
+}

@@ -121,9 +121,11 @@ $box-shadow-black: 0 16px 32px $black-a25;
 
 
 // Fonts -------------------------------------------
-$font-heading: 'Avenir', sans-serif;
-$font-text: 'IBMPlexSans', sans-serif;
-$font-alt: 'IBMPlexMono', sans-serif;
+// Single brand font: Avenir (IAG Brand Style Guide).
+// All three role variables point to Avenir so existing references continue to work.
+$font-heading: 'Avenir', sans-serif; // titles — use font-weight 700/900
+$font-text:    'Avenir', sans-serif; // body copy — use font-weight 300/400
+$font-alt:     'Avenir', sans-serif; // labels / tags / metadata — use font-weight 400/600
 
 $font-code: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 $font-pre: "Courier 10 Pitch", Courier, monospace;
