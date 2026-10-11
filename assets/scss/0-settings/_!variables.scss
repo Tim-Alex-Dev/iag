@@ -5,22 +5,22 @@
 // Add a new color only if the design really needs it; derive shades from the brand colors.
 
 // Brand colors
-$iag-orange: #FF6015; // IAG Orange: primary, CTA, highlights
-$iag-burnt-orange: #ED6E2A; // IAG Burnt Orange: secondary accent
-$iag-red: #CD3C1E; // IAG Red: hover/active of orange, errors
-$iag-grey: #6A6C6F; // IAG Grey: secondary text, form borders
-$iag-blue: #297AF8; // IAG Blue: info / status accent
-$iag-navy-light: #194B8F; // IAG Gradient start
-$iag-navy: #00112B; // IAG Gradient end: headings, body text, dark surfaces
+$iag-orange: #FF6015;
+$iag-burnt-orange: #ED6E2A;
+$iag-red: #CD3C1E;
+$iag-grey: #6A6C6F;
+$iag-blue: #297AF8;
+$iag-navy-light: #194B8F;
+$iag-navy: #00112B;
 
 // Derived shades (only what the UI needs)
-$iag-grey-active: #4A4C4F; // IAG Grey, darker: border hover/focus/active
-$iag-grey-light: #DCDDDF; // IAG Grey, light: hairlines, dividers, placeholders
-$iag-grey-50: #F4F4F5; // IAG Grey, lightest: zebra rows, section background
-$iag-orange-tint: #FFF5F0; // IAG Orange, lightest: tinted background
+$iag-grey-active: #4A4C4F;
+$iag-grey-light: #DCDDDF;
+$iag-grey-50: #F4F4F5;
+$iag-orange-tint: #FFF5F0;
 
 // Base
-$black: #000; // shadows and video background only
+$black: #000;
 $white: #fff;
 
 // Roles (aliases of the palette, change here to re-theme)
@@ -29,7 +29,7 @@ $secondary: $iag-navy;
 $color-text: $iag-navy;
 $color-link: $primary;
 
-// WordPress block editor color presets still used in older content (classes has-{name}-color, see 1-1-base/_wp-core.scss)
+// WordPress block editor color presets still used in older content (classes has-{name}-color, see 1-1-base/_wp-core.scss), mapped to brand colors
 $wp-vivid-cyan-blue: $iag-blue;
 $wp-luminous-vivid-orange: $iag-orange;
 

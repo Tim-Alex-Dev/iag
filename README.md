@@ -260,10 +260,10 @@ Files starting with `_!` are loaded first inside their folder.
 
 **Variables (`0-settings/_!variables.scss`)**
 
-* The **brand palette** (`$iag-navy-*`, `$iag-orange-*`, `$iag-gray-*`, 50–900) is the single source of truth. Use palette tokens directly; the full scales are kept even if some steps are not used yet.
+* The **brand palette** (`$iag-orange`, `$iag-burnt-orange`, `$iag-red`, `$iag-grey`, `$iag-blue`, `$iag-navy-light`, `$iag-navy`) comes from the IAG Brand Style Guide and is the single source of truth. Use these tokens directly.
 * **Roles** — `$primary`, `$secondary`, `$color-text`, `$color-link` — aliases for global roles. Change a role here, not in components.
-* **Extra colors** — a few colors outside the palette (`$grey-border`, `$green`, `$red`...). Add a new variable only if the color really is new; never create a second variable with the same value.
-* **Every color is a HEX variable**, no color functions (`rgba()`, `darken()`...). Transparent colors: `{color}-a{opacity %}` as 8-digit HEX, e.g. `$white-a88: #FFFFFFE0` (alpha = opacity × 255).
+* **Derived shades** — `$iag-grey-active`, `$iag-grey-light`, `$iag-grey-50`, `$iag-orange-tint` — only what the UI needs (borders, hover/active states, backgrounds). Add a new shade only if it is really needed; never create a second variable with the same value.
+* **Every color is a HEX variable**, no color functions (`rgba()`, `darken()`...). Transparent colors: `{color}-a{opacity %}` as 8-digit HEX, e.g. `$white-a90: #FFFFFFE6` (alpha = opacity × 255).
 * Old content written with the block editor keeps classes like `has-vivid-cyan-blue-color`: WordPress global styles are not loaded, so the presets the content uses are defined in `1-1-base/_wp-core.scss` (`$wp-*` variables).
 * Sass modules instead of global functions: `@use "sass:map";` then `map.get()`, `math.div()`, `list.nth()`.
 * Units: write sizes with `rem(16)` / `rem(16 24)`; fluid sizes with `clamp-rem(min, max)`.
