@@ -85,7 +85,7 @@
 
 #wp-admin-bar-site-name {
 	display: inline-flex !important;
-	background-color: $black !important;
+	background-color: $iag-navy !important;
 	position: relative;
 	transform: translateY(46px);
 	transition: transform 0.3s !important;
@@ -108,7 +108,7 @@
 	&:before {
 		content: '' !important;
 		display: block;
-		background-color: $black;
+		background-color: $iag-navy;
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -235,7 +235,7 @@ span {
 }
 
 .has-black-color {
-	color: $black !important;
+	color: $iag-navy !important;
 }
 
 .has-white-color {

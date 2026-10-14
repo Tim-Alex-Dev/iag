@@ -1,9 +1,11 @@
 /***************************
 * Custom Admin styles
 ***************************/
-$admin-blue: #0073aa;
-$admin-green: #009688;
-$admin-green-hover: #006d63;
+// Brand colors (same values as 0-settings/_!variables.scss; this bundle does not load the theme settings)
+$admin-blue: #194B8F; // IAG navy light
+$admin-blue-hover: #297AF8; // IAG blue
+$admin-action: #FF6015; // IAG orange
+$admin-action-hover: #CD3C1E; // IAG red
 
 // ACF flexible content
 .acf-flexible-content {
@@ -38,7 +40,7 @@ $admin-green-hover: #006d63;
 .acf-fc-layout-controls
 .acf-icon.-collapse:hover {
 	color: #fff;
-	background: #2a9bd9;
+	background: $admin-blue-hover;
 }
 
 .acf-field.acf-accordion {
@@ -66,9 +68,9 @@ $admin-green-hover: #006d63;
 	}
 
 	.acf-button {
-		background: $admin-green;
+		background: $admin-action;
 		color: #fff;
-		border: 3px solid $admin-green;
+		border: 3px solid $admin-action;
 		padding: 4px 80px;
 		font-weight: 700;
 		transition: all 0.2s;
@@ -76,9 +78,9 @@ $admin-green-hover: #006d63;
 		&:hover,
 		&:active,
 		&:focus {
-			background: $admin-green-hover;
+			background: $admin-action-hover;
 			color: #fff;
-			border-color: $admin-green-hover;
+			border-color: $admin-action-hover;
 		}
 	}
 }

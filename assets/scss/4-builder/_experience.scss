@@ -36,12 +36,12 @@
                 font-size: rem(24);
                 text-transform: uppercase;
                 font-weight: 600;
-                color: $iag-navy-800;
+                color: $iag-navy;
                 letter-spacing: 0.05em;
                 transition: $default-transition;
                 cursor: pointer;
                 &:hover {
-                    color: $iag-orange-500;
+                    color: $iag-orange;
                 }
 
                 &:after {
@@ -56,7 +56,7 @@
                 }
 
                 &.is-active {
-                    color: $iag-orange-500;
+                    color: $iag-orange;
                     pointer-events: none;
                 }
 
@@ -65,7 +65,7 @@
                     &:hover {
                         &::after {
                             width: 100%;
-                            background-color: $iag-orange-500;
+                            background-color: $iag-orange;
                         }
                     }
                 }
@@ -97,7 +97,7 @@
         gap: rem(20);
         border-radius: rem(16);
         overflow: hidden;
-        background-color: $iag-navy-700;
+        background-color: $iag-navy;
         &:after {
             position: absolute;
             content: '';

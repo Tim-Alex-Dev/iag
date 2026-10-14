@@ -4,6 +4,11 @@
 @import "swiper/modules/navigation";
 @import "swiper/modules/pagination";
 
+// Brand color for Swiper defaults (library default is #007aff)
+:root {
+	--swiper-theme-color: #{$iag-orange};
+}
+
 .swiper-slide {
 	box-sizing: border-box;
 }
@@ -45,7 +50,7 @@
 		&:not(.swiper-pagination-bullet-active) {
 			&:hover {
 				&:after {
-					background-color: $primary-a50;
+					background-color: $iag-orange-a50;
 				}
 			}
 		}
@@ -75,7 +80,7 @@
 		width: rem(44);
 		height: rem(44);
 		border-radius: rem(4);
-		border: 1px solid $iag-gray-300;
+		border: 1px solid $iag-grey;
 		background: $white;
 		display: flex;
 		align-items: center;
@@ -96,7 +101,7 @@
 		}
 
 		svg {
-			fill: $iag-gray-700;
+			fill: $iag-navy;
 			width: rem(32);
 			height: rem(32);
 		}

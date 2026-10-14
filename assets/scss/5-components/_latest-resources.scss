@@ -9,10 +9,10 @@
         margin-bottom: rem(28);
 
         &-title {
-            font-weight: 800;
+            font-weight: 700;
             font-size: rem(26);
             letter-spacing: -0.015em;
-            color: $iag-orange-500 !important;
+            color: $iag-orange !important;
         }
     }
 
@@ -56,8 +56,8 @@
                     font-weight: 600;
                     padding: rem(6 12 6 20);
                     border-radius: rem(999);
-                    background-color: $iag-navy-300-a22;
-                    color: rgb(207, 224, 245);
+                    background-color: $iag-navy-light-a20;
+                    color: $white-a90;
                     &::after {
                         position: absolute;
                         content: '';
@@ -67,7 +67,7 @@
                         top: 50%;
                         left: rem(8);
                         transform: translateY(-50%);
-                        background-color: rgb(207, 224, 245);
+                        background-color: $white-a90;
                     }
 
                 }
@@ -78,12 +78,12 @@
                     gap: rem(8);
                     font-family: $font-alt;
                     font-size: rem(12);
-                    color: $iag-gray-500;
+                    color: $white-a75;
                 }
             }
 
             &__title {
-                font-weight: 800;
+                font-weight: 700;
                 font-size: rem(28);
                 line-height: 1.14;
                 letter-spacing: -0.02em;
@@ -94,7 +94,7 @@
             &__subtitle {
                 font-size: rem(16);
                 line-height: 1.6;
-                color: $iag-navy-100;
+                color: $white-a90;
             }
 
             &__link {
@@ -112,10 +112,10 @@
             align-items: center;
             gap: rem(16);
             padding: rem(16 0);
-            border-bottom: 1px solid $white-a12;
+            border-bottom: 1px solid $white-a10;
             &:hover {
                 .list-post__icon {
-                    background-color: $iag-orange-500;
+                    background-color: $iag-orange;
                 }
             }
 
@@ -145,7 +145,7 @@
                     font-weight: 700;
                     letter-spacing: 0.12em;
                     text-transform: uppercase;
-                    color: $iag-orange-400;
+                    color: $iag-burnt-orange;
                 }
 
                 &-title {
@@ -173,13 +173,13 @@
                 width: rem(34);
                 height: rem(34);
                 border-radius: 50%;
-                border: 1px solid $iag-gray-200;
+                border: 1px solid $iag-grey-light;
                 transition: $default-transition;
                 flex-shrink: 0;
                 margin-left: auto;
 
                 svg {
-                    fill: $white-a80;
+                    fill: $white-a75;
                     width: rem(16);
                     height: rem(16);
                 }

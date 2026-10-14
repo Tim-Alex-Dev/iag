@@ -1,8 +1,8 @@
 .leadership {
-    background-color: $iag-navy-700;
+    background-color: $iag-navy;
 
     &-main {
-        background-color: $iag-navy-700;
+        background-color: $iag-navy;
         padding: rem(40 0);
 
         &__content {
@@ -10,7 +10,7 @@
             gap: rem(40);
             padding: rem(24);
             border-radius: rem(12);
-            background-color: $iag-gray-300;
+            background-color: $iag-grey-light;
             width: fit-content;
             @include max(lg) {
                 width: 100%;
@@ -54,7 +54,7 @@
             }
 
             &-position {
-                color: $iag-orange-500;
+                color: $iag-orange;
                 font-weight: 600;
                 font-size: rem(22);
                 line-height: 1.25;
@@ -63,8 +63,8 @@
 
             &-subtitle {
                 font-size: rem(18);
-                color: $iag-gray-900;
-                font-weight: 500;
+                color: $iag-navy;
+                font-weight: 450;
                 margin: rem(0 0 18);
             }
 
@@ -119,7 +119,7 @@
                     width: fit-content;
                     font-size: rem(14);
                     font-weight: 600;
-                    color: $iag-orange-500;
+                    color: $iag-orange;
                     padding-right: rem(16);
                     margin-top: rem(16);
         
@@ -131,7 +131,7 @@
                         transform: translateY(-50%);
                         width: rem(10);
                         height: rem(2);
-                        background-color: $iag-orange-500;
+                        background-color: $iag-orange;
                         border-radius: rem(2);
                         transition: all .5s;
                     }
@@ -144,7 +144,7 @@
                         transform: translateY(-50%);
                         width: rem(2);
                         height: rem(10);
-                        background-color: $iag-orange-500;
+                        background-color: $iag-orange;
                         border-radius: rem(2);
                         transition: all .5s;
                     }
@@ -163,7 +163,7 @@
         &__form {
             padding: rem(40 80);
             border-radius: rem(12);
-            border: 1px solid $iag-gray-200;
+            border: 1px solid $iag-grey-light;
         }
     }
 }

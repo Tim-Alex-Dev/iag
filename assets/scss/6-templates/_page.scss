@@ -3,6 +3,24 @@
 	flex-grow: 1;
 }
 
+// Templates without their own section background sit on the dark body: use light text
+.archive-wrapper,
+.error404 .site-content {
+	color: $white-a90;
+
+	.page-title,
+	.entry-title,
+	.entry-title a,
+	.article__title,
+	.article__title a {
+		color: $white;
+	}
+
+	.article__title a:hover {
+		color: $iag-orange;
+	}
+}
+
 .entry-title {
 	font-weight: 700;
 	margin-bottom: 1em;

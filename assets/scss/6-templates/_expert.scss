@@ -1,5 +1,5 @@
 .expert {
-    background-color: $iag-navy-700;
+    background-color: $iag-navy;
 
     &-block {
         padding: rem(80 0);
@@ -28,7 +28,7 @@
 			.bg-white &,
 			.bg-gray &,
 			.bg-blue & {
-				color: $iag-orange-500;
+				color: $iag-orange;
 			}
 			.bg-orange & {
 				color: $white;
@@ -51,11 +51,11 @@
 			}
 			.bg-white &,
 			.bg-gray &  {
-				color: $iag-gray-900;
+				color: $iag-navy;
 			}
 
 			span {
-				color: $iag-orange-500 !important;
+				color: $iag-orange !important;
 			}
         }
 
@@ -72,11 +72,11 @@
                 max-width: rem(800);
             }
 			.bg-blue & {
-				color: $iag-navy-100;
+				color: $white-a90;
 			}
 			.bg-white &,
 			.bg-gray & {
-				color: $iag-gray-700;
+				color: $iag-navy;
 			}
 			.bg-orange & {
 				color: $white;
@@ -89,7 +89,7 @@
         left: 0;
         top: rem(50);
         width: 100%;
-        background-color: $iag-gray-50;
+        background-color: $iag-grey-50;
         z-index: 99;
         padding: rem(12 0);
         box-shadow: rem(0 10 10) $black-a10;
@@ -115,7 +115,7 @@
             height: rem(40);
             position: relative;
             border-radius: 50%;
-            border: 1px solid $iag-gray-400;
+            border: 1px solid $iag-grey;
             overflow: hidden;
 
             &-img {
@@ -132,13 +132,13 @@
             margin-right: auto;
             font-weight: 600;
             &-degree {
-                color: $iag-gray-400;
+                color: $iag-grey;
             }
         }
     }
 
     &-main {
-        background-color: $iag-navy-700;
+        background-color: $iag-navy;
         padding: rem(40 0);
 
         &__content {
@@ -146,7 +146,7 @@
             gap: rem(40);
             padding: rem(24);
             border-radius: rem(12);
-            background-color: $iag-gray-300;
+            background-color: $iag-grey-light;
         }
 
         &__data {
@@ -202,7 +202,7 @@
             &-degree {
                 font-size: rem(28);
                 font-weight: 600;
-                color: $iag-orange-400;
+                color: $iag-burnt-orange;
                 @include max(lg) {
                     font-size: rem(28);
                 }
@@ -211,8 +211,8 @@
 
         &__subtitle {
             font-size: rem(18);
-            color: $iag-gray-900;
-            font-weight: 500;
+            color: $iag-navy;
+            font-weight: 450;
             margin: rem(0 0 18);
         }
 
@@ -254,7 +254,7 @@
                     transition: $default-transition;
                     height: rem(60);
                     width: rem(80);
-                    fill: $red-01;
+                    fill: $iag-red;
                 }
             }
         }
@@ -327,7 +327,7 @@
                     width: fit-content;
                     font-size: rem(14);
                     font-weight: 600;
-                    color: $iag-orange-500;
+                    color: $iag-orange;
                     padding-right: rem(16);
                     margin-top: rem(16);
         
@@ -339,7 +339,7 @@
                         transform: translateY(-50%);
                         width: rem(10);
                         height: rem(2);
-                        background-color: $iag-orange-500;
+                        background-color: $iag-orange;
                         border-radius: rem(2);
                         transition: all .5s;
                     }
@@ -352,7 +352,7 @@
                         transform: translateY(-50%);
                         width: rem(2);
                         height: rem(10);
-                        background-color: $iag-orange-500;
+                        background-color: $iag-orange;
                         border-radius: rem(2);
                         transition: all .5s;
                     }
@@ -440,7 +440,7 @@
                     font-weight: 600;
                     color: $white;
                     padding-bottom: rem(8);
-                    border-bottom: 1px solid $iag-gray-200;
+                    border-bottom: 1px solid $iag-grey-light;
                 }
 
                 &__item {
@@ -450,11 +450,11 @@
 
                     &-title {
                         font-weight: 600;
-                        color: $iag-orange-500;
+                        color: $iag-orange;
                     }
 
                     &-description {
-                        color: $iag-gray-400;
+                        color: $white-a75;
                     }
                 }
             }
@@ -527,14 +527,14 @@
                 &__title {
                     display: inline-flex;
                     font-family: $font-alt;
-                    color: $iag-gray-900;
+                    color: $iag-navy;
                     font-size: rem(16);
                     line-height: 1.3;
                     font-weight: 600;
                     letter-spacing: .08em;
                     padding-bottom: rem(8);
                     margin-bottom: rem(16);
-                    border-bottom: 1px solid $iag-gray-400;
+                    border-bottom: 1px solid $iag-grey;
                     text-transform: uppercase;
                 }
 
@@ -555,14 +555,14 @@
                         font-size: rem(12);
                         letter-spacing: .07em;
                         text-transform: uppercase;
-                        color: $iag-gray-500;
+                        color: $iag-grey;
                     }
                 }
 
                 &__location {
                     padding: rem(8 0);
-                    font-weight: 500;
-                    color: $iag-gray-900;
+                    font-weight: 450;
+                    color: $iag-navy;
                 }
             }
         }

@@ -22,8 +22,8 @@ $color-array: (
 				primary: $primary,
 				secondary: $secondary,
 				white: $white,
-				black: $black,
-				grey: $grey,
+				black: $iag-navy,
+				grey: $iag-grey,
 );
 @each $color-name, $color-value in $color-array {
 	#{'.bg-' + $color-name} {
@@ -80,12 +80,12 @@ $color-array: (
 
 	&:focus {
 		font-size: rem(14);
-		background-color: $grey-wp-focus;
+		background-color: $iag-grey-50;
 		border-radius: 3px;
-		box-shadow: 0 0 2px 2px $black-a60;
+		box-shadow: 0 0 2px 2px $black-a50;
 		clip: auto !important;
 		clip-path: none;
-		color: $black;
+		color: $iag-navy;
 		display: block;
 		font-weight: bold;
 		height: auto;

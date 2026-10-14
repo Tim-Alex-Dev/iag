@@ -244,28 +244,28 @@
     &.bg-blue {
         .m-locations__list {
             &-location {
-                border: 1px solid $iag-navy-600;
-                background-color: $iag-navy-800;
+                border: 1px solid $iag-navy-light;
+                background-color: $iag-navy;
                 .location-banner {
-                    border-bottom: 1px solid $iag-navy-600;
+                    border-bottom: 1px solid $iag-navy-light;
                 }
 
                 .location-content {
                     &__header {
                         &-type {
                             background-color: $white;
-                            color: $iag-gray-900;
+                            color: $iag-navy;
                         }
 
                         &-country {
-                            color: $iag-orange-500;
+                            color: $iag-orange;
                         }
                     }
 
                     &__title {
                         &-icon {
-                            background-color: $icon-orange-a15;
-                            color: $iag-orange-600;
+                            background-color: $iag-orange-a15;
+                            color: $iag-red;
                         }
 
                         &-text {
@@ -275,8 +275,8 @@
 
                     &__phone {
                         &-icon {
-                            background-color: $icon-orange-a15;
-                            color: $iag-orange-600;
+                            background-color: $iag-orange-a15;
+                            color: $iag-red;
                         }
 
                         &-link {
@@ -285,11 +285,11 @@
                     }
 
                     &__url {
-                        background-color: $iag-navy-700;
-                        color: $iag-orange-600;
+                        background-color: $iag-navy;
+                        color: $iag-red;
                         &:hover {
-                            background-color: $iag-navy-600;
-                            color: $iag-orange-500;
+                            background-color: $iag-navy-light;
+                            color: $iag-orange;
                         }
                     }
                 }
@@ -297,13 +297,13 @@
         }
 
         .m-locations__links {
-            background-color: $iag-navy-800;
-            border: 1px solid $iag-navy-600;
+            background-color: $iag-navy;
+            border: 1px solid $iag-navy-light;
 
             .link-item {
                 &__icon {
-                    background-color: $icon-orange-a15;
-                    color: $iag-orange-500;
+                    background-color: $iag-orange-a15;
+                    color: $iag-orange;
                 }
 
                 &__label {
@@ -314,7 +314,7 @@
                 }
 
                 &__url {
-                    color: $iag-orange-500;
+                    color: $iag-orange;
                 }
             }
         }
@@ -324,48 +324,48 @@
     &.bg-gray {
         .m-locations__list {
             &-location {
-                border: 1px solid $iag-gray-200;
+                border: 1px solid $iag-grey-light;
 
                 .location-banner {
-                    border-bottom: 1px solid $iag-gray-200;
+                    border-bottom: 1px solid $iag-grey-light;
                 }
 
                 .location-content {
                     &__header {
                         &-type {
-                            background-color: $iag-orange-50;
-                            color: $iag-orange-700;
+                            background-color: $iag-orange-tint;
+                            color: $iag-red;
                         }
                     }
 
                     &__title {
                         &-icon {
-                            background-color: $iag-orange-50;
-                            color: $iag-orange-600;
+                            background-color: $iag-orange-tint;
+                            color: $iag-red;
                         }
 
                         &-text {
-                            color: $iag-gray-700;
+                            color: $iag-navy;
                         }
                     }
 
                     &__phone {
                         &-icon {
-                            background-color: $iag-orange-50;
-                            color: $iag-orange-600;
+                            background-color: $iag-orange-tint;
+                            color: $iag-red;
                         }
 
                         &-link {
-                            color: $iag-orange-600;
+                            color: $iag-red;
                         }
                     }
 
                     &__url {
-                        background-color: $iag-navy-700;
-                        color: $iag-orange-600;
+                        background-color: $iag-navy;
+                        color: $iag-red;
                         &:hover {
-                            background-color: $iag-navy-600;
-                            color: $iag-orange-500;
+                            background-color: $iag-navy-light;
+                            color: $iag-orange;
                         }
                     }
                 }
@@ -373,24 +373,24 @@
         }
 
         .m-locations__links {
-            background-color: $iag-gray-50;
-            border: 1px solid $iag-gray-200;
+            background-color: $iag-grey-50;
+            border: 1px solid $iag-grey-light;
 
             .link-item {
                 &__icon {
-                    background: $iag-orange-50;
-                    color: $iag-orange-600;
+                    background: $iag-orange-tint;
+                    color: $iag-red;
                 }
 
                 &__label {
-                    color: $iag-gray-700;
+                    color: $iag-navy;
                     &::after {
-                        background-color: $iag-gray-700;
+                        background-color: $iag-grey;
                     }
                 }
 
                 &__url {
-                    color: $iag-orange-500;
+                    color: $iag-orange;
                 }
             }
         }

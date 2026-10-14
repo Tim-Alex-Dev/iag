@@ -33,21 +33,21 @@
 	}
 
 	&-primary {
-		background-color: $iag-orange-500;
-		border-color: $iag-orange-500;
-		box-shadow: 0 rem(8) rem(24) $iag-orange-500-a22;
+		background-color: $iag-orange;
+		border-color: $iag-orange;
+		box-shadow: 0 rem(8) rem(24) $iag-orange-a15;
 		color: $white;
 
 		&:hover,
 		&:focus,
 		&:active {
-			background-color: $iag-orange-600;
+			background-color: $iag-red;
 		}
 	}
 
 	&-simple {
 		padding: 0;
-		color: $iag-orange-500;
+		color: $iag-orange;
 		background-color: transparent !important;
 		border: none !important;
 		&:hover,
@@ -57,8 +57,8 @@
 		}
 
 		.icon {
-			fill: $iag-orange-500;
-			stroke: $iag-orange-500;
+			fill: $iag-orange;
+			stroke: $iag-orange;
 		}
 	}
 
@@ -67,25 +67,25 @@
 		
 		.bg-white &,
 		.bg-gray & {
-			border-color: $iag-gray-200;
-			color: $iag-gray-700;
+			border-color: $iag-grey-light;
+			color: $iag-navy;
 
 			&:hover,
 			&:focus,
 			&:active {
-				background-color: $iag-gray-100;
-				color: $iag-gray-900;
+				background-color: $iag-grey-50;
+				color: $iag-navy;
 			}
 		}
 
 		.bg-blue & {
-			color: $iag-navy-200;
-			border-color: $iag-navy-600;
+			color: $white-a75;
+			border-color: $iag-navy-light;
 
 			&:hover,
 			&:focus,
 			&:active {
-				background-color: $iag-navy-800;
+				background-color: $iag-navy;
 				color: $white;
 			}
 		}
@@ -93,15 +93,15 @@
 
 	&-outline-primary {
 		background-color: transparent;
-		border: 1px solid $iag-orange-500;
-		color: $iag-orange-500;
+		border: 1px solid $iag-orange;
+		color: $iag-orange;
 		
 		&:hover,
 		&:focus,
 		&:active {
 			color: $white;
-			background-color: $iag-orange-500;
-			box-shadow: 0 rem(8) rem(24) $iag-orange-500-a22;
+			background-color: $iag-orange;
+			box-shadow: 0 rem(8) rem(24) $iag-orange-a15;
 		}
 	}
 }

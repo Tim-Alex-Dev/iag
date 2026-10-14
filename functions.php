@@ -18,6 +18,7 @@ require IT_DIR . '/inc/disables.php'; // WordPress features the theme does not u
 require IT_DIR . '/inc/editor.php'; // classic editor formats and colors
 require IT_DIR . '/inc/help-func.php'; // template helpers
 require IT_DIR . '/inc/login.php'; // login screen
+require IT_DIR . '/inc/migrations.php'; // WP-CLI data migrations (run by hand)
 require IT_DIR . '/inc/scripts-styles.php'; // scripts and styles
 require IT_DIR . '/inc/seo.php'; // Source archives pagination, security headers
 require IT_DIR . '/inc/svg-support.php'; // safe SVG uploads

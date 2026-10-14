@@ -260,10 +260,10 @@ Files starting with `_!` are loaded first inside their folder.
 
 **Variables (`0-settings/_!variables.scss`)**
 
-* The **brand palette** (`$iag-navy-*`, `$iag-orange-*`, `$iag-gray-*`, 50–900) is the single source of truth. Use palette tokens directly; the full scales are kept even if some steps are not used yet.
+* The **brand palette** (`$iag-orange`, `$iag-burnt-orange`, `$iag-red`, `$iag-grey`, `$iag-blue`, `$iag-navy-light`, `$iag-navy`) comes from the IAG Brand Style Guide and is the single source of truth. Use these tokens directly.
 * **Roles** — `$primary`, `$secondary`, `$color-text`, `$color-link` — aliases for global roles. Change a role here, not in components.
-* **Extra colors** — a few colors outside the palette (`$grey-border`, `$green`, `$red`...). Add a new variable only if the color really is new; never create a second variable with the same value.
-* **Every color is a HEX variable**, no color functions (`rgba()`, `darken()`...). Transparent colors: `{color}-a{opacity %}` as 8-digit HEX, e.g. `$white-a88: #FFFFFFE0` (alpha = opacity × 255).
+* **Derived shades** — `$iag-grey-active`, `$iag-grey-light`, `$iag-grey-50`, `$iag-orange-tint` — only what the UI needs (borders, hover/active states, backgrounds). Add a new shade only if it is really needed; never create a second variable with the same value.
+* **Every color is a HEX variable**, no color functions (`rgba()`, `darken()`...). Transparent colors: `{color}-a{opacity %}` as 8-digit HEX, e.g. `$white-a90: #FFFFFFE6` (alpha = opacity × 255).
 * Old content written with the block editor keeps classes like `has-vivid-cyan-blue-color`: WordPress global styles are not loaded, so the presets the content uses are defined in `1-1-base/_wp-core.scss` (`$wp-*` variables).
 * Sass modules instead of global functions: `@use "sass:map";` then `map.get()`, `math.div()`, `list.nth()`.
 * Units: write sizes with `rem(16)` / `rem(16 24)`; fluid sizes with `clamp-rem(min, max)`.
@@ -305,6 +305,7 @@ All files are loaded from `functions.php`.
 | `editor.php` | TinyMCE style formats (titles, text, buttons, lists), text colors, `force_balance_tags` on content and ACF WYSIWYG output (pasted tables otherwise leave stray tags) |
 | `help-func.php` | helpers: `it_id_attr()`, `it_excerpt()`, `it_posted_on()`, `it_phone_cleaner()`, `[email]` shortcode, `it_inline_svg()`, `it_link_rel()`, `get_primary_category()`, `it_console_log()` (admins only) |
 | `login.php` | login screen logo and link |
+| `migrations.php` | WP-CLI only, nothing runs on its own. `wp iag migrate-simple-content [--dry-run]` moves the old single block of every Simple Content module into row 1 of the `content_list` repeater (safe to run twice, old values stay in the DB). Run it once on every environment right after deploying the Simple Content repeater, after a DB backup |
 | `scripts-styles.php` | enqueue of `main.css`, `main.js` (+ `itSettings`), admin assets; version = file time (`it_asset_ver()`, cache busting) |
 | `seo.php` | Source archive pagination redirects, Complianz URL fix, security headers |
 | `svg-support.php` | SVG uploads for administrators only; every SVG is sanitized (scripts, events, external links removed) |

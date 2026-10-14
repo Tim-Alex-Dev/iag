@@ -38,7 +38,7 @@ $is_slider  = $icons_type === 'slider';
 $content_title = ( $is_gallery || $is_slider )
 	? $content_title
 	: false;
-?>''
+?>
 
 <section<?php echo $module_id; ?>
 	class="module m-counter bg-<?php echo esc_attr( $color_theme ); ?>"
