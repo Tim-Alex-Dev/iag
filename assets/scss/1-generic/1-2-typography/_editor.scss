@@ -77,7 +77,8 @@
 	.bg-gray {
 		color: $iag-navy;
 	}
-	.bg-blue & {
+	.bg-blue &,
+	.bg-gradient & {
 		color: $white-a90;
 	}
 }

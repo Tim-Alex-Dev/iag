@@ -139,7 +139,8 @@
 
 // Color Mode
 .m-testimonials {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-testimonials {
             &__info {
                 .info-block {

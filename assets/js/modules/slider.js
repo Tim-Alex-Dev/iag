@@ -7,33 +7,6 @@ jQuery(document).ready(function ($) {
 	/**
 	 * Sliders
 	 */
-	document.querySelectorAll('.m-counter__slider-swiper').forEach((slider) => {
-		new Swiper(slider, {
-			modules: [Navigation, Pagination, Autoplay, A11y],
-			spaceBetween: 12,
-			loop: true,
-			slidesPerView: 3,
-			breakpoints: {
-				640: {
-					spaceBetween: 24,
-				},
-				1024: {
-					spaceBetween: 40,
-					slidesPerView: 5,
-				},
-				1440: {
-					spaceBetween: 80,
-					slidesPerView: 'auto',
-				},
-			},
-			speed: 2500,
-			autoplay: {
-				delay: 0,
-				disableOnInteraction: false,
-			},
-		});
-	});
-
 	document.querySelectorAll('.m-experience__swiper').forEach((slider) => {
 		new Swiper(slider, {
 			modules: [Navigation, Pagination, Autoplay, A11y],

@@ -203,7 +203,8 @@
 
 // color theme
 .m-simple-content {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-simple-content__media {
             box-shadow: 0 16px 32px $white-a10;
         }

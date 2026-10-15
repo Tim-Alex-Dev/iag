@@ -96,7 +96,8 @@
 
 // Color Mode
 .m-slider {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .swiper-slide {
             background: $iag-navy;
             border: 1px solid $iag-navy-light;

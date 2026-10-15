@@ -182,7 +182,8 @@
 
 // Color Mode
 .m-simple-blocks {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-simple-blocks__list {
             padding-top: rem(24);
             border-top: 1px solid $iag-navy-light;

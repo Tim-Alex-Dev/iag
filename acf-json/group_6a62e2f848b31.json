@@ -56,7 +56,8 @@
             "choices": {
                 "white": "White",
                 "gray": "Gray",
-                "blue": "Blue"
+                "blue": "Blue",
+                "gradient": "Gradient"
             },
             "default_value": "",
             "return_format": "value",
@@ -224,7 +225,6 @@
                 "id": ""
             },
             "choices": {
-                "slider": "Slider",
                 "gallery": "Gallery",
                 "no-icons": "No Icons"
             },
@@ -243,18 +243,6 @@
             "instructions": "",
             "required": 0,
             "conditional_logic": [
-                [
-                    {
-                        "field": "field_6a62ec3c507ff",
-                        "operator": "==",
-                        "value": "slider"
-                    },
-                    {
-                        "field": "field_6a98c8cc2dc89",
-                        "operator": "==",
-                        "value": "custom"
-                    }
-                ],
                 [
                     {
                         "field": "field_6a62ec3c507ff",
@@ -289,18 +277,6 @@
             "instructions": "",
             "required": 0,
             "conditional_logic": [
-                [
-                    {
-                        "field": "field_6a62ec3c507ff",
-                        "operator": "==",
-                        "value": "slider"
-                    },
-                    {
-                        "field": "field_6a98c8cc2dc89",
-                        "operator": "==",
-                        "value": "custom"
-                    }
-                ],
                 [
                     {
                         "field": "field_6a62ec3c507ff",
@@ -409,5 +385,5 @@
             "json"
         ]
     },
-    "modified": 1788398200
+    "modified": 1792058435
 }

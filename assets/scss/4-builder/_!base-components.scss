@@ -44,7 +44,8 @@
 			}
 			.bg-white &,
 			.bg-gray &,
-			.bg-blue & {
+			.bg-blue &,
+			.bg-gradient & {
 				color: $iag-orange;
 			}
 			.bg-orange & {
@@ -63,6 +64,7 @@
 				max-width: rem(900);
 			}
 			.bg-blue &,
+			.bg-gradient &,
 			.bg-orange & {
 				color: $white;
 			}
@@ -88,7 +90,8 @@
 				font-size: rem(24);
 				max-width: rem(800);
 			}
-			.bg-blue & {
+			.bg-blue &,
+			.bg-gradient & {
 				color: $white-a90;
 			}
 			.bg-white &,
@@ -109,7 +112,10 @@
 	background-color: $iag-grey-50;
 }
 .bg-blue {
-	background-color: $iag-navy;
+	background-color: $iag-navy-light;
+}
+.bg-gradient {
+	background: $bg-gradient;
 }
 .bg-orange {
 	background-color: $iag-orange;

@@ -16,9 +16,10 @@ $counter_list = $is_global
 
 /**
  * Icons settings
+ * Global counters always show the icons as a gallery.
  */
 $icons_type = $is_global
-	? get_field( 'counter_icons_type', 'option' )
+	? 'gallery'
 	: get_sub_field( 'icons_type' );
 
 $content_title = $is_global
@@ -33,9 +34,8 @@ $counter_list = $counter_list ?: [];
 $icons_list   = $icons_list ?: [];
 
 $is_gallery = $icons_type === 'gallery';
-$is_slider  = $icons_type === 'slider';
 
-$content_title = ( $is_gallery || $is_slider )
+$content_title = $is_gallery
 	? $content_title
 	: false;
 ?>
@@ -50,16 +50,12 @@ $content_title = ( $is_gallery || $is_slider )
 				<?php foreach ( $counter_list as $counter_item ) :
 					$is_animated   = $counter_item['animated_counter'] ?? false;
 					$item_title    = $counter_item['counter_item_title'] ?? false;
-					$item_subtitle = $counter_item['counter_item_subtitle'] ?? false;
-					?>
+					$item_subtitle = $counter_item['counter_item_subtitle'] ?? false; ?>
 
 					<?php if ( $item_title ) : ?>
 						<div class="counter-item<?php echo $is_animated ? ' animated-item' : ''; ?>">
 
-							<div
-								class="counter-item__title"
-								data-counter="<?php echo esc_attr( $item_title ); ?>"
-							>
+							<div class="counter-item__title" data-counter="<?php echo esc_attr( $item_title ); ?>">
 								<?php echo esc_html( $is_animated ? '0' : $item_title ); ?>
 							</div>
 
@@ -127,67 +123,5 @@ $content_title = ( $is_gallery || $is_slider )
 				</div>
 			</div>
 		<?php endif; ?>
-
-
-		<?php if ( $is_slider && $icons_list ) : ?>
-			<div class="m-counter__slider">
-
-				<?php if ( $content_title ) : ?>
-					<span class="m-counter__slider-title">
-						<?php echo esc_html( $content_title ); ?>
-					</span>
-				<?php endif; ?>
-
-				<div class="m-counter__slider-swiper swiper is-centered">
-					<div class="swiper-wrapper">
-
-						<?php foreach ( $icons_list as $icon_item ) :
-							$icon_id    = $icon_item['icon'] ?? false;
-							$icon_title = $icon_item['icon_title'] ?? false;
-							$icon_url   = $icon_item['icon_url'] ?? false; ?>
-
-							<?php if ( $icon_id ) : ?>
-								<div class="m-counter__slider-slide swiper-slide">
-
-									<?php if ( $icon_url ) : ?>
-										<a class="m-counter__slider-slide-link" href="<?php echo esc_url( $icon_url ); ?>" >
-									<?php else : ?>
-										<div class="m-counter__slider-slide-inner">
-									<?php endif; ?>
-
-										<div class="slide-image">
-											<?php echo wp_get_attachment_image(
-												$icon_id,
-												'thumbnail',
-												false,
-												[
-													'class' => 'slide-image__img',
-												]
-											); ?>
-										</div>
-
-										<?php if ( $icon_title ) : ?>
-											<span class="slide-title">
-												<?php echo esc_html( $icon_title ); ?>
-											</span>
-										<?php endif; ?>
-
-									<?php if ( $icon_url ) : ?>
-										</a>
-									<?php else : ?>
-										</div>
-									<?php endif; ?>
-
-								</div>
-							<?php endif; ?>
-
-						<?php endforeach; ?>
-
-					</div>
-				</div>
-
-			</div>
-		<?php endif; ?>
-
 	</div>
 </section>

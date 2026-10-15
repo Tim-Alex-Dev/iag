@@ -111,10 +111,10 @@
         .m-partnership__swipers {
             .swiper {
                 &:after {
-                    background: linear-gradient(270deg, $iag-navy 0%,$iag-navy-a00 100%);
+                    background: linear-gradient(270deg, $iag-navy-light 0%,transparent 100%);
                 }
                 &:before {
-                    background: linear-gradient(90deg, $iag-navy 0%,$iag-navy-a00 100%);
+                    background: linear-gradient(90deg, $iag-navy-light 0%,transparent 100%);
                 }
             }
         }

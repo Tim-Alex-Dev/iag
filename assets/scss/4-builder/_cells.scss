@@ -69,7 +69,8 @@
 
 // color theme
 .m-cells {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-cells__list {
             border: 1px solid $iag-navy-light;
         }

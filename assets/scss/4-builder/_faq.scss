@@ -78,7 +78,8 @@
 
 // Color Mode
 .m-faq {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-faq__list {
             &-item {
                 background: $iag-navy;

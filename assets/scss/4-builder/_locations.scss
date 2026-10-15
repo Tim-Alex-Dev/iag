@@ -241,7 +241,8 @@
 
 // color theme
 .m-locations {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-locations__list {
             &-location {
                 border: 1px solid $iag-navy-light;

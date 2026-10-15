@@ -136,7 +136,8 @@
 
 // color theme
 .m-media {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-media__list {
             &-item {
                 .list-item__icon {

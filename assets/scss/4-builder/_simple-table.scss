@@ -71,7 +71,8 @@
 
 // Color Mode
 .m-table {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-table__main {
             border: 1px solid $iag-navy-light;
             &.main-header-true {

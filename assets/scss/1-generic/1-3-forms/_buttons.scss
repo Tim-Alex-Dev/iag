@@ -78,7 +78,8 @@
 			}
 		}
 
-		.bg-blue & {
+		.bg-blue &,
+		.bg-gradient & {
 			color: $white-a75;
 			border-color: $iag-navy-light;
 

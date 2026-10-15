@@ -171,92 +171,12 @@
             }
         }
     }
-
-    &__slider {
-        &-swiper {
-            position: relative;
-            margin-top: rem(28);
-            &::after {
-                position: absolute;
-                content: '';
-                top: 0;
-                right: 0;
-                width: rem(150);
-                height: 100%;
-                z-index: 10;
-                pointer-events: none;
-            }
-            &::before {
-                position: absolute;
-                content: '';
-                top: 0;
-                left: 0;
-                width: rem(150);
-                height: 100%;
-                z-index: 10;
-                pointer-events: none;
-            }
-
-            .swiper-wrapper {
-                transition-timing-function: linear !important;
-            }
-        }
-
-        &-slide {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: rem(12);
-            width: fit-content;
-
-            .slide-image {
-                height: rem(68);
-                width: rem(68);
-                border-radius: rem(8);
-                position: relative;
-                overflow: hidden;
-                @include min(xxl) {
-                    height: rem(92);
-                    width: rem(92);
-                }
-
-                &__img {
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-
-            .slide-title {
-                font-family: $font-alt;
-                font-size: rem(12);
-                text-align: center;
-                transition: $default-transition;
-                @include min(xxl) {
-                    font-size: rem(18);
-                }
-            }
-        }
-
-        &-title {
-            display: block;
-            text-align: center;
-            font-size: rem(14);
-            font-weight: 600;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            margin: rem(28 0 0);
-            @include min(xxl) {
-                font-size: rem(20);
-            }
-        }
-    }
 }
 
 // Color Mode
 .m-counter {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-counter__list {
             border-bottom: 1px solid $iag-navy-light;
 
@@ -307,61 +227,6 @@
                 }
             }
         }
-
-        .m-counter__slider {
-            &-swiper {
-                &::after {
-                    background: linear-gradient(270deg, $iag-navy 0%,$iag-navy-a00 100%);
-                }
-                &::before {
-                    background: linear-gradient(90deg, $iag-navy 0%,$iag-navy-a00 100%);
-                }
-            }
-
-            &-slide {
-                .slide-title {
-                    color: $white-a90;
-                }
-            }
-
-            &-title {
-                color: $white-a75;
-            }
-
-            &-slide-link {
-                &:hover {
-                    .slide-title {
-                        color: $iag-orange !important;
-                    }
-                }
-            }
-        }
-    }
-
-    &.bg-white {
-        .m-counter__slider {
-            &-swiper {
-                &::after {
-                    background: linear-gradient(270deg, $white 0%,$white-a00 100%);
-                }
-                &::before {
-                    background: linear-gradient(90deg, $white 0%,$white-a00 100%);
-                }
-            }
-        } 
-    }
-
-    &.bg-gray {
-        .m-counter__slider {
-            &-swiper {
-                &::after {
-                    background: linear-gradient(270deg, $iag-grey-50 0%,$iag-grey-50-a00 100%);
-                }
-                &::before {
-                    background: linear-gradient(90deg, $iag-grey-50 0%,$iag-grey-50-a00 100%);
-                }
-            }
-        } 
     }
 
     &.bg-white,
@@ -416,25 +281,5 @@
                 }
             }
         }
-
-        .m-counter__slider {
-            &-slide {
-                .slide-title {
-                    color: $iag-navy;
-                }
-            }
-
-            &-title {
-                color: $iag-navy;
-            }
-
-            &-slide-link {
-                &:hover {
-                    .slide-title {
-                        color: $iag-orange !important;
-                    }
-                }
-            }
-        }        
     }
 }

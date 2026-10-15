@@ -950,31 +950,6 @@
             ]
         },
         {
-            "key": "field_6a98ca2dc9693",
-            "label": "Counter Icons Type",
-            "name": "counter_icons_type",
-            "aria-label": "",
-            "type": "button_group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "slider": "Slider",
-                "gallery": "Gallery",
-                "no-icons": "No Icons"
-            },
-            "default_value": "",
-            "return_format": "value",
-            "allow_null": 0,
-            "allow_in_bindings": 0,
-            "layout": "horizontal"
-        },
-        {
             "key": "field_6a98ca35c9694",
             "label": "Counter Content Title",
             "name": "counter_content_title",
@@ -1240,5 +1215,5 @@
             "json"
         ]
     },
-    "modified": 1790938061
+    "modified": 1792058139
 }

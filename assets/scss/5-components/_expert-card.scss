@@ -171,7 +171,8 @@
 
 // color theme
 .expert-card.grid-element {
-    .bg-blue & {
+    .bg-blue &,
+    .bg-gradient & {
         background: $iag-navy;
         border: 1px solid $iag-navy-light;
 
@@ -264,7 +265,8 @@
 }
 
 .expert-card.swiper-slide {
-    .bg-blue & {
+    .bg-blue &,
+    .bg-gradient & {
         background: $iag-navy;
         border: 1px solid $iag-navy-light;
         &:hover {

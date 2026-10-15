@@ -201,7 +201,8 @@
 
 // Color Mode
 .m-latest {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-latest__resource {
             background: $white;
             border: 1px solid $iag-navy-light;

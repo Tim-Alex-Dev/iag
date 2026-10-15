@@ -49,7 +49,8 @@
 
 // color theme
 .m-follow {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-follow__inner {
             background: $iag-navy;
             border: 1px solid $iag-navy-light;
