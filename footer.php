@@ -148,9 +148,9 @@ $enable_footer_contacts = get_field( 'enable_footer_contacts_menu', 'option' ) ?
 				</div>
 
 				<div class="contact-form__wrapper">
-					<h2 class="contact-form__title">
+					<p class="h2 contact-form__title">
 						<?php esc_html_e( 'Submit RFP', '_iag' ); ?>
-					</h2>
+					</p>
 					<?php echo $modal_cf_header; ?>
 				</div>
 			</div>

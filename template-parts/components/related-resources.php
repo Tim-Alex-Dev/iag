@@ -55,9 +55,9 @@ if ( empty( $related_ids ) ) {
 <section class="resource-related">
     <div class="container">
         <div class="resource-related__header">
-            <h2 class="resource-related__header-title">
+            <p class="h2 resource-related__header-title">
                 <?php echo esc_html( $section_title ); ?>
-            </h2>
+            </p>
 
             <?php if ( $section_link ) : ?>
                 <a class="btn btn-simple" href="<?php echo esc_url( $section_link ); ?>">
