@@ -141,7 +141,7 @@ get_header();
     </div>
 </section>
 
-<section class="resource-hub__latest bg-blue">
+<section class="resource-hub__latest bg-gradient">
     <div class="container">
         <?php get_template_part( 'template-parts/components/latest-resources' ); ?>
     </div>
