@@ -76,7 +76,7 @@ $extra_classes = $has_hero ? 'has-hero' : ''; // page with Hero requires extra h
 		id="hs-script-loader"
 		async
 		defer
-		src="//js-eu1.hs-scripts.com/144692094.js">
+		src="https://js-eu1.hs-scripts.com/144692094.js">
 	</script>
 	<!-- End of HubSpot -->
 
