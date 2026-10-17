@@ -25,14 +25,14 @@ $leader_cf_subtitle = get_field( 'contact_form_subtitle', $leader_id ) ?? false;
             <div class="leadership-main__content">
                 <?php if ( $leader_photo ) : ?>
                     <div class="leadership-main__photo">
-                        <?php echo wp_get_attachment_image( $leader_photo, 'full', false, [ 'class' => 'leadership-main__photo-img' ]); ?>
+                        <?php echo wp_get_attachment_image( $leader_photo, 'full', false, [ 'class' => 'leadership-main__photo-img', 'sizes' => '240px', 'loading' => 'eager', 'fetchpriority' => 'high' ]); ?>
                     </div>
                 <?php endif; ?>
 
                 <?php if ( $leader_name ) : ?>
                     <div class="leadership-main__data">
                         <div class="leadership-main__data-uptitle eyebrow">
-                            <?php echo _e( 'Leadership team', '_iag' ); ?>
+                            <?php esc_html_e( 'Leadership team', '_iag' ); ?>
                         </div>
 
                         <h1 class="h1 leadership-main__data-title">
@@ -94,7 +94,7 @@ $leader_cf_subtitle = get_field( 'contact_form_subtitle', $leader_id ) ?? false;
                 <div class="leadership-contact__form bg-blue">
                     <div class="contact-form__header">
                         <span class="eyebrow">
-                            <?php echo _e( 'Get in touch', '_iag' ); ?>
+                            <?php esc_html_e( 'Get in touch', '_iag' ); ?>
                         </span>
                         <h2 class="h2 form__header-title">
                             <?php echo esc_html( $leader_cf_title ); ?>

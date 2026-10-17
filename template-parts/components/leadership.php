@@ -66,7 +66,7 @@ $permalink        = get_permalink( $leadership_id );
         <?php endif; ?>
 
         <a class="btn btn-simple leadership-card__link" href="<?php echo esc_url( $permalink ); ?>" target="_blank" rel="noopener">
-            <?php echo _e( 'View Profile', '_iag' ); ?>
+            <?php esc_html_e( 'View Profile', '_iag' ); ?>
             <svg class="arrow-right"><use xlink:href="#arrow-right"></use></svg>
         </a>
     </div>

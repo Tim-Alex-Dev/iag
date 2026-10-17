@@ -20,14 +20,6 @@
                 align-items: center;
                 text-align: center;
             }
-            &__uptitle {
-            }
-
-            &__title {
-            }
-
-            &__subtitle {
-            }
         }
 
         &-content {
@@ -57,30 +49,31 @@
 
 // color theme
 .m-follow {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-follow__inner {
-            background: $iag-navy-800;
-            border: 1px solid $iag-navy-600;
-            box-shadow: 0 16px 32px rgba($white, .15);
+            background: $iag-navy;
+            border: 1px solid $iag-navy-light;
+            box-shadow: 0 16px 32px $white-a10;
 
 
             .module-header {
                 &__uptitle {
-                    color: $iag-orange-300;
+                    color: $iag-burnt-orange;
                 }
 
                 &__title {
-                    color: $iag-orange-300;
+                    color: $iag-burnt-orange;
                 }
 
                 &__subtitle {
-                    color: $iag-navy-100;
+                    color: $white-a90;
                 }
             }
 
             &-content {
                 .content-subtitle {
-                    color: $iag-navy-200;
+                    color: $white-a75;
                 }
             }
         }
@@ -89,27 +82,27 @@
     &.bg-white,
     &.bg-gray {
         .m-follow__inner {
-            background: $iag-navy-700;
-            box-shadow: 0 16px 32px rgba(20, 22, 26, 0.10), 0 4px 8px rgba(20, 22, 26, 0.04);
+            background: $iag-navy;
+            box-shadow: 0 16px 32px $iag-navy-a06, 0 4px 8px $iag-navy-a06;
 
 
             .module-header {
                 &__uptitle {
-                    color: $iag-orange-300;
+                    color: $iag-burnt-orange;
                 }
 
                 &__title {
-                    color: $iag-orange-300;
+                    color: $iag-burnt-orange;
                 }
 
                 &__subtitle {
-                    color: $iag-navy-100;
+                    color: $white-a90;
                 }
             }
 
             &-content {
                 .content-subtitle {
-                    color: $iag-navy-200;
+                    color: $white-a75;
                 }
             }
         }

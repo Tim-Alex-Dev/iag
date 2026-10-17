@@ -4,14 +4,14 @@
         gap: rem(24);
         padding: rem(0 20 12);
         margin-bottom: rem(14);
-        border-bottom: 2px solid $iag-gray-400;
+        border-bottom: 2px solid $iag-grey;
 
         &__title {
             font-family: $font-alt;
             font-size: rem(14);
             letter-spacing: .06em;
             text-transform: uppercase;
-            color: $iag-gray-700;
+            color: $iag-navy;
             text-align: left;
             font-weight: 600;
         }
@@ -26,12 +26,12 @@
             gap: rem(24);
             padding: rem(12 20);
             &:nth-child(odd) {
-                background-color: $iag-gray-200;
+                background-color: $iag-grey-light;
             }
 
             &-element {
                 &.text-element {
-                    font-weight: 500;
+                    font-weight: 450;
                 }
 
                 &.link-element {
@@ -42,18 +42,18 @@
                         width: fit-content;
                         text-decoration: none;
                         transition: all .3s;
-                        color: rgba($iag-orange-500, .5);
+                        color: $iag-orange-a50;
                         &:hover {
-                            color: $iag-orange-500;
+                            color: $iag-orange;
                             .icon {
-                                stroke: $iag-orange-500;
+                                stroke: $iag-orange;
                             }
                         }
 
                         .icon {
                             width: rem(16);
                             height: rem(16);
-                            stroke: rgba($iag-orange-500, .5);
+                            stroke: $iag-orange-a50;
                             transition: all .3s;
                         }
                     }

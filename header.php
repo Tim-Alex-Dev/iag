@@ -76,7 +76,7 @@ $extra_classes = $has_hero ? 'has-hero' : ''; // page with Hero requires extra h
 		id="hs-script-loader"
 		async
 		defer
-		src="//js-eu1.hs-scripts.com/144692094.js">
+		src="https://js-eu1.hs-scripts.com/144692094.js">
 	</script>
 	<!-- End of HubSpot -->
 
@@ -89,8 +89,8 @@ $extra_classes = $has_hero ? 'has-hero' : ''; // page with Hero requires extra h
 <header class="site-header">
 	<div class="container">
 		<?php if ( $logo ) : ?>
-			<a href="<?php echo home_url(); ?>" class="site-logo" rel="home">
-				<?php echo wp_get_attachment_image( $logo, 'medium' ); ?>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo" rel="home">
+				<?php echo wp_get_attachment_image( $logo, 'medium', false, [ 'loading' => 'eager' ] ); ?>
 			</a>
 		<?php endif; ?>
 
@@ -119,7 +119,7 @@ $extra_classes = $has_hero ? 'has-hero' : ''; // page with Hero requires extra h
 		<?php endif; ?>
 
 
-		<span class="icon-burger hidden-lg-up" aria-label="<?php esc_html_e( 'Toggle navigation', '_iag' ); ?>"><i></i></span>
+		<button type="button" class="icon-burger hidden-lg-up" aria-label="<?php esc_attr_e( 'Toggle navigation', '_iag' ); ?>" aria-expanded="false"><i></i></button>
 	</div>
 </header>
 

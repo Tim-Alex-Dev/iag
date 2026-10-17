@@ -1,14 +1,16 @@
 /***************************
 * Custom Admin styles
 ***************************/
-$blue: #0073aa;
-$green: #009688;
-$green-hover: darken($green, 8%);
+// Brand colors (same values as 0-settings/_!variables.scss; this bundle does not load the theme settings)
+$admin-blue: #194B8F; // IAG navy light
+$admin-blue-hover: #297AF8; // IAG blue
+$admin-action: #FF6015; // IAG orange
+$admin-action-hover: #CD3C1E; // IAG red
 
 // ACF flexible content
 .acf-flexible-content {
 	.layout {
-		border: 2px solid $blue;
+		border: 2px solid $admin-blue;
 	}
 }
 
@@ -29,8 +31,6 @@ $green-hover: darken($green, 8%);
 }
 
 .acf-fc-layout-handle {
-	// background: $blue;
-	// color: #fff !important;
 	font-size: 1.2rem;
 	font-weight: 600;
 }
@@ -40,15 +40,15 @@ $green-hover: darken($green, 8%);
 .acf-fc-layout-controls
 .acf-icon.-collapse:hover {
 	color: #fff;
-	background: #2a9bd9;
+	background: $admin-blue-hover;
 }
 
 .acf-field.acf-accordion {
-	border: 2px solid $blue;
+	border: 2px solid $admin-blue;
 	margin-top: 3px;
 
 	.acf-label.acf-accordion-title {
-		background: $blue;
+		background: $admin-blue;
 		color: #fff;
 		font-size: 1.2rem;
 		font-weight: 600;
@@ -68,9 +68,9 @@ $green-hover: darken($green, 8%);
 	}
 
 	.acf-button {
-		background: $green;
+		background: $admin-action;
 		color: #fff;
-		border: 3px solid $green;
+		border: 3px solid $admin-action;
 		padding: 4px 80px;
 		font-weight: 700;
 		transition: all 0.2s;
@@ -78,9 +78,9 @@ $green-hover: darken($green, 8%);
 		&:hover,
 		&:active,
 		&:focus {
-			background: $green-hover;
+			background: $admin-action-hover;
 			color: #fff;
-			border-color: $green-hover;
+			border-color: $admin-action-hover;
 		}
 	}
 }
@@ -89,26 +89,4 @@ $green-hover: darken($green, 8%);
 .acf-field-image[data-name="acfe_flexible_thumbnail"],
 .acfe-flexible-field-setting[data-name="acfe_flexible_thumbnail_label"] {
 	display: none;
-}
-
-// Disable Woocommerce Header in WP Admin
-.woocommerce-layout__header {
-	display: none;
-}
-
-.woocommerce-layout__activity-panel-tabs {
-	display: none;
-}
-
-.woocommerce-layout__header-breadcrumbs {
-	display: none;
-}
-
-.woocommerce-embed-page .woocommerce-layout__primary {
-	display: none;
-}
-
-.woocommerce-embed-page #screen-meta,
-.woocommerce-embed-page #screen-meta-links {
-	top: 0;
 }

@@ -3,7 +3,7 @@
     font-weight: 400;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: $iag-navy-200;
+    color: $white-a75;
 	font-family: $font-alt;
 	@include min(xxl) {
 		font-size: rem(16);
@@ -11,35 +11,9 @@
 
 	a {
 		color: inherit;
-		// margin-right: rem(2);
 
 		&:hover {
-			color: $iag-orange-400;
+			color: $iag-burnt-orange;
 		}
-	}
-
-	span {
-		span {
-			span {
-				// display: inline;
-			}
-		}
-	}
-
-	.breadcrumb_last {
-		// color: $color-text;
-	}
-
-	p {
-		// margin: 0;
-	}
-
-	.separator {
-		// display: inline-block;
-		// margin: rem(0 5);
-
-		// @include min(md) {
-		// 	margin: rem(0 10);
-		// }
 	}
 }

@@ -26,7 +26,7 @@
         font-size: rem(12);
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: $iag-navy-100;
+        color: $white-a90;
         @include min(xxl) {
             font-size: rem(16);
         }
@@ -58,8 +58,8 @@
             border-radius: rem(4);
             padding: rem(4 8);
             margin-left: auto;
-            color: $iag-navy-100;
-            background: rgba($black, 0.5);
+            color: $white-a90;
+            background: $black-a50;
             @include min(xxl) {
                 font-size: rem(16);
             }
@@ -78,7 +78,7 @@
         align-items: center;
         justify-content: center;
         transition: $default-transition;
-        background-color: $iag-orange-500;
+        background-color: $iag-orange;
         cursor: pointer;
         @include min(xxl) {
             width: rem(120);
@@ -123,7 +123,7 @@
         }
 
         &__category {
-            color: $iag-navy-100;
+            color: $white-a90;
         }
 
         &__footer {
@@ -132,13 +132,13 @@
             }
         
             &-duration {
-                color: $iag-navy-100;
-                background: rgba($black, 0.5);
+                color: $white-a90;
+                background: $black-a50;
             }
         }
 
         &__controls {
-            background-color: $iag-orange-500;
+            background-color: $iag-orange;
 
             svg {
                 fill: $white;

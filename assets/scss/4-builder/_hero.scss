@@ -1,8 +1,8 @@
 .m-hero {
 	display: flex;
 	align-items: center;
-	min-height: calc(100vh - var(--header-height));
-	background-color: $bg-blue-light;
+	min-height: 100vh;
+	background: $bg-gradient;
 	color: $white;
 
 	.container {
@@ -52,7 +52,7 @@
 		&__subtitle {
 			font-size: clamp-rem(16, 18);
 			line-height: 1.6;
-			color: $iag-navy-100;
+			color: $white-a90;
 			margin: 0 0 rem(32);
 			max-width: rem(540);
 			@include max(lg) {
@@ -104,7 +104,7 @@
 				width: rem(16);
 				height: rem(16);
 				fill: none;
-				stroke: $green;
+				stroke: $iag-orange;
 				@include min(xxl) {
 					width: rem(24);
 					height: rem(24);
@@ -113,7 +113,7 @@
 
 			.list-item__text {
 				font-size: rem(14);
-				color: $iag-navy-200;
+				color: $white-a75;
 				@include min(xxl) {
 					font-size: rem(20);
 				}
@@ -126,8 +126,8 @@
 		height: fit-content;
 		padding: rem(20);
 		border-radius: rem(12);
-		background: linear-gradient(135deg, $bg-blue-light 0%, $bg-blue 100%);
-		box-shadow: 0 rem(16) rem(32) rgba(20, 22, 26, 0.10), 0 rem(4) rem(8) rgba(20, 22, 26, 0.04);
+		background: linear-gradient(135deg, $iag-navy 0%, $iag-navy 100%);
+		box-shadow: 0 rem(16) rem(32) $iag-navy-a06, 0 rem(4) rem(8) $iag-navy-a06;
 		@include max(xl) {
 			width: rem(380);
 		}
@@ -157,15 +157,15 @@
 
 		&-inner {
 			width: 100%;
-			background-color: $bg-blue;
+			background-color: $iag-navy;
 			border-radius: rem(8);
-			border: 1px solid $border-blue;
-    		box-shadow: rgba($black, 0.4) 0 rem(24) rem(60) 0;
+			border: 1px solid $iag-navy-light;
+    		box-shadow: $black-a30 0 rem(24) rem(60) 0;
 		}
 
 		&-header {
 			padding: rem(16);
-    		border-bottom: 1px solid $border-blue_01;
+    		border-bottom: 1px solid $iag-navy-light;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -173,7 +173,7 @@
 			.blocks-header__title {
 				font-family: $font-alt;
 				font-size: rem(12);
-				color: $iag-navy-200;
+				color: $white-a75;
 				letter-spacing: 0.04em;
 				@include min(xxl) {
 					font-size: rem(16);
@@ -191,7 +191,7 @@
 				width: 100%;
 				aspect-ratio: 1 / 1;
 				position: relative;
-				border: 1px solid $iag-navy-600;
+				border: 1px solid $iag-navy-light;
 				border-radius: rem(4);
 				&::after {
 					position: absolute;
@@ -200,7 +200,7 @@
 					left: 0;
 					width: 100%;
 					height: rem(40);
-					background: linear-gradient(0deg,rgba($black, .5) 25%, rgba($black, 0) 100%);
+					background: linear-gradient(0deg,$black-a50 25%, $black-a00 100%);
 					z-index: 2;
 				}
 
@@ -218,7 +218,7 @@
 					left: rem(8);
 					font-family: $font-alt;
 					font-size: rem(10);
-					color: rgba($white, 0.7);
+					color: $white-a75;
 					letter-spacing: 0.04em;
 					z-index: 3;
 					@include min(xxl) {
@@ -234,7 +234,7 @@
 			align-items: flex-start;
 			justify-content: space-between;
 			gap: rem(12);
-			border-top: 1px solid $border-blue_01;
+			border-top: 1px solid $iag-navy-light;
 
 			.footer-block {
 				display: flex;
@@ -244,7 +244,7 @@
 				&__label {
 					font-family: $font-alt;
 					font-size: rem(10);
-					color: $iag-navy-200;
+					color: $white-a75;
 					letter-spacing: 0.04em;
 					@include min(xxl) {
 						font-size: rem(14);
@@ -260,7 +260,7 @@
 					}
 
 					&.block-status {
-						color: $green_01;
+						color: $iag-blue;
 					} 
 				}
 			}
@@ -276,7 +276,7 @@
 			top: 0;
 			width: rem(200);
 			height: 100%;
-			background: linear-gradient(to right, $secondary 0%, rgba($secondary, 0) 100%);
+			background: linear-gradient(to right, $secondary 0%, $iag-navy-a00 100%);
 		}
 
 		&-image {

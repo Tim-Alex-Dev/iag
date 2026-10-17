@@ -53,7 +53,7 @@
 
             &__category {
                 font-size: rem(10);
-                font-weight: 800;
+                font-weight: 700;
                 letter-spacing: 0.1em;
                 text-transform: uppercase;
                 padding: rem(6 12);
@@ -69,29 +69,30 @@
 
 // color theme
 .m-cells {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-cells__list {
-            border: 1px solid $iag-navy-600;
+            border: 1px solid $iag-navy-light;
         }
         
         .cell-item {
-            background-color: $iag-navy-800;
-            border-bottom: 1px solid $iag-navy-600;
+            background-color: $iag-navy;
+            border-bottom: 1px solid $iag-navy-light;
             &:nth-child(odd) {
-                border-right: 1px solid $iag-navy-600;
+                border-right: 1px solid $iag-navy-light;
             }
             @include max(md) {
-                border-bottom: 1px solid $iag-navy-600 !important;
+                border-bottom: 1px solid $iag-navy-light !important;
             }
 
             &__primary {
-                background-color: $bg-gray;
+                background-color: $iag-grey-50;
                 .cell-item__title {
-                    color: $iag-navy-800;
+                    color: $iag-navy;
                 }
 
                 .cell-item__description {
-                    color: $iag-gray-700;
+                    color: $iag-navy;
                 }
             }
 
@@ -100,12 +101,12 @@
             }
 
             &__description {
-                color: $iag-navy-200;
+                color: $white-a75;
             }
 
             &__category {
-                color: $iag-navy-700;
-                border: 1px solid $iag-navy-300;
+                color: $iag-navy;
+                border: 1px solid $iag-grey;
             }
         }
     }
@@ -113,37 +114,37 @@
     &.bg-white,
     &.bg-gray {
         .m-cells__list {
-            border: 1px solid $iag-gray-200;
+            border: 1px solid $iag-grey-light;
         }
 
         .cell-item {
-            border-bottom: 1px solid $iag-gray-200;
+            border-bottom: 1px solid $iag-grey-light;
             &:nth-child(odd) {
-                border-right: 1px solid $iag-gray-200;
+                border-right: 1px solid $iag-grey-light;
             }
             @include max(md) {
-                border-bottom: 1px solid $iag-gray-200 !important;
+                border-bottom: 1px solid $iag-grey-light !important;
             }
 
             &__primary {
-                background-color: $iag-orange-50;
+                background-color: $iag-orange-tint;
 
                 .cell-item__title {
-                    color: $iag-orange-700;
+                    color: $iag-red;
                 }
             }
 
             &__title {
-                color: $iag-navy-800;
+                color: $iag-navy;
             }
 
             &__description {
-                color: $iag-gray-700;
+                color: $iag-navy;
             }
 
             &__category {
-                color: $iag-orange-700;
-                border: 1px solid $iag-orange-300;
+                color: $iag-red;
+                border: 1px solid $iag-burnt-orange;
             }
         }
     }

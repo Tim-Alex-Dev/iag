@@ -12,18 +12,18 @@ table {
 
 // Bordered table
 .table-bordered {
-	border: 1px solid $grey-border;
+	border: 1px solid $iag-grey-light;
 
 	th,
 	td {
-		border: 1px solid $grey-border;
+		border: 1px solid $iag-grey-light;
 	}
 }
 
 // Zebra-striping
 .table-striped {
 	tbody tr:nth-of-type(even) {
-		background-color: #f9f9f9;
+		background-color: $iag-grey-50;
 	}
 }
 

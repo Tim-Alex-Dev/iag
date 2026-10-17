@@ -14,7 +14,7 @@
                 $youtube_link   = get_sub_field( 'youtube_link' ) ?? false;
                 $content_tag    = ($title_tag && $content_type === 'title') ? $title_tag : 'div';?>
 
-                <<?php echo $content_tag; ?> class="content-item content-item__<?php echo esc_attr( $content_type ); ?>">
+                <<?php echo tag_escape( $content_tag ); ?> class="content-item content-item__<?php echo esc_attr( $content_type ); ?>">
                     <?php if ( $content_type === 'title' && $title ) : ?>
                         <?php echo esc_html( $title ); ?>
                     <?php endif; ?>
@@ -45,7 +45,7 @@
                             </span>
                         <?php endif; ?>
                     <?php endif; ?>
-                </<?php echo $content_tag; ?>>
+                </<?php echo tag_escape( $content_tag ); ?>>
             <?php endwhile; ?>
         </div>
     </section>

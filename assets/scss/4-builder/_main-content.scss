@@ -31,14 +31,14 @@
                     height: 100%;
                     width: rem(4);
                     border-radius: rem(2);
-                    background-color: $iag-orange-500;
+                    background-color: $iag-orange;
                 }
             }
 
             &__text {
                 p {
                     font-size: rem(16);
-                    color: $iag-gray-700;
+                    color: $iag-navy;
                     line-height: 1.6;
                     @include min(xxl) {
                         font-size: rem(18);
@@ -99,7 +99,7 @@
                         width: rem(80);
                         height: rem(80);
                         border-radius: 50%;
-                        background-color: $iag-orange-500;
+                        background-color: $iag-orange;
                         display: flex;
                         align-items: center;
                         justify-content: center;

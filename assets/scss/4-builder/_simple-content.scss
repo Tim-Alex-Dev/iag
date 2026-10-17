@@ -1,23 +1,30 @@
 .m-simple-content {
-    &.content-text,
-    &.content-media {
-        .m-simple-content__inner {
-            display: flex !important;
+    &__item + &__item {
+        margin-top: rem(80);
+        @include max(lg) {
+            margin-top: rem(48);
         }
     }
-    &.content-mixed {
-        &.media-left {
+
+    &__item {
+        &.content-text,
+        &.content-media {
             .m-simple-content__inner {
-                // grid-template-columns: 1.3fr 1fr;
-                grid-template-areas: "right left";
-                
+                display: flex !important;
             }
         }
-        &.media-right {
-            .m-simple-content__inner {
-                // grid-template-columns: 1fr 1.3fr;
-                grid-template-areas: "left right";
-                
+        &.content-mixed {
+            &.media-left {
+                .m-simple-content__inner {
+                    grid-template-areas: "right left";
+
+                }
+            }
+            &.media-right {
+                .m-simple-content__inner {
+                    grid-template-areas: "left right";
+
+                }
             }
         }
     }
@@ -196,9 +203,10 @@
 
 // color theme
 .m-simple-content {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-simple-content__media {
-            box-shadow: 0 16px 32px rgba($white, .15);
+            box-shadow: 0 16px 32px $white-a10;
         }
 
         .video {
@@ -207,12 +215,12 @@
             }
 
             &-footer__duration {
-                color: $iag-navy-100;
-                background: rgba($black, 0.5);
+                color: $white-a90;
+                background: $black-a50;
             }
 
             &-controls {
-                background-color: $iag-orange-500;
+                background-color: $iag-orange;
                 svg {
                     fill: $white;
                 }
@@ -220,14 +228,14 @@
         }
 
         .m-media__embed {
-            box-shadow: 0 16px 32px rgba($white, .15);
+            box-shadow: 0 16px 32px $white-a10;
         }
     }
 
     &.bg-white,
     &.bg-grey {
         .m-simple-content__media {
-            box-shadow: 0 16px 32px rgba($black, .15);
+            box-shadow: 0 16px 32px $black-a10;
         }
 
         .video {
@@ -236,12 +244,12 @@
             }
 
             &-footer__duration {
-                color: $iag-navy-100;
-                background: rgba($black, 0.5);
+                color: $white-a90;
+                background: $black-a50;
             }
 
             &-controls {
-                background-color: $iag-orange-500;
+                background-color: $iag-orange;
                 svg {
                     fill: $white;
                 }

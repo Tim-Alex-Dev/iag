@@ -36,7 +36,6 @@ if ( $source_term && ! is_wp_error( $source_term ) ) {
     $related_ids   = $related_query->posts;
 
     if ( $related_ids ) {
-        // $section_title = $source_term->name;
         $term_link     = get_term_link( $source_term );
         $section_link  = ! is_wp_error( $term_link ) ? $term_link : false;
     }
@@ -56,9 +55,9 @@ if ( empty( $related_ids ) ) {
 <section class="resource-related">
     <div class="container">
         <div class="resource-related__header">
-            <h2 class="resource-related__header-title">
+            <p class="h2 resource-related__header-title">
                 <?php echo esc_html( $section_title ); ?>
-            </h2>
+            </p>
 
             <?php if ( $section_link ) : ?>
                 <a class="btn btn-simple" href="<?php echo esc_url( $section_link ); ?>">

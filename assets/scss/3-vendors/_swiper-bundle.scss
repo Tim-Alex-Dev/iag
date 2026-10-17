@@ -1,36 +1,16 @@
-/**
- * Swiper
- * Most modern mobile touch slider and framework with hardware accelerated transitions
- * https://swiperjs.com
- *
- */
-$themeColor: $white;
-
-// base styles
+// Swiper (plain CSS, inlined by Sass): base + only the modules used in JS (modules/slider.js).
+// Another module in JS = import its CSS here (e.g. @import "swiper/modules/effect-fade";)
 @import "swiper/swiper";
+@import "swiper/modules/navigation";
+@import "swiper/modules/pagination";
 
-// modules:
-@import "swiper/modules/navigation/navigation";
-@import "swiper/modules/pagination/pagination";
-@import "swiper/modules/effect-fade/effect-fade";
-@import "swiper/modules/free-mode/free-mode";
-@import "swiper/modules/grid/grid";
-@import "swiper/modules/scrollbar/scrollbar";
-@import "swiper/modules/thumbs/thumbs";
-
-// Custom styling:
-.swiper-container-horizontal {
-	> .swiper-pagination-bullets {
-		bottom: rem(24);
-	}
+// Brand color for Swiper defaults (library default is #007aff)
+:root {
+	--swiper-theme-color: #{$iag-orange};
 }
 
 .swiper-slide {
 	box-sizing: border-box;
-
-	img.lazyload:not(.loaded) {
-		visibility: hidden;
-	}
 }
 
 .swiper-pagination {
@@ -70,7 +50,7 @@ $themeColor: $white;
 		&:not(.swiper-pagination-bullet-active) {
 			&:hover {
 				&:after {
-					background-color: rgba($primary, .5);
+					background-color: $iag-orange-a50;
 				}
 			}
 		}
@@ -100,7 +80,7 @@ $themeColor: $white;
 		width: rem(44);
 		height: rem(44);
 		border-radius: rem(4);
-		border: 1px solid $iag-gray-300;
+		border: 1px solid $iag-grey;
 		background: $white;
 		display: flex;
 		align-items: center;
@@ -121,7 +101,7 @@ $themeColor: $white;
 		}
 
 		svg {
-			fill: $iag-gray-700;
+			fill: $iag-navy;
 			width: rem(32);
 			height: rem(32);
 		}

@@ -136,11 +136,12 @@
 
 // color theme
 .m-media {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-media__list {
             &-item {
                 .list-item__icon {
-                    background-color: $iag-orange-500;
+                    background-color: $iag-orange;
 
                     svg {
                         stroke: $white;
@@ -154,7 +155,7 @@
                     }
 
                     &-description {
-                        color: $iag-navy-100;
+                        color: $white-a90;
                     }
                 }
             }
@@ -166,7 +167,7 @@
         .m-media__list {
             &-item {
                 .list-item__icon {
-                    background-color: $iag-orange-500;
+                    background-color: $iag-orange;
 
                     svg {
                         stroke: $white;
@@ -176,11 +177,11 @@
                 .list-item__content {
 
                     &-title {
-                        color: $iag-gray-900;
+                        color: $iag-navy;
                     }
 
                     &-description {
-                        color: $iag-gray-700;
+                        color: $iag-navy;
                     }
                 }
             }

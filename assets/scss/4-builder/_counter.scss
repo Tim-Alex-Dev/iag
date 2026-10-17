@@ -63,7 +63,7 @@
 
             &__title {
                 font-family: $font-heading;
-                font-weight: 800;
+                font-weight: 700;
                 font-size: rem(56);
                 letter-spacing: -0.02em;
                 line-height: 1;
@@ -171,107 +171,27 @@
             }
         }
     }
-
-    &__slider {
-        &-swiper {
-            position: relative;
-            margin-top: rem(28);
-            &::after {
-                position: absolute;
-                content: '';
-                top: 0;
-                right: 0;
-                width: rem(150);
-                height: 100%;
-                z-index: 10;
-                pointer-events: none;
-            }
-            &::before {
-                position: absolute;
-                content: '';
-                top: 0;
-                left: 0;
-                width: rem(150);
-                height: 100%;
-                z-index: 10;
-                pointer-events: none;
-            }
-
-            .swiper-wrapper {
-                transition-timing-function: linear !important;
-            }
-        }
-
-        &-slide {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: rem(12);
-            width: fit-content;
-
-            .slide-image {
-                height: rem(68);
-                width: rem(68);
-                border-radius: rem(8);
-                position: relative;
-                overflow: hidden;
-                @include min(xxl) {
-                    height: rem(92);
-                    width: rem(92);
-                }
-
-                &__img {
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-
-            .slide-title {
-                font-family: $font-alt;
-                font-size: rem(12);
-                text-align: center;
-                transition: $default-transition;
-                @include min(xxl) {
-                    font-size: rem(18);
-                }
-            }
-        }
-
-        &-title {
-            display: block;
-            text-align: center;
-            font-size: rem(14);
-            font-weight: 600;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            margin: rem(28 0 0);
-            @include min(xxl) {
-                font-size: rem(20);
-            }
-        }
-    }
 }
 
 // Color Mode
 .m-counter {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-counter__list {
-            border-bottom: 1px solid $iag-navy-600;
+            border-bottom: 1px solid $iag-navy-light;
 
             .counter-item {
                 &:after {
-                    background-color: $iag-navy-600;
+                    background-color: $iag-navy-light;
                 }
 
                 &.animated-item {
                     .counter-item__title {
                         &::after {
-                            background-color: $iag-orange-400;
+                            background-color: $iag-burnt-orange;
                         }
                         &::before {
-                            background-color: $iag-orange-400;
+                            background-color: $iag-burnt-orange;
                         }
                     }
                 }
@@ -281,160 +201,85 @@
                 }
 
                 &__subtitle {
-                    color: $iag-navy-200;
+                    color: $white-a75;
                 }
             }
         }
 
         .m-counter__gallery {
             &-title {
-                color: $iag-navy-200;
+                color: $white-a75;
             }
 
             &-list {
                 .icon-item {
                     &__title {
-                        color: $iag-navy-100;
+                        color: $white-a90;
                     }
 
                     &-url {
                         &:hover {
                             .icon-item__title {
-                                color: $iag-orange-500 !important;
+                                color: $iag-orange !important;
                             }
                         }
                     }
                 }
             }
         }
-
-        .m-counter__slider {
-            &-swiper {
-                &::after {
-                    background: linear-gradient(270deg, $iag-navy-700 0%,rgba($iag-navy-700, 0) 100%);
-                }
-                &::before {
-                    background: linear-gradient(90deg, $iag-navy-700 0%,rgba($iag-navy-700, 0) 100%);
-                }
-            }
-
-            &-slide {
-                .slide-title {
-                    color: $iag-navy-100;
-                }
-            }
-
-            &-title {
-                color: $iag-navy-200;
-            }
-
-            &-slide-link {
-                &:hover {
-                    .slide-title {
-                        color: $iag-orange-500 !important;
-                    }
-                }
-            }
-        }
-    }
-
-    &.bg-white {
-        .m-counter__slider {
-            &-swiper {
-                &::after {
-                    background: linear-gradient(270deg, $white 0%,rgba($white, 0) 100%);
-                }
-                &::before {
-                    background: linear-gradient(90deg, $white 0%,rgba($white, 0) 100%);
-                }
-            }
-        } 
-    }
-
-    &.bg-gray {
-        .m-counter__slider {
-            &-swiper {
-                &::after {
-                    background: linear-gradient(270deg, $bg-gray 0%,rgba($bg-gray, 0) 100%);
-                }
-                &::before {
-                    background: linear-gradient(90deg, $bg-gray 0%,rgba($bg-gray, 0) 100%);
-                }
-            }
-        } 
     }
 
     &.bg-white,
     &.bg-gray {
         .m-counter__list {
-            border-bottom: 1px solid $iag-gray-200;
+            border-bottom: 1px solid $iag-grey-light;
 
             .counter-item {
                 &:after {
-                    background-color: $iag-gray-200;
+                    background-color: $iag-grey-light;
                 }
 
                 &.animated-item {
                     .counter-item__title {
                         &::after {
-                            background-color: $iag-orange-400;
+                            background-color: $iag-burnt-orange;
                         }
                         &::before {
-                            background-color: $iag-orange-400;
+                            background-color: $iag-burnt-orange;
                         }
                     }
                 }
 
                 &__title {
-                    color: $iag-gray-900;
+                    color: $iag-navy;
                 }
 
                 &__subtitle {
-                    color: $iag-gray-700;
+                    color: $iag-navy;
                 }
             }
         }
 
         .m-counter__gallery {
             &-title {
-                color: $iag-gray-900;
+                color: $iag-navy;
             }
 
             &-list {
                 .icon-item {
                     &__title {
-                        color: $iag-gray-700;
+                        color: $iag-navy;
                     }
 
                     &-url {
                         &:hover {
                             .icon-item__title {
-                                color: $iag-orange-500 !important;
+                                color: $iag-orange !important;
                             }
                         }
                     }
                 }
             }
         }
-
-        .m-counter__slider {
-            &-slide {
-                .slide-title {
-                    color: $iag-gray-700;
-                }
-            }
-
-            &-title {
-                color: $iag-gray-900;
-            }
-
-            &-slide-link {
-                &:hover {
-                    .slide-title {
-                        color: $iag-orange-500 !important;
-                    }
-                }
-            }
-        }        
     }
 }

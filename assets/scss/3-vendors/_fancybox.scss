@@ -1,6 +1,29 @@
+// The library draws the popup top bar fade with a 16-step black gradient; two stops look the same.
+$fancybox-toolbar-bg: linear-gradient(to top, $black-a00 0%, $black-a30 100%);
+
+// Library defaults replaced with brand colors (dark backdrop, cyan accent)
+$fancybox-backdrop-bg: $iag-navy-a90;
+$fancybox-accent-color: $iag-orange;
+$fancybox-content-color: $iag-navy;
+$fancybox-focus-shadow: 0 0 0 1px $white, 0 0 0 2px $iag-orange;
+
 @import "@fancyapps/ui/src/Fancybox/Fancybox";
 
 // Custom styling:
+.fancybox__carousel .fancybox__slide.has-html5video .fancybox__content,
+.fancybox__carousel .fancybox__slide.has-video .fancybox__content,
+.fancybox__carousel .fancybox__slide.has-pdf .fancybox__content {
+	background: $iag-navy-a90;
+}
+
+:root {
+	--fancybox-content-color: #{$iag-navy};
+}
+
+.fancybox__carousel .fancybox__slide.has-map .fancybox__content {
+	background: $iag-grey-light;
+}
+
 [data-fancybox] {
 	cursor: pointer;
 }

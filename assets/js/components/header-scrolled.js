@@ -1,25 +1,19 @@
+import {throttle} from '../functions/throttle';
+
 jQuery(document).ready(function ($) {
 	"use strict";
 
-	/**
-	 * Header scrolled
-	 */
-	function checkScrollPosition() {
-		let st = $(window).scrollTop();
+	// .is-scrolled on <body> after 70px of scrolling
+	const body = $('body');
 
-		if ($('body').hasClass('is-menu-open')) {
+	function checkScrollPosition() {
+		if (body.hasClass('is-menu-open')) {
 			return;
 		}
-
-		if (st > 70) {
-			$('body').addClass('is-scrolled');
-		} else {
-			$('body').removeClass('is-scrolled');
-		}
+		body.toggleClass('is-scrolled', window.scrollY > 70);
 	}
 
-	$(window).on('load scroll', function (e) {
-		checkScrollPosition();
-	});
+	checkScrollPosition();
+	window.addEventListener('scroll', throttle(checkScrollPosition, 100), {passive: true});
 
 });

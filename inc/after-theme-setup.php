@@ -1,108 +1,53 @@
 <?php
 /**
- * Functions which will be called on after_setup_theme
- *
- * @link https://developer.wordpress.org/reference/hooks/after_setup_theme/
+ * Theme supports, menus and small front-end filters
  *
  * @package _iag
  */
 
-if ( ! function_exists( 'it_setup' ) ) :
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
-	 */
-	function it_setup() {
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on IT Starter, use a find and replace
-		 * to change '_iag' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( '_iag', get_template_directory() . '/languages' );
+function it_setup() {
+	// translations: .mo files in the theme's /languages/ folder (e.g. created by Loco Translate)
+	load_theme_textdomain( '_iag', get_template_directory() . '/languages' );
 
-		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
-		add_theme_support( 'title-tag' );
+	add_theme_support( 'title-tag' );
+	add_theme_support( 'post-thumbnails' );
 
-		/**
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		 */
-		add_theme_support( 'post-thumbnails' );
+	// custom image sizes: add_image_size( 'name', $width, $height, $crop ); (only if really needed)
 
-		/**
-		 * Register new image presets
-		 *
-		 * @link https://developer.wordpress.org/reference/functions/add_image_size/
-		 */
-		// add_image_size('full-hd', 1920, 1080, true);     //example.
+	register_nav_menus( [
+		'main'             => esc_html__( 'Main Nav', '_iag' ),
+		'footer-top'       => esc_html__( 'Footer Top Nav', '_iag' ),
+		'footer-column-1'  => esc_html__( 'Footer Column 1', '_iag' ),
+		'footer-column-2'  => esc_html__( 'Footer Column 2', '_iag' ),
+		'footer-column-3'  => esc_html__( 'Footer Column 3', '_iag' ),
+		'footer-copyright' => esc_html__( 'Footer Copyright', '_iag' ),
+	] );
 
-		/**
-		 * This theme uses wp_nav_menu() in one location.
-		 *
-		 * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
-		 */
-		register_nav_menus( [
-			'main'   		   => esc_html__( 'Main Nav', '_iag' ),
-			'footer-top'       => esc_html__( 'Footer Top Nav', '_iag' ),
-			'footer-column-1'  => esc_html__( 'Footer Column 1', '_iag' ),
-			'footer-column-2'  => esc_html__( 'Footer Column 2', '_iag' ),
-			'footer-column-3'  => esc_html__( 'Footer Column 3', '_iag' ),
-			'footer-copyright' => esc_html__( 'Footer Copyright', '_iag' ),
-		] );
+	add_theme_support( 'html5', [
+		'search-form',
+		'gallery',
+		'caption',
+		'style',
+		'script',
+	] );
+}
 
-		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
-		add_theme_support( 'html5', [
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			'style',
-			'script',
-		] );
-
-		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
-
-	}
-endif;
 add_action( 'after_setup_theme', 'it_setup' );
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
+// Max width of embeds and large images in the content (px)
 function it_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'it_content_width', 1130 );
 }
 
 add_action( 'after_setup_theme', 'it_content_width', 0 );
 
-/**
- * Add page slug to <body> class
- *
- * @link https://developer.wordpress.org/reference/functions/body_class/
- */
+// Body class with the post type and slug of the current page, e.g. "page-contact"
 function it_slug_body_class( $classes ) {
-	global $post;
-	if ( isset( $post ) ) {
-		$classes[] = $post->post_type . '-' . $post->post_name;
+	if ( is_singular() ) {
+		$post = get_queried_object();
+		if ( $post instanceof WP_Post ) {
+			$classes[] = $post->post_type . '-' . $post->post_name;
+		}
 	}
 
 	return $classes;
@@ -110,69 +55,12 @@ function it_slug_body_class( $classes ) {
 
 add_filter( 'body_class', 'it_slug_body_class' );
 
-/**
- * Changes Gravity Forms Ajax Spinner (next, back, submit) to a transparent image
- *
- * this allows us to target the css and create a pure css spinner or add different image instead.
- */
-add_filter( 'gform_ajax_spinner_url', 'spinner_url', 10, 2 );
-function spinner_url( $image_src, $form ) {
-	return 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; // relative to your theme images folder
-}
+// Archive titles without "Category:", "Tag:"...
+add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 
-
-/**
- * Remove archive title prefix
- */
-add_filter( 'get_the_archive_title_prefix', 'it_archive_prefix' );
-function it_archive_prefix( $prefix ) {
-	$prefix = '';
-
-	return $prefix;
-}
-
-
-/**
- * Limit post excerpt length
- *
- * @link https://developer.wordpress.org/reference/hooks/excerpt_length/
- */
-add_filter( 'excerpt_length', function ( $length ) {
+// Automatic excerpts: 20 words, no "[...]"
+add_filter( 'excerpt_length', function () {
 	return 20;
 } );
 
-// This will add a filter on `excerpt_more` that returns an empty string.
 add_filter( 'excerpt_more', '__return_empty_string' );
-
-
-/**
- * Function To get primary category of the resource post
- */
-function get_primary_category( $post_id, $return = 'name' ) {
-
-    $taxonomy = 'source';
-
-    if ( class_exists( 'WPSEO_Primary_Term' ) ) {
-        $primary_term_id = ( new WPSEO_Primary_Term( $taxonomy, $post_id ) )->get_primary_term();
-
-        if ( $primary_term_id && ! is_wp_error( $primary_term_id ) ) {
-            $primary_term = get_term( $primary_term_id, $taxonomy );
-
-            if ( $primary_term && ! is_wp_error( $primary_term ) ) {
-                return $return === 'id'
-                    ? $primary_term->term_id
-                    : $primary_term->name;
-            }
-        }
-    }
-
-    $terms = get_the_terms( $post_id, $taxonomy );
-
-    if ( $terms && ! is_wp_error( $terms ) ) {
-        return $return === 'id'
-            ? $terms[0]->term_id
-            : $terms[0]->name;
-    }
-
-    return false;
-}

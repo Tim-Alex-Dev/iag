@@ -103,7 +103,7 @@
                     font-size: rem(12);
                     font-weight: 700;
                     letter-spacing: 0.08em;
-                    color: $iag-orange-500;
+                    color: $iag-orange;
                     @include min(xxl) {
                         font-size: rem(16);
                     }
@@ -115,8 +115,8 @@
                     letter-spacing: 0.04em;
                     padding: rem(6 12);
                     border-radius: rem(999);
-                    background-color: $iag-navy-50;
-                    color: $iag-navy-600;
+                    background-color: $iag-grey-50;
+                    color: $iag-navy-light;
                     margin-left: auto;
                     @include min(xxl) {
                         font-size: rem(16);
@@ -131,7 +131,7 @@
                     width: rem(56);
                     height: rem(56);
                     border-radius: rem(4);
-                    background-color: $iag-orange-50;
+                    background-color: $iag-orange-tint;
 
                     .icon {
                         width: rem(30);
@@ -148,7 +148,7 @@
                 &-uptitle {
                     font-family: $font-alt;
                     font-size: rem(12);
-                    color: $iag-orange-400;
+                    color: $iag-burnt-orange;
                     letter-spacing: 0.06em;
                     @include min(xxl) {
                         font-size: rem(16);
@@ -182,18 +182,19 @@
 
 // Color Mode
 .m-simple-blocks {
-    &.bg-blue {
+    &.bg-blue,
+    &.bg-gradient {
         .m-simple-blocks__list {
             padding-top: rem(24);
-            border-top: 1px solid $iag-navy-600;
+            border-top: 1px solid $iag-navy-light;
         }
 
         .simple-block {
-            background: $iag-navy-800;
-            border: 1px solid $iag-navy-600;
+            background: $iag-navy;
+            border: 1px solid $iag-navy-light;
 
             &__header-icon {
-                background-color: rgba(235, 92, 30, 0.15);
+                background-color: $iag-orange-a15;
             }
 
             &__body-title {
@@ -201,7 +202,7 @@
             }
 
             &__body-subtitle {
-                color: $iag-navy-200;
+                color: $white-a75;
             }
         } 
     }
@@ -210,23 +211,23 @@
     &.bg-gray {
         .m-simple-blocks__list {
             padding-top: rem(24);
-            border-top: 1px solid $iag-gray-200;
+            border-top: 1px solid $iag-grey-light;
         }
 
         .simple-block {            
             background: $white;
-            border: 1px solid $iag-gray-200;
+            border: 1px solid $iag-grey-light;
 
             &__header-icon {
-                background-color: $iag-orange-50;
+                background-color: $iag-orange-tint;
             }
 
             &__body-title {
-                color: $iag-gray-900;
+                color: $iag-navy;
             }
 
             &__body-subtitle {
-                color: $iag-gray-700;
+                color: $iag-navy;
             }
         }         
     }

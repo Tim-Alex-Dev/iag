@@ -4,9 +4,9 @@
 .main-nav {
 	@include max(lg) {
 		width: 100%;
-		height: calc(var(--vh, 1vh) * 100); // tweak for mobiles
-		background-color: $iag-navy-700;
-		color: $black;
+		height: 100dvh;
+		background-color: $iag-navy;
+		color: $iag-navy;
 		overflow-y: auto;
 		padding: rem(40 0);
 		position: fixed;
@@ -65,7 +65,7 @@
 		.menu-item__link {
 			display: flex;
 			align-items: center;
-			font-weight: 500;
+			font-weight: 450;
 			font-size: rem(13);
 			color: $white;
 			gap: rem(6);
@@ -104,7 +104,7 @@
 		background-color: $white;
 		overflow-y: scroll;
 		border-top: 2px solid $primary;
-		border: 1px solid $iag-gray-200;
+		border: 1px solid $iag-grey-light;
 		box-shadow: $box-shadow-black;
 		scrollbar-width: none;
 		-ms-overflow-style: none;
@@ -128,7 +128,7 @@
 			left: unset;
 			top: unset;
 			width: 100%;
-			background-color: $iag-navy-700;
+			background-color: $iag-navy;
 			border: none;
 		}
 
@@ -162,13 +162,12 @@
 			}
 
 			&.column-advanced {
-				background: linear-gradient(135deg, $bg-white 0%, $white 100%);
-				border: 1px solid $grey-border;
+				background: linear-gradient(135deg, $white 0%, $white 100%);
+				border: 1px solid $iag-grey-light;
 				padding: rem(16);
 				border-radius: rem(8);
 				@include max(lg) {
 					border: none;
-					background-color: $iag-navy-700;
 					padding: 0;
 					background: transparent;
 				}
@@ -184,7 +183,7 @@
 				}
 				.mega-menu__column-header {
 					padding-bottom: rem(24);
-					border-bottom: 1px solid $grey-border;
+					border-bottom: 1px solid $iag-grey-light;
 					@include max(lg) {
 						border: none;
 						padding: 0;
@@ -221,7 +220,7 @@
 				top: 0;
 				width: 1px;
 				height: 100%;
-				background-color: $grey-border;
+				background-color: $iag-grey-light;
 			}
 
 			&-header {
@@ -271,9 +270,12 @@
 					font-weight: 600;
 					line-height: 1;
 					text-align: left;
-					color: $grey;
+					color: $iag-grey;
 					font-size: rem(12);
 					text-transform: uppercase;
+					@include max(lg) {
+						color: $white-a75;
+					}
 				}
 			}
 
@@ -296,14 +298,14 @@
 					}
 
 					&.menu-item__advanced {
-						background: linear-gradient(135deg, $bg-white 0%, $white 100%);
-						border: 1px solid $grey-border;
+						background: linear-gradient(135deg, $white 0%, $white 100%);
+						border: 1px solid $iag-grey-light;
 						padding: rem(12);
 						border-radius: rem(8);
 						transition: $default-transition;
 						@include max(lg) {
 							background: transparent;
-							background-color: $iag-navy-700;
+							background-color: $iag-navy;
 							border: none;
 							padding: 0;
 						}
@@ -322,7 +324,7 @@
 						@include max(lg) {
 							&:hover {
 								.mega-menu__link-arrow {
-									fill: $iag-orange-500;
+									fill: $iag-orange;
 								}
 							}
 						}
@@ -373,12 +375,13 @@
 							font-weight: 600;
 							line-height: 1;
 							text-align: left;
-							color: $grey;
+							color: $iag-grey;
 							font-size: rem(12);
 							text-transform: uppercase;
 							letter-spacing: 0.1em;
 							margin-bottom: rem(8);
 							@include max(lg) {
+								color: $white-a75;
 								margin-bottom: 0;
 							}
 						}
@@ -386,7 +389,6 @@
 						&-arrow {
 							width: rem(16);
 							height: rem(16);
-							margin-left: auto;
 							margin-left: auto;
 							transition: $default-transition;
 							@include max(lg) {

@@ -1,20 +1,17 @@
 <?php
 /**
- * Disable Comments
- *
- * @package _iag
+ * Comments off everywhere (front-end, admin menu, admin bar). The theme has no comments templates: a site that needs
+ * comments gets them built from scratch (comments.php, comment-reply script, styles) and comments out this require.
  */
 
-add_action( 'admin_init', function() {
-	// Redirect any user trying to access comments page
+add_action( 'admin_init', function () {
 	global $pagenow;
 
-	if ( $pagenow === 'edit-comments.php' ) {
-		wp_redirect( admin_url() );
+	if ( 'edit-comments.php' === $pagenow ) {
+		wp_safe_redirect( admin_url() );
 		exit;
 	}
 
-	// Disable support for comments and trackbacks in post types
 	foreach ( get_post_types() as $post_type ) {
 		if ( post_type_supports( $post_type, 'comments' ) ) {
 			remove_post_type_support( $post_type, 'comments' );
@@ -23,20 +20,14 @@ add_action( 'admin_init', function() {
 	}
 } );
 
-/**
- * Close comments on the front-end
- */
 add_filter( 'comments_open', '__return_false', 20, 2 );
 add_filter( 'pings_open', '__return_false', 20, 2 );
-
-/**
- * Hide existing comments
- */
 add_filter( 'comments_array', '__return_empty_array', 10, 2 );
 
-/**
- * Remove comments page in menu
- */
-add_action( 'admin_menu', function() {
+add_action( 'admin_menu', function () {
 	remove_menu_page( 'edit-comments.php' );
 } );
+
+add_action( 'admin_bar_menu', function ( $wp_admin_bar ) {
+	$wp_admin_bar->remove_node( 'comments' );
+}, 999 );

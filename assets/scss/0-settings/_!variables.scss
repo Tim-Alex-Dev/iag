@@ -1,131 +1,73 @@
-// Primary Colors -------------------------------------------
-$primary: #FC7624;
-$secondary: #0F1F33;
+@use "sass:map";
 
-$iag-navy-50: #EEF2F8;
-$iag-navy-100: #D5DEEC;
-$iag-navy-200: #A8B8D2;
-$iag-navy-300: #7A91B7;
-$iag-navy-400: #4F6E9C;
-$iag-navy-500: #2A4E80;
-$iag-navy-600: #1F3B62;
-$iag-navy-700: #162B48;
-$iag-navy-800: #0F1F33;
-$iag-navy-900: #08101C;
+// Colors -------------------------------------------
+// IAG Brand Style Guide palette is the single source of truth.
+// Add a new color only if the design really needs it; derive shades from the brand colors.
 
-$iag-orange-50: #FDF1EA;
-$iag-orange-100: #FBDFCE;
-$iag-orange-200: #F6B791;
-$iag-orange-300: #F08C56;
-$iag-orange-400: #EE7335;
-$iag-orange-500: #FF6015;
-$iag-orange-600: #C84A12;
-$iag-orange-700: #9F3A0E;
-$iag-orange-800: #762A0A;
-$iag-orange-900: #4A1A06;
+// Brand colors
+$iag-orange: #FF6015;
+$iag-burnt-orange: #ED6E2A;
+$iag-red: #CD3C1E;
+$iag-grey: #6A6C6F;
+$iag-blue: #297AF8;
+$iag-navy-light: #194B8F;
+$iag-navy: #162B48;
 
-$iag-gray-50: #F7F8FA;
-$iag-gray-100: #EEF0F3;
-$iag-gray-200: #DDE1E6;
-$iag-gray-300: #C2C8D0;
-$iag-gray-400: #9AA1AB;
-$iag-gray-500: #7A7F88;
-$iag-gray-600: #5A5F67;
-$iag-gray-700: #3F434A;
-$iag-gray-800: #272A30;
-$iag-gray-900: #14161A;
+// Derived shades (only what the UI needs)
+$iag-grey-active: #4A4C4F;
+$iag-grey-light: #DCDDDF;
+$iag-grey-50: #F4F4F5;
+$iag-orange-tint: #FFF5F0;
 
-// Main Colors
+// Base
 $black: #000;
-$black_01: #1C1C1F;
-
 $white: #fff;
-$white-50: rgba($white, 0.5);
 
-
-$box-shadow-white: 0 16px 32px rgba($white, .15);
-$box-shadow-black: 0 16px 32px rgba($black, .25);
-
-$white_01: #f7f7f8;
-$white_02: #d0dcfa;
-$white_03: #f3f6fe;
-$white_04: #d0dcfa;
-
-$grey: #a0a0a0;
-$grey_01: #D9D9DE;
-$grey_02: #78839e;
-
-//
-$brand-blue: #194B8F;
-
-// Backgrounds
-$bg-blue: $iag-navy-800;
-$bg-orange: $iag-orange-500;
-$bg-blue-light: #162B48;
-$bg-white: #fff;
-$bg-gray: #F7F8FA;
-$bg-gradient: linear-gradient(158deg, #194B8F 0%, #00112B 92%);
-
-
-// Borders
-$border-blue: #2A4E80; //navy-500
-$border-blue_01: #1F3B62; //navy-600
-
-
-$grey-border: #d0dcfa;
-$grey-shadow: #B9B9C1;
-
-
-
-
-$blue: #0f224e;
-$blue_01: #78839e;
-
-
-
-
-// $bg-module-white-hover: #d0dcfa;
-$bg-module-grey: #f3f6fe;
-$bg-module-grey-hover: #d0dcfa;
-// $bg-dark: #0F1F33;
-// $bg-module-dark: #0f224e;
-
-
-$black: #000;
-$black_01: #1C1C1F;
-$white: #fff;
-$white_01: #f7f7f8;
-$white-50: rgba($white, 0.5);
-$grey: #a0a0a0;
-$grey_01: #D9D9DE;
-
-
-$nav-title: #162B48; // submenu titles
-$nav-orange: #EB5C1E; // orange lines / arrows / CTA
-$submenu-bg: #FFFFFF; // submenu background
-
-
-$white-border: $iag-gray-200;
-$gray-border: $iag-gray-400;
-
-$green: #1F8A5B;
-$green_01: #4ade80;
-
-$red: #dc3232;
-$red-01: #FF0000;
-$orange: #f56e28;
-$yellow: #F2C94C;
-
-
-$color-text: $iag-gray-700;
-$color-heading: $primary;
+// Roles (aliases of the palette, change here to re-theme)
+$primary: $iag-orange;
+$secondary: $iag-navy;
+$color-text: $iag-navy;
 $color-link: $primary;
+
+// WordPress block editor color presets still used in older content (classes has-{name}-color, see 1-1-base/_wp-core.scss), mapped to brand colors
+$wp-vivid-cyan-blue: $iag-blue;
+$wp-luminous-vivid-orange: $iag-orange;
+
+// Transparent colors: {color}-a{opacity %} (8-digit HEX, alpha = opacity * 255)
+$black-a00: #00000000;
+$black-a10: #0000001A;
+$black-a30: #0000004D;
+$black-a50: #00000080;
+$iag-navy-a00: #162B4800;
+$iag-navy-a06: #162B480F;
+$iag-navy-a40: #162B4866;
+$iag-navy-a90: #162B48EB;
+$iag-navy-light-a20: #194B8F33;
+$iag-grey-light-a50: #DCDDDF80;
+$iag-grey-50-a00: #F4F4F500;
+$iag-orange-a15: #FF601526;
+$iag-orange-a50: #FF601580;
+$white-a00: #FFFFFF00;
+$white-a10: #FFFFFF1A;
+$white-a25: #FFFFFF40;
+$white-a50: #FFFFFF80;
+$white-a75: #FFFFFFBF;
+$white-a90: #FFFFFFE6;
+
+// Gradients
+$bg-gradient: linear-gradient(158deg, $iag-navy-light 0%, $iag-navy 92%); // hero background
+
+// Shadows
+$box-shadow-white: 0 16px 32px $white-a10;
+$box-shadow-black: 0 16px 32px $black-a30;
 
 
 // Fonts -------------------------------------------
-$font-heading: 'Avenir', sans-serif;
-$font-text: 'IBMPlexSans', sans-serif;
-$font-alt: 'IBMPlexMono', sans-serif;
+// Single brand font: Avenir (IAG Brand Style Guide).
+// All three role variables point to Avenir so existing references continue to work.
+$font-heading: 'Avenir', sans-serif; // titles — use font-weight 700/900
+$font-text:    'Avenir', sans-serif; // body copy — use font-weight 300/400
+$font-alt:     'Avenir', sans-serif; // labels / tags / metadata — use font-weight 400/600
 
 $font-code: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 $font-pre: "Courier 10 Pitch", Courier, monospace;
@@ -142,13 +84,12 @@ $radius: rem(8); // global border-radius (can be 0, but need to keep it)
 // Transitions -------------------------------------------
 $time: 0.5s;
 $default-transition: all $time 0s;
-$medium-transition: all 0.5s 0s;
 
 
 // Grid breakpoints -------------------------------------------
 // for min-width = values, for max-width = value - 1px.
-// example: @include min(lg) = @media (min-width: 1025px)
-// example: @include max(lg) = @media (max-width: 1024px)
+// example: @include min(lg) = @media (min-width: 1024px)
+// example: @include max(lg) = @media (max-width: 1023px)
 $grid-breakpoints: (
 	xs: 0,
 	md: 640px,
@@ -159,7 +100,7 @@ $grid-breakpoints: (
 
 // Grid columns
 // Set the number of columns and specify the width of the gutters.
-$grid-columns: 12;
+$grid-columns: 12; // used by Bootstrap grid
 $grid-gutter-width: 30px; // 15px on each side
 
 // Grid containers
@@ -172,18 +113,13 @@ $container-max-widths: (
 	xxl: 1680px,
 );
 
-// Container padding
+// Container padding (total for both sides)
 $container-gutter-x-values: (
 	xs: 40px,
-	// 20px on each side
 	md: 80px,
-	// 40px on each side
 	lg: 80px,
-	// 40px on each side
 	xl: 60px,
-	// 30px on each side
 	xxl: 100px,
-	// 50px on each side
 );
 
 // Container fluid maximum width
@@ -195,10 +131,10 @@ $container-fluid-max-width: 1920px;
 :root {
 	--container-width: 100%;
 
-	@each $bp in map-keys($grid-breakpoints) {
-		@media (min-width: map-get($grid-breakpoints, $bp)) {
-			--container-width: #{map-get($container-max-widths, $bp)};
-			--container-gutter-x: #{map-get($container-gutter-x-values, $bp)};
+	@each $bp in map.keys($grid-breakpoints) {
+		@media (min-width: map.get($grid-breakpoints, $bp)) {
+			--container-width: #{map.get($container-max-widths, $bp)};
+			--container-gutter-x: #{map.get($container-gutter-x-values, $bp)};
 		}
 	}
 

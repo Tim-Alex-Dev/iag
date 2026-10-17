@@ -1,5 +1,5 @@
 .resource-related {
-    background-color: $iag-gray-50;
+    background-color: $iag-grey-50;
     padding: rem(60 0);
 
     &__list {
@@ -30,18 +30,18 @@
         align-items: flex-end;
         justify-content: space-between;
         gap: rem(24);
-        border-bottom: 1px solid $iag-gray-200;
+        border-bottom: 1px solid $iag-grey-light;
         padding-bottom: rem(16);
         margin-bottom: rem(28);
 
         &-title {
             position: relative;
-            font-weight: 800;
+            font-weight: 700;
             font-size: rem(24);
             letter-spacing: -0.015em;
             margin: 0px;
             padding-left: rem(18);
-            color: $iag-gray-900;
+            color: $iag-navy;
             text-transform: uppercase;
 
             &:after {
@@ -53,7 +53,7 @@
                 height: rem(26);
                 width: rem(5);
                 border-radius: rem(2);
-                background-color: $iag-orange-500;
+                background-color: $iag-orange;
             }
         }
     }

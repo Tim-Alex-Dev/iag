@@ -58,7 +58,8 @@
             "choices": {
                 "white": "White",
                 "gray": "Gray",
-                "blue": "Blue"
+                "blue": "Blue",
+                "gradient": "Gradient"
             },
             "default_value": "",
             "return_format": "value",
@@ -544,5 +545,5 @@
             "json"
         ]
     },
-    "modified": 1787570792
+    "modified": 1792053106
 }

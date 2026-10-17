@@ -1,5 +1,5 @@
 <?php
-$module_id        = get_sub_field( 'module_id' ) ?: '';
+$module_id        = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
 $color_theme      = get_sub_field( 'color_theme' ) ?: 'white';
 $module_title     = get_sub_field( 'module_title' ) ?? false;
 $module_alignment = get_sub_field( 'module_header_alignment' ) ?: 'left';
@@ -10,7 +10,7 @@ $module_link      = get_sub_field( 'module_link' ) ?? false;
 $contact_form     = get_field( 'hubspot_default_form', 'option' ) ?? false;?>
 
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-cf bg-<?php echo esc_attr( $color_theme ); ?> module-<?php echo esc_attr( $module_type ); ?>  ">
+<section<?php echo $module_id; ?> class="module m-cf bg-<?php echo esc_attr( $color_theme ); ?> module-<?php echo esc_attr( $module_type ); ?>  ">
 	<div class="container">
         <div class="m-cf__content">
             <?php if ( $module_title || $module_subtitle || $module_uptitle ) : ?>

@@ -1,9 +1,9 @@
 // Default styles
 .nice-select {
 	-webkit-tap-highlight-color: transparent;
-	background-color: #fff;
+	background-color: $white;
 	border-radius: 5px;
-	border: solid 1px #e8e8e8;
+	border: solid 1px $iag-grey;
 	box-sizing: border-box;
 	clear: both;
 	cursor: pointer;
@@ -25,18 +25,18 @@
 	width: auto;
 
 	&:hover {
-		border-color: $black;
+		border-color: $iag-grey-active;
 	}
 
 	&:active,
 	&.open,
 	&:focus {
-		border-color: $black;
+		border-color: $iag-grey-active;
 	}
 
 	&:after {
-		border-bottom: 2px solid #999;
-		border-right: 2px solid #999;
+		border-bottom: 2px solid $iag-grey;
+		border-right: 2px solid $iag-grey;
 		content: '';
 		display: block;
 		height: 5px;
@@ -62,12 +62,12 @@
 	}
 
 	&.disabled {
-		border-color: #ededed;
-		color: #999;
+		border-color: $iag-grey-light;
+		color: $iag-grey;
 		pointer-events: none;
 
 		&:after {
-			border-color: #cccccc;
+			border-color: $iag-grey-light;
 		}
 	}
 }
@@ -109,9 +109,9 @@
 
 // List and options
 .nice-select .list {
-	background-color: #fff;
+	background-color: $white;
 	border-radius: 5px;
-	box-shadow: 0 0 0 1px rgba(68, 68, 68, 0.11);
+	box-shadow: 0 0 0 1px $black-a10;
 	box-sizing: border-box;
 	margin: 1px 0 0;
 	opacity: 0;
@@ -149,14 +149,14 @@
 
 	&.disabled {
 		background-color: transparent;
-		color: #999;
+		color: $iag-grey;
 		cursor: default;
 	}
 
 	&:hover,
 	&.focus,
 	&.selected.focus {
-		background-color: #f6f6f6;
+		background-color: $iag-grey-50;
 	}
 }
 
@@ -178,11 +178,11 @@ div.nice-select {
 	width: 100%;
 	height: rem(46);
 	background-color: $white;
-	color: $black;
+	color: $iag-navy;
 	float: none;
 	font-size: rem(16);
 	line-height: 1;
-	border: 1px solid $grey-border;
+	border: 1px solid $iag-grey;
 	border-radius: $radius;
 	padding: rem(13 28 13 16);
 }
@@ -193,7 +193,7 @@ div.nice-select {
 	&:after {
 		width: 8px;
 		height: 8px;
-		border-color: $black;
+		border-color: $iag-grey-active;
 		margin-top: -5px;
 	}
 
@@ -211,7 +211,7 @@ div.nice-select {
 
 	.list {
 		width: calc(100% + 2px);
-		border: 1px solid $grey-border;
+		border: 1px solid $iag-grey-light;
 		border-radius: $radius;
 		margin: 0;
 		top: 100%;
@@ -219,7 +219,7 @@ div.nice-select {
 
 		li {
 			&:not(:last-child) {
-				border-bottom: 1px solid $grey-border;
+				border-bottom: 1px solid $iag-grey-light;
 			}
 		}
 	}
@@ -227,7 +227,7 @@ div.nice-select {
 	.option {
 		min-height: unset;
 		background-color: $white;
-		color: $black;
+		color: $iag-navy;
 		line-height: 1;
 		padding: rem(13 16);
 		margin: 0 !important;

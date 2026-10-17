@@ -1,6 +1,5 @@
 .expert-card {
     &.swiper-slide {
-        // width: rem(300);
         border-radius: rem(8);
         padding: rem(28);
         display: flex;
@@ -90,7 +89,7 @@
                 border-radius: rem(8);
                 flex: none;
                 position: relative;
-                border: 1px solid $iag-gray-200;
+                border: 1px solid $iag-grey-light;
                 overflow: hidden;
                 @include min(xxl) {
                     width: rem(100);
@@ -113,7 +112,7 @@
                 .data-name {
                     font-size: rem(18);
                     font-weight: 600;
-                    color: $iag-gray-900;
+                    color: $iag-navy;
                     @include min(xxl) {
                         font-size: rem(24);
                     }
@@ -122,7 +121,7 @@
                 .data-degrees {
                     font-size: rem(14);
                     font-weight: 600;
-                    color: $iag-orange-600;
+                    color: $iag-red;
                     @include min(xxl) {
                         font-size: rem(18);
                     }
@@ -172,18 +171,19 @@
 
 // color theme
 .expert-card.grid-element {
-    .bg-blue & {
-        background: $iag-navy-800;
-        border: 1px solid $iag-navy-600;
+    .bg-blue &,
+    .bg-gradient & {
+        background: $iag-navy;
+        border: 1px solid $iag-navy-light;
 
         &:hover {
-            border: 1px solid $iag-navy-400;
-            box-shadow: 0 6px 20px rgba($white, .08);
+            border: 1px solid $iag-navy-light;
+            box-shadow: 0 6px 20px $white-a10;
         }
 
         .expert-card__header {
             &-photo {
-                border: 1px solid $iag-navy-400;
+                border: 1px solid $iag-navy-light;
             }
 
             &-data {
@@ -192,24 +192,24 @@
                 }
 
                 .data-degrees {
-                    color: $iag-orange-500;
+                    color: $iag-orange;
                 }
             }
         }
     
         .expert-card__position {
-            color: $iag-orange-500;
+            color: $iag-orange;
         }
     
         .expert-card__description {
-            color: $iag-navy-200;
+            color: $white-a75;
         }
 
         .expert-card__footer {
             &-category {
                 background-color: $white;
-                color: $iag-gray-500;
-                border: 1px solid $iag-gray-200;
+                color: $iag-grey;
+                border: 1px solid $iag-grey-light;
             }
 
             &-link {
@@ -221,61 +221,62 @@
     .bg-white &,
     .bg-gray & {
         background: $white;
-        border: 1px solid $iag-gray-200;
+        border: 1px solid $iag-grey-light;
         &:hover {
-            border: 1px solid $iag-gray-400;
-            box-shadow: 0 6px 20px rgba($black, .08);
+            border: 1px solid $iag-grey;
+            box-shadow: 0 6px 20px $black-a10;
         }
 
         .expert-card__header {
             &-photo {
-                border: 1px solid $iag-gray-200;
+                border: 1px solid $iag-grey-light;
             }
 
             &-data {
                 .data-name {
-                    color: $iag-gray-900;
+                    color: $iag-navy;
                 }
 
                 .data-degrees {
-                    color: $iag-orange-500;
+                    color: $iag-orange;
                 }
             }
         }
     
         .expert-card__position {
-            color: $iag-orange-500;
+            color: $iag-orange;
         }
     
         .expert-card__description {
-            color: $iag-gray-700;
+            color: $iag-navy;
         }
 
         .expert-card__footer {
             &-category {
-                color: $iag-gray-500;
-                border: 1px solid $iag-gray-200;
+                color: $iag-grey;
+                border: 1px solid $iag-grey-light;
             }
 
             &-link {
-                color: $iag-orange-500;
+                color: $iag-orange;
             }
         }
     }
 }
 
 .expert-card.swiper-slide {
-    .bg-blue & {
-        background: $iag-navy-800;
-        border: 1px solid $iag-navy-600;
+    .bg-blue &,
+    .bg-gradient & {
+        background: $iag-navy;
+        border: 1px solid $iag-navy-light;
         &:hover {
-            border: 1px solid $iag-navy-400;
-            box-shadow: 0 6px 20px rgba($white, .08);
+            border: 1px solid $iag-navy-light;
+            box-shadow: 0 6px 20px $white-a10;
         }
         
         .expert-card {
             &__photo {
-                border: 1px solid $iag-orange-500;
+                border: 1px solid $iag-orange;
             }
             
             &__name {
@@ -283,16 +284,16 @@
             }
         
             &__position {
-                color: $iag-orange-500;
+                color: $iag-orange;
             }
         
             &__description {
-                color: $iag-navy-200;
+                color: $white-a75;
             }
         
             &__category {
-                color: $iag-gray-900;
-                border: 1px solid $iag-gray-200;
+                color: $iag-navy;
+                border: 1px solid $iag-grey-light;
                 background-color: $white;
             }
         }
@@ -301,33 +302,33 @@
     .bg-white &,
     .bg-gray & {
         background: $white;
-        border: 1px solid $iag-gray-200;
+        border: 1px solid $iag-grey-light;
         &:hover {
-            border: 1px solid $iag-gray-400;
-            box-shadow: 0 6px 20px rgba($black, .08);
+            border: 1px solid $iag-grey;
+            box-shadow: 0 6px 20px $black-a10;
         }
         
         .expert-card {
             &__photo {
-                border: 1px solid $iag-orange-500;
+                border: 1px solid $iag-orange;
             }
             
             &__name {
-                color: $iag-gray-900;
+                color: $iag-navy;
             }
         
             &__position {
-                color: $iag-orange-500;
+                color: $iag-orange;
             }
         
             &__description {
-                color: $iag-gray-700;
+                color: $iag-navy;
             }
         
             &__category {
                 background-color: $white;
-                color: $iag-gray-500;
-                border: 1px solid $iag-gray-200;
+                color: $iag-grey;
+                border: 1px solid $iag-grey-light;
             }
         }
     }

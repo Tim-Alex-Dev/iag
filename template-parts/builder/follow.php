@@ -1,5 +1,5 @@
 <?php
-$module_id        = get_sub_field( 'module_id' ) ?: '';
+$module_id        = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
 $color_theme      = get_sub_field( 'color_theme' ) ?: 'white';
 $module_title     = get_sub_field( 'module_title' ) ?? false;
 $module_alignment = get_sub_field( 'module_header_alignment' ) ?: 'left';
@@ -11,7 +11,7 @@ $follow_subtitle  = get_sub_field( 'cta_button_subtitle' ) ?? false;
 
 ?>
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-follow bg-<?php echo esc_attr( $color_theme ); ?>">
+<section<?php echo $module_id; ?> class="module m-follow bg-<?php echo esc_attr( $color_theme ); ?>">
 	<div class="container">
         <div class="m-follow__inner">
             <?php if ( $module_title || $module_subtitle || $module_uptitle ) : ?>

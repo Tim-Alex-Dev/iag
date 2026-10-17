@@ -30,11 +30,11 @@
                 font-weight: 700;
                 text-transform: uppercase;
                 letter-spacing: 0.16em;
-                color: $iag-orange-500;
+                color: $iag-orange;
             }
     
             .content-title {
-                font-weight: 800;
+                font-weight: 700;
                 font-size: rem(44);
                 line-height: 1.05;
                 letter-spacing: -0.025em;
@@ -44,7 +44,7 @@
             .content-subtitle {
                 font-size: rem(18);
                 line-height: 1.6;
-                color: rgba($white, 0.88);
+                color: $white-a90;
                 max-width: rem(680);
             }
 
@@ -57,7 +57,7 @@
                 .share-label {
                     font-size: rem(14);
                     font-weight: 600;
-                    color: rgba($white, 0.72);
+                    color: $white-a75;
                 }
         
                 .share-link {
@@ -67,7 +67,7 @@
                     align-items: center;
                     justify-content: center;
                     border-radius: rem(8);
-                    border: 1px solid $iag-gray-200;
+                    border: 1px solid $iag-grey-light;
                     background: $white;
         
                     &__img {
@@ -85,9 +85,9 @@
                     padding: rem(0 16);
                     margin-left: rem(24);
                     border-radius: rem(8);
-                    border: 1px solid $iag-gray-200;
+                    border: 1px solid $iag-grey-light;
                     background: $white;
-                    color: $iag-gray-700;
+                    color: $iag-navy;
                     font-size: rem(14);
                     font-weight: 600;
                     cursor: pointer;
@@ -101,7 +101,7 @@
                         transform: translateY(-50%);
                         height: rem(24);
                         width: rem(2);
-                        background-color: rgba($white, 0.25);
+                        background-color: $white-a25;
                     }
         
                     svg {
@@ -127,7 +127,7 @@
             .table-of-content {
                 position: sticky;
                 top: rem(100);
-                background-color: $iag-navy-700;
+                background-color: $iag-navy;
                 transition: $default-transition;
                 padding: rem(24);
                 border-radius: rem(12);
@@ -139,7 +139,7 @@
 
                 &__title {
                     font-family: $font-heading;
-                    color: $iag-orange-500;
+                    color: $iag-orange;
                     font-size: rem(28);
                 }
 
@@ -163,20 +163,20 @@
                             width: rem(4);
                             height: rem(4);
                             border-radius: 50%;
-                            background-color: $iag-gray-200;
+                            background-color: $iag-grey-light;
                         }
 
                         &:hover {
                             &::after {
-                                background-color: $iag-orange-500;
+                                background-color: $iag-orange;
                             }
                             a {
-                                color: $iag-orange-500;
+                                color: $iag-orange;
                             }
                         }
 
                         a {
-                            color: $iag-gray-200;
+                            color: $iag-grey-light;
                             font-weight: 600;
                         }
                     }

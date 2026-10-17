@@ -1,6 +1,6 @@
 .single-resource {
     padding-top: var(--header-height);
-    background-color: $iag-navy-700;
+    background-color: $iag-navy;
 }
 
 .resource {
@@ -31,7 +31,7 @@
             }
 
             .content-title {
-                font-weight: 800;
+                font-weight: 700;
                 font-size: rem(44);
                 line-height: 1.05;
                 letter-spacing: -0.025em;
@@ -53,7 +53,7 @@
             .content-subtitle {
                 font-size: rem(18);
                 line-height: 1.6;
-                color: rgba($white, 0.88);
+                color: $white-a90;
                 max-width: rem(680);
                 @include max(xl) {
                     font-size: rem(16);
@@ -84,7 +84,7 @@
             .share-label {
                 font-size: rem(14);
                 font-weight: 600;
-                color: rgba($white, 0.72);
+                color: $white-a75;
                 @include min(xxl) {
                     font-size: rem(20);
                 }
@@ -97,12 +97,12 @@
                 align-items: center;
                 justify-content: center;
                 border-radius: rem(8);
-                border: 1px solid $iag-gray-200;
+                border: 1px solid $iag-grey-light;
                 background: $white;
                 transition: $default-transition;
                 &:hover {
-                    background-color: $iag-navy-100;
-                    border: 1px solid $iag-navy-100;
+                    background-color: $iag-grey-light;
+                    border: 1px solid $iag-grey-light;
                 }
                 @include min(xxl) {
                     width: rem(64);
@@ -128,16 +128,16 @@
                 padding: rem(0 16);
                 margin-left: rem(24);
                 border-radius: rem(8);
-                border: 1px solid $iag-gray-200;
+                border: 1px solid $iag-grey-light;
                 background: $white;
-                color: $iag-gray-700;
+                color: $iag-navy;
                 font-size: rem(14);
                 font-weight: 600;
                 cursor: pointer;
                 transition: $default-transition;
                 &:hover {
-                    background-color: $iag-navy-100;
-                    border: 1px solid $iag-navy-100;
+                    background-color: $iag-grey-light;
+                    border: 1px solid $iag-grey-light;
                 }
                 @include min(xxl) {
                     height: rem(64);
@@ -151,7 +151,7 @@
                     transform: translateY(-50%);
                     height: rem(40);
                     width: rem(2);
-                    background-color: rgba($white, 0.25);
+                    background-color: $white-a25;
                     @include min(xxl) {
                         left: rem(-20);
                     }
@@ -183,11 +183,11 @@
             }
             
             .label {
-                color: rgba($white, .75);
+                color: $white-a75;
             }
 
             .data {
-                color: $iag-orange-400;
+                color: $iag-burnt-orange;
             }
 
             .data-posted {
@@ -226,7 +226,7 @@
             .table-of-content {
                 position: sticky;
                 top: rem(100);
-                background-color: $iag-navy-700;
+                background-color: $iag-navy;
                 transition: $default-transition;
                 padding: rem(24);
                 border-radius: rem(12);
@@ -238,7 +238,7 @@
 
                 &__title {
                     font-family: $font-heading;
-                    color: $iag-orange-500;
+                    color: $iag-orange;
                     font-size: rem(24);
                 }
 
@@ -262,20 +262,20 @@
                             width: rem(4);
                             height: rem(4);
                             border-radius: 50%;
-                            background-color: $iag-gray-200;
+                            background-color: $iag-grey-light;
                         }
 
                         &:hover {
                             &::after {
-                                background-color: $iag-orange-500;
+                                background-color: $iag-orange;
                             }
                             a {
-                                color: $iag-orange-500;
+                                color: $iag-orange;
                             }
                         }
 
                         a {
-                            color: $iag-gray-200;
+                            color: $iag-grey-light;
                             font-size: rem(14);
                             @include min(xxl) {
                                 font-size: rem(16);
@@ -306,8 +306,8 @@
             display: flex;
             flex-direction: column;
             gap: rem(12);
-            background: $iag-navy-700;
-            border: 1px solid $iag-navy-600;
+            background: $iag-navy;
+            border: 1px solid $iag-navy-light;
             border-radius: rem(8);
             transition: $default-transition;
             @include max(xl) {
@@ -329,15 +329,15 @@
                 position: absolute;
                 left: rem(-64);
                 top: -1px;
-                background: $iag-navy-700;
-                border: 1px solid $iag-navy-600;
+                background: $iag-navy;
+                border: 1px solid $iag-navy-light;
                 border-right: none;
                 border-top-left-radius: rem(8);
                 border-bottom-left-radius: rem(8);
                 transition: $default-transition;
                 &:hover {
                     cursor: pointer;
-                    background-color: $iag-navy-600;
+                    background-color: $iag-navy-light;
                 }
                 @include min(xl) {
                     display: none;
@@ -360,8 +360,8 @@
 
                 .cta-header-text {
                     font-size: rem(12);
-                    color: $iag-orange-500;
-                    font-weight: 500;
+                    color: $iag-orange;
+                    font-weight: 450;
                     @include min(xxl) {
                         font-size: rem(14);
                     }
@@ -387,7 +387,7 @@
 
                 .cta-body-description {
                     font-size: rem(14);
-                    color: $iag-navy-100;
+                    color: $white-a90;
                     line-height: 1.1;
                     @include min(xxl) {
                         font-size: rem(16);
@@ -413,7 +413,7 @@
 
                             svg {
                                 fill: none;
-                                stroke: $green;
+                                stroke: $iag-orange;
                                 width: rem(16);
                                 height: rem(16);
                             }
@@ -421,7 +421,7 @@
 
                         .list-item__text {
                             font-size: rem(12);
-                            color: $iag-navy-100;
+                            color: $white-a90;
                             @include min(xxl) {
                                 font-size: rem(14);
                             }

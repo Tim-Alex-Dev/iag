@@ -23,13 +23,11 @@ the_post();
 <?php else : ?>
 
 	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-9">
-				<h1 class="entry-title"><?php the_title(); ?></h1>
-				<section class="entry-content">
-					<?php the_content(); ?>
-				</section>
-			</div>
+		<div class="content-narrow">
+			<h1 class="entry-title"><?php the_title(); ?></h1>
+			<section class="entry-content">
+				<?php the_content(); ?>
+			</section>
 		</div>
 	</div>
 

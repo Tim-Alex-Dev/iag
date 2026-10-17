@@ -1,5 +1,5 @@
 <?php
-$module_id        = get_sub_field( 'module_id' ) ?: '';
+$module_id        = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
 $color_theme      = get_sub_field( 'color_theme' ) ?: 'white';
 $module_type      = get_sub_field( 'module_type' ) ?? false;
 $module_title     = get_sub_field( 'module_title' ) ?? false;
@@ -12,7 +12,7 @@ $experts          = get_sub_field( 'experts_list' ) ?? false;
 $leadership       = get_sub_field( 'leadership_members_list' ) ?? false;
 ?>
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-stars module-<?php echo esc_attr( $module_type ); ?> bg-<?php echo esc_attr( $color_theme ); ?>">
+<section<?php echo $module_id; ?> class="module m-stars module-<?php echo esc_attr( $module_type ); ?> bg-<?php echo esc_attr( $color_theme ); ?>">
 	<div class="container">
         <?php if ( $module_title || $module_subtitle || $module_uptitle ) : ?>
             <div class="module-header alignment-<?php echo esc_attr( $module_alignment ); ?>">

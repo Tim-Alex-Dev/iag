@@ -1,5 +1,6 @@
 <?php
-$module_id        = get_sub_field( 'module_id' ) ?: '';
+$module_id        = it_id_attr( get_sub_field( 'module_id' ) ); // ' id="..."' or ''
+$above_fold       = 1 === ( $args['index'] ?? 0 ); // first module: images are not lazy-loaded
 $module_title     = get_sub_field( 'module_title' ) ?? false;
 $module_subtitle  = get_sub_field( 'module_subtitle' ) ?? false;
 $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
@@ -13,7 +14,7 @@ $blocks_status 	  = get_sub_field('blocks_status') ?? false;
 ?>
 
 
-<section id="<?php echo esc_attr($module_id); ?>" class="module m-hero">
+<section<?php echo $module_id; ?> class="module m-hero">
 	<div class="container">
 		<?php if ( $module_title || $module_subtitle ) : ?>
 			<div class="m-hero__content">
@@ -98,7 +99,7 @@ $blocks_status 	  = get_sub_field('blocks_status') ?? false;
 	
 									<?php if ( $image ) : ?>
 										<div class="image-block">
-											<?php echo wp_get_attachment_image( $image, 'medium', false, [ 'class' => 'image-block__img' ] ); ?>
+											<?php echo wp_get_attachment_image( $image, 'medium', false, array_merge( [ 'class' => 'image-block__img' ], $above_fold ? [ 'loading' => 'eager' ] : [] ) ); ?>
 											<?php if ( $title ) : ?>
 												<span class="image-block__title">
 													<?php echo esc_html( $title ); ?>
@@ -115,7 +116,7 @@ $blocks_status 	  = get_sub_field('blocks_status') ?? false;
 								<?php if ( $blocks_subject ) : ?>
 									<div class="footer-block">
 										<span class="footer-block__label">
-											<?php echo _e( 'Subject', '_iag' ); ?>
+											<?php esc_html_e( 'Subject', '_iag' ); ?>
 										</span>
 										<span class="footer-block__text">
 											<?php echo esc_html( $blocks_subject ); ?>
@@ -125,7 +126,7 @@ $blocks_status 	  = get_sub_field('blocks_status') ?? false;
 								<?php if ( $blocks_read ) : ?>
 									<div class="footer-block">
 										<span class="footer-block__label">
-											<?php echo _e( 'Read', '_iag' ); ?>
+											<?php esc_html_e( 'Read', '_iag' ); ?>
 										</span>
 										<span class="footer-block__text">
 											<?php echo esc_html( $blocks_read ); ?>
@@ -135,7 +136,7 @@ $blocks_status 	  = get_sub_field('blocks_status') ?? false;
 								<?php if ( $blocks_status ) : ?>
 									<div class="footer-block">
 										<span class="footer-block__label">
-											<?php echo _e( 'Status', '_iag' ); ?>
+											<?php esc_html_e( 'Status', '_iag' ); ?>
 										</span>
 										<span class="footer-block__text block-status">
 											<?php echo esc_html( $blocks_status ); ?>

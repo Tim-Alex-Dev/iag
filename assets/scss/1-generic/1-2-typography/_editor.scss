@@ -72,12 +72,13 @@
 		@extend %link;
 	}
 	.bg-white {
-		color: $iag-gray-700;
+		color: $iag-navy;
 	}
 	.bg-gray {
-		color: $iag-gray-700;
+		color: $iag-navy;
 	}
-	.bg-blue & {
-		color: $iag-navy-100;
+	.bg-blue &,
+	.bg-gradient & {
+		color: $white-a90;
 	}
 }
