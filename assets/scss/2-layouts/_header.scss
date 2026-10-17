@@ -9,6 +9,10 @@
 	z-index: 100;
 	border-bottom: 1px solid $white-a10;
 	transition: background-color $time, height $time;
+	@include max(lg) {
+		background-color: $iag-navy-light;
+		box-shadow: 0 10px 10px $black-a10;
+	}
 
 	.has-hero:not(.is-scrolled) & {
 		background-color: transparent;
