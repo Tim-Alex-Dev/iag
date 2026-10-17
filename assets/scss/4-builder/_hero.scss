@@ -4,6 +4,12 @@
 	min-height: 100vh;
 	background: $bg-gradient;
 	color: $white;
+	@include max(lg) {
+		padding: rem(100 0 40);
+	}
+	@include max(md) {
+		padding: rem(120 0 40);
+	}
 
 	.container {
 		display: grid;
