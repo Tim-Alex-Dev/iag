@@ -1,57 +1,68 @@
 <?php
 /**
- * CSP Violation Report Endpoint
- * 
- * Receives Content-Security-Policy violation reports and logs them.
- * Reports are saved to wp-content/csp-reports.log
- * 
- * Usage: Add this to your CSP header:
- * Content-Security-Policy-Report-Only: ... report-uri https://www.ia-grp.com/wp-content/themes/flavor/csp-report.php
+ * CSP violation report endpoint.
+ *
+ * Receives Content-Security-Policy(-Report-Only) violation reports from browsers
+ * and appends them, one JSON object per line, to a log file that is NOT web-accessible.
+ *
+ * Endpoint (after deploy):
+ *   https://www.ia-grp.com/wp-content/themes/iag/csp-report.php
+ *
+ * Log file (Cloudways app root, outside public_html):
+ *   private_html/csp-reports.log   (download via SFTP)
+ *
+ * Safeguards: POST only, request body capped at 64 KB, log capped at 5 MB
+ * (further reports are dropped until the log is rotated or deleted).
  */
 
-// Only accept POST requests with JSON content
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    exit('Method not allowed');
+const IAG_CSP_MAX_BODY = 65536;
+const IAG_CSP_MAX_LOG  = 5242880;
+
+if ( 'POST' !== ( $_SERVER['REQUEST_METHOD'] ?? '' ) ) {
+	http_response_code( 405 );
+	header( 'Allow: POST' );
+	exit;
 }
 
-// Get the raw POST data
-$data = file_get_contents('php://input');
+$iag_csp_body = file_get_contents( 'php://input', false, null, 0, IAG_CSP_MAX_BODY + 1 );
 
-if (empty($data)) {
-    http_response_code(400);
-    exit('No data received');
+if ( false === $iag_csp_body || '' === $iag_csp_body || strlen( $iag_csp_body ) > IAG_CSP_MAX_BODY ) {
+	http_response_code( 400 );
+	exit;
 }
 
-// Validate it's JSON
-$json = json_decode($data, true);
-if (json_last_error() !== JSON_ERROR_NONE) {
-    http_response_code(400);
-    exit('Invalid JSON');
+$iag_csp_report = json_decode( $iag_csp_body, true );
+
+if ( ! is_array( $iag_csp_report ) ) {
+	http_response_code( 400 );
+	exit;
 }
 
-// Log file path (outside web root would be better, but this works for WordPress)
-$log_file = dirname(__FILE__) . '/../../csp-reports.log';
+// theme dir -> themes -> wp-content -> public_html -> application root.
+$iag_csp_dir = dirname( __DIR__, 4 ) . '/private_html';
+$iag_csp_log = $iag_csp_dir . '/csp-reports.log';
 
-// Format the log entry
-$log_entry = [
-    'timestamp' => date('Y-m-d H:i:s'),
-    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown',
-    'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? 'unknown',
-    'report' => $json
-];
+if ( ! is_dir( $iag_csp_dir ) || ! is_writable( $iag_csp_dir ) ) {
+	http_response_code( 500 );
+	exit;
+}
 
-// Append to log file
-$result = file_put_contents(
-    $log_file,
-    json_encode($log_entry) . "\n",
-    FILE_APPEND | LOCK_EX
+clearstatcache( true, $iag_csp_log );
+if ( file_exists( $iag_csp_log ) && filesize( $iag_csp_log ) >= IAG_CSP_MAX_LOG ) {
+	http_response_code( 204 );
+	exit;
+}
+
+$iag_csp_entry = array(
+	'time'       => gmdate( 'c' ),
+	'user_agent' => substr( (string) ( $_SERVER['HTTP_USER_AGENT'] ?? '' ), 0, 300 ),
+	'report'     => $iag_csp_report,
 );
 
-if ($result === false) {
-    http_response_code(500);
-    exit('Failed to write log');
-}
+file_put_contents(
+	$iag_csp_log,
+	json_encode( $iag_csp_entry, JSON_UNESCAPED_SLASHES ) . "\n",
+	FILE_APPEND | LOCK_EX
+);
 
-// Return 204 No Content (standard response for report endpoints)
-http_response_code(204);
+http_response_code( 204 );
