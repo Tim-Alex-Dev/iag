@@ -13,6 +13,7 @@ define( 'IT_IMG', IT_URL . '/dist/img/' );
 
 require IT_DIR . '/inc/after-theme-setup.php'; // theme supports, menus, small front-end filters
 require IT_DIR . '/inc/acf.php'; // ACF options page, Page Builder layout previews
+require IT_DIR . '/inc/csp-report.php'; // CSP violation report endpoint (REST)
 require IT_DIR . '/inc/custom-post-type.php'; // Expert, Leadership, Resource + taxonomies
 require IT_DIR . '/inc/disables.php'; // WordPress features the theme does not use
 require IT_DIR . '/inc/editor.php'; // classic editor formats and colors
