@@ -151,7 +151,7 @@ $enable_footer_contacts = get_field( 'enable_footer_contacts_menu', 'option' ) ?
 					<p class="h2 contact-form__title">
 						<?php esc_html_e( 'Submit RFP', '_iag' ); ?>
 					</p>
-					<?php echo $modal_cf_header; ?>
+					<?php echo it_hubspot_form( $modal_cf_header ); // HubSpot embed code from the theme options ?>
 				</div>
 			</div>
 		</div>

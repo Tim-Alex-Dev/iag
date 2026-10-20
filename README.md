@@ -45,7 +45,9 @@ assets are compiled by **Gulp 5 + Webpack + Dart Sass + LightningCSS** into `dis
 | Select All Categories... (radio buttons) | Admin UX: single term selection in taxonomies |
 | WP Mail SMTP | Mail delivery |
 
-Forms on the site are **HubSpot** embeds pasted into *Theme Settings → HubSpot* (no plugin needed).
+Forms on the site are **HubSpot** embeds pasted into *Theme Settings → HubSpot* (no plugin needed). Templates print them with
+`it_hubspot_form()`: HubSpot `v2.js` is not loaded with the page but when the form comes near the screen or on the first
+interaction (`assets/js/components/hubspot-forms.js`), so paste the standard embed code (`<script src=".../v2.js">` + `hbspt.forms.create`).
 SVG upload support and the classic editor are built into the theme — do not install plugins for them.
 
 ---
@@ -280,9 +282,11 @@ Files starting with `_!` are loaded first inside their folder.
 
 * **components** (always loaded, inside `main.js`): `_custom` (Nice Select, share button, animated counters, sticky header),
   `navigation` (mega menu / mobile menu, `aria-expanded` on the burger), `header-scrolled`, `adminbar`, `table-of-content`,
-  `accordion` (`.js-accordion`), `tabs` (`.js-tabs`), `modal` (`.js-modal-open` + `.modal`), `lightbox-trigger`.
-* **modules** (separate files in `dist/js/modules/`, loaded by `functions/load-modules.js` only when the page has their selector, after
-  the page load when the browser is idle, or at the first scroll / click / touch / key):
+  `accordion` (`.js-accordion`), `tabs` (`.js-tabs`), `modal` (`.js-modal-open` + `.modal`), `lightbox-trigger`,
+  `hubspot-forms` (runs the HubSpot form embeds printed by `it_hubspot_form()`, see Plugins).
+* **modules** (separate files in `dist/js/modules/`, loaded by `functions/load-modules.js` only when the page has their selector, when
+  such a visible element comes within one screen of the viewport, or at the first scroll / click / touch / key; a slider
+  already in the first screen loads at once):
   * `slider` → `.swiper`: Swiper 14 (only Navigation, Pagination, Autoplay, A11y), all sliders of the site;
   * `lightbox` → `[data-fancybox]`: Fancybox v4 (video popups). A click before it has loaded is handled by `components/lightbox-trigger.js`.
 * `_vars.js` — breakpoints; check them with `minWidth('lg')` from `functions/breakpoint.js` (never `$(window).width()`).
@@ -301,12 +305,12 @@ All files are loaded from `functions.php`.
 | `after-theme-setup.php` | theme supports, nav menu locations, body class with post type + slug (singular pages), excerpt length |
 | `acf.php` | Theme Settings options page, ACFE layout thumbnails (every `dist/img/acfe-thumbnails/{layout}.jpg` automatically), disabled ACFE modules |
 | `custom-post-type.php` | CPTs **Expert** (+ taxonomies Expertise, Therapeutic Area, Indicator Area), **Leadership**, **Resource** (+ taxonomy **Source** = "Resource Type") |
-| `disables.php` + `disables/` | switched-off WP features, one file each: admin bar logo, auto-updates, head links, comments, dashboard widgets, emoji, Gutenberg, embeds, XML-RPC (`jquery-migrate`, `theme-plugin-editor` available but off) |
+| `disables.php` + `disables/` | switched-off WP features, one file each: admin bar logo, auto-updates, head links, comments, dashboard widgets, emoji, Gutenberg, embeds, XML-RPC, jQuery Migrate on the front end (`theme-plugin-editor` available but off) |
 | `editor.php` | TinyMCE style formats (titles, text, buttons, lists), text colors, `force_balance_tags` on content and ACF WYSIWYG output (pasted tables otherwise leave stray tags) |
-| `help-func.php` | helpers: `it_id_attr()`, `it_excerpt()`, `it_posted_on()`, `it_phone_cleaner()`, `[email]` shortcode, `it_inline_svg()`, `it_link_rel()`, `get_primary_category()`, `it_console_log()` (admins only) |
+| `help-func.php` | helpers: `it_id_attr()`, `it_excerpt()`, `it_posted_on()`, `it_phone_cleaner()`, `[email]` shortcode, `it_inline_svg()`, `it_link_rel()`, `it_hubspot_form()`, `get_primary_category()`, `it_console_log()` (admins only) |
 | `login.php` | login screen logo and link |
 | `migrations.php` | WP-CLI only, nothing runs on its own. `wp iag migrate-simple-content [--dry-run]` moves the old single block of every Simple Content module into row 1 of the `content_list` repeater (safe to run twice, old values stay in the DB). Run it once on every environment right after deploying the Simple Content repeater, after a DB backup |
-| `scripts-styles.php` | enqueue of `main.css`, `main.js` (+ `itSettings`), admin assets; version = file time (`it_asset_ver()`, cache busting) |
+| `scripts-styles.php` | enqueue of `main.css`, `main.js` (+ `itSettings`), admin assets; version = file time (`it_asset_ver()`, cache busting); jQuery in the footer; tracking tags (`it_third_party_tags()`) |
 | `seo.php` | Source archive pagination redirects, Complianz URL fix, security headers |
 | `svg-support.php` | SVG uploads for administrators only; every SVG is sanitized (scripts, events, external links removed) |
 | `walker.php` | `IAG_Mega_Menu_Walker` — header mega menu |
@@ -334,7 +338,9 @@ get `'loading' => 'eager'` (+ `'fetchpriority' => 'high'` for the main image).
 
 **Menus**: Main Nav (mega menu, items have extra ACF fields), Footer Top, Footer Columns 1–3, Footer Copyright.
 
-**Tracking**: Google tag, Microsoft Clarity and HubSpot scripts are in `header.php`.
+**Tracking**: Google Analytics 4, Microsoft Clarity and HubSpot tracking are printed by `it_third_party_tags()` (`inc/scripts-styles.php`,
+IDs at the top of the function). The `gtag` / `clarity` queues start in `<head>`, the scripts load on the first user interaction
+(mouse, touch, key, scroll), so they do not slow down the first render (PageSpeed). Visitors who leave without any interaction are not tracked.
 
 ---
 

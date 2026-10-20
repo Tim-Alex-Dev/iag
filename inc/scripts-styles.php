@@ -25,6 +25,55 @@ function it_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'it_scripts' );
 
+// Front end: jQuery in the footer, not a render-blocking script in <head> (jQuery Migrate is off: inc/disables/jquery-migrate.php)
+add_action( 'wp_enqueue_scripts', function () {
+	wp_scripts()->add_data( 'jquery', 'group', 1 );
+	wp_scripts()->add_data( 'jquery-core', 'group', 1 );
+}, 1 );
+
+/**
+ * Analytics and marketing tags (Google Analytics 4, Microsoft Clarity, HubSpot tracking). Their queues (gtag, clarity)
+ * start in <head> at once, the scripts themselves load on the first user interaction (mouse, touch, key, scroll):
+ * they no longer compete with the first render and the main thread on page load (Lighthouse TBT / LCP).
+ */
+function it_third_party_tags() {
+	$ga4_id     = 'G-VPPRV7J2ZE';
+	$clarity_id = 'xbzyzucf2o';
+	$hubspot_id = '144692094';
+
+	$scripts = [
+		[ 'src' => 'https://www.googletagmanager.com/gtag/js?id=' . $ga4_id ],
+		[ 'src' => 'https://www.clarity.ms/tag/' . $clarity_id ],
+		[ 'src' => 'https://js-eu1.hs-scripts.com/' . $hubspot_id . '.js', 'id' => 'hs-script-loader' ],
+	];
+
+	$js = <<<'JS'
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', '%1$s');
+window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+(function (scripts) {
+	var events = ['mousemove', 'pointerdown', 'touchstart', 'keydown', 'scroll', 'wheel'];
+	var load = function () {
+		events.forEach(function (event) { window.removeEventListener(event, load, {passive: true}); });
+		scripts.forEach(function (item) {
+			var script = document.createElement('script');
+			script.async = true;
+			script.src = item.src;
+			if (item.id) { script.id = item.id; }
+			document.head.appendChild(script);
+		});
+	};
+	events.forEach(function (event) { window.addEventListener(event, load, {once: true, passive: true}); });
+})(%2$s);
+JS;
+
+	wp_print_inline_script_tag( sprintf( $js, esc_js( $ga4_id ), wp_json_encode( $scripts, JSON_UNESCAPED_SLASHES ) ), [ 'id' => 'it-third-party-tags' ] );
+}
+
+add_action( 'wp_head', 'it_third_party_tags', 20 );
+
 add_action( 'admin_enqueue_scripts', function () {
 	wp_enqueue_style( 'admin-styles', IT_CSS . 'admin-styles.css', [], it_asset_ver( 'css/admin-styles.css' ) );
 	wp_enqueue_script( 'admin-js', IT_JS . 'admin.js', [ 'jquery' ], it_asset_ver( 'js/admin.js' ), true );
