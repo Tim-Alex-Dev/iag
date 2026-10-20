@@ -22,7 +22,7 @@ $resource_category = get_primary_category( $resource_id );
                 $post_banner,
                 'full',
                 false,
-                [ 'class' => 'post-banner__img' ]
+                [ 'class' => 'post-banner__img', 'sizes' => '(min-width: 1024px) 30vw, (min-width: 640px) 67vw, 100vw' ]
             );
             ?>
         </div>

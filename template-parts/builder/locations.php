@@ -40,7 +40,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
                     <div class="m-locations__list-location">
                         <?php if ( $map_banner ) : ?>
                             <div class="location-banner">
-                                <?php echo wp_get_attachment_image( $map_banner, 'full', false, [ 'class' => 'location-banner__img' ] ); ?>
+                                <?php echo wp_get_attachment_image( $map_banner, 'full', false, [ 'class' => 'location-banner__img', 'sizes' => '(min-width: 1024px) 45vw, 100vw' ] ); ?>
                             </div>
                         <?php endif; ?>
                         <div class="location-content">

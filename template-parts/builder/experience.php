@@ -73,7 +73,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
                                         
                                         <?php if ( $title && $banner ) : ?>
                                             <div class="m-experience__card swiper-slide">
-                                                <?php echo wp_get_attachment_image( $banner, 'medium', false, [ 'class' => 'm-experience__card-banner' ] ); ?>
+                                                <?php echo wp_get_attachment_image( $banner, 'medium', false, [ 'class' => 'm-experience__card-banner', 'sizes' => '(min-width: 1440px) 31vw, (min-width: 1024px) 45vw, 100vw' ] ); ?>
                                                 <span class="h4 m-experience__card-title">
                                                     <?php echo esc_html( $title ); ?>
                                                 </span>

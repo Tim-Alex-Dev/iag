@@ -25,6 +25,13 @@ function it_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'it_scripts' );
 
+// Fonts of the first screen (h1 = Avenir Heavy, text = Avenir Book) start downloading with the CSS, not after it
+add_action( 'wp_head', function () {
+	foreach ( [ 'Avenir-Heavy', 'Avenir-Book' ] as $font ) {
+		printf( '<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n", esc_url( IT_URL . '/dist/fonts/' . $font . '.woff2' ) );
+	}
+}, 1 );
+
 // Front end: jQuery in the footer, not a render-blocking script in <head> (jQuery Migrate is off: inc/disables/jquery-migrate.php)
 add_action( 'wp_enqueue_scripts', function () {
 	wp_scripts()->add_data( 'jquery', 'group', 1 );

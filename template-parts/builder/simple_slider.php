@@ -49,7 +49,7 @@ $module_uptitle   = get_sub_field( 'module_uptitle' ) ?? false;
                         <?php if ( $slider_title && $slider_banner ) : ?>
                             <div class="swiper-slide">
                                 <div class="swiper-slide__banner">
-                                    <?php echo wp_get_attachment_image( $slider_banner, 'full', false, [ 'class' => 'swiper-slide__banner-img' ] ); ?>
+                                    <?php echo wp_get_attachment_image( $slider_banner, 'full', false, [ 'class' => 'swiper-slide__banner-img', 'sizes' => '(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw' ] ); ?>
                                 </div>
                                 <div class="swiper-slide__content">
                                     <span class="swiper-slide__content-title">
