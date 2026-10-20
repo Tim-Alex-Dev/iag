@@ -88,7 +88,7 @@ $posts_page_url      = get_permalink( get_option( 'page_for_posts' ) );
         <div class="c-latest-resources__main">
             <?php if ( $main_post_banner ) : ?>
                 <div class="main-post__banner">
-                    <?php echo wp_get_attachment_image( $main_post_banner, 'full', false, [ 'class' => 'main-post__banner-img', 'sizes' => '(min-width: 1440px) 56vw, 100vw' ] ); ?>
+                    <?php echo wp_get_attachment_image( $main_post_banner, 'full', false, array_merge( [ 'class' => 'main-post__banner-img' ], it_cover_sizes( $main_post_banner, [ [ '(min-width: 1440px)', '56vw', 320 ], [ '', '100vw', 320 ] ] ) ) ); ?>
                 </div>
             <?php endif; ?>
 
@@ -140,7 +140,7 @@ $posts_page_url      = get_permalink( get_option( 'page_for_posts' ) );
                     
                     <a class="list-post" href="<?php echo esc_url( $resource_link ); ?>" target="_blank" rel="noopener">
                         <div class="list-post__banner">
-                            <?php echo wp_get_attachment_image( $resource_banner, 'full', false, [ 'class' => 'list-post__banner-img', 'sizes' => '100px' ] ); ?>
+                            <?php echo wp_get_attachment_image( $resource_banner, 'full', false, array_merge( [ 'class' => 'list-post__banner-img' ], it_cover_sizes( $resource_banner, [ [ '', '100px', 80 ] ] ) ) ); ?>
                         </div>
 
                         <div class="list-post__content">

@@ -302,7 +302,7 @@ All files are loaded from `functions.php`.
 
 | File | Content |
 |---|---|
-| `after-theme-setup.php` | theme supports, nav menu locations, body class with post type + slug (singular pages), excerpt length |
+| `after-theme-setup.php` | theme supports, nav menu locations, body class with post type + slug (singular pages), excerpt length, lazy-loading of theme images |
 | `acf.php` | Theme Settings options page, ACFE layout thumbnails (every `dist/img/acfe-thumbnails/{layout}.jpg` automatically), disabled ACFE modules |
 | `custom-post-type.php` | CPTs **Expert** (+ taxonomies Expertise, Therapeutic Area, Indicator Area), **Leadership**, **Resource** (+ taxonomy **Source** = "Resource Type") |
 | `disables.php` + `disables/` | switched-off WP features, one file each: admin bar logo, auto-updates, head links, comments, dashboard widgets, emoji, Gutenberg, embeds, XML-RPC, jQuery Migrate on the front end (`theme-plugin-editor` available but off) |
@@ -310,15 +310,22 @@ All files are loaded from `functions.php`.
 | `help-func.php` | helpers: `it_id_attr()`, `it_excerpt()`, `it_posted_on()`, `it_phone_cleaner()`, `[email]` shortcode, `it_inline_svg()`, `it_link_rel()`, `it_hubspot_form()`, `get_primary_category()`, `it_console_log()` (admins only) |
 | `login.php` | login screen logo and link |
 | `migrations.php` | WP-CLI only, nothing runs on its own. `wp iag migrate-simple-content [--dry-run]` moves the old single block of every Simple Content module into row 1 of the `content_list` repeater (safe to run twice, old values stay in the DB). Run it once on every environment right after deploying the Simple Content repeater, after a DB backup |
-| `scripts-styles.php` | enqueue of `main.css`, `main.js` (+ `itSettings`), admin assets; version = file time (`it_asset_ver()`, cache busting); jQuery in the footer; tracking tags (`it_third_party_tags()`) |
+| `scripts-styles.php` | enqueue of `main.css`, `main.js` (+ `itSettings`), admin assets; version = file time (`it_asset_ver()`, cache busting); jQuery in the footer; tracking tags (`it_third_party_tags()`), preload of the first-screen fonts |
 | `seo.php` | Source archive pagination redirects, Complianz URL fix, security headers |
 | `svg-support.php` | SVG uploads for administrators only; every SVG is sanitized (scripts, events, external links removed) |
 | `walker.php` | `IAG_Mega_Menu_Walker` — header mega menu |
 
 Constants: `IT_DIR`, `IT_URL`, `IT_CSS`, `IT_JS`, `IT_IMG`.
 
-Images are lazy-loaded natively by WordPress (`loading="lazy"`, no script). Above-the-fold images (logo, banners, profile photos)
-get `'loading' => 'eager'` (+ `'fetchpriority' => 'high'` for the main image).
+Images are lazy-loaded natively (`loading="lazy"`, no script): every `wp_get_attachment_image()` without its own `loading` gets it
+from `it_lazy_load_theme_images()` (`after-theme-setup.php`; WordPress itself skips custom queries and template parts), and
+WordPress adds `sizes="auto"` to lazy images. Above-the-fold images (logo, banners, profile photos) get `'loading' => 'eager'`
+(+ `'fetchpriority' => 'high'` for the main image); the class `no-lazyload` keeps the WordPress default. Give large images an
+accurate `sizes` (e.g. `'(min-width: 1024px) 30vw, 100vw'`) for browsers without `sizes="auto"`. Slider images load when the
+slider module starts (`modules/slider.js`), images of a hidden tab when its title is pointed at (`components/tabs.js`).
+
+Fonts: the two first-screen fonts (Avenir Heavy, Avenir Book) are preloaded in `scripts-styles.php`; the Avenir files have no
+Arabic glyphs (see `assets/fonts/readme.md`).
 
 ---
 

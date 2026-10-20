@@ -32,6 +32,15 @@ add_action( 'wp_head', function () {
 	}
 }, 1 );
 
+// CookieYes banner script deferred (runs after the HTML is parsed, still before DOMContentLoaded): no render-blocking
+// script in <head>. Safe while it blocks nothing itself (no providers/cookies set up to block; the tracking tags wait for
+// an interaction anyway, see it_third_party_tags()).
+add_action( 'wp_enqueue_scripts', function () {
+	if ( wp_script_is( 'cookie-law-info', 'registered' ) ) {
+		wp_script_add_data( 'cookie-law-info', 'strategy', 'defer' );
+	}
+}, 20 );
+
 // Front end: jQuery in the footer, not a render-blocking script in <head> (jQuery Migrate is off: inc/disables/jquery-migrate.php)
 add_action( 'wp_enqueue_scripts', function () {
 	wp_scripts()->add_data( 'jquery', 'group', 1 );

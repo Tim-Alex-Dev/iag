@@ -87,3 +87,15 @@ function it_lazy_load_theme_images( $loading_attrs, $tag_name, $attr, $context )
 }
 
 add_filter( 'wp_get_loading_optimization_attributes', 'it_lazy_load_theme_images', 10, 4 );
+
+// Images whose template gives an exact sizes (it_cover_sizes() in help-func.php) do not get "auto, " in front of it
+function it_exact_image_sizes( $attr ) {
+	if ( ! empty( $attr['it_exact_sizes'] ) && isset( $attr['sizes'] ) ) {
+		$attr['sizes'] = preg_replace( '/^auto,\s*/', '', $attr['sizes'] );
+	}
+	unset( $attr['it_exact_sizes'] );
+
+	return $attr;
+}
+
+add_filter( 'wp_get_attachment_image_attributes', 'it_exact_image_sizes' );
