@@ -80,6 +80,36 @@ $extra_classes = $has_hero ? 'has-hero' : ''; // page with Hero requires extra h
 	</script>
 	<!-- End of HubSpot -->
 
+
+	<!-- Start of RB2B (loads only after "Advertisement" consent in CookieYes) -->
+	<script>
+		(function(key) {
+			function loadRb2b() {
+				if (window.reb2b) return;
+				window.reb2b = {loaded: true};
+				var s = document.createElement('script');
+				s.async = true;
+				s.src = 'https://ddwl4m2hdecbv.cloudfront.net/b/' + key + '/' + key + '.js.gz';
+				document.getElementsByTagName('script')[0].parentNode.insertBefore(s, document.getElementsByTagName('script')[0]);
+			}
+
+			// Returning visitors: consent already stored by CookieYes.
+			var match = document.cookie.match(/(?:^|;\s*)cookieyes-consent=([^;]*)/);
+			if (match && /(?:^|,)advertisement:yes(?:,|$)/.test(decodeURIComponent(match[1]))) {
+				loadRb2b();
+				return;
+			}
+
+			// First visit: wait for the visitor to accept.
+			document.addEventListener('cookieyes_consent_update', function(e) {
+				if (e.detail && e.detail.accepted && e.detail.accepted.indexOf('advertisement') !== -1) {
+					loadRb2b();
+				}
+			});
+		})('GOYPYHQ90KOX');
+	</script>
+	<!-- End of RB2B -->
+
 </head>
 
 <body <?php body_class( $extra_classes ); ?> id="top">
