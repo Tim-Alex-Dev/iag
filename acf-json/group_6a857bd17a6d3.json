@@ -468,12 +468,52 @@
                     "parent_repeater": "field_6acb703a11bf1"
                 },
                 {
+                    "key": "field_6b2f1a7c4d902",
+                    "label": "Text Alignment",
+                    "name": "content_alignment",
+                    "aria-label": "",
+                    "type": "button_group",
+                    "instructions": "Center puts the text and the button in the middle. The heading above has its own setting (Header Alignment).",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6acb703a6be90",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_6acb703a6be90",
+                                "operator": "==",
+                                "value": "mixed"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "left": "Left",
+                        "center": "Center"
+                    },
+                    "default_value": "left",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "layout": "horizontal",
+                    "parent_repeater": "field_6acb703a11bf1"
+                },
+                {
                     "key": "field_6acb703a71370",
                     "label": "Image",
                     "name": "module_image",
                     "aria-label": "",
                     "type": "image",
-                    "instructions": "WEBP Only!",
+                    "instructions": "WEBP only. Use at least 1600 px wide. With \"Fill the box\" the edges can be cropped, so keep the important part near the centre; choose \"Show whole image\" for charts, diagrams or logos.",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -519,6 +559,56 @@
                     "mime_types": "webp",
                     "allow_in_bindings": 0,
                     "preview_size": "large",
+                    "parent_repeater": "field_6acb703a11bf1"
+                },
+                {
+                    "key": "field_6b2f1a7c4d901",
+                    "label": "Image Display",
+                    "name": "image_display",
+                    "aria-label": "",
+                    "type": "button_group",
+                    "instructions": "Fill the box: image covers the whole area and may be cropped (as before). Show whole image: nothing is cut off; the box takes the image's own shape.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6acb703a6be90",
+                                "operator": "==",
+                                "value": "mixed"
+                            },
+                            {
+                                "field": "field_6acb703a48db6",
+                                "operator": "==",
+                                "value": "image"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_6acb703a6be90",
+                                "operator": "==",
+                                "value": "media"
+                            },
+                            {
+                                "field": "field_6acb703a48db6",
+                                "operator": "==",
+                                "value": "image"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "fill": "Fill the box",
+                        "fit": "Show whole image"
+                    },
+                    "default_value": "fill",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "layout": "horizontal",
                     "parent_repeater": "field_6acb703a11bf1"
                 },
                 {
@@ -743,5 +833,5 @@
             "json"
         ]
     },
-    "modified": 1792053106
+    "modified": 1792743672
 }

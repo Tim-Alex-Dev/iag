@@ -7,6 +7,25 @@
     }
 
     &__item {
+        // "Text Alignment: Center": text block, its lists and the button in the middle
+        &.text-align-center {
+            .m-simple-content__inner {
+                justify-content: center;
+            }
+
+            .m-simple-content__text {
+                align-items: center;
+                text-align: center;
+
+                // keep bullets next to their centred text
+                ul,
+                ol {
+                    list-style-position: inside;
+                    padding-inline-start: 0;
+                }
+            }
+        }
+
         &.content-text,
         &.content-media {
             .m-simple-content__inner {
@@ -115,6 +134,19 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        // "Show whole image": no crop, the box takes the image's own proportions
+        &.media-image.image-fit {
+            min-height: 0;
+            height: auto;
+
+            .media-image__img {
+                position: static;
+                display: block;
+                height: auto;
+                object-fit: contain;
+            }
         }
 
         &.media-video {
