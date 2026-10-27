@@ -66,4 +66,40 @@ function it_security_headers() {
 	if ( is_ssl() ) {
 		header( 'Strict-Transport-Security: max-age=31536000' );
 	}
+
+	it_content_security_policy();
+}
+
+/**
+ * Content-Security-Policy.
+ * Report-only while the allowed sources are being collected (reports: inc/csp-report.php).
+ * To enforce, set IT_CSP_ENFORCE to true once the report log shows nothing legitimate is blocked.
+ * Kept here, not in Cloudways Web Rules: those cap header values at 200 characters.
+ */
+const IT_CSP_ENFORCE = false;
+
+function it_content_security_policy() {
+	$hubspot = 'https://*.hs-scripts.com https://*.hsforms.net https://*.hs-analytics.net https://*.hs-banner.com https://*.hscollectedforms.net https://*.hubspot.com';
+
+	$directives = array(
+		'default-src'     => "'self'",
+		'script-src'      => "'self' 'unsafe-inline' https://*.googletagmanager.com https://*.clarity.ms https://*.linkedin.com https://ddwl4m2hdecbv.cloudfront.net " . $hubspot,
+		'style-src'       => "'self' 'unsafe-inline' https://fonts.googleapis.com",
+		'font-src'        => "'self' data: https://fonts.gstatic.com",
+		'img-src'         => "'self' data: https:",
+		'connect-src'     => "'self' https:",
+		'frame-src'       => 'https://www.youtube.com https://*.hsforms.net https://*.hubspot.com',
+		'object-src'      => "'none'",
+		'base-uri'        => "'self'",
+		'frame-ancestors' => "'self'",
+		'report-uri'      => rest_url( 'iag/v1/csp-report' ),
+	);
+
+	$policy = array();
+	foreach ( $directives as $name => $value ) {
+		$policy[] = $name . ' ' . $value;
+	}
+
+	$header = IT_CSP_ENFORCE ? 'Content-Security-Policy' : 'Content-Security-Policy-Report-Only';
+	header( $header . ': ' . implode( '; ', $policy ) );
 }

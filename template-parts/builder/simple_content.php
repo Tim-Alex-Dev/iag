@@ -35,6 +35,9 @@ $module_uptitle     = get_sub_field( 'module_uptitle' ) ?? false;
                 $module_type        = get_sub_field( 'content_type' ) ?? false;
                 $media_type         = get_sub_field( 'media_type' ) ? get_sub_field( 'media_type' ) : 'image';
                 $module_orientation = get_sub_field( 'media_orientation' ) ?: 'media-right';
+                // Rows saved before these two options existed have no value: they keep the old look (fill, left)
+                $image_display      = get_sub_field( 'image_display' ) === 'fit' ? 'fit' : 'fill';
+                $content_alignment  = get_sub_field( 'content_alignment' ) === 'center' ? 'center' : 'left';
 
                 $module_text        = get_sub_field( 'text_content' ) ?? false;
                 $module_link        = get_sub_field( 'module_link' ) ?? false;
@@ -50,7 +53,7 @@ $module_uptitle     = get_sub_field( 'module_uptitle' ) ?? false;
                 $video_duration     = $video_metadata ? $video_metadata['length_formatted'] : false;
                 ?>
 
-                <div class="m-simple-content__item content-<?php echo esc_attr( $module_type ); ?> <?php echo esc_attr( $module_orientation ); ?>">
+                <div class="m-simple-content__item content-<?php echo esc_attr( $module_type ); ?> <?php echo esc_attr( $module_orientation ); ?> text-align-<?php echo esc_attr( $content_alignment ); ?>">
                     <div class="m-simple-content__inner">
                         <?php if ( ( $module_type === 'text' || $module_type === 'mixed' ) && $module_text ) : ?>
                             <div class="m-simple-content__text left">
@@ -71,8 +74,12 @@ $module_uptitle     = get_sub_field( 'module_uptitle' ) ?? false;
     
                         <?php if ( ( $module_type === 'media' || $module_type === 'mixed' ) && ( $media_image || $media_video || $media_embed) ) : ?>
                             <?php if ( $media_type === 'image' && $media_image ) : ?>
-                                <div class="m-simple-content__media media-image right">
-                                    <?php echo wp_get_attachment_image( $media_image, 'full', false, [ 'class' => 'media-image__img' ] ); ?>
+                                <div class="m-simple-content__media media-image image-<?php echo esc_attr( $image_display ); ?> right">
+                                    <?php
+                                    // Next to text the image is half the container from 1024px; lets the browser pick a smaller file from srcset
+                                    $image_sizes = $module_type === 'mixed' ? '(max-width: 1023px) 100vw, (max-width: 1439px) 50vw, (max-width: 1919px) 580px, 760px' : '(max-width: 1679px) 100vw, 1580px';
+                                    echo wp_get_attachment_image( $media_image, 'full', false, [ 'class' => 'media-image__img', 'sizes' => $image_sizes ] );
+                                    ?>
                                 </div>
                             <?php endif; ?>
             
