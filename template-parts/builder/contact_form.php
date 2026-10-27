@@ -72,7 +72,7 @@ $contact_form     = get_field( 'hubspot_default_form', 'option' ) ?? false;?>
         <?php if ( $contact_form ) : ?>
             <div class="m-cf__form">
                 <div class="contact-form__wrapper hs-form__wrapper">
-                    <?php echo $contact_form; ?>
+                    <?php echo it_hubspot_form( $contact_form ); // HubSpot embed code from the theme options ?>
                 </div>
             </div>
         <?php endif; ?>

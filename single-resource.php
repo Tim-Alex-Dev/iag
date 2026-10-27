@@ -174,7 +174,7 @@ $contact_form    = get_field( 'hubspot_resource_form', 'option' ) ?? false;
 					<p class="h2 contact-form__title">
 						<?php esc_html_e( 'Book a Consultation', '_iag' ); ?>
 					</p>
-					<?php echo $contact_form; ?>
+					<?php echo it_hubspot_form( $contact_form ); // HubSpot embed code from the theme options ?>
 				</div>
 			</div>
 		</div>

@@ -86,7 +86,7 @@ $module_uptitle     = get_sub_field( 'module_uptitle' ) ?? false;
                             <?php if ( $media_type === 'video' && $media_video ) : ?>
                                 <?php if ( $media_video_banner ) : ?>
                                     <a class="m-simple-content__media media-video right" data-fancybox="video" href="<?php echo esc_url( $media_video ); ?>">
-                                        <?php echo wp_get_attachment_image( $media_video_banner, 'large', false, [ 'class' => 'video-poster' ] ); ?>
+                                        <?php echo wp_get_attachment_image( $media_video_banner, 'large', false, [ 'class' => 'video-poster', 'sizes' => '(min-width: 1024px) 45vw, 100vw' ] ); ?>
                             
                                         <div class="video-controls">
                                             <svg><use xlink:href="#play-circle"></use></svg>

@@ -23,12 +23,12 @@
                     <?php endif; ?>
                     <?php if ( $content_type === 'media' && $media_type === 'image' && $image_content ) : ?>
                         <div class="content-item__media-wrapper">
-                            <?php echo wp_get_attachment_image( $image_content, 'full', false, [ 'class' => 'content-item__media-wrapper__img' ] ); ?>
+                            <?php echo wp_get_attachment_image( $image_content, 'full', false, [ 'class' => 'content-item__media-wrapper__img', 'sizes' => '(min-width: 1440px) 45vw, (min-width: 1024px) 60vw, 100vw' ] ); ?>
                         </div>
                     <?php endif; ?>
                     <?php if ( $content_type === 'media' && $media_type === 'video' && $video_file && $video_poster ) : ?>
                         <a class="content-item__media-video" data-fancybox="video" href="<?php echo esc_url( $video_file ); ?>">
-                            <?php echo wp_get_attachment_image( $video_poster, 'full', false, [ 'class' => 'content-item__media-video__poster' ] ); ?>
+                            <?php echo wp_get_attachment_image( $video_poster, 'full', false, [ 'class' => 'content-item__media-video__poster', 'sizes' => '(min-width: 1440px) 45vw, (min-width: 1024px) 60vw, 100vw' ] ); ?>
                             <div class="content-item__media-video__controls">
                                 <svg><use xlink:href="#play-circle"></use></svg>
                             </div>

@@ -1,8 +1,22 @@
 import Swiper from 'swiper';
 import {Navigation, Pagination, Autoplay, A11y} from 'swiper/modules'; // only the used modules (+ their CSS in 3-vendors/_swiper-bundle.scss)
+import {isShown} from '../functions/first-screen';
 
 jQuery(document).ready(function ($) {
 	"use strict";
+
+	// Lazy images of the next slides load now (the module loads when a slider comes near the screen), not when they
+	// slide in. Sliders in hidden tabs: when their tab title is pointed at (components/tabs.js).
+	document.querySelectorAll('.swiper').forEach((slider) => {
+		if (isShown(slider)) {
+			slider.querySelectorAll('img[loading="lazy"]').forEach((img) => {
+				if (img.complete) {
+					return; // already loaded: switching would make the browser pick its file again
+				}
+				img.loading = 'eager';
+			});
+		}
+	});
 
 	/**
 	 * Sliders

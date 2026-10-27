@@ -12,10 +12,11 @@ import './components/accordion';
 import './components/modal';
 import './components/tabs';
 import './components/lightbox-trigger';
+import './components/hubspot-forms';
 
 const slider = () => import(/* webpackChunkName: "slider" */ './modules/slider');
 
-// a slider in the first screen starts at once (no visible jump), the others when the browser is idle
+// a slider in the first screen starts at once (no visible jump), the others when they come near the screen
 if (inFirstScreen('.swiper')) {
 	slider().catch(error => console.error('Slider failed to load', error));
 }
