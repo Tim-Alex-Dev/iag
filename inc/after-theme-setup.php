@@ -64,3 +64,38 @@ add_filter( 'excerpt_length', function () {
 } );
 
 add_filter( 'excerpt_more', '__return_empty_string' );
+
+/**
+ * Theme images (wp_get_attachment_image) are lazy-loaded unless the template sets "loading" itself: WordPress adds no
+ * loading attribute to images of custom queries and template parts. Above-the-fold images keep 'loading' => 'eager'
+ * in their template; images with the class "no-lazyload" are left alone. Lazy images also get sizes="auto" from WordPress.
+ */
+function it_lazy_load_theme_images( $loading_attrs, $tag_name, $attr, $context ) {
+	if ( 'img' !== $tag_name || 'wp_get_attachment_image' !== $context || isset( $attr['loading'] ) ) {
+		return $loading_attrs;
+	}
+	if ( ! empty( $loading_attrs['loading'] ) || ! empty( $loading_attrs['fetchpriority'] ) ) {
+		return $loading_attrs;
+	}
+	if ( isset( $attr['class'] ) && preg_match( '/(^|\s)no-lazyload(\s|$)/', $attr['class'] ) ) {
+		return $loading_attrs;
+	}
+
+	$loading_attrs['loading'] = 'lazy';
+
+	return $loading_attrs;
+}
+
+add_filter( 'wp_get_loading_optimization_attributes', 'it_lazy_load_theme_images', 10, 4 );
+
+// Images whose template gives an exact sizes (it_cover_sizes() in help-func.php) do not get "auto, " in front of it
+function it_exact_image_sizes( $attr ) {
+	if ( ! empty( $attr['it_exact_sizes'] ) && isset( $attr['sizes'] ) ) {
+		$attr['sizes'] = preg_replace( '/^auto,\s*/', '', $attr['sizes'] );
+	}
+	unset( $attr['it_exact_sizes'] );
+
+	return $attr;
+}
+
+add_filter( 'wp_get_attachment_image_attributes', 'it_exact_image_sizes' );

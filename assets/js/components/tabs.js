@@ -3,6 +3,17 @@ jQuery(document).ready(function ($) {
 	"use strict";
 
 	/**
+	 * Tabs: the lazy images of a tab start loading when its title is pointed at, touched or focused (ready when it opens)
+	 */
+	$(document).on('mouseenter touchstart focusin', '.js-tab-title', function () {
+		const item = $(this).data('item');
+
+		if (item) {
+			$(this).closest('.js-tabs').find('#' + item + ' img[loading="lazy"]').filter((i, img) => !img.complete).attr('loading', 'eager');
+		}
+	});
+
+	/**
 	 * Tabs
 	 */
 	$(document).on('click', '.js-tab-title', function () {

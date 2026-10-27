@@ -174,7 +174,7 @@ if ( $resource_id) {
         
         <div class="m-latest__resource">
             <div class="m-latest__resource-banner">
-                <?php echo wp_get_attachment_image( $resource_banner, 'full', false, [ 'class' => 'm-latest__resource-banner__img' ] ); ?>
+                <?php echo wp_get_attachment_image( $resource_banner, 'full', false, [ 'class' => 'm-latest__resource-banner__img', 'sizes' => '(min-width: 1024px) 50vw, 100vw' ] ); ?>
             </div>
             <div class="resource-content">
                 <div class="resource-content__header">

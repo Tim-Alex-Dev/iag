@@ -644,7 +644,7 @@ $expert_categories = array(
                     </span>
                 </div>
                 <div class="contact-form__wrapper hs-form__wrapper">
-                    <?php echo $contact_form; ?>
+                    <?php echo it_hubspot_form( $contact_form ); // HubSpot embed code from the theme options ?>
                 </div>
             </div>
         </div>

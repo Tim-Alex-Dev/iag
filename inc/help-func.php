@@ -151,6 +151,57 @@ function it_link_rel( $target ) {
 }
 
 /**
+ * Image attributes for an object-fit: cover image in a box with a fixed height: the image is shown at least as wide as
+ * height x its own ratio, so a wide image needs more pixels than the box width (which sizes="auto" would use).
+ * $rules: [ [ media condition ('' = default), box width (CSS length), box height (px) ], ... ] from the largest screen down.
+ * Use: wp_get_attachment_image( $id, 'full', false, array_merge( [ 'class' => 'x' ], it_cover_sizes( $id, $rules ) ) )
+ */
+function it_cover_sizes( $image_id, $rules ) {
+	$meta  = wp_get_attachment_metadata( $image_id );
+	$ratio = ! empty( $meta['width'] ) && ! empty( $meta['height'] ) ? $meta['width'] / $meta['height'] : 1;
+
+	$sizes = [];
+	foreach ( $rules as [ $media, $box_width, $box_height ] ) {
+		$sizes[] = trim( $media . ' max(' . $box_width . ', ' . (int) ceil( $box_height * $ratio ) . 'px)' );
+	}
+
+	return [
+		'sizes'          => implode( ', ', $sizes ),
+		'it_exact_sizes' => true, // no "auto, " (it_exact_image_sizes() in after-theme-setup.php)
+	];
+}
+
+/**
+ * HubSpot form embed code (ACF options) without its render-blocking v2.js: the form scripts wait as type="text/plain"
+ * and assets/js/components/hubspot-forms.js loads v2.js and runs them when the form comes near the screen or on the
+ * first user interaction. An embed code without the v2.js loader is returned as it is.
+ */
+function it_hubspot_form( $embed ) {
+	$loader = '';
+	$embed  = preg_replace_callback(
+		'#<script\b[^>]*\bsrc=["\']([^"\']*hsforms\.net/forms/(?:embed/)?v2\.js)["\'][^>]*>\s*</script>#i',
+		function ( $match ) use ( &$loader ) {
+			$loader = $match[1];
+			return '';
+		},
+		(string) $embed
+	);
+
+	if ( ! $loader ) {
+		return (string) $embed;
+	}
+
+	$loader = 0 === strpos( $loader, '//' ) ? 'https:' . $loader : $loader;
+
+	// only the plain inline scripts (hbspt.forms.create): <script> or <script type="text/javascript">
+	return preg_replace(
+		'#<script(?:\s+type=["\']text/javascript["\'])?\s*>#i',
+		'<script type="text/plain" data-hs-form data-hs-src="' . esc_url( $loader ) . '">',
+		$embed
+	);
+}
+
+/**
  * Primary Resource Type (taxonomy "source") of a resource: Yoast primary term, else the first term. $return: 'name' or 'id'
  */
 function get_primary_category( $post_id, $return = 'name' ) {
