@@ -310,7 +310,7 @@ All files are loaded from `functions.php`.
 | `help-func.php` | helpers: `it_id_attr()`, `it_excerpt()`, `it_posted_on()`, `it_phone_cleaner()`, `[email]` shortcode, `it_inline_svg()`, `it_link_rel()`, `it_hubspot_form()`, `get_primary_category()`, `it_console_log()` (admins only) |
 | `login.php` | login screen logo and link |
 | `migrations.php` | WP-CLI only, nothing runs on its own. `wp iag migrate-simple-content [--dry-run]` moves the old single block of every Simple Content module into row 1 of the `content_list` repeater (safe to run twice, old values stay in the DB). Run it once on every environment right after deploying the Simple Content repeater, after a DB backup |
-| `scripts-styles.php` | enqueue of `main.css`, `main.js` (+ `itSettings`), admin assets; version = file time (`it_asset_ver()`, cache busting); jQuery in the footer; tracking tags (`it_third_party_tags()`), preload of the first-screen fonts |
+| `scripts-styles.php` | enqueue of `main.css`, `main.js` (+ `itSettings`), admin assets; version = file time (`it_asset_ver()`, cache busting); jQuery in the footer; preload of the first-screen fonts |
 | `seo.php` | Source archive pagination redirects, Complianz URL fix, security headers |
 | `svg-support.php` | SVG uploads for administrators only; every SVG is sanitized (scripts, events, external links removed) |
 | `walker.php` | `IAG_Mega_Menu_Walker` — header mega menu |
@@ -345,9 +345,9 @@ Arabic glyphs (see `assets/fonts/readme.md`).
 
 **Menus**: Main Nav (mega menu, items have extra ACF fields), Footer Top, Footer Columns 1–3, Footer Copyright.
 
-**Tracking**: Google Analytics 4, Microsoft Clarity and HubSpot tracking are printed by `it_third_party_tags()` (`inc/scripts-styles.php`,
-IDs at the top of the function). The `gtag` / `clarity` queues start in `<head>`, the scripts load on the first user interaction
-(mouse, touch, key, scroll), so they do not slow down the first render (PageSpeed). Visitors who leave without any interaction are not tracked.
+**Tracking**: Google Analytics 4, Microsoft Clarity and HubSpot tracking ("Analytics" consent) and RB2B ("Advertisement" consent)
+are loaded only after the visitor accepts the matching CookieYes category, by the cookie consent helper in `header.php`
+(`iagOnConsent()`). Google consent mode defaults to denied. Do not load these tags anywhere else: a second loader bypasses consent.
 
 ---
 

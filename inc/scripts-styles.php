@@ -33,8 +33,8 @@ add_action( 'wp_head', function () {
 }, 1 );
 
 // CookieYes banner script deferred (runs after the HTML is parsed, still before DOMContentLoaded): no render-blocking
-// script in <head>. Safe while it blocks nothing itself (no providers/cookies set up to block; the tracking tags wait for
-// an interaction anyway, see it_third_party_tags()).
+// script in <head>. Safe while it blocks nothing itself: the tracking tags (GA4, Clarity, HubSpot, RB2B) are loaded only
+// after consent by the cookie consent helper in header.php.
 add_action( 'wp_enqueue_scripts', function () {
 	if ( wp_script_is( 'cookie-law-info', 'registered' ) ) {
 		wp_script_add_data( 'cookie-law-info', 'strategy', 'defer' );
@@ -46,49 +46,6 @@ add_action( 'wp_enqueue_scripts', function () {
 	wp_scripts()->add_data( 'jquery', 'group', 1 );
 	wp_scripts()->add_data( 'jquery-core', 'group', 1 );
 }, 1 );
-
-/**
- * Analytics and marketing tags (Google Analytics 4, Microsoft Clarity, HubSpot tracking). Their queues (gtag, clarity)
- * start in <head> at once, the scripts themselves load on the first user interaction (mouse, touch, key, scroll):
- * they no longer compete with the first render and the main thread on page load (Lighthouse TBT / LCP).
- */
-function it_third_party_tags() {
-	$ga4_id     = 'G-VPPRV7J2ZE';
-	$clarity_id = 'xbzyzucf2o';
-	$hubspot_id = '144692094';
-
-	$scripts = [
-		[ 'src' => 'https://www.googletagmanager.com/gtag/js?id=' . $ga4_id ],
-		[ 'src' => 'https://www.clarity.ms/tag/' . $clarity_id ],
-		[ 'src' => 'https://js-eu1.hs-scripts.com/' . $hubspot_id . '.js', 'id' => 'hs-script-loader' ],
-	];
-
-	$js = <<<'JS'
-window.dataLayer = window.dataLayer || [];
-function gtag() { dataLayer.push(arguments); }
-gtag('js', new Date());
-gtag('config', '%1$s');
-window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
-(function (scripts) {
-	var events = ['mousemove', 'pointerdown', 'touchstart', 'keydown', 'scroll', 'wheel'];
-	var load = function () {
-		events.forEach(function (event) { window.removeEventListener(event, load, {passive: true}); });
-		scripts.forEach(function (item) {
-			var script = document.createElement('script');
-			script.async = true;
-			script.src = item.src;
-			if (item.id) { script.id = item.id; }
-			document.head.appendChild(script);
-		});
-	};
-	events.forEach(function (event) { window.addEventListener(event, load, {once: true, passive: true}); });
-})(%2$s);
-JS;
-
-	wp_print_inline_script_tag( sprintf( $js, esc_js( $ga4_id ), wp_json_encode( $scripts, JSON_UNESCAPED_SLASHES ) ), [ 'id' => 'it-third-party-tags' ] );
-}
-
-add_action( 'wp_head', 'it_third_party_tags', 20 );
 
 add_action( 'admin_enqueue_scripts', function () {
 	wp_enqueue_style( 'admin-styles', IT_CSS . 'admin-styles.css', [], it_asset_ver( 'css/admin-styles.css' ) );
