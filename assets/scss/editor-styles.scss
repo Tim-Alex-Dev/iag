@@ -20,11 +20,17 @@ $admin-grey: #ccc;
 	cursor: initial !important;
 }
 
+// The site body is navy (see 1-generic/1-1-base/_elements.scss). The editor must not inherit that, or text
+// would be navy on navy in every WYSIWYG "Visual" tab. Spacing comes from .editor, the same rules the
+// published WYSIWYG text uses, so the editor shows the gaps visitors will see.
 body,
 body.wp-autoresize {
+	@extend .editor;
 	min-height: unset;
 	display: block;
 	padding: 10px !important;
+	background-color: $white;
+	color: $color-text;
 
 	a:not([class]) {
 		text-decoration: underline;
