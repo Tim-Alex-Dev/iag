@@ -12,7 +12,8 @@
  */
 add_action( 'admin_init', 'it_wpdocs_theme_add_editor_styles' );
 function it_wpdocs_theme_add_editor_styles() {
-	add_editor_style( IT_CSS . 'editor-styles.css' );
+	// Versioned like the front-end assets: the server lets browsers cache theme CSS for a year.
+	add_editor_style( IT_CSS . 'editor-styles.css?ver=' . it_asset_ver( 'css/editor-styles.css' ) );
 }
 
 // Add TinyMCE style formats.
