@@ -121,8 +121,11 @@ kbd {
 	padding: 3px 6px;
 }
 
+// Pasted text often brings <mark> tags. Browsers draw them in black, which made text black on blue modules
+// even with a white text colour set. Highlights take the colour of the surrounding text instead.
 mark {
 	background-color: transparent;
+	color: inherit;
 	font-weight: 450;
 }
 
